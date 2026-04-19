@@ -401,6 +401,7 @@
 
   /* ---- Responsive ---- */
 
+  /* Phone */
   @media (max-width: 640px) {
     main { padding: 60px 24px 80px; }
     h1.title { font-size: 64px; }
@@ -409,6 +410,34 @@
     .stanza-original { font-size: 17px; }
     .stanza-translation { font-size: 16px; }
     body { font-size: 18px; }
+  }
+
+  /* Tablet (iPad portrait and landscape) */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    main {
+      max-width: 680px;
+      padding: 64px 48px 100px;
+    }
+    h1.title { font-size: 80px; }
+    .tagline { font-size: 19px; }
+    h2.section { font-size: 33px; }
+    h3.instrument-title { font-size: 30px; }
+    .instrument-kicker { font-size: 18px; }
+    .stanza-original { font-size: 17px; }
+    .stanza-translation { font-size: 16px; }
+    .epigraph { max-width: 540px; margin-bottom: 80px; }
+    .introduction { margin-bottom: 80px; }
+    body { font-size: 18px; line-height: 1.6; }
+    header.masthead {
+      padding-bottom: 52px;
+      margin-bottom: 68px;
+    }
+    .instrument {
+      margin-bottom: 56px;
+      padding-bottom: 48px;
+    }
+    .section-divider { margin: 80px 0 52px; }
+    footer { margin-top: 100px; }
   }
 
   /* ---- Fade-in on load ---- */
