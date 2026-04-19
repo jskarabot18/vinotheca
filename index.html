@@ -398,13 +398,29 @@
     font-size: 14px;
   }
 
-  .motto {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 18px;
-    color: var(--accent);
+  .motto-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
     margin-bottom: 40px;
-    letter-spacing: 0.03em;
+    color: var(--accent);
+  }
+
+  .motto-footer .fleuron-inline {
+    font-size: 20px;
+    opacity: 0.8;
+  }
+
+  .motto-footer .motto-text-footer {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    letter-spacing: 0.06em;
+    font-weight: 400;
+  }
+
+  .motto-footer .motto-text-footer em {
+    font-style: italic;
   }
 
   .footer-links {
@@ -579,7 +595,7 @@
   <!-- ========== Instruments of Reference ========== -->
   <section class="instruments-section">
     <h2 class="section">The Instruments</h2>
-    <div class="section-subtitle">Four studies of wine, each with its own page</div>
+    <div class="section-subtitle">Four studies of wine — by vineyard, by grape, by region, by winemaker</div>
 
     <!-- I -->
     <div class="instrument">
@@ -638,7 +654,7 @@
     <div class="section-divider">· · ·</div>
 
     <h2 class="section">The Codex</h2>
-    <div class="section-subtitle">A personal record, kept honestly</div>
+    <div class="section-subtitle">A personal wine record</div>
 
     <div class="codex-intro">
       The four instruments above are reference works — studies of wine in general. The Codex is different in kind: it studies one person's experience of wine, as it accumulates.
@@ -659,7 +675,11 @@
 
   <!-- ========== Footer ========== -->
   <footer>
-    <div class="motto">— in vino, cognitio —</div>
+    <div class="motto-footer">
+      <span class="fleuron-inline">❧</span>
+      <span class="motto-text-footer"><em>in vino, cognitio</em></span>
+      <span class="fleuron-inline">❧</span>
+    </div>
     <p style="margin-bottom: 24px; font-size: 15px; color: var(--ink-soft);">All instruments are open-source and freely usable.<br>Corrections, arguments, and recommendations are warmly received.</p>
     <div class="footer-links">
       <a href="https://github.com/jskarabot18/vinotheca">GitHub</a>
