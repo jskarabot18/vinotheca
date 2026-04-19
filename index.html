@@ -375,9 +375,9 @@
     margin-top: 18px;
   }
 
-  /* ---- Codex section distinguishing ---- */
+  /* ---- Section intro paragraph (all three sections) ---- */
 
-  .codex-intro {
+  .section-intro {
     text-align: center;
     max-width: 560px;
     margin: 0 auto 60px;
@@ -500,6 +500,7 @@
   .epigraph,
   .introduction,
   .instruments-section,
+  .studies-section,
   .codex-section {
     animation: fadeUp 0.9s ease-out both;
   }
@@ -507,7 +508,8 @@
   .epigraph { animation-delay: 0.1s; }
   .introduction { animation-delay: 0.2s; }
   .instruments-section { animation-delay: 0.3s; }
-  .codex-section { animation-delay: 0.4s; }
+  .studies-section { animation-delay: 0.4s; }
+  .codex-section { animation-delay: 0.5s; }
 
 </style>
 </head>
@@ -587,15 +589,19 @@
   <section class="introduction">
     <p>Wine rewards close attention. A bottle is a piece of geography, a piece of history, and a personal opinion about taste — and the more ways you can look at it, the more it gives back.</p>
 
-    <p>The wine world is full of scores and full of prose, but surprisingly short of tools that help an enthusiastic wine explorer <em>see patterns</em>, <em>find connections</em>, and <em>keep honest track</em> of what they have tasted. The instruments collected here try to fill that gap. Each one answers a specific question a wine-curious person actually asks: where are the great sites for the grape I love; which lesser-known varieties are likely to win me over next; why do some regions on opposite sides of the world feel like cousins; which small communities of shared philosophy link winemakers across continents; and which of my own tasting notes can I actually trust?</p>
+    <p>The wine world is full of scores and full of prose, but surprisingly short of works that help an enthusiastic wine explorer <em>see patterns</em>, <em>find connections</em>, and <em>keep honest track</em> of what they have tasted. The works collected here try to fill that gap. Each one answers a specific question a wine-curious person actually asks: where are the great sites for the grape I love; which lesser-known varieties are likely to win me over next; why do some regions on opposite sides of the world feel like cousins; which small communities of shared philosophy link winemakers across continents; and which of my own tasting notes can I actually trust?</p>
 
     <p>An atlas of <em>great vineyards</em>. A map of <em>grape kinship</em>. A study of what gives a region its <em>character</em>. A reading of winemakers as <em>auteurs</em>. And a personal <em>codex</em> of bottles tasted. Maps where maps help; charts where charts help; prose where neither will do.</p>
   </section>
 
-  <!-- ========== Instruments of Reference ========== -->
+  <!-- ========== Instruments ========== -->
   <section class="instruments-section">
     <h2 class="section">The Instruments</h2>
-    <div class="section-subtitle">Four studies of wine — by vineyard, by grape, by region, by winemaker</div>
+    <div class="section-subtitle">Reference works — the world of wine, organised</div>
+
+    <div class="section-intro">
+      Two atlases of the wine world. One maps where the great sites are, arranged by grape; the other maps how grapes themselves relate to one another. Both are consultable, browsable, useful — instruments to reach for when a specific question arises.
+    </div>
 
     <!-- I -->
     <div class="instrument">
@@ -619,6 +625,20 @@
       <p class="instrument-body">If you love Nebbiolo, which lesser-known grape is likely to win you over next? If Syrah from Côte-Rôtie is a fixed point on your map, what else should you be exploring? TasteRank plots 101 varieties as a network — each grape a node, each connection a shared sensory signature — and lets you wander the constellations. Six natural neighbourhoods emerge from the data: the floral aromatics, the dark structural reds, the mineral whites, and three others waiting to be found.</p>
       <div class="instrument-meta">101 varieties · 341 connections · 6 families</div>
       <a href="https://jskarabot18.github.io/tasterank-explorer/" class="instrument-link">Open the network →</a>
+    </div>
+
+  </section>
+
+  <!-- ========== Studies ========== -->
+  <section class="studies-section">
+
+    <div class="section-divider">· · ·</div>
+
+    <h2 class="section">The Studies</h2>
+    <div class="section-subtitle">Research — arguments about what wine is</div>
+
+    <div class="section-intro">
+      Two studies that make specific intellectual claims: one about how wine regions acquire their cultural identity, one about how winemakers inherit and share philosophical kin. Each pairs a substantive argument with interactive visualisations of the findings.
     </div>
 
     <!-- III -->
@@ -648,7 +668,7 @@
 
   </section>
 
-  <!-- ========== Codex (separate section) ========== -->
+  <!-- ========== Codex ========== -->
   <section class="codex-section">
 
     <div class="section-divider">· · ·</div>
@@ -656,8 +676,8 @@
     <h2 class="section">The Codex</h2>
     <div class="section-subtitle">A personal wine record</div>
 
-    <div class="codex-intro">
-      The four instruments above are reference works — studies of wine in general. The Codex is different in kind: it studies one person's experience of wine, as it accumulates.
+    <div class="section-intro">
+      The instruments and studies above look at wine in general. The Codex is different in kind: it looks at one person's experience of wine, as it accumulates.
     </div>
 
     <div class="instrument">
