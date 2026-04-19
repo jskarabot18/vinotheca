@@ -251,14 +251,11 @@
 
   .instrument {
     margin-bottom: 64px;
-    padding-bottom: 56px;
-    border-bottom: 1px solid var(--rule);
     position: relative;
   }
 
   .instrument:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
+    margin-bottom: 0;
   }
 
   .instrument-numeral {
@@ -358,13 +355,6 @@
   .instrument.in-progress h3.instrument-title a,
   .instrument.in-progress h3.instrument-title {
     cursor: default;
-  }
-
-  /* The last instrument in a section (particularly the in-progress one)
-     should have less trailing space to avoid creating a floating gap
-     before the next section */
-  .instrument:last-child {
-    margin-bottom: 0;
   }
 
   .in-progress-note {
