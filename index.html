@@ -97,6 +97,32 @@
     opacity: 0.8;
   }
 
+  .masthead-motto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 0 auto 32px;
+    color: var(--accent);
+  }
+
+  .masthead-motto .fleuron-inline {
+    font-size: 18px;
+    opacity: 0.7;
+  }
+
+  .masthead-motto .motto-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    letter-spacing: 0.08em;
+    font-weight: 400;
+    opacity: 0.9;
+  }
+
+  .masthead-motto .motto-text em {
+    font-style: italic;
+  }
+
   .byline {
     font-size: 15px;
     color: var(--ink-faint);
@@ -215,7 +241,7 @@
 
   .section-divider {
     text-align: center;
-    margin: 90px 0 60px;
+    margin: 40px 0 50px;
     color: var(--rule);
     font-size: 16px;
     letter-spacing: 0.3em;
@@ -332,6 +358,13 @@
   .instrument.in-progress h3.instrument-title a,
   .instrument.in-progress h3.instrument-title {
     cursor: default;
+  }
+
+  /* The last instrument in a section (particularly the in-progress one)
+     should have less trailing space to avoid creating a floating gap
+     before the next section */
+  .instrument:last-child {
+    margin-bottom: 0;
   }
 
   .in-progress-note {
@@ -470,7 +503,11 @@
     <div class="masthead-eyebrow">A Library of Wine Tools</div>
     <h1 class="title">Vinotheca</h1>
     <div class="tagline">Atlases, maps, and a personal codex — for the enthusiastic wine explorer.</div>
-    <div class="fleuron">❧</div>
+    <div class="masthead-motto">
+      <span class="fleuron-inline">❧</span>
+      <span class="motto-text"><em>in vino, cognitio</em></span>
+      <span class="fleuron-inline">❧</span>
+    </div>
     <div class="byline">
       <a href="mailto:skarabot@yahoo.com">Jure Skarabot</a> &nbsp;·&nbsp; New York
     </div>
