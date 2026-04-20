@@ -1,6 +1,6 @@
 # Vinotheca
 
-**A library of wine tools — for the curious drinker.**
+**A library of wine tools — for the enthusiastic wine explorer.**
 
 Live site: [jskarabot18.github.io/vinotheca](https://jskarabot18.github.io/vinotheca/)
 
@@ -21,7 +21,9 @@ The page is a single self-contained `index.html` file published via GitHub Pages
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) — see [LICENSE](LICENSE).
+
+You are free to share and adapt the material, provided you give appropriate credit and do not use it for commercial purposes.
 
 ## Contact
 
