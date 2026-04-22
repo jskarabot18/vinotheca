@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vinotheca — A Library of Wine Tools</title>
+<title>Vinotheca — A Library of Wine Works</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IM+Fell+English+SC&display=swap" rel="stylesheet">
@@ -377,6 +377,139 @@
     line-height: 1.6;
   }
 
+  /* ---- Part markers (Common / Personal split) ---- */
+
+  .part-marker {
+    text-align: center;
+    margin: 40px 0 70px;
+  }
+
+  .part-marker .part-roman {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 12px;
+    letter-spacing: 0.35em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .part-marker h2.part-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 42px;
+    color: var(--ink);
+    line-height: 1.1;
+    margin-bottom: 14px;
+    letter-spacing: 0.005em;
+  }
+
+  .part-marker .part-description {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 17px;
+    line-height: 1.6;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .part-marker .part-ornament {
+    color: var(--accent);
+    font-size: 20px;
+    opacity: 0.7;
+    margin-bottom: 22px;
+  }
+
+  /* Stronger divider before Part II */
+  .part-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin: 100px 0 40px;
+    color: var(--rule);
+  }
+
+  .part-divider .line {
+    flex: 1;
+    max-width: 140px;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  .part-divider .mark {
+    color: var(--accent);
+    font-size: 20px;
+    opacity: 0.75;
+  }
+
+  /* ---- Sub-section headings (Maps / Tools / Studies within Part One) ---- */
+
+  .subsection-header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .subsection-header h3.subsection-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 30px;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+    margin-bottom: 8px;
+  }
+
+  .subsection-header .subsection-subtitle {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+  }
+
+  .subsection-header .subsection-gloss {
+    display: block;
+    margin-top: 14px;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--ink-faint);
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+  }
+
+  .subsection {
+    margin-bottom: 30px;
+  }
+
+  /* Lighter divider between sub-sections within Part One */
+  .subsection-divider {
+    text-align: center;
+    margin: 56px 0 56px;
+    color: var(--rule);
+    font-size: 14px;
+    letter-spacing: 0.4em;
+    opacity: 0.7;
+  }
+
+  /* ---- Placeholder (forthcoming) instrument cards ---- */
+
+  .instrument.forthcoming h3.instrument-title {
+    cursor: default;
+  }
+
+  .status-badge.forthcoming {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    font-weight: 400;
+  }
+
   /* ---- Footer ---- */
 
   footer {
@@ -449,6 +582,12 @@
     .stanza-original { font-size: 17px; }
     .stanza-translation { font-size: 16px; }
     body { font-size: 18px; }
+    .part-marker h2.part-title { font-size: 32px; }
+    .part-marker { margin: 30px 0 54px; }
+    .subsection-header h3.subsection-title { font-size: 24px; }
+    .part-divider { margin: 72px 0 30px; }
+    .part-divider .line { max-width: 70px; }
+    .subsection-divider { margin: 44px 0 44px; }
   }
 
   /* Tablet (iPad portrait and landscape) */
@@ -476,6 +615,8 @@
       padding-bottom: 48px;
     }
     .section-divider { margin: 60px 0 60px; }
+    .part-marker h2.part-title { font-size: 36px; }
+    .subsection-header h3.subsection-title { font-size: 26px; }
     footer { margin-top: 100px; }
   }
 
@@ -489,17 +630,15 @@
   header.masthead,
   .epigraph,
   .introduction,
-  .instruments-section,
-  .studies-section,
-  .codex-section {
+  .part-one,
+  .part-two {
     animation: fadeUp 0.9s ease-out both;
   }
 
   .epigraph { animation-delay: 0.1s; }
   .introduction { animation-delay: 0.2s; }
-  .instruments-section { animation-delay: 0.3s; }
-  .studies-section { animation-delay: 0.4s; }
-  .codex-section { animation-delay: 0.5s; }
+  .part-one { animation-delay: 0.3s; }
+  .part-two { animation-delay: 0.4s; }
 
 </style>
 </head>
@@ -508,9 +647,9 @@
 
   <!-- ========== Masthead ========== -->
   <header class="masthead">
-    <div class="masthead-eyebrow">A Library of Wine Tools</div>
+    <div class="masthead-eyebrow">A Library of Wine Works</div>
     <h1 class="title">Vinotheca</h1>
-    <div class="tagline">Atlases, maps, and a personal codex — for the enthusiastic wine explorer.</div>
+    <div class="tagline">Atlases, tools, studies — and a personal codex.</div>
     <div class="masthead-motto">
       <span class="fleuron-inline">❧</span>
       <span class="motto-text"><em>in vino, cognitio</em></span>
@@ -579,104 +718,166 @@
   <section class="introduction">
     <p>Wine rewards close attention. A bottle is a piece of geography, a piece of history, and a personal opinion about taste — and the more ways you can look at it, the more it gives back.</p>
 
-    <p>The wine world is full of scores and full of prose, but surprisingly short of works that help an enthusiastic wine explorer <em>see patterns</em>, <em>find connections</em>, and <em>keep honest track</em> of what they have tasted. The works collected here try to fill that gap. Each one answers a specific question a wine-curious person actually asks: where are the great sites for the grape I love; which lesser-known varieties are likely to win me over next; why do some regions on opposite sides of the world feel like cousins; which small communities of shared philosophy link winemakers across continents; and which of my own tasting notes can I actually trust?</p>
+    <p>The wine world is full of scores and full of prose, but surprisingly short of works that help an enthusiastic wine explorer <em>see patterns</em>, <em>find connections</em>, and <em>keep honest track</em> of what they have tasted. The works collected here try to fill that gap. Each one answers a specific question a wine-curious person actually asks: where are the great sites for the grape I love; which lesser-known varieties are likely to win me over next; why do some regions on opposite sides of the world feel like cousins; which small communities of shared character link winemakers across continents; and which of my own tasting notes can I actually trust?</p>
 
-    <p>An atlas of <em>great vineyards</em>. A map of <em>grape families</em>. A study of what gives a region its <em>character</em>. A reading of winemakers as <em>fellow travellers</em>. And a personal <em>record</em> of bottles tasted. Maps where maps help; charts where charts help; language where neither will do.</p>
+    <p>An atlas of <em>great vineyards</em> and an atlas of <em>estates</em>. Instruments for moving through grape and winemaker <em>affinity</em>. A study of what gives a region its <em>character</em>, and a reading of winemakers as <em>fellow travellers</em>. And, held apart from the rest, a personal <em>record</em> of bottles tasted. Maps where maps help; charts where charts help; language where neither will do.</p>
   </section>
 
-  <!-- ========== Instruments ========== -->
-  <section class="instruments-section">
-    <h2 class="section">The Instruments</h2>
-    <div class="section-subtitle">Reference works — the world of wine, organised</div>
+  <!-- ========== PART ONE — The Common Library ========== -->
+  <section class="part-one">
 
-    <div class="section-intro">
-      Two atlases of the wine world. One maps where the great sites are, arranged by grape; the other maps how grapes themselves relate to one another. Both are consultable, browsable, useful — instruments to reach for when a specific question arises.
+    <div class="part-marker">
+      <div class="part-roman">Part I</div>
+      <div class="part-ornament">❧</div>
+      <h2 class="part-title">The Library</h2>
+      <div class="part-description">
+        Reference works, tools, and studies that describe the wine world as it is.
+      </div>
     </div>
 
-    <!-- I -->
-    <div class="instrument">
-      <div class="instrument-numeral">i.</div>
-      <h3 class="instrument-title">
-        <a href="https://jskarabot18.github.io/grand-cru-atlas/">The Grand Cru <em>Atlas</em> <span class="arrow">↗</span></a>
-      </h3>
-      <div class="instrument-kicker">The world's greatest vineyards, arranged by grape.</div>
-      <p class="instrument-body">Monte Bello for Cabernet. La Belle Hélène for Syrah. Clos Saint-Urbain for Gewürztraminer. An illustrated atlas of the sites that set the standard — grouped not by country or appellation but by the grape they happen to make most beautifully. Browse by variety, download the full volume, or simply wander.</p>
-      <div class="instrument-meta">Atlas · Grand Cru · Global</div>
-      <a href="https://jskarabot18.github.io/grand-cru-atlas/" class="instrument-link">Open the atlas →</a>
+    <!-- ===== Sub-section: Maps ===== -->
+    <div class="subsection maps-subsection">
+      <div class="subsection-header">
+        <h3 class="subsection-title">Maps</h3>
+        <div class="subsection-subtitle">The wine world, located</div>
+        <span class="subsection-gloss">
+          Two atlases. One maps where the great sites are, arranged by grape; one maps the estates that make the world's recognized wines, organized geographically.
+        </span>
+      </div>
+
+      <!-- i. Grand Cru Atlas -->
+      <div class="instrument">
+        <div class="instrument-numeral">i.</div>
+        <h3 class="instrument-title">
+          <a href="https://jskarabot18.github.io/grand-cru-atlas/">The Grand Cru <em>Atlas</em> <span class="arrow">↗</span></a>
+        </h3>
+        <div class="instrument-kicker">The world's greatest vineyards, arranged by grape.</div>
+        <p class="instrument-body">Monte Bello for Cabernet. La Belle Hélène for Syrah. Clos Saint-Urbain for Gewürztraminer. An illustrated atlas of the sites that set the standard — grouped not by country or appellation but by the grape they happen to make most beautifully. Browse by variety, download the full volume, or simply wander.</p>
+        <div class="instrument-meta">Atlas · Grand Cru · Global</div>
+        <a href="https://jskarabot18.github.io/grand-cru-atlas/" class="instrument-link">Open the atlas →</a>
+      </div>
+
+      <!-- ii. Estate Atlas (placeholder) -->
+      <div class="instrument forthcoming">
+        <div class="instrument-numeral">ii.</div>
+        <h3 class="instrument-title">
+          The Estate <em>Atlas</em>
+          <span class="status-badge forthcoming">Forthcoming</span>
+        </h3>
+        <div class="instrument-kicker">The estates behind the world's recognised wines, placed on the map.</div>
+        <p class="instrument-body">A curated global atlas of some one hundred and sixty wine estates across the principal producing regions. Anchored in the WSET 3 and 4 curriculum, balanced for geographic and grape coverage, and presented as a clickable world map with a downloadable companion volume. A curated reference, not a ranking — the sister volume to the Grand Cru Atlas, organised by place rather than by grape.</p>
+        <div class="instrument-meta">≈ 160 estates · Global · Clickable map</div>
+        <div class="in-progress-note">Coming in 2026.</div>
+      </div>
+
     </div>
 
-    <!-- II -->
-    <div class="instrument">
-      <div class="instrument-numeral">ii.</div>
-      <h3 class="instrument-title">
-        <a href="https://jskarabot18.github.io/tasterank-explorer/">TasteRank <em>Explorer</em> <span class="arrow">↗</span></a>
-      </h3>
-      <div class="instrument-kicker">A map of how grape varieties relate to one another.</div>
-      <p class="instrument-body">If you love Nebbiolo, which lesser-known grape is likely to win you over next? If Syrah from Côte-Rôtie is a fixed point on your map, what else should you be exploring? TasteRank plots 101 varieties as a network — each grape a node, each connection a shared sensory signature — and lets you wander the constellations. Six natural neighbourhoods emerge from the data: the floral aromatics, the dark structural reds, the mineral whites, and three others waiting to be found.</p>
-      <div class="instrument-meta">101 varieties · 341 connections · 6 families</div>
-      <a href="https://jskarabot18.github.io/tasterank-explorer/" class="instrument-link">Open the network →</a>
+    <div class="subsection-divider">· · ·</div>
+
+    <!-- ===== Sub-section: Tools ===== -->
+    <div class="subsection tools-subsection">
+      <div class="subsection-header">
+        <h3 class="subsection-title">Tools</h3>
+        <div class="subsection-subtitle">Instruments for navigating the wine world</div>
+        <span class="subsection-gloss">
+          Two instruments for moving through similarity structures built from careful evidence. One helps you move through grape space by sensory affinity; the other, through winemaker space by character affinity.
+        </span>
+      </div>
+
+      <!-- iii. Grape Affinities (renamed from TasteRank Explorer) -->
+      <div class="instrument">
+        <div class="instrument-numeral">iii.</div>
+        <h3 class="instrument-title">
+          <a href="https://jskarabot18.github.io/tasterank-explorer/">Grape <em>Affinities</em> <span class="arrow">↗</span></a>
+        </h3>
+        <div class="instrument-kicker">A map of how grape varieties relate to one another.</div>
+        <p class="instrument-body">If you love Nebbiolo, which lesser-known grape is likely to win you over next? If Syrah from Côte-Rôtie is a fixed point on your map, what else should you be exploring? Grape Affinities plots 101 varieties as a network — each grape a node, each connection a shared sensory signature — and lets you wander the constellations. Six natural neighbourhoods emerge from the data: the floral aromatics, the dark structural reds, the mineral whites, and three others waiting to be found. Built on the <em>TasteRank</em> signature, a careful measure of how each variety's sensory character compares to every other.</p>
+        <div class="instrument-meta">101 varieties · 341 connections · 6 families</div>
+        <a href="https://jskarabot18.github.io/tasterank-explorer/" class="instrument-link">Open the network →</a>
+      </div>
+
+      <!-- iv. Winemaker Affinities (placeholder) -->
+      <div class="instrument forthcoming">
+        <div class="instrument-numeral">iv.</div>
+        <h3 class="instrument-title">
+          Winemaker <em>Affinities</em>
+          <span class="status-badge forthcoming">Forthcoming</span>
+        </h3>
+        <div class="instrument-kicker">A way into the Winemaker's Constellation, one figure at a time.</div>
+        <p class="instrument-body">Pick a winemaker; see who stands close to them in character, and why, with the textual evidence that puts them near each other. The navigable form of the Winemaker's Constellation — the tool that makes the Constellation's geometry usable. Where the Constellation (in Studies, below) makes the argument and shows the method, this instrument lets a visitor ask a single, concrete question: <em>who else thinks like this?</em></p>
+        <div class="instrument-meta">Kinship queries · Textual evidence · Companion to the Constellation</div>
+        <div class="in-progress-note">Coming in 2026.</div>
+      </div>
+
+    </div>
+
+    <div class="subsection-divider">· · ·</div>
+
+    <!-- ===== Sub-section: Studies ===== -->
+    <div class="subsection studies-subsection">
+      <div class="subsection-header">
+        <h3 class="subsection-title">Studies</h3>
+        <div class="subsection-subtitle">Arguments about what wine is</div>
+        <span class="subsection-gloss">
+          Two studies that make specific intellectual claims: one about how wine regions acquire their cultural identity, one about how winemakers inherit and share kin in character.
+        </span>
+      </div>
+
+      <!-- v. Soul of Wine -->
+      <div class="instrument">
+        <div class="instrument-numeral">v.</div>
+        <h3 class="instrument-title">
+          <a href="https://jskarabot18.github.io/soul-of-wine/">The Soul of <em>Wine</em> <span class="arrow">↗</span></a>
+        </h3>
+        <div class="instrument-kicker">Why two regions on opposite continents can feel like the same place.</div>
+        <p class="instrument-body">Alsace and Santa Barbara grow some of the same grapes on cool slopes near cool water, yet they could not feel more different: one rooted in centuries of inheritance and tradition, the other young, inventive, still writing its own story. Fifty-nine regions in sixteen countries, each one portrayed twice: once by its land, once by its spirit. The two portraits don't agree, and that disagreement is where the good wine stories live. Six distinct ways a wine region can have a soul.</p>
+        <div class="instrument-meta">59 regions · 16 countries · 6 identities</div>
+        <a href="https://jskarabot18.github.io/soul-of-wine/" class="instrument-link">Open the study →</a>
+      </div>
+
+      <!-- vi. Winemaker's Constellation (refined) -->
+      <div class="instrument in-progress">
+        <div class="instrument-numeral">vi.</div>
+        <h3 class="instrument-title">
+          The Winemaker's <em>Constellation</em>
+          <span class="status-badge forthcoming">Forthcoming</span>
+        </h3>
+        <div class="instrument-kicker">Kinship of character among winemakers, read from the text.</div>
+        <p class="instrument-body">Some winemakers who have never met, work with different grapes, and live on different continents share a worldview — a way of talking about craft, terroir, tradition, and risk that marks them as quiet kin. The Constellation reads the words winemakers and careful observers use, and surfaces the small communities of shared character that run beneath the map of regions and grapes. A prototype corpus of thirty-two winemakers is in preparation; a companion essay on method will follow. The Constellation is the argument and the method; its sibling instrument, <em>Winemaker Affinities</em> (in Tools, above), will be its navigable form.</p>
+        <div class="instrument-meta">32 winemakers · Textual kinship · Companion essay</div>
+        <div class="in-progress-note">Coming in 2026.</div>
+      </div>
+
     </div>
 
   </section>
 
-  <div class="section-divider">· · ·</div>
+  <!-- ========== Divider between Part One and Part Two ========== -->
+  <div class="part-divider">
+    <span class="line"></span>
+    <span class="mark">❧</span>
+    <span class="line"></span>
+  </div>
 
-  <!-- ========== Studies ========== -->
-  <section class="studies-section">
+  <!-- ========== PART TWO — The Personal Codex ========== -->
+  <section class="part-two">
 
-    <h2 class="section">The Studies</h2>
-    <div class="section-subtitle">Research — arguments about what wine is</div>
-
-    <div class="section-intro">
-      Two studies that make specific intellectual claims: one about how wine regions acquire their cultural identity, one about how winemakers inherit and share philosophical kin. Each pairs a substantive argument with interactive visualisations of the findings.
+    <div class="part-marker">
+      <div class="part-roman">Part II</div>
+      <h2 class="part-title">The Personal Codex</h2>
+      <div class="part-description">
+        The instruments and studies above look at wine in general. The Codex is different in kind: it looks at one person's experience of wine, as it accumulates.
+      </div>
     </div>
 
-    <!-- III -->
+    <!-- vii. Codex Vini -->
     <div class="instrument">
-      <div class="instrument-numeral">iii.</div>
-      <h3 class="instrument-title">
-        <a href="https://jskarabot18.github.io/soul-of-wine/">The Soul of <em>Wine</em> <span class="arrow">↗</span></a>
-      </h3>
-      <div class="instrument-kicker">Why two regions on opposite continents can feel like the same place.</div>
-      <p class="instrument-body">Alsace and Santa Barbara grow some of the same grapes on cool slopes near cool water, yet they could not feel more different: one rooted in centuries of inheritance and tradition, the other young, inventive, still writing its own story. Fifty-nine regions in sixteen countries, each one portrayed twice: once by its land, once by its spirit. The two portraits don't agree, and that disagreement is where the good wine stories live. Six distinct ways a wine region can have a soul.</p>
-      <div class="instrument-meta">59 regions · 16 countries · 6 identities</div>
-      <a href="https://jskarabot18.github.io/soul-of-wine/" class="instrument-link">Open the study →</a>
-    </div>
-
-    <!-- IV -->
-    <div class="instrument in-progress">
-      <div class="instrument-numeral">iv.</div>
-      <h3 class="instrument-title">
-        The Winemaker's <em>Constellation</em>
-        <span class="status-badge">In development</span>
-      </h3>
-      <div class="instrument-kicker">Philosophical kinship among winemakers, read from the text.</div>
-      <p class="instrument-body">Some winemakers who have never met, work with different grapes, and live on different continents share a worldview — a way of talking about craft, terroir, tradition, and risk that marks them as quiet kin. The Constellation reads the words winemakers and careful observers use, and surfaces the small communities of shared philosophy that run beneath the map of regions and grapes. A prototype corpus of thirty-two winemakers is in preparation; a companion essay on method will follow.</p>
-      <div class="instrument-meta">32 winemakers · Textual kinship · Under construction</div>
-      <div class="in-progress-note">Coming in 2026.</div>
-    </div>
-
-  </section>
-
-  <div class="section-divider">· · ·</div>
-
-  <!-- ========== Codex ========== -->
-  <section class="codex-section">
-
-    <h2 class="section">The Codex</h2>
-    <div class="section-subtitle">A personal wine record</div>
-
-    <div class="section-intro">
-      The instruments and studies above look at wine in general. The Codex is different in kind: it looks at one person's experience of wine, as it accumulates.
-    </div>
-
-    <div class="instrument">
-      <div class="instrument-numeral">v.</div>
+      <div class="instrument-numeral">vii.</div>
       <h3 class="instrument-title">
         <a href="https://jskarabot18.github.io/codex-vini/">Codex <em>Vini</em> <span class="arrow">↗</span></a>
       </h3>
       <div class="instrument-kicker">A personal wine book — every bottle, every tasting, kept honestly.</div>
-      <p class="instrument-body">The working end of the library. A living record of every wine tasted, with filters for country, grape, colour, and rating, and a gentle statistical correction that keeps a single good bottle from crowning an entire country. The atlas of flavours, the map of regions, the study of souls, the constellation of winemakers, and the book of what was drunk — read together.</p>
+      <p class="instrument-body">The working end of the library. A living record of every wine tasted, with filters for country, grape, colour, and rating, and a gentle statistical correction that keeps a single good bottle from crowning an entire country. The atlases of vineyards and estates, the affinities of grapes and winemakers, the studies of souls and constellations — and the book of what was drunk. Read together.</p>
       <div class="instrument-meta">Personal · Living · Filterable</div>
       <a href="https://jskarabot18.github.io/codex-vini/" class="instrument-link">Open the codex →</a>
     </div>
