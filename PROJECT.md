@@ -355,18 +355,21 @@ Vinotheca catalogue is incomplete.
 
 ### 6.3 Pass 3 — visual harmonisation
 
-Now unblocked: per §4.7, the study-class template can be properly designed against two live studies (Soul of Wine + Body of Wine), comparing their actual structural choices to surface where Soul of Wine is contingent and where it is principled. Includes:
+Unblocked 2026-05-09 by the Body of Wine deploy (per §4.7 — two live
+studies are now in place). The full specification, including harvest
+results, locked-in decisions, deferred questions, and per-leaf execution
+change list, lives in [`PASS3_SPEC.md`](./PASS3_SPEC.md) at the root of
+this repository.
 
-- Pick canonical wine-red across all leaves (currently four close-but-
-  not-identical reds)
-- Pick canonical paper colour (currently four overlapping warm creams)
-- Replace `#fff` panel/footer backgrounds with a `--paper-raised` token
-  (Codex Vini's `#FFFDF8` is the model)
-- Decide whether atlases (DM Sans body) align with the Library body
-  font (EB Garamond) or stay distinct
-- Settle PDF naming convention across the family. Currently divergent:
-  Soul of Wine uses `lowercase-with-hyphens.pdf`; Tasterank Explorer
-  uses `TasteRank_Title_Case_With_Underscores.pdf`. Pick one, normalise.
+**Phase 2 spec (this session, 2026-05-09):** four decisions locked in
+covering canonical wine red, canonical paper cream, universal
+`--paper-raised` token, and Vinotheca's `--accent` rename. Three hard
+questions deliberately deferred (body font, atlas distinctness, Codex
+differentiation depth) plus PDF naming convention.
+
+**Execution remaining:** seven leaves to edit (three Tier 1, two Tier 2,
+two React) plus Tier 3 tokenisation for Wine Atlas and Tasterank Explorer
+in dedicated future sessions. See `PASS3_SPEC.md` for the change list.
 
 ### 6.4 To be built — Grape Resonances (second Correspondence leaf)
 
@@ -421,6 +424,19 @@ matching.
 
 ### 2026-05-09
 
+- **Pass 3 Phase 2 spec written** — the visual-harmonisation work
+  unblocked by the Body of Wine deploy was scoped, harvested, and
+  partially decided in a single session. All nine palette-bearing
+  surfaces (eight leaves plus the parent) were inventoried for wine
+  red, paper cream, raised-panel surfaces, and fonts. Four decisions
+  were locked in (canonical wine `#7B2D26`; canonical paper `#FAF6F1`;
+  universal `--paper-raised: #FFFDF8`; rename Vinotheca's `--accent`
+  to `--wine`). Three hard questions deferred (body font, atlas
+  distinctness, Codex differentiation depth) plus the PDF naming
+  convention. The full spec lives in `PASS3_SPEC.md`; PROJECT.md §6.3
+  now points at it. Execution remains for future sessions, scoped at
+  three Tier 1 + two Tier 2 + two React + two Tier 3 + one hard-
+  questions session + one PDF naming session.
 - **`documents_old/` folders deleted** — the gitignored rollback safety
   nets in `tasterank-explorer/` (5 PDFs) and `region-resonances/`
   (2 PDFs) were `rm -rf`'d locally after confirming the live docs in
@@ -535,6 +551,25 @@ matching.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-09 — v0.7
+
+- New file: `PASS3_SPEC.md` at the root of the `vinotheca` repo. Contains
+  the full Phase 2 specification for Pass 3 — harvest results across
+  all nine palette-bearing surfaces, four locked-in decisions, three
+  deferred hard questions, and the per-leaf execution change list.
+- §6.3 (Pass 3 — visual harmonisation): rewritten to point at
+  `PASS3_SPEC.md` rather than holding the spec inline. The §6.3 prose
+  in PROJECT.md is now a one-paragraph pointer; the substantive
+  content lives in the spec document.
+- Phase 2 decisions locked in this session:
+  - Canonical wine red: `#7B2D26` (Codex Vini's `#5B1A2D` exempted as
+    intentional Part-II differentiation per §1)
+  - Canonical paper cream: `#FAF6F1`
+  - Universal `--paper-raised` token at `#FFFDF8` (Codex's existing value)
+  - Vinotheca's `--accent` → `--wine` token rename
+- Phase 3 hard questions deferred: body font canonical, atlas distinctness
+  policy, Codex differentiation depth.
 
 ### 2026-05-09 — v0.6
 
