@@ -76,13 +76,13 @@ both faces, not as separate Tool and Study cards.
 | Maps | The Estate Atlas | `estate-atlas` | Live | The Estate *Atlas* | An Atlas of Vinotheca |
 | Maps | The Grand Cru Atlas | `grand-cru-atlas` | Live | The Grand Cru *Atlas* | An Atlas of Vinotheca |
 | Works → Tool | Grape Affinities | `tasterank-explorer` | Live | Grape *Affinities* | A Tool of Vinotheca |
-| Works → Study | The Body of Wine | *(tbd)* | Working title — to be built (§6.1) | The *Body* of Wine | A Study of Vinotheca |
+| Works → Study | The Body of Wine | `body-of-wine` | Live | The *Body* of Wine | A Study of Vinotheca |
 | Works → Tool | Region Affinities | `region-affinities` | Live | Region *Affinities* | A Tool of Vinotheca |
 | Works → Study | The Soul of Wine | `soul-of-wine` | Live | The *Soul* of Wine | A Study of Vinotheca |
 | Works → Tool | Winemaker Affinities | *(tbd)* | Forthcoming 2026 | Winemaker *Affinities* | A Tool of Vinotheca |
 | Works → Study | The Winemaker's Constellation | *(tbd)* | Forthcoming 2026 | The Winemaker's *Constellation* | A Study of Vinotheca |
 | Correspondence | Region Resonances | `region-resonances` | Live | Region *Resonances* | A Correspondence of Vinotheca |
-| Correspondence | Grape Resonances | `grape-resonances` (tbd) | Planned — see §6.6 | Grape *Resonances* | A Correspondence of Vinotheca |
+| Correspondence | Grape Resonances | `grape-resonances` (tbd) | Planned — see §6.5 | Grape *Resonances* | A Correspondence of Vinotheca |
 | Reference | *(no leaves yet)* | `vinotheca-reference` | Repo to be created — empty for now | — | A Reference of Vinotheca |
 | Personal Codex | Codex Vini | `codex-vini` | Live | Codex *Vini* | A Codex of Vinotheca |
 
@@ -99,7 +99,7 @@ the panel subtitle and the documentation).
 
 | Work | Tool face | Study face |
 |------|-----------|-----------|
-| Grape similarity | Grape Affinities (live) | The Body of Wine (working title — to be built) |
+| Grape similarity | Grape Affinities (live) | The Body of Wine (live) |
 | Region kinship | Region Affinities (live) | The Soul of Wine (live) |
 | Winemaker kinship | Winemaker Affinities (forthcoming) | The Winemaker's Constellation (forthcoming) |
 
@@ -285,7 +285,7 @@ This frame has direct design consequences for every Correspondence tool:
   that isn't there.
 
 Region Resonances was the first Correspondence tool and established the
-input-feeling-out-place pattern. Grape Resonances (planned, see §6.6)
+input-feeling-out-place pattern. Grape Resonances (planned, see §6.5)
 extends the pattern to grape-as-output, completing the move from feeling
 to wine via region as the temperament-mediator. Future Correspondence
 tools, if any, should be designed to this character.
@@ -331,26 +331,7 @@ These workflow patterns have been found to work reliably:
 
 ## 6. Open questions and active tasks
 
-### 6.1 To be built — The Body of Wine (paired study for Grape Affinities)
-
-Per §2, every Work has both a Tool face and a Study face. Grape
-Affinities is currently a Tool without its Study. The Study has a
-working title — **The Body of Wine** — completing the triptych of
-study titles (Body / Soul / Constellation), each naming a way of
-seeing wine: through the senses, through cultural identity, through
-the character of those who make it. The title is open to revision
-until the Study is built.
-
-The Study needs to be authored using the same format as Soul of Wine:
-question, findings, why it matters, documents, method.
-
-**Pending:**
-- Confirm or revise the working title once the Study's argument has
-  been drafted in prose
-- Repo decision (separate repo, or part of `tasterank-explorer`?)
-- Content authoring
-
-### 6.2 To be built — `vinotheca-reference` repo
+### 6.1 To be built — `vinotheca-reference` repo
 
 Per §1 and §4.9–§4.10, Reference is its own section with its own repo.
 The repo `vinotheca-reference` is to be created. **No content yet** —
@@ -366,15 +347,15 @@ matching §4.3).
 - Decision on whether to include the foundation documents at launch or
   delay until they are ready for public release
 
-### 6.3 To be built — Winemaker's Constellation (study) and Winemaker Affinities (tool)
+### 6.2 To be built — Winemaker's Constellation (study) and Winemaker Affinities (tool)
 
 Forthcoming 2026. A 32-winemaker corpus is in preparation; a companion
 essay on method will follow. Until both exist, the third Work in the
 Vinotheca catalogue is incomplete.
 
-### 6.4 Pass 3 — visual harmonisation
+### 6.3 Pass 3 — visual harmonisation
 
-Deferred until at least the second study exists (per §4.7). Includes:
+Now unblocked: per §4.7, the study-class template can be properly designed against two live studies (Soul of Wine + Body of Wine), comparing their actual structural choices to surface where Soul of Wine is contingent and where it is principled. Includes:
 
 - Pick canonical wine-red across all leaves (currently four close-but-
   not-identical reds)
@@ -383,8 +364,11 @@ Deferred until at least the second study exists (per §4.7). Includes:
   (Codex Vini's `#FFFDF8` is the model)
 - Decide whether atlases (DM Sans body) align with the Library body
   font (EB Garamond) or stay distinct
+- Settle PDF naming convention across the family. Currently divergent:
+  Soul of Wine uses `lowercase-with-hyphens.pdf`; Tasterank Explorer
+  uses `TasteRank_Title_Case_With_Underscores.pdf`. Pick one, normalise.
 
-### 6.5 Local cleanup — `documents_old/` folders
+### 6.4 Local cleanup — `documents_old/` folders
 
 The `documents_old/` folders in `tasterank-explorer`, `region-affinities`,
 and `region-resonances` (gitignored, local only) are rollback safety nets
@@ -392,7 +376,7 @@ from the documentation alignment session. Once Jure is confident in the
 new docs, these can be `rm -rf`'d locally — purely a local cleanup,
 nothing to commit.
 
-### 6.6 To be built — Grape Resonances (second Correspondence leaf)
+### 6.5 To be built — Grape Resonances (second Correspondence leaf)
 
 Per §1 and §4.11, Correspondence is the section where the user provides
 input and receives a compressed, oracular response. Region Resonances is
@@ -445,6 +429,32 @@ matching.
 
 ### 2026-05-09
 
+- **The Body of Wine deployed** — the Study face of the Grape similarity
+  Work is now live at `https://jskarabot18.github.io/body-of-wine/`,
+  completing the first Work in the family with both faces live (Grape
+  Affinities Tool + Body of Wine Study). The Study is written in the
+  voice of Soul of Wine: question, three findings, why this matters,
+  documents, method. The page is a structural sibling to Soul of Wine
+  but five body sections rather than six — Soul of Wine's "Beyond Wine"
+  cross-disciplinary section was deliberately not replicated, since
+  Body of Wine makes a single-system network claim rather than Soul of
+  Wine's two-systems-disagree claim. Repo: `body-of-wine` at root of
+  `~/Documents/jure/wine/`. Three files: `index.html`, `LICENSE` (CC
+  BY-NC 4.0, copied from Soul of Wine), `README.md`. CSS character-for-
+  character matches Soul of Wine, per §4.7's loose reading (don't
+  redesign now, save the redesign for Pass 3 with both studies in view).
+- **Parent catalogue updated** — the Body of Wine face card on the
+  Works subsection went from "In preparation" placeholder to a live
+  link, mirroring Soul of Wine's pattern. The Grape Work's body text
+  was also rewritten so it describes the Study's actual claim (network
+  reading, three findings) rather than the false-parallel framing the
+  earlier draft carried over from the v0.4 session.
+- **Tasterank Explorer PDFs reorganised** — the five PDFs were moved
+  from the repo root into `tasterank-explorer/docs/` to match the
+  family pattern (Soul of Wine ships PDFs in `docs/`). The five
+  internal links in `tasterank-explorer/index.html`'s Documentation
+  dropdown were updated in the same commit. This was prerequisite
+  groundwork for Body of Wine, which links to those PDFs cross-repo.
 - **Parent catalogue restructured to match §1 architecture** — the
   parent Vinotheca page's Tools and Studies subsections were merged
   into a single **Works** subsection, with three Work entries each
@@ -527,6 +537,27 @@ matching.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-09 — v0.5
+
+- §6.1 (To be built — The Body of Wine) closed: the Study is built and
+  deployed in the same session. Recorded in §7. Subsequent §6
+  subsections renumbered down by one (old §6.2 → §6.1, old §6.3 → §6.2,
+  old §6.4 → §6.3, old §6.5 → §6.4, old §6.6 → §6.5). Five remaining
+  open subsections.
+- §3 leaves table: Body of Wine row updated from "Working title — to
+  be built (§6.1)" to "Live"; repo column from `*(tbd)*` to
+  `body-of-wine`.
+- §3.1 Works pairings table: Body of Wine row updated from "(working
+  title — to be built)" to "(live)". The Grape similarity Work is now
+  the first Work in the family with both faces live.
+- §6.3 (formerly §6.4, Pass 3 — visual harmonisation): gating language
+  updated. Per §4.7, two live studies were the precondition for proper
+  template design; that condition is now met. Section now reads
+  "unblocked" rather than "deferred." Also added a new Pass 3 item:
+  settle PDF naming convention across the family, currently divergent
+  between Soul of Wine (`lowercase-with-hyphens.pdf`) and Tasterank
+  Explorer (`TasteRank_Title_Case_With_Underscores.pdf`).
 
 ### 2026-05-09 — v0.4
 
