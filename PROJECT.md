@@ -82,7 +82,7 @@ both faces, not as separate Tool and Study cards.
 | Works → Tool | Winemaker Affinities | *(tbd)* | Forthcoming 2026 | Winemaker *Affinities* | A Tool of Vinotheca |
 | Works → Study | The Winemaker's Constellation | *(tbd)* | Forthcoming 2026 | The Winemaker's *Constellation* | A Study of Vinotheca |
 | Correspondence | Region Resonances | `region-resonances` | Live | Region *Resonances* | A Correspondence of Vinotheca |
-| Correspondence | Grape Resonances | `grape-resonances` (tbd) | Planned — see §6.5 | Grape *Resonances* | A Correspondence of Vinotheca |
+| Correspondence | Grape Resonances | `grape-resonances` (tbd) | Planned — see §6.4 | Grape *Resonances* | A Correspondence of Vinotheca |
 | Reference | *(no leaves yet)* | `vinotheca-reference` | Repo to be created — empty for now | — | A Reference of Vinotheca |
 | Personal Codex | Codex Vini | `codex-vini` | Live | Codex *Vini* | A Codex of Vinotheca |
 
@@ -285,7 +285,7 @@ This frame has direct design consequences for every Correspondence tool:
   that isn't there.
 
 Region Resonances was the first Correspondence tool and established the
-input-feeling-out-place pattern. Grape Resonances (planned, see §6.5)
+input-feeling-out-place pattern. Grape Resonances (planned, see §6.4)
 extends the pattern to grape-as-output, completing the move from feeling
 to wine via region as the temperament-mediator. Future Correspondence
 tools, if any, should be designed to this character.
@@ -368,15 +368,7 @@ Now unblocked: per §4.7, the study-class template can be properly designed agai
   Soul of Wine uses `lowercase-with-hyphens.pdf`; Tasterank Explorer
   uses `TasteRank_Title_Case_With_Underscores.pdf`. Pick one, normalise.
 
-### 6.4 Local cleanup — `documents_old/` folders
-
-The `documents_old/` folders in `tasterank-explorer`, `region-affinities`,
-and `region-resonances` (gitignored, local only) are rollback safety nets
-from the documentation alignment session. Once Jure is confident in the
-new docs, these can be `rm -rf`'d locally — purely a local cleanup,
-nothing to commit.
-
-### 6.5 To be built — Grape Resonances (second Correspondence leaf)
+### 6.4 To be built — Grape Resonances (second Correspondence leaf)
 
 Per §1 and §4.11, Correspondence is the section where the user provides
 input and receives a compressed, oracular response. Region Resonances is
@@ -429,6 +421,12 @@ matching.
 
 ### 2026-05-09
 
+- **`documents_old/` folders deleted** — the gitignored rollback safety
+  nets in `tasterank-explorer/` (5 PDFs) and `region-resonances/`
+  (2 PDFs) were `rm -rf`'d locally after confirming the live docs in
+  both repos work end-to-end. PROJECT.md previously listed three repos
+  with `documents_old/` folders; in fact `region-affinities/` never
+  had one. Closes the cleanup task tracked as §6.4 in v0.5.
 - **The Body of Wine deployed** — the Study face of the Grape similarity
   Work is now live at `https://jskarabot18.github.io/body-of-wine/`,
   completing the first Work in the family with both faces live (Grape
@@ -537,6 +535,21 @@ matching.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-09 — v0.6
+
+- §6.4 (Local cleanup — `documents_old/` folders) closed: the gitignored
+  rollback folders in `tasterank-explorer/` and `region-resonances/`
+  were deleted locally after confirming live docs work. Recorded in §7.
+  Subsequent §6 subsection renumbered down by one (old §6.5 → §6.4).
+  Four remaining open subsections.
+- §3 leaves table and §4.11 cross-references for Grape Resonances
+  updated from §6.5 to §6.4.
+- Minor correction: PROJECT.md previously listed three repos with
+  `documents_old/` folders (`tasterank-explorer`, `region-affinities`,
+  `region-resonances`). In fact only two had them — `region-affinities`
+  never had one. The §6.4 description carried this small inaccuracy
+  forward through three versions; flagging here for the record.
 
 ### 2026-05-09 — v0.5
 
