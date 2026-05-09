@@ -180,10 +180,11 @@ A **Tool** is a standalone interactive instrument with its own page.
 Cross-linking happens through the parent Vinotheca catalogue (which
 shows pairings) and through prose ("Explore this interactively in
 [Region Affinities]"), never through embedding a tool inside a study's
-page. Soul of Wine currently has an "Interactive Tools" section that
-violates this rule — it embeds four prototype tools (Cluster Explorer,
-Cluster Map, Movement Map, D-Score Dashboard). These are superseded by
-Region Affinities and will be deleted (see §6).
+page. Soul of Wine previously had an "Interactive Tools" section that
+violated this rule — it embedded four prototype tools (Cluster Explorer,
+Cluster Map, Movement Map, D-Score Dashboard), all superseded by Region
+Affinities. The section and the four prototype HTML files were removed
+on 2026-05-08 (see §7).
 
 ### 4.7 The study-class template will be defined when there are two studies
 
@@ -274,26 +275,7 @@ These workflow patterns have been found to work reliably:
 
 ## 6. Open questions and active tasks
 
-### 6.1 Active task — Bring Soul of Wine into conformance with §4.6
-
-Per §4.6, studies don't embed tools. Soul of Wine currently has an
-"Interactive Tools" section embedding four prototype tools.
-
-**Decided:** All four prototypes (Cluster Explorer, Cluster Map, Movement
-Map, D-Score Dashboard) will be **deleted**. Region Affinities supersedes
-all four — it offers Dual Networks (replacing Cluster Map), Identity ↔
-Terroir (replacing Movement Map), Comparison (replacing Cluster Explorer's
-radar charts), and Region Atlas (replacing the per-region details from
-the D-Score Dashboard). The full D-score matrix in sortable form is
-already published in the Data Appendix PDF.
-
-**Pending:** Implementation. The "Interactive Tools" section is removed
-from Soul of Wine's page; the four prototype HTML files in
-`soul-of-wine/visualizations/` are deleted; any inline link to Region
-Affinities from Soul of Wine's body should remain or be added as a single
-contextual prose link.
-
-### 6.2 Active task — Move Region Resonances from Tools to Correspondence
+### 6.1 Active task — Move Region Resonances from Tools to Correspondence
 
 Per §1, Correspondence is the section for tools where the user provides
 input and receives a response. Region Resonances is the founding member.
@@ -303,7 +285,7 @@ under Correspondence rather than Tools. Update Region Resonances's
 eyebrow from `A Tool of Vinotheca` to `A Correspondence of Vinotheca`.
 The repo name stays `region-resonances` (working name).
 
-### 6.3 To be built — The Grape Affinities study (paired study)
+### 6.2 To be built — The Grape Affinities study (paired study)
 
 Per §2, every Work has both a Tool face and a Study face. Grape
 Affinities is currently a Tool without its Study. The Study needs to be
@@ -315,7 +297,7 @@ matters, documents, method.
 - Repo decision (separate repo, or part of `tasterank-explorer`?)
 - Content authoring
 
-### 6.4 To be built — `vinotheca-reference` repo
+### 6.3 To be built — `vinotheca-reference` repo
 
 Per §1 and §4.9–§4.10, Reference is its own section with its own repo.
 The repo `vinotheca-reference` is to be created. **No content yet** —
@@ -331,13 +313,13 @@ matching §4.3).
 - Decision on whether to include the foundation documents at launch or
   delay until they are ready for public release
 
-### 6.5 To be built — Winemaker's Constellation (study) and Winemaker Affinities (tool)
+### 6.4 To be built — Winemaker's Constellation (study) and Winemaker Affinities (tool)
 
 Forthcoming 2026. A 32-winemaker corpus is in preparation; a companion
 essay on method will follow. Until both exist, the third Work in the
 Vinotheca catalogue is incomplete.
 
-### 6.6 Pass 3 — visual harmonisation
+### 6.5 Pass 3 — visual harmonisation
 
 Deferred until at least the second study exists (per §4.7). Includes:
 
@@ -349,7 +331,7 @@ Deferred until at least the second study exists (per §4.7). Includes:
 - Decide whether atlases (DM Sans body) align with the Library body
   font (EB Garamond) or stay distinct
 
-### 6.7 Local cleanup — `documents_old/` folders
+### 6.6 Local cleanup — `documents_old/` folders
 
 The `documents_old/` folders in `tasterank-explorer`, `region-affinities`,
 and `region-resonances` (gitignored, local only) are rollback safety nets
@@ -363,6 +345,14 @@ nothing to commit.
 
 ### 2026-05-08
 
+- **Soul of Wine brought into conformance with §4.6** — the "Interactive
+  Tools" section was removed from Soul of Wine's `index.html`, along with
+  the corresponding "Explore" entry in the in-page nav. The four
+  superseded prototype HTML files (`cluster-explorer.html`,
+  `cluster-map.html`, `movement-map.html`, `d-score-dashboard.html`) were
+  deleted from `soul-of-wine/visualizations/`. A single contextual prose
+  link to Region Affinities was added to the "Why This Matters" intro
+  paragraph. Closes the active task that was tracked as §6.1.
 - **PROJECT.md created** — canonical project state document, this file.
 - **Documentation source archival** — `docs-source/` folder added to each
   of the three tool repos (region-affinities, region-resonances,
@@ -403,6 +393,17 @@ nothing to commit.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-08 — v0.2
+
+- §6.1 (Active task — Bring Soul of Wine into conformance with §4.6)
+  closed: the work was completed in the same session and is now recorded
+  in §7. Subsequent §6 subsections renumbered down by one (old §6.2 → §6.1,
+  old §6.3 → §6.2, …, old §6.7 → §6.6).
+- §4.6 updated: the paragraph describing Soul of Wine's "Interactive
+  Tools" section moved from present-tense ("currently has", "will be
+  deleted") to past-tense, reflecting the completed cleanup, and
+  cross-references §7 rather than the now-closed §6 entry.
 
 ### 2026-05-08 — v0.1 (initial)
 
