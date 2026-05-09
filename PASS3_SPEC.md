@@ -7,9 +7,12 @@ panel treatment, and consistent token naming across static and React leaves.
 This document is the canonical Pass 3 specification. Future execution sessions
 work from it; PROJECT.md §6.3 links to it as the authoritative reference.
 
-**Status**: spec written, execution pending.
+**Status**: spec written; Tier 1 executed (3 leaves) and Tier 2 executed
+(2 leaves) on 2026-05-09. Remaining: React leaves (2), Tier 3 leaves (2),
+hard-questions session, PDF naming.
 **Origin**: PROJECT.md §6.3, unblocked by Body of Wine deploy (2026-05-09).
-**Spec date**: 2026-05-09.
+**Spec date**: 2026-05-09 (Phase 2 decisions). Updated 2026-05-09 with
+Tier 2 execution learnings.
 
 ---
 
@@ -96,9 +99,13 @@ not part of this Phase 2 spec.
 | Estate Atlas | Cormorant *(without "Garamond")* |
 | Wine Atlas, Tasterank Explorer | DM Serif Display |
 
-Estate Atlas's font is almost certainly an accidental rename — "Cormorant"
-and "Cormorant Garamond" are two distinct Google Fonts. Worth fixing in
-execution, regardless of larger font decisions.
+Estate Atlas's font choice initially appeared to be an accidental rename
+— "Cormorant" and "Cormorant Garamond" are two distinct Google Fonts.
+However, the harvest performed during Tier 2 execution revealed 17
+deliberate uses of "Cormorant" and zero of "Cormorant Garamond" in the
+file, indicating a deliberate choice. The question of which display
+font Estate Atlas should use is therefore promoted to Question D in
+the deferred-decisions list (see end of spec).
 
 ---
 
@@ -192,11 +199,11 @@ worth of careful editing.
 
 | # | Leaf | Tier | File(s) | Edit |
 |---|---|---|---|---|
-| 1 | Body of Wine | 1 | `body-of-wine/index.html` | `:root`: rename `--cream: #FAF6F1` → `--paper: #FAF6F1`. Add `--paper-raised: #FFFDF8`. Global find-replace: `var(--cream)` → `var(--paper)`. Replace `#fff` raised-panel uses with `var(--paper-raised)`. |
-| 2 | Soul of Wine | 1 | `soul of wine/soul-of-wine/index.html` | Identical to #1; the two Studies stay byte-identical. |
-| 3 | Codex Vini | 1 | `codex vini/index.html` | `:root`: change `--paper: #FAF6EF` → `#FAF6F1`. (No change to `--bordeaux` or `--paper-raised` — both already correct.) |
-| 4 | Vinotheca | 2 | `vinotheca/index.html` | `:root`: rename and revalue `--accent`/`--accent-soft` per Decision 4. Add `--wine-dark: #5A1F1A`. Change `--paper: #f6f1e8` → `#FAF6F1`. Add `--paper-raised: #FFFDF8`. Global find-replace: `var(--accent)` → `var(--wine)`, `var(--accent-soft)` → `var(--wine-light)`. |
-| 5 | Estate Atlas | 2 | `estate-atlas/index.html` | `:root`: change `--wine: #6e1f2a` → `#7B2D26`. Add `--wine-dark: #5A1F1A`, `--wine-light: #A04038`. Change `--paper: #f5efe6` → `#FAF6F1`. Add `--paper-raised: #FFFDF8`. Fix display-font reference: `Cormorant` → `Cormorant Garamond`. |
+| 1 | Body of Wine | 1 | `body-of-wine/index.html` | ✅ Shipped (`f8e23b0`). `:root`: rename `--cream: #FAF6F1` → `--paper: #FAF6F1`. Add `--paper-raised: #FFFDF8`. Global find-replace: `var(--cream)` → `var(--paper)`. Replace `#fff` raised-panel uses with `var(--paper-raised)`. |
+| 2 | Soul of Wine | 1 | `soul of wine/soul-of-wine/index.html` | ✅ Shipped (`c578109`). Identical to #1; the two Studies stay byte-identical. |
+| 3 | Codex Vini | 1 | `codex vini/index.html` | ✅ Shipped (`cbcd2d8`). `:root`: change `--paper: #FAF6EF` → `#FAF6F1`. (No change to `--bordeaux` or `--paper-raised` — both already correct.) |
+| 4 | Vinotheca | 2 | `vinotheca/index.html` | ✅ Shipped (Tier 2). `:root`: rename and revalue `--accent`/`--accent-soft` per Decision 4. Add `--wine-dark: #5A1F1A`. Change `--paper: #f6f1e8` → `#FAF6F1`. Add `--paper-raised: #FFFDF8`. Global find-replace: `var(--accent)` → `var(--wine)` (25 uses), `var(--accent-soft)` → `var(--wine-light)` (4 uses). |
+| 5 | Estate Atlas | 2 | `estate-atlas/index.html` | ✅ Shipped (Tier 2). `:root`: change `--wine: #6e1f2a` → `#7B2D26`. Change `--paper: #f5efe6` → `#FAF6F1`. Add `--wine-dark: #5A1F1A`, `--paper-raised: #FFFDF8`. **Correction from original spec**: Estate Atlas had `--wine-soft: #8a3a44` (not noted in original spec), renamed to `--wine-light: #A04038` with same-step value change; `var(--wine-soft)` → `var(--wine-light)` global find-replace (3 uses). Also updated `--pin-shadow: rgba(110, 31, 42, 0.35)` → `rgba(123, 45, 38, 0.35)` to track the new wine value. **Display font deferred**: 17 deliberate uses of "Cormorant" preserved for Question D (see deferred decisions). |
 | 6 | Region Affinities | (React) | `region-affinities/tailwind.config.js` | `parchment.DEFAULT: '#FAF7F2'` → `'#FAF6F1'`. Add a `paper.raised` (or `parchment.raised`) value of `#FFFDF8`. (Wine palette already canonical.) |
 | 7 | Region Resonances | (React) | `region-resonances/app/tailwind.config.js` | Identical to #6; the two Region tools stay byte-identical per the existing in-file comment. |
 | 8 | Wine Atlas | 3 | `wine atlas/index.html` | Defer to dedicated Tier 3 session. Introduce `:root` with canonical tokens, replace hard-coded values throughout. |
@@ -282,6 +289,31 @@ Part I (the Library)? Possible positions:
 
 Worth a deliberate decision rather than a default.
 
+### Question D — Estate Atlas display font
+
+Estate Atlas uses the *Cormorant* font for display (17 deliberate uses,
+zero "Cormorant Garamond" uses). This was initially flagged in the
+original spec as a probable typo, but the Tier 2 harvest confirmed it's
+a deliberate choice — Cormorant is a more austere classical-revival
+cut from the same family as Cormorant Garamond. Three positions:
+
+- **Align**: change all 17 references to Cormorant Garamond, matching
+  the rest of the Library (Vinotheca, Body of Wine, Soul of Wine,
+  Codex Vini all use Cormorant Garamond).
+- **Preserve**: keep Cormorant as Estate Atlas's signature display
+  font, distinguishing it visually within the family. Pairs with
+  Question B (atlas distinctness) — possibly the atlases as a class
+  should have their own typographic personality.
+- **Differentiate by atlas-class**: pick a coherent display-font
+  policy across all three atlases (Estate Atlas, Grand Cru / Wine
+  Atlas, Codex Vini's atlas pages). Currently inconsistent — Estate
+  Atlas uses Cormorant, Wine Atlas uses DM Serif Display, Codex Vini
+  uses Cormorant Garamond.
+
+Best resolved alongside Question B (atlas distinctness), since the
+typographic personality of the atlas-class is the substantive question
+behind both.
+
 ---
 
 ## Open ambiguities (smaller)
@@ -289,8 +321,6 @@ Worth a deliberate decision rather than a default.
 A few smaller things noticed during the harvest that aren't full
 "questions" but should be resolved during execution:
 
-- **Estate Atlas's "Cormorant" font reference** is probably a typo; the
-  family pattern is "Cormorant Garamond". Easy fix during Tier 2.
 - **Region pair's `parchment.warm` and `parchment.edge` Tailwind
   values** are not yet harvested in this spec — they may need their own
   canonical decisions if other leaves use similar warm/edge variants.

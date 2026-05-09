@@ -424,6 +424,25 @@ matching.
 
 ### 2026-05-09
 
+- **Pass 3 Tier 2 executed** — the parent Vinotheca and Estate Atlas
+  brought into family-canonical alignment. *Vinotheca*: token
+  `--accent` (`#6a2430`) renamed to `--wine` (`#7B2D26`) with global
+  find-replace across 25 uses; `--accent-soft` (`#8a3240`) renamed to
+  `--wine-light` (`#A04038`) across 4 uses; `--paper` (`#f6f1e8`)
+  changed to `#FAF6F1`; `--wine-dark` and `--paper-raised` added.
+  *Estate Atlas*: `--wine` (`#6e1f2a`) → `#7B2D26`; `--paper`
+  (`#f5efe6`) → `#FAF6F1`; `--wine-dark` and `--paper-raised` added.
+  **Corrections from PASS3_SPEC.md original draft**: Estate Atlas had
+  a `--wine-soft` token not documented in the spec, renamed to
+  `--wine-light` with simultaneous value change (3 uses);
+  `--pin-shadow` rgba updated to track the new wine value;
+  Estate Atlas's "Cormorant" display font (17 deliberate uses, not
+  a typo as originally assumed) deferred to a new Question D in the
+  spec, alongside the existing three deferred hard questions. Both
+  changes meaningfully visible — the parent's warm-yellow paper
+  becomes the family-canonical neutral cream; Estate Atlas's
+  slightly cooler wine becomes the canonical. Five of nine surfaces
+  now aligned; remaining: 2 React leaves + 2 Tier 3 leaves.
 - **Pass 3 Tier 1 executed** — three of nine palette-bearing surfaces
   brought into family-canonical alignment for paper tokens.
   *Body of Wine* (`f8e23b0`): renamed `--cream` → `--paper`, added
@@ -566,6 +585,24 @@ matching.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-09 — v0.9
+
+- Pass 3 Tier 2 executed across two repos. Five of nine palette-bearing
+  surfaces now aligned (Tier 1: Body of Wine, Soul of Wine, Codex Vini;
+  Tier 2: Vinotheca, Estate Atlas). PASS3_SPEC.md updated with shipped-
+  status marks for these five, plus a Question D added to the deferred-
+  decisions list (Estate Atlas display font: Cormorant vs. Cormorant
+  Garamond — 17 deliberate uses of "Cormorant" make this a real
+  question, not a typo as originally assumed).
+- §6.3 (Pass 3 — visual harmonisation) remains open. Remaining work:
+  React leaves (Region Affinities + Region Resonances), Tier 3 leaves
+  (Wine Atlas + Tasterank Explorer), the hard-questions session
+  covering Questions A through D, and the PDF naming convention.
+- The Tier 2 execution meaningfully visible: Vinotheca's warm-yellow
+  paper becomes the canonical neutral cream; Estate Atlas's cooler wine
+  becomes the canonical. The parent now reads chromatically the same
+  as the eight live leaves it catalogues.
 
 ### 2026-05-09 — v0.8
 
