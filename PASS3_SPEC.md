@@ -8,15 +8,13 @@ This document is the canonical Pass 3 specification. Future execution sessions
 work from it; PROJECT.md §6.3 links to it as the authoritative reference.
 
 **Status**: spec complete; all six Phase 2 + Phase 3 decisions resolved.
-Tier 1 + Tier 2 + React execution shipped (7 of 9 surfaces). Estate
-Atlas font follow-up shipped (`d855598`). PDF naming convention shipped.
-Remaining: Tier 3 leaves (Wine Atlas, Tasterank Explorer) — each a
-dedicated session, now unblocked by Decisions 5 and 6.
+Tier 1 + Tier 2 + React execution + Estate Atlas font + PDF naming +
+Wine Atlas Tier 3 shipped (8 of 9 surfaces). Remaining: Tasterank
+Explorer Tier 3 — final dedicated session before Pass 3 closes.
 **Origin**: PROJECT.md §6.3, unblocked by Body of Wine deploy (2026-05-09).
 **Spec date**: 2026-05-09 (Phase 2). Updated 2026-05-09 with Tier 1+2
-execution learnings. Updated 2026-05-09 with Decisions 5 and 6 from the
-hard-questions session. Updated 2026-05-09 with Estate Atlas font
-follow-up and PDF naming convention shipped.
+execution learnings, Decisions 5 and 6, Estate Atlas font + PDF naming
+follow-ups, and Wine Atlas Tier 3 shipped.
 
 ---
 
@@ -262,7 +260,7 @@ worth of careful editing.
 | 5 | Estate Atlas | 2 | `estate-atlas/index.html` | ✅ Shipped (Tier 2). `:root`: change `--wine: #6e1f2a` → `#7B2D26`. Change `--paper: #f5efe6` → `#FAF6F1`. Add `--wine-dark: #5A1F1A`, `--paper-raised: #FFFDF8`. **Correction from original spec**: Estate Atlas had `--wine-soft: #8a3a44` (not noted in original spec), renamed to `--wine-light: #A04038` with same-step value change; `var(--wine-soft)` → `var(--wine-light)` global find-replace (3 uses). Also updated `--pin-shadow: rgba(110, 31, 42, 0.35)` → `rgba(123, 45, 38, 0.35)` to track the new wine value. **Display font deferred**: 17 deliberate uses of "Cormorant" preserved for Question D (see deferred decisions). |
 | 6 | Region Affinities | (React) | `region-affinities/tailwind.config.js` | `parchment.DEFAULT: '#FAF7F2'` → `'#FAF6F1'`. Add a `paper.raised` (or `parchment.raised`) value of `#FFFDF8`. (Wine palette already canonical.) |
 | 7 | Region Resonances | (React) | `region-resonances/app/tailwind.config.js` | Identical to #6; the two Region tools stay byte-identical per the existing in-file comment. |
-| 8 | Wine Atlas | 3 | `wine atlas/index.html` | Tier 3 — dedicated session. Introduce `:root` with canonical tokens. Replace hard-coded values throughout. **Plus per Decisions 5 and 6**: migrate display font DM Serif Display → Cormorant Garamond, body font DM Sans → EB Garamond. Update Google Fonts `<link>` tag accordingly. |
+| 8 | Wine Atlas | 3 | `wine atlas/grand-cru-atlas/index.html` | ✅ Shipped (`2617c76`). Tier 3 — full token system introduced from scratch; canonical 10-token `:root`. Hard-coded values replaced with `var()` references; `#FAF8F5` paper drift revalued to canonical `#FAF6F1`. Typography migration per Decisions 5 and 6: DM Serif Display → Cormorant Garamond (3 uses), DM Sans → EB Garamond (7 uses). Google Fonts `<link>` tag updated. Grape category colours and local one-off decorative colours preserved unchanged. The largest single visual change of Pass 3. |
 | 9 | Tasterank Explorer | 3 | `tasterank-explorer/index.html` | Tier 3 — dedicated session. Introduce `:root` with canonical tokens. Replace hard-coded values. **Plus per Decision 6 only**: migrate display font DM Serif Display → Cormorant Garamond. **DM Sans body preserved** per Decision 5 — Tasterank Explorer is the only instrument-class Tool in the family, and DM Sans is its register signal. After Tier 3 it'll be the only leaf with Cormorant Garamond display + DM Sans body, which is the correct combination: visibly within the family, register distinct. |
 | 10 | Estate Atlas (font follow-up) | 2 | `estate-atlas/index.html` | Per Decision 6 (Question D resolved): migrate display font from "Cormorant" to "Cormorant Garamond". 17 font-family references in CSS plus the Google Fonts `<link>` tag. Small follow-up commit, separate from Tier 2 palette work which already shipped. |
 
@@ -291,10 +289,9 @@ likely 2 dedicated sessions.**
    across `tasterank-explorer` and `body-of-wine` (cross-repo links
    updated). Tasterank Explorer's README also gained the previously-
    missing Methods Primer entry in its Files table.
-7. **Tier 3 execution (Wine Atlas)** — introduce `:root` tokens, replace
-   hard-coded values throughout, plus typography migration
-   (DM Serif Display + DM Sans → Cormorant Garamond + EB Garamond)
-   per Decisions 5 and 6. Dedicated session.
+7. ✅ **Tier 3 execution (Wine Atlas)** — shipped 2026-05-09 (`2617c76`).
+   Full token system introduced from scratch; typography migrated to
+   family canonical per Decisions 5 and 6.
 8. **Tier 3 execution (Tasterank Explorer)** — introduce `:root` tokens,
    replace hard-coded values, plus display-only typography migration
    (DM Serif Display → Cormorant Garamond) per Decision 6. DM Sans body

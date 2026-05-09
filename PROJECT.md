@@ -424,6 +424,27 @@ matching.
 
 ### 2026-05-09
 
+- **Pass 3 Tier 3 — Wine Atlas (Grand Cru Atlas)** — the most
+  substantial single visual change of Pass 3. Token system introduced
+  from scratch (no prior `:root` block) with the canonical 10-token set
+  (`--wine`, `--wine-dark`, `--wine-light`, `--paper`, `--paper-raised`,
+  `--paper-deep`, `--ink`, `--ink-soft`, `--ink-muted`, `--border`).
+  Hard-coded values across the file replaced with `var()` references:
+  15 wine-red occurrences, 8 paper backgrounds (revalued from drift
+  `#FAF8F5` to canonical `#FAF6F1`), 7 borders, 4 raised-panel `#fff`
+  backgrounds (panel, search-results, reset-btn, atlas-footer);
+  4 `#fff` preserved for high-contrast use cases (button hover text,
+  SVG icon, hover state, map marker border for legibility against
+  varied map tiles). Typography migrated per Decisions 5 and 6: DM
+  Serif Display → Cormorant Garamond (3 display uses); DM Sans → EB
+  Garamond (7 body uses). Google Fonts `<link>` tag updated. Grape
+  variety category colours in the JS data structure preserved unchanged
+  (domain content, not style); local one-off decorative colours
+  (`#a86259` fleuron, `#d4a89a` button border, `#fdf6f0` reset-bar)
+  and local greys (`#222`–`#999`) preserved as too-local to deserve
+  canonical tokens. Eight of nine palette-bearing surfaces now
+  aligned. Wine Atlas now reads as a sibling volume to Estate Atlas.
+  Commit `2617c76` in `grand-cru-atlas`.
 - **Pass 3 PDF naming convention** — divergent PDF naming across the
   family resolved. Tasterank Explorer's five PDFs renamed from
   `TasteRank_Title_Case_With_Underscores.pdf` to
@@ -636,6 +657,26 @@ matching.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-09 — v0.13
+
+- Pass 3 Tier 3 (Wine Atlas / Grand Cru Atlas) shipped. Token system
+  introduced from scratch; typography migrated to family canonical
+  (Cormorant Garamond display + EB Garamond body) per Decisions 5 and 6.
+  Eight of nine palette-bearing surfaces aligned.
+- §6.3 (Pass 3 — visual harmonisation) remains open with one execution
+  item left: Tier 3 for Tasterank Explorer (full tokenisation + display
+  font migration only; DM Sans body preserved per Decision 5 as
+  instrument-class signal).
+- Discovered during deploy: the `wine atlas/` working directory contains
+  the actual git repo at a nested path (`wine atlas/grand-cru-atlas/`)
+  rather than directly. Worth flagging for a future cleanup session
+  (move repo up one level, or rename parent folder). Non-blocking.
+- Also noted: `wine atlas/grand-cru-atlas/The_Grand_Cru_Atlas.pdf`
+  uses `Title_Case_With_Underscores.pdf` naming, the same divergence
+  pattern we just fixed for Tasterank Explorer. Should be renamed to
+  family-canonical `lowercase-with-hyphens.pdf` form in a future small
+  follow-up.
 
 ### 2026-05-09 — v0.12
 
