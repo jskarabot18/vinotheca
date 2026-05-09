@@ -76,13 +76,13 @@ both faces, not as separate Tool and Study cards.
 | Maps | The Estate Atlas | `estate-atlas` | Live | The Estate *Atlas* | An Atlas of Vinotheca |
 | Maps | The Grand Cru Atlas | `grand-cru-atlas` | Live | The Grand Cru *Atlas* | An Atlas of Vinotheca |
 | Works → Tool | Grape Affinities | `tasterank-explorer` | Live | Grape *Affinities* | A Tool of Vinotheca |
-| Works → Study | *(paired study tbd)* | *(tbd)* | Not yet built — see §6 | — | A Study of Vinotheca |
+| Works → Study | The Body of Wine | *(tbd)* | Working title — to be built (§6.1) | The *Body* of Wine | A Study of Vinotheca |
 | Works → Tool | Region Affinities | `region-affinities` | Live | Region *Affinities* | A Tool of Vinotheca |
 | Works → Study | The Soul of Wine | `soul-of-wine` | Live | The *Soul* of Wine | A Study of Vinotheca |
 | Works → Tool | Winemaker Affinities | *(tbd)* | Forthcoming 2026 | Winemaker *Affinities* | A Tool of Vinotheca |
 | Works → Study | The Winemaker's Constellation | *(tbd)* | Forthcoming 2026 | The Winemaker's *Constellation* | A Study of Vinotheca |
-| Correspondence | Region Resonances | `region-resonances` | Live, but currently filed in Tools — to be moved | Region *Resonances* | A Correspondence of Vinotheca |
-| Correspondence | Grape Resonances | `grape-resonances` (tbd) | Planned — see §6.7 | Grape *Resonances* | A Correspondence of Vinotheca |
+| Correspondence | Region Resonances | `region-resonances` | Live | Region *Resonances* | A Correspondence of Vinotheca |
+| Correspondence | Grape Resonances | `grape-resonances` (tbd) | Planned — see §6.6 | Grape *Resonances* | A Correspondence of Vinotheca |
 | Reference | *(no leaves yet)* | `vinotheca-reference` | Repo to be created — empty for now | — | A Reference of Vinotheca |
 | Personal Codex | Codex Vini | `codex-vini` | Live | Codex *Vini* | A Codex of Vinotheca |
 
@@ -99,7 +99,7 @@ the panel subtitle and the documentation).
 
 | Work | Tool face | Study face |
 |------|-----------|-----------|
-| Grape similarity | Grape Affinities (live) | *(to be built — same format as Soul of Wine)* |
+| Grape similarity | Grape Affinities (live) | The Body of Wine (working title — to be built) |
 | Region kinship | Region Affinities (live) | The Soul of Wine (live) |
 | Winemaker kinship | Winemaker Affinities (forthcoming) | The Winemaker's Constellation (forthcoming) |
 
@@ -285,7 +285,7 @@ This frame has direct design consequences for every Correspondence tool:
   that isn't there.
 
 Region Resonances was the first Correspondence tool and established the
-input-feeling-out-place pattern. Grape Resonances (planned, see §6.7)
+input-feeling-out-place pattern. Grape Resonances (planned, see §6.6)
 extends the pattern to grape-as-output, completing the move from feeling
 to wine via region as the temperament-mediator. Future Correspondence
 tools, if any, should be designed to this character.
@@ -331,29 +331,26 @@ These workflow patterns have been found to work reliably:
 
 ## 6. Open questions and active tasks
 
-### 6.1 Active task — Move Region Resonances from Tools to Correspondence
-
-Per §1, Correspondence is the section for tools where the user provides
-input and receives a response. Region Resonances is the founding member.
-
-**Pending:** Update the parent Vinotheca page to file Region Resonances
-under Correspondence rather than Tools. Update Region Resonances's
-eyebrow from `A Tool of Vinotheca` to `A Correspondence of Vinotheca`.
-The repo name stays `region-resonances` (working name).
-
-### 6.2 To be built — The Grape Affinities study (paired study)
+### 6.1 To be built — The Body of Wine (paired study for Grape Affinities)
 
 Per §2, every Work has both a Tool face and a Study face. Grape
-Affinities is currently a Tool without its Study. The Study needs to be
-built using the same format as Soul of Wine: question, findings, why it
-matters, documents, method.
+Affinities is currently a Tool without its Study. The Study has a
+working title — **The Body of Wine** — completing the triptych of
+study titles (Body / Soul / Constellation), each naming a way of
+seeing wine: through the senses, through cultural identity, through
+the character of those who make it. The title is open to revision
+until the Study is built.
+
+The Study needs to be authored using the same format as Soul of Wine:
+question, findings, why it matters, documents, method.
 
 **Pending:**
-- Working title for the study (`[NEEDS NAME]`)
+- Confirm or revise the working title once the Study's argument has
+  been drafted in prose
 - Repo decision (separate repo, or part of `tasterank-explorer`?)
 - Content authoring
 
-### 6.3 To be built — `vinotheca-reference` repo
+### 6.2 To be built — `vinotheca-reference` repo
 
 Per §1 and §4.9–§4.10, Reference is its own section with its own repo.
 The repo `vinotheca-reference` is to be created. **No content yet** —
@@ -369,13 +366,13 @@ matching §4.3).
 - Decision on whether to include the foundation documents at launch or
   delay until they are ready for public release
 
-### 6.4 To be built — Winemaker's Constellation (study) and Winemaker Affinities (tool)
+### 6.3 To be built — Winemaker's Constellation (study) and Winemaker Affinities (tool)
 
 Forthcoming 2026. A 32-winemaker corpus is in preparation; a companion
 essay on method will follow. Until both exist, the third Work in the
 Vinotheca catalogue is incomplete.
 
-### 6.5 Pass 3 — visual harmonisation
+### 6.4 Pass 3 — visual harmonisation
 
 Deferred until at least the second study exists (per §4.7). Includes:
 
@@ -387,7 +384,7 @@ Deferred until at least the second study exists (per §4.7). Includes:
 - Decide whether atlases (DM Sans body) align with the Library body
   font (EB Garamond) or stay distinct
 
-### 6.6 Local cleanup — `documents_old/` folders
+### 6.5 Local cleanup — `documents_old/` folders
 
 The `documents_old/` folders in `tasterank-explorer`, `region-affinities`,
 and `region-resonances` (gitignored, local only) are rollback safety nets
@@ -395,7 +392,7 @@ from the documentation alignment session. Once Jure is confident in the
 new docs, these can be `rm -rf`'d locally — purely a local cleanup,
 nothing to commit.
 
-### 6.7 To be built — Grape Resonances (second Correspondence leaf)
+### 6.6 To be built — Grape Resonances (second Correspondence leaf)
 
 Per §1 and §4.11, Correspondence is the section where the user provides
 input and receives a compressed, oracular response. Region Resonances is
@@ -445,6 +442,40 @@ matching.
 ---
 
 ## 7. Recently completed (reverse chronological)
+
+### 2026-05-09
+
+- **Parent catalogue restructured to match §1 architecture** — the
+  parent Vinotheca page's Tools and Studies subsections were merged
+  into a single **Works** subsection, with three Work entries each
+  showing both faces side by side: *The Body of Wine* (Grape Affinities
+  live + study to be built), *The Soul of Wine* (Region Affinities live
+  + Soul of Wine live), *The Winemaker's Constellation* (Winemaker
+  Affinities and the Constellation, both forthcoming). New `.work`,
+  `.work-faces`, and `.work-face` CSS classes implement the paired-card
+  pattern; the existing `.instrument` pattern is retained for unpaired
+  entries (Maps, Correspondence, Codex). Closes the active task that
+  was tracked as §6.1 (move Region Resonances from Tools to
+  Correspondence) by completing the deeper restructure that task
+  pointed at.
+- **Region Resonances moved from Tools to Correspondence** — eyebrow
+  changed from `A Tool of Vinotheca` to `A Correspondence of Vinotheca`
+  in `app/src/components/Header.jsx`. The repo name stays
+  `region-resonances` (working name, per §3 — repo names are
+  infrastructure). Region Resonances is now the founding member of
+  the Correspondence subsection on the parent, sitting alongside
+  Grape Resonances (forthcoming, §6.6).
+- **"The Body of Wine" adopted as working title** for the unbuilt
+  Grape Affinities study, completing the triptych of study titles
+  (Body / Soul / Constellation) — each naming a way of seeing wine:
+  through the senses, through cultural identity, through the character
+  of those who make it. Title is open to revision until the Study is
+  written.
+- **Catalogue numerals renumbered i–viii** (was i–ix) — three pairs
+  collapsed into three Works.
+- **Introduction prose and Part I description rewritten** to enumerate
+  the four-section architecture (atlases / works / correspondence /
+  record) instead of the old Tools-and-Studies-and-Codex three.
 
 ### 2026-05-08
 
@@ -496,6 +527,32 @@ matching.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-09 — v0.4
+
+- §6.1 (Active task — Move Region Resonances from Tools to
+  Correspondence) closed: the work was completed in the same session and
+  is now recorded in §7. The deploy went further than §6.1's stated
+  scope by also restructuring the parent's Tools and Studies subsections
+  into a single Works subsection per §2 (paired Tool+Study entries) —
+  the original §6.1 had been written before §2's paired-Work model was
+  fully thought through, so closing §6.1 properly required completing
+  the §2-implied restructure as well. Subsequent §6 subsections
+  renumbered down by one (old §6.2 → §6.1, old §6.3 → §6.2, …, old §6.7
+  → §6.6).
+- §3 leaves table: Region Resonances row updated from "Live, but
+  currently filed in Tools — to be moved" to simply "Live"; the Grape
+  Work's Study row updated from `*(paired study tbd)*` to **The Body
+  of Wine** (working title) with wordmark The *Body* of Wine.
+- §3.1 Works pairings table: Body of Wine (working title) inserted as
+  the Study face for the grape similarity Work.
+- §6.1 (formerly §6.2) — *To be built — The Body of Wine*: section
+  retitled from "*The Grape Affinities study*" to "*The Body of Wine
+  (paired study for Grape Affinities)*", expanded with a paragraph on
+  the title's origin (the Body / Soul / Constellation triptych as three
+  ways of seeing wine — through the senses, through cultural identity,
+  through the character of those who make it), and pending items
+  refined.
 
 ### 2026-05-09 — v0.3
 
