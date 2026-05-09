@@ -424,6 +424,21 @@ matching.
 
 ### 2026-05-09
 
+- **Pass 3 Tier 1 executed** — three of nine palette-bearing surfaces
+  brought into family-canonical alignment for paper tokens.
+  *Body of Wine* (`f8e23b0`): renamed `--cream` → `--paper`, added
+  `--paper-raised: #FFFDF8`, switched five raised-panel backgrounds
+  from `var(--white)` to `var(--paper-raised)`. *Soul of Wine*
+  (`c578109`): identical token-system changes, kept byte-identical to
+  Body of Wine; differs only in number of raised-panel uses (seven,
+  not five — Soul of Wine has more card sections). *Codex Vini*
+  (`cbcd2d8`): single value swap `--paper: #FAF6EF` → `#FAF6F1`. The
+  Studies' `--white` token preserved for one specific use each (the
+  "Open PDF" button text — high-contrast white on wine-red,
+  explicitly preserved per PASS3_SPEC.md Decision 3). Per
+  PASS3_SPEC.md, six leaves remain (Tier 2: Vinotheca + Estate Atlas;
+  React: Region Affinities + Region Resonances; Tier 3: Wine Atlas +
+  Tasterank Explorer).
 - **Pass 3 Phase 2 spec written** — the visual-harmonisation work
   unblocked by the Body of Wine deploy was scoped, harvested, and
   partially decided in a single session. All nine palette-bearing
@@ -551,6 +566,16 @@ matching.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-09 — v0.8
+
+- Pass 3 Tier 1 executed across three repos. No structural changes
+  to PROJECT.md; §6.3 (Pass 3 — visual harmonisation) remains open
+  with six of nine surfaces still to align. The work is recorded in §7.
+- Per PASS3_SPEC.md's recommended sequence, the next execution
+  session is Tier 2 (Vinotheca parent + Estate Atlas) — the leaves
+  with non-canonical token names that need renaming alongside
+  value swaps.
 
 ### 2026-05-09 — v0.7
 
