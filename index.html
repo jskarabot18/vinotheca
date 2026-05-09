@@ -365,6 +365,155 @@
     margin-top: 18px;
   }
 
+  /* ---- Work entries (paired Tool + Study, one entry per Work) ---- */
+
+  .work {
+    margin-bottom: 72px;
+    position: relative;
+  }
+
+  .work:last-child {
+    margin-bottom: 0;
+  }
+
+  .work-numeral {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  h3.work-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 34px;
+    margin-bottom: 10px;
+    line-height: 1.2;
+    letter-spacing: 0.005em;
+    color: var(--ink);
+  }
+
+  h3.work-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .work-kicker {
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 19px;
+    margin-bottom: 20px;
+  }
+
+  .work-body {
+    color: var(--ink-soft);
+    margin-bottom: 32px;
+  }
+
+  .work-faces {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    border-top: 1px solid var(--rule);
+    padding-top: 28px;
+  }
+
+  .work-face {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .face-label {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  h4.face-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.25;
+    letter-spacing: 0.005em;
+    margin-bottom: 8px;
+  }
+
+  h4.face-title a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s, color 0.3s;
+  }
+
+  h4.face-title a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  h4.face-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  h4.face-title .arrow {
+    font-size: 15px;
+    color: var(--ink-faint);
+    margin-left: 3px;
+    vertical-align: 1px;
+  }
+
+  .face-meta {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .face-link {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-soft);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+    align-self: flex-start;
+    margin-top: auto;
+  }
+
+  .face-link:hover {
+    color: var(--accent-soft);
+    border-bottom-color: var(--accent);
+  }
+
+  .work-face.forthcoming h4.face-title,
+  .work-face.tbd h4.face-title {
+    color: var(--ink-faint);
+  }
+
+  .face-status {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-faint);
+    margin-top: auto;
+  }
+
+  .face-status .status-badge {
+    font-size: 9px;
+    padding: 3px 8px;
+    margin-left: 0;
+    margin-right: 8px;
+    vertical-align: 2px;
+  }
+
   /* ---- Section intro paragraph (all three sections) ---- */
 
   .section-intro {
@@ -579,6 +728,8 @@
     h1.title { font-size: 64px; }
     h2.section { font-size: 30px; }
     h3.instrument-title { font-size: 26px; }
+    h3.work-title { font-size: 26px; }
+    .work-faces { grid-template-columns: 1fr; gap: 32px; }
     .stanza-original { font-size: 17px; }
     .stanza-translation { font-size: 16px; }
     body { font-size: 18px; }
@@ -600,6 +751,7 @@
     .tagline { font-size: 19px; }
     h2.section { font-size: 33px; }
     h3.instrument-title { font-size: 30px; }
+    h3.work-title { font-size: 30px; }
     .instrument-kicker { font-size: 18px; }
     .stanza-original { font-size: 17px; }
     .stanza-translation { font-size: 16px; }
@@ -720,7 +872,7 @@
 
     <p>The wine world is full of scores and full of prose, but surprisingly short of works that help <em>see patterns</em> and <em>find connections</em>. The works collected here try to fill that gap. Each one answers a specific question a wine-curious person asks: where are the great sites for the grape I love; which lesser-known varieties are likely to win me over next; why do some regions on opposite sides of the world feel like cousins; which shared traits of character link winemakers across continents?</p>
 
-    <p>An atlas of <em>vineyards</em> and an atlas of the <em>estates</em> behind them. Instruments for moving through grape and winemaker <em>affinity</em>. A study of how regions share  <em>character</em> across distance, and a reading of winemakers as <em>fellow travellers</em>. And, held apart from the rest, a personal <em>record</em> of wines tasted. Maps where maps help; charts where charts help; language where neither will do.</p>
+    <p>Atlases that <em>locate</em> the wine world; works that pair an instrument with the study behind it, each turning the same question over twice — once as a tool you use, once as an argument you read; and a quieter section, <em>Correspondence</em>, where you bring a word or a feeling and receive a small offering in return. Held apart from these, a personal <em>record</em> of wines tasted. Maps where maps help; charts where charts help; language where neither will do.</p>
   </section>
 
   <!-- ========== PART ONE — The Common Library ========== -->
@@ -731,7 +883,7 @@
       <div class="part-ornament">❧</div>
       <h2 class="part-title">The Library</h2>
       <div class="part-description">
-        Reference works, tools, and studies that describe the wine world as it is.
+        Atlases, works, and correspondences that describe the wine world as it is.
       </div>
     </div>
 
@@ -772,103 +924,146 @@
 
     <div class="subsection-divider">· · ·</div>
 
-    <!-- ===== Sub-section: Tools ===== -->
-    <div class="subsection tools-subsection">
+    <!-- ===== Sub-section: Works ===== -->
+    <div class="subsection works-subsection">
       <div class="subsection-header">
-        <h3 class="subsection-title">Tools</h3>
-        <div class="subsection-subtitle">Instruments for navigating the wine world</div>
+        <h3 class="subsection-title">Works</h3>
+        <div class="subsection-subtitle">Paired tools and studies</div>
         <span class="subsection-gloss">
-          Three instruments for moving through similarity structures built from careful evidence. One helps you move through grape space by sensory affinity; one through region space by cultural identity and terroir; the third, through winemaker space by character affinity.
+          Three works, each with two faces: an interactive instrument you can use, and the intellectual study behind it. The body of wine — its sensory grammar, read across grape varieties. The soul of wine — its cultural identity, read across regions. The constellation of wine — its character, read across the people who make it.
           <br><br>
-          Each instrument here measures wine differently than the inherited categories do. Where the wine trade groups things by grape variety, region of origin, or vintage year, these tools group by similarity of sensory profile, cultural identity, or character — and surface where the two views disagree. The argument behind all of them is that what makes a wine itself is more interesting than what makes it eligible for a particular shelf.
+          The two faces of a Work are the same question turned over twice. The Tool lets you move through the structure; the Study makes the argument that the structure is real. Each Work shares its supporting documents across both faces.
         </span>
       </div>
 
-      <!-- iii. Grape Affinities (renamed from TasteRank Explorer) -->
-      <div class="instrument">
-        <div class="instrument-numeral">iii.</div>
-        <h3 class="instrument-title">
-          <a href="https://jskarabot18.github.io/tasterank-explorer/">Grape <em>Affinities</em> <span class="arrow">↗</span></a>
-        </h3>
-        <div class="instrument-kicker">A map of how grape varieties relate to one another.</div>
-        <p class="instrument-body">If you love Nebbiolo, which lesser-known grape is likely to win you over next? If Syrah from Côte-Rôtie is a fixed point on your map, what else should you be exploring? Grape Affinities plots wine varieties as a network — each grape a node, each connection a shared sensory signature — and lets you wander the constellations. Six natural neighborhoods emerge from the data: the floral aromatics, the dark structural reds, the mineral whites, and three others waiting to be found. Built on the <em>TasteRank</em> algorithm, a careful measure of how each variety's sensory character compares to every other.</p>
-        <div class="instrument-meta">101 varieties · 341 connections · 6 families</div>
-        <a href="https://jskarabot18.github.io/tasterank-explorer/" class="instrument-link">Open the network →</a>
+      <!-- iii. Body of Wine — grapes -->
+      <div class="work">
+        <div class="work-numeral">iii.</div>
+        <h3 class="work-title">The <em>Body</em> of Wine</h3>
+        <div class="work-kicker">The sensory grammar of wine, read across the grape varieties of the world.</div>
+        <p class="work-body">If Nebbiolo is a fixed point on your map, what else should you be exploring? If you love the floral aromatics, which lesser-known grapes carry the same signature? The Tool plots wine varieties as a network — each grape a node, each connection a shared sensory signature — and lets you wander the natural neighbourhoods that emerge: the floral aromatics, the dark structural reds, the mineral whites, and three others. The Study, in turn, asks why the inherited categories of red and white, Old World and New, miss most of what is interesting about how wines actually relate. Built on the <em>TasteRank</em> algorithm, a careful measure of how each variety's sensory character compares to every other.</p>
+
+        <div class="work-faces">
+          <div class="work-face tool">
+            <div class="face-label">Tool</div>
+            <h4 class="face-title">
+              <a href="https://jskarabot18.github.io/tasterank-explorer/">Grape <em>Affinities</em> <span class="arrow">↗</span></a>
+            </h4>
+            <div class="face-meta">101 varieties · 341 connections · 6 families</div>
+            <a href="https://jskarabot18.github.io/tasterank-explorer/" class="face-link">Open the network →</a>
+          </div>
+
+          <div class="work-face study tbd">
+            <div class="face-label">Study</div>
+            <h4 class="face-title">
+              The <em>Body</em> of Wine
+            </h4>
+            <div class="face-meta">Working title · To be written</div>
+            <div class="face-status">
+              <span class="status-badge forthcoming">In preparation</span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- iv. Region Affinities -->
-      <div class="instrument">
-        <div class="instrument-numeral">iv.</div>
-        <h3 class="instrument-title">
-          <a href="https://jskarabot18.github.io/region-affinities/">Region <em>Affinities</em> <span class="arrow">↗</span></a>
-        </h3>
-        <div class="instrument-kicker">A map of how wine regions relate to one another — twice over, once by identity and once by terroir.</div>
-        <p class="instrument-body">If Burgundy is your fixed point, which other regions are its kin in cultural temperament — and which are its kin in soil and climate? Region Affinities is the interactive surface for The Soul of Wine: fifty-nine wine regions across two independent classification systems, side by side. Hover any region to see its kin in both systems light up at once. The companion to a study whose central finding is that the two systems do not agree — that the map is not the soul, and that the disagreement is where the good wine stories live.</p>
-        <div class="instrument-meta">59 regions · 6 identities · 7 terroir families</div>
-        <a href="https://jskarabot18.github.io/region-affinities/" class="instrument-link">Open the tool →</a>
+      <!-- iv. Soul of Wine — regions -->
+      <div class="work">
+        <div class="work-numeral">iv.</div>
+        <h3 class="work-title">The <em>Soul</em> of Wine</h3>
+        <div class="work-kicker">The cultural identity of wine, read across fifty-nine regions of the world.</div>
+        <p class="work-body">Alsace and Santa Barbara grow some of the same grapes on cool slopes near cool water, yet they could not feel more different: one rooted in centuries of inheritance and tradition, the other young, inventive, still writing its own story. The Tool offers fifty-nine wine regions across two independent classification systems — identity and terroir — side by side; hover any region to see its kin in both systems light up at once. The Study makes the argument behind the surface: that the two systems do not agree, that the map is not the soul, and that the disagreement is where the good wine stories live.</p>
+
+        <div class="work-faces">
+          <div class="work-face tool">
+            <div class="face-label">Tool</div>
+            <h4 class="face-title">
+              <a href="https://jskarabot18.github.io/region-affinities/">Region <em>Affinities</em> <span class="arrow">↗</span></a>
+            </h4>
+            <div class="face-meta">59 regions · 6 identities · 7 terroir families</div>
+            <a href="https://jskarabot18.github.io/region-affinities/" class="face-link">Open the tool →</a>
+          </div>
+
+          <div class="work-face study">
+            <div class="face-label">Study</div>
+            <h4 class="face-title">
+              <a href="https://jskarabot18.github.io/soul-of-wine/">The <em>Soul</em> of Wine <span class="arrow">↗</span></a>
+            </h4>
+            <div class="face-meta">59 regions · 16 countries · 6 identities</div>
+            <a href="https://jskarabot18.github.io/soul-of-wine/" class="face-link">Open the study →</a>
+          </div>
+        </div>
       </div>
 
-      <!-- v. Region Resonances -->
-      <div class="instrument">
-        <div class="instrument-numeral">v.</div>
-        <h3 class="instrument-title">
-          <a href="https://jskarabot18.github.io/region-resonances/">Region <em>Resonances</em> <span class="arrow">↗</span></a>
-        </h3>
-        <div class="instrument-kicker">A way into the soul of fifty-nine regions through the language of feeling.</div>
-        <p class="instrument-body">If a region's identity is a single word — Burgundy as devotion, Tokaj as melancholy, Santorini as survival — then the question turns naturally inward: what is your word, and where does it live? Region Resonances reads the Identity narratives of fifty-nine regions and matches them by semantic embedding, so a feeling like "old soul" or "stubborn quiet" finds the regions whose souls already carry it. The felt companion to Region Affinities — where Affinities is the structural map, Resonances is the kindred one.</p>
-        <div class="instrument-meta">59 regions · 6 identities · Semantic kinship</div>
-        <a href="https://jskarabot18.github.io/region-resonances/" class="instrument-link">Open the tool →</a>
-      </div>
+      <!-- v. Winemaker's Constellation — winemakers -->
+      <div class="work">
+        <div class="work-numeral">v.</div>
+        <h3 class="work-title">The Winemaker's <em>Constellation</em></h3>
+        <div class="work-kicker">The character of wine, read across the people who make it.</div>
+        <p class="work-body">Some winemakers who have never met, work with different grapes, and live on different continents share a worldview — a way of talking about craft, terroir, tradition, and risk that marks them as quiet kin. The Tool lets a visitor pick a figure and see who stands close to them in character, with the textual evidence that puts them near each other. The Study reads the words winemakers and careful observers use, and surfaces the small communities of shared character that run beneath the map of regions and grapes. A prototype corpus of thirty-two winemakers is in preparation; a companion essay on method will follow.</p>
 
-      <!-- vi. Winemaker Affinities (placeholder) -->
-      <div class="instrument forthcoming">
-        <div class="instrument-numeral">vi.</div>
-        <h3 class="instrument-title">
-          Winemaker <em>Affinities</em>
-          <span class="status-badge forthcoming">Forthcoming</span>
-        </h3>
-        <div class="instrument-kicker">A way into the Winemaker's Constellation, one figure at a time.</div>
-        <p class="instrument-body">Pick a winemaker; see who stands close to them in character, and why, with the textual evidence that puts them near each other. The navigable form of the Winemaker's Constellation — the tool that makes the Constellation's geometry usable. Where the Constellation makes the argument and shows the method, this instrument lets a visitor ask a single, concrete question: <em>who else thinks like this?</em></p>
-        <div class="instrument-meta">Kinship queries · Textual evidence · Companion to the Constellation</div>
-        <div class="in-progress-note">Coming in 2026.</div>
+        <div class="work-faces">
+          <div class="work-face tool forthcoming">
+            <div class="face-label">Tool</div>
+            <h4 class="face-title">
+              Winemaker <em>Affinities</em>
+            </h4>
+            <div class="face-meta">Kinship queries · Textual evidence</div>
+            <div class="face-status">
+              <span class="status-badge forthcoming">Forthcoming</span>Coming in 2026.
+            </div>
+          </div>
+
+          <div class="work-face study forthcoming">
+            <div class="face-label">Study</div>
+            <h4 class="face-title">
+              The Winemaker's <em>Constellation</em>
+            </h4>
+            <div class="face-meta">32 winemakers · Textual kinship · Companion essay</div>
+            <div class="face-status">
+              <span class="status-badge forthcoming">Forthcoming</span>Coming in 2026.
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
 
     <div class="subsection-divider">· · ·</div>
 
-    <!-- ===== Sub-section: Studies ===== -->
-    <div class="subsection studies-subsection">
+    <!-- ===== Sub-section: Correspondence ===== -->
+    <div class="subsection correspondence-subsection">
       <div class="subsection-header">
-        <h3 class="subsection-title">Studies</h3>
-        <div class="subsection-subtitle">Arguments about what wine is</div>
+        <h3 class="subsection-title">Correspondence</h3>
+        <div class="subsection-subtitle">Bring a word, receive an offering</div>
         <span class="subsection-gloss">
-          Two studies that make specific intellectual claims: one about how wine regions acquire their cultural identity, one about how winemakers inherit and share kin in character.
+          Two oracles, in the classical sense — instruments of self-recognition where you bring a word, a phrase, a feeling, and receive a small, considered response against which your own situation becomes legible. The framework underneath makes the recognition non-arbitrary; the compression of the response is what makes the recognition possible.
+          <br><br>
+          Correspondence tools are not search engines and not recommenders. They give back fewer answers than you might expect, and they pause to let you decide whether the answer fits.
         </span>
       </div>
 
-      <!-- vii. Soul of Wine -->
+      <!-- vi. Region Resonances -->
       <div class="instrument">
-        <div class="instrument-numeral">vii.</div>
+        <div class="instrument-numeral">vi.</div>
         <h3 class="instrument-title">
-          <a href="https://jskarabot18.github.io/soul-of-wine/">The Soul of <em>Wine</em> <span class="arrow">↗</span></a>
+          <a href="https://jskarabot18.github.io/region-resonances/">Region <em>Resonances</em> <span class="arrow">↗</span></a>
         </h3>
-        <div class="instrument-kicker">Why two regions on opposite continents can feel like the same place.</div>
-        <p class="instrument-body">Alsace and Santa Barbara grow some of the same grapes on cool slopes near cool water, yet they could not feel more different: one rooted in centuries of inheritance and tradition, the other young, inventive, still writing its own story. Fifty-nine regions in sixteen countries, each one portrayed twice: once by its land, once by its spirit. The two portraits don't agree, and that disagreement is where the good wine stories live. Six distinct ways a wine region can have a soul.</p>
-        <div class="instrument-meta">59 regions · 16 countries · 6 identities</div>
-        <a href="https://jskarabot18.github.io/soul-of-wine/" class="instrument-link">Open the study →</a>
+        <div class="instrument-kicker">A way into the soul of fifty-nine regions through the language of feeling.</div>
+        <p class="instrument-body">If a region's identity is a single word — Burgundy as devotion, Tokaj as melancholy, Santorini as survival — then the question turns naturally inward: what is your word, and where does it live? Region Resonances reads the Identity narratives of fifty-nine regions and matches them by semantic embedding, so a feeling like "old soul" or "stubborn quiet" finds the regions whose souls already carry it. The felt companion to Region Affinities — where Affinities is the structural map, Resonances is the kindred one.</p>
+        <div class="instrument-meta">59 regions · 6 identities · Semantic kinship</div>
+        <a href="https://jskarabot18.github.io/region-resonances/" class="instrument-link">Open the oracle →</a>
       </div>
 
-      <!-- viii. Winemaker's Constellation (refined) -->
-      <div class="instrument in-progress">
-        <div class="instrument-numeral">viii.</div>
+      <!-- vii. Grape Resonances (placeholder) -->
+      <div class="instrument forthcoming">
+        <div class="instrument-numeral">vii.</div>
         <h3 class="instrument-title">
-          The Winemaker's <em>Constellation</em>
+          Grape <em>Resonances</em>
           <span class="status-badge forthcoming">Forthcoming</span>
         </h3>
-        <div class="instrument-kicker">Kinship of character among winemakers, read from the text.</div>
-        <p class="instrument-body">Some winemakers who have never met, work with different grapes, and live on different continents share a worldview — a way of talking about craft, terroir, tradition, and risk that marks them as quiet kin. The Constellation reads the words winemakers and careful observers use, and surfaces the small communities of shared character that run beneath the map of regions and grapes. A prototype corpus of thirty-two winemakers is in preparation; a companion essay on method will follow. The Constellation is the argument and the method; its sibling instrument, <em>Winemaker Affinities</em>, will be its navigable form.</p>
-        <div class="instrument-meta">32 winemakers · Textual kinship · Companion essay</div>
+        <div class="instrument-kicker">A way into the soul of wine through the language of feeling, answered in grapes.</div>
+        <p class="instrument-body">If Region Resonances asks <em>where</em> a feeling lives, Grape Resonances asks <em>what to drink with it</em>. Type a word, a phrase, a situation — <em>brotherhood, falling deeply in love, deciding whether to move across the country</em> — and receive one to four grapes whose character carries the same weather. The framework underneath is the same fifty-nine region narratives that ground Region Resonances, mediated through the temperaments those regions express; the response is compressed by design, an oracle's restraint rather than a recommender's plenty.</p>
+        <div class="instrument-meta">~100 grapes · Region-mediated · Compressed by design</div>
         <div class="in-progress-note">Coming in 2026.</div>
       </div>
 
@@ -894,9 +1089,9 @@
       </div>
     </div>
 
-    <!-- ix. Codex Vini -->
+    <!-- viii. Codex Vini -->
     <div class="instrument">
-      <div class="instrument-numeral">ix.</div>
+      <div class="instrument-numeral">viii.</div>
       <h3 class="instrument-title">
         <a href="https://jskarabot18.github.io/codex-vini/">Codex <em>Vini</em> <span class="arrow">↗</span></a>
       </h3>
