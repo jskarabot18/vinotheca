@@ -7,12 +7,15 @@ panel treatment, and consistent token naming across static and React leaves.
 This document is the canonical Pass 3 specification. Future execution sessions
 work from it; PROJECT.md §6.3 links to it as the authoritative reference.
 
-**Status**: spec written; Tier 1 executed (3 leaves) and Tier 2 executed
-(2 leaves) on 2026-05-09. Remaining: React leaves (2), Tier 3 leaves (2),
-hard-questions session, PDF naming.
+**Status**: spec complete; all six Phase 2 + Phase 3 decisions resolved.
+Tier 1 + Tier 2 + React execution shipped (7 of 9 surfaces). Remaining:
+Estate Atlas font alignment (small follow-up), PDF naming convention,
+and Tier 3 leaves (Wine Atlas, Tasterank Explorer) — each a dedicated
+session, now unblocked by Decisions 5 and 6.
 **Origin**: PROJECT.md §6.3, unblocked by Body of Wine deploy (2026-05-09).
-**Spec date**: 2026-05-09 (Phase 2 decisions). Updated 2026-05-09 with
-Tier 2 execution learnings.
+**Spec date**: 2026-05-09 (Phase 2). Updated 2026-05-09 with Tier 1+2
+execution learnings. Updated 2026-05-09 with Decisions 5 and 6 from the
+hard-questions session.
 
 ---
 
@@ -190,6 +193,58 @@ Plus a global find-replace within `vinotheca/index.html`:
 - `var(--accent)` → `var(--wine)`
 - `var(--accent-soft)` → `var(--wine-light)`
 
+### Decision 5 — Body fonts are artefact-class-distinguished
+
+Different artefact classes get different body fonts to signal what
+register of engagement the reader is encountering:
+
+| Class | Body font | Members |
+|---|---|---|
+| Reading work (Library, atlases, reference) | EB Garamond | Vinotheca (parent), Estate Atlas, Wine Atlas (after migration), Region Affinities, Region Resonances |
+| Study (research-paper register) | Source Sans 3 | Body of Wine, Soul of Wine |
+| Tool (interactive instrument) | DM Sans | Tasterank Explorer |
+| Personal Codex (Part II) | DM Sans | Codex Vini |
+
+The pattern: when a reader walks from the parent (book serif) to a
+Study (research sans) to Tasterank Explorer (interactive sans), the
+visual shift signals *you're now in a different mode of engagement* —
+even when the content domain is shared. Region Affinities and Region
+Resonances are interactive but reference-style: you browse them like
+atlases, so they sit on the Library side. Tasterank Explorer is the
+only genuinely instrumental tool in the family — its force-directed
+network visualization is its core experience — and DM Sans signals
+that.
+
+Codex Vini's DM Sans body is preserved as the typographic signature
+of Part II, structurally distinct from Library / Study / Tool per §1.
+
+**Concrete migration required**: Wine Atlas (currently DM Sans body)
+→ EB Garamond. Part of Tier 3 work.
+
+### Decision 6 — Display fonts unify the family
+
+Cormorant Garamond is the canonical display font across the entire
+family, including atlases and the Codex. Display fonts encode *family
+identity*; body fonts encode *register*. Together they form a clean
+two-axis system:
+
+- **Display** (Cormorant Garamond, family-wide): you are inside Vinotheca
+- **Body** (varies by class per Decision 5): this artefact's mode of engagement
+
+Without a shared display font the family would visually fragment.
+The shared display is the through-line that ties parent to atlases
+to studies to Codex to tools.
+
+**Concrete migrations required**:
+- Estate Atlas's "Cormorant" → "Cormorant Garamond" (17 references plus
+  the Google Fonts `<link>` tag). Estate Atlas's deliberate choice of
+  the more austere "Cormorant" cut predates the family pattern; with
+  Stance X locked in, alignment is the right call.
+- Wine Atlas's DM Serif Display → Cormorant Garamond. Part of Tier 3.
+- Tasterank Explorer's DM Serif Display → Cormorant Garamond. Part of
+  Tier 3. Note: only the *display* font migrates; Tasterank Explorer's
+  DM Sans body is preserved per Decision 5 as instrument-class signal.
+
 ---
 
 ## Execution change list
@@ -206,8 +261,9 @@ worth of careful editing.
 | 5 | Estate Atlas | 2 | `estate-atlas/index.html` | ✅ Shipped (Tier 2). `:root`: change `--wine: #6e1f2a` → `#7B2D26`. Change `--paper: #f5efe6` → `#FAF6F1`. Add `--wine-dark: #5A1F1A`, `--paper-raised: #FFFDF8`. **Correction from original spec**: Estate Atlas had `--wine-soft: #8a3a44` (not noted in original spec), renamed to `--wine-light: #A04038` with same-step value change; `var(--wine-soft)` → `var(--wine-light)` global find-replace (3 uses). Also updated `--pin-shadow: rgba(110, 31, 42, 0.35)` → `rgba(123, 45, 38, 0.35)` to track the new wine value. **Display font deferred**: 17 deliberate uses of "Cormorant" preserved for Question D (see deferred decisions). |
 | 6 | Region Affinities | (React) | `region-affinities/tailwind.config.js` | `parchment.DEFAULT: '#FAF7F2'` → `'#FAF6F1'`. Add a `paper.raised` (or `parchment.raised`) value of `#FFFDF8`. (Wine palette already canonical.) |
 | 7 | Region Resonances | (React) | `region-resonances/app/tailwind.config.js` | Identical to #6; the two Region tools stay byte-identical per the existing in-file comment. |
-| 8 | Wine Atlas | 3 | `wine atlas/index.html` | Defer to dedicated Tier 3 session. Introduce `:root` with canonical tokens, replace hard-coded values throughout. |
-| 9 | Tasterank Explorer | 3 | `tasterank-explorer/index.html` | Same as #8. Defer to dedicated Tier 3 session. |
+| 8 | Wine Atlas | 3 | `wine atlas/index.html` | Tier 3 — dedicated session. Introduce `:root` with canonical tokens. Replace hard-coded values throughout. **Plus per Decisions 5 and 6**: migrate display font DM Serif Display → Cormorant Garamond, body font DM Sans → EB Garamond. Update Google Fonts `<link>` tag accordingly. |
+| 9 | Tasterank Explorer | 3 | `tasterank-explorer/index.html` | Tier 3 — dedicated session. Introduce `:root` with canonical tokens. Replace hard-coded values. **Plus per Decision 6 only**: migrate display font DM Serif Display → Cormorant Garamond. **DM Sans body preserved** per Decision 5 — Tasterank Explorer is the only instrument-class Tool in the family, and DM Sans is its register signal. After Tier 3 it'll be the only leaf with Cormorant Garamond display + DM Sans body, which is the correct combination: visibly within the family, register distinct. |
+| 10 | Estate Atlas (font follow-up) | 2 | `estate-atlas/index.html` | Per Decision 6 (Question D resolved): migrate display font from "Cormorant" to "Cormorant Garamond". 17 font-family references in CSS plus the Google Fonts `<link>` tag. Small follow-up commit, separate from Tier 2 palette work which already shipped. |
 
 **Tier 1+2 execution = 5 leaves, ~75–90 minutes total spread across two
 sessions.** **React execution = 2 leaves, ~30 minutes.** **Tier 3 = 2 leaves,
@@ -217,102 +273,82 @@ likely 2 dedicated sessions.**
 
 ## Recommended session sequence
 
-1. **Tier 1 execution** — Body of Wine, Soul of Wine, Codex Vini. Three
-   leaves, all already correct in value or close to it. Likely the
-   simplest session.
-2. **Tier 2 execution** — Vinotheca, Estate Atlas. Token renames plus value
-   swaps. More careful work because of global find-replace.
-3. **React execution** — Region Affinities, Region Resonances. Tailwind
-   config edits plus verification that components still render correctly
-   in the live React build pipeline (1–3 min deploy each, then visual
-   walk-through).
-4. **Hard-questions session** — body font, atlas distinctness, Codex
-   differentiation depth. *No code changes; outcome is decisions added
-   to this spec as Decisions 5–7.*
-5. **Tier 3 execution (Wine Atlas)** — introduce token system, replace
-   hard-coded values, verify deployment.
-6. **Tier 3 execution (Tasterank Explorer)** — same approach as Wine Atlas.
-7. **PDF naming convention** — settle the divergent naming (Soul of Wine
-   uses `lowercase-with-hyphens.pdf`; Tasterank Explorer uses
-   `TasteRank_Title_Case_With_Underscores.pdf`). Tiny session.
+1. ✅ **Tier 1 execution** — Body of Wine, Soul of Wine, Codex Vini.
+   Shipped 2026-05-09 (`f8e23b0`, `c578109`, `cbcd2d8`).
+2. ✅ **Tier 2 execution** — Vinotheca, Estate Atlas. Shipped 2026-05-09.
+3. ✅ **React execution** — Region Affinities, Region Resonances.
+   Shipped 2026-05-09.
+4. ✅ **Hard-questions session** — Decisions 5 and 6 resolved 2026-05-09.
+   No code changes from the session itself; Decisions 5 and 6 ripple
+   into the remaining execution work below.
+5. **Estate Atlas font follow-up** — small commit per Decision 6
+   (Question D resolved): "Cormorant" → "Cormorant Garamond" across 17
+   font-family references plus the Google Fonts `<link>` tag.
+6. **PDF naming convention** — settle the divergent naming (Soul of
+   Wine uses `lowercase-with-hyphens.pdf`; Tasterank Explorer uses
+   `TasteRank_Title_Case_With_Underscores.pdf`). Coordinated commits
+   across `tasterank-explorer/` (rename PDFs) and `body-of-wine/`
+   (update cross-repo links).
+7. **Tier 3 execution (Wine Atlas)** — introduce `:root` tokens, replace
+   hard-coded values throughout, plus typography migration
+   (DM Serif Display + DM Sans → Cormorant Garamond + EB Garamond)
+   per Decisions 5 and 6. Dedicated session.
+8. **Tier 3 execution (Tasterank Explorer)** — introduce `:root` tokens,
+   replace hard-coded values, plus display-only typography migration
+   (DM Serif Display → Cormorant Garamond) per Decision 6. DM Sans body
+   preserved per Decision 5. Dedicated session.
 
-After step 7, Pass 3 is complete and §6.3 closes.
+After step 8, Pass 3 is complete and §6.3 closes.
 
 ---
 
-## Deferred questions (Phase 3 — hard decisions)
+## Deferred questions — resolved 2026-05-09
 
-These are explicitly NOT settled by this spec. They will become
-Decisions 5–7 once the project is ready to address them.
+The four deferred hard questions were resolved in a dedicated session
+after Tier 1, Tier 2, and React execution had shipped. Each question's
+resolution is captured below for the historical record.
 
 ### Question A — Body font canonical
 
-EB Garamond (5 leaves: Vinotheca, Estate Atlas, Region Affinities, Region
-Resonances, plus implicit on the parent's prose) vs. Source Sans 3 (2
-leaves: Body of Wine, Soul of Wine) vs. preserve distinction by
-artefact-class (atlases use DM, studies use Source Sans 3, library uses
-EB Garamond).
+**Resolved**: Decision 5. Body fonts are artefact-class-distinguished.
+- Reading work (Library, atlases, reference): EB Garamond
+- Study: Source Sans 3
+- Tool (interactive instrument): DM Sans
+- Personal Codex (Part II): DM Sans
 
-The choice has the largest visual consequence of any Pass 3 decision.
-Probably best made in a session where leaves are walked side by side and
-the experiential difference between font choices is felt rather than
-specified.
+Three sub-questions resolved within Decision 5:
+- A.1 Region pair: keeps EB Garamond (atlas-style tools)
+- A.2 Wine Atlas: migrates DM Sans → EB Garamond
+- A.3 Tasterank Explorer: keeps DM Sans (instrument register)
 
 ### Question B — Atlas distinctness policy
 
-Wine Atlas uses DM Serif Display + DM Sans, distinguishing it visually
-from the Library family. Two readings:
-
-- *Preserve* — atlases are a different *kind* of artefact (map-class)
-  and visual distinction encodes that classification.
-- *Align* — Pass 3's purpose is family unity; Wine Atlas should adopt
-  the canonical fonts.
-
-Same question applies to Tasterank Explorer (uses the same DM fonts as
-Wine Atlas), though Tasterank Explorer is a Tool, not an atlas — so the
-question there is whether tools-with-heavy-visualisation should look
-different from prose-heavy tools.
+**Resolved**: Decision 6. Stance X — display fonts unify the family,
+body fonts distinguish classes. Atlases share Cormorant Garamond display
+with the rest of the Library. Wine Atlas's DM Serif Display migrates
+to Cormorant Garamond. Atlas-class signal is encoded in body font
+(EB Garamond, Reading-work register) rather than display font.
 
 ### Question C — Codex Vini differentiation depth
 
-Decision 1 already preserves Codex's `--bordeaux` wine value. Decision 2
-brings Codex's paper closer to canonical (one hex unit). The remaining
-question: how *much* visual distinctness should Part II maintain from
-Part I (the Library)? Possible positions:
+**Resolved**: Stance X (Decision 6) preserves Codex's existing
+distinctness — `--bordeaux`, slightly cooler paper, `--rule-soft`,
+`--gold`, DM Sans body — as deliberate Codex signature. The display
+font (already Cormorant Garamond) keeps Codex within the family's
+visual through-line. Codex emerges as *visually distinct from but
+visibly within* the family, which is what Part II of the architecture
+should be.
 
-- Maximal differentiation: keep all current Codex tokens, including
-  `--rule-soft`, `--gold`, distinctive font stack
-- Minimal differentiation: only `--bordeaux` differs; everything else
-  aligns
-- Calibrated differentiation: pick which tokens differentiate
-  meaningfully vs. which are accidental drift
-
-Worth a deliberate decision rather than a default.
+No code changes needed for Codex; its current state already implements
+Stance X correctly. Codex's font choices weren't drift — they were
+correct, just unexamined until now.
 
 ### Question D — Estate Atlas display font
 
-Estate Atlas uses the *Cormorant* font for display (17 deliberate uses,
-zero "Cormorant Garamond" uses). This was initially flagged in the
-original spec as a probable typo, but the Tier 2 harvest confirmed it's
-a deliberate choice — Cormorant is a more austere classical-revival
-cut from the same family as Cormorant Garamond. Three positions:
-
-- **Align**: change all 17 references to Cormorant Garamond, matching
-  the rest of the Library (Vinotheca, Body of Wine, Soul of Wine,
-  Codex Vini all use Cormorant Garamond).
-- **Preserve**: keep Cormorant as Estate Atlas's signature display
-  font, distinguishing it visually within the family. Pairs with
-  Question B (atlas distinctness) — possibly the atlases as a class
-  should have their own typographic personality.
-- **Differentiate by atlas-class**: pick a coherent display-font
-  policy across all three atlases (Estate Atlas, Grand Cru / Wine
-  Atlas, Codex Vini's atlas pages). Currently inconsistent — Estate
-  Atlas uses Cormorant, Wine Atlas uses DM Serif Display, Codex Vini
-  uses Cormorant Garamond.
-
-Best resolved alongside Question B (atlas distinctness), since the
-typographic personality of the atlas-class is the substantive question
-behind both.
+**Resolved**: Decision 6 (Stance X). Estate Atlas's "Cormorant"
+migrates to "Cormorant Garamond". The "Cormorant" choice was deliberate
+but predates the family pattern; with Stance X locked in, alignment is
+the right call.
 
 ---
 

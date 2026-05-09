@@ -424,6 +424,37 @@ matching.
 
 ### 2026-05-09
 
+- **Pass 3 hard-questions session** — Decisions 5 and 6 resolved,
+  closing the four deferred questions (A, B, C, D) that the original
+  PASS3_SPEC.md flagged. **Decision 5**: body fonts are
+  artefact-class-distinguished — Reading work (parent + atlases +
+  reference) uses EB Garamond, Studies use Source Sans 3,
+  instrument-class Tools use DM Sans, Personal Codex uses DM Sans as
+  Part-II signature. **Decision 6**: display fonts unify the family
+  (Cormorant Garamond family-wide), so display = family identity, body
+  = register. The two-axis system avoids the family fragmenting
+  visually while preserving meaningful class distinctions. Codex Vini
+  required no changes — its existing fonts already implemented Stance X
+  correctly. Wine Atlas Tier 3 work now includes typography migration
+  (DM Serif Display + DM Sans → Cormorant Garamond + EB Garamond);
+  Tasterank Explorer Tier 3 includes display-only migration (DM Serif
+  Display → Cormorant Garamond) with DM Sans body preserved as
+  instrument-class signal. Estate Atlas's "Cormorant" → "Cormorant
+  Garamond" becomes a small follow-up commit. Spec updated to mark
+  Questions A–D as resolved.
+- **Pass 3 React execution** — the two React leaves (Region Affinities,
+  Region Resonances) brought into family-canonical alignment for paper
+  tokens. Both `tailwind.config.js` files updated: `parchment.DEFAULT`
+  changed from `#FAF7F2` to `#FAF6F1` (one hex unit, family
+  canonical); new `parchment.raised: #FFFDF8` added as the Tailwind
+  equivalent of `--paper-raised`. Wine and ink palettes unchanged
+  (already canonical). The two files differ only in the deliberate
+  header comment block in `region-resonances/app/tailwind.config.js`
+  noting that it tracks `region-affinities/tailwind.config.js`. Build
+  pipeline: GitHub Actions (Vite); ~1–3 min deploy each. Seven of
+  nine palette-bearing surfaces now aligned. Remaining: 2 Tier 3
+  leaves (Wine Atlas, Tasterank Explorer) — gated on the hard-
+  questions session per PASS3_SPEC.md.
 - **Pass 3 Tier 2 executed** — the parent Vinotheca and Estate Atlas
   brought into family-canonical alignment. *Vinotheca*: token
   `--accent` (`#6a2430`) renamed to `--wine` (`#7B2D26`) with global
@@ -585,6 +616,40 @@ matching.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-09 — v0.11
+
+- Pass 3 hard-questions session: Decisions 5 (body fonts class-
+  distinguished) and 6 (display fonts family-unified) resolved,
+  closing all four deferred questions from PASS3_SPEC.md (A, B, C, D).
+  No code changes from the session itself — the decisions reshape the
+  remaining execution work (notably Tier 3 for Wine Atlas, which now
+  includes typography migration alongside tokenisation).
+- PASS3_SPEC.md updated: Decisions 5 and 6 added; Questions A–D
+  rewritten as "resolved" with their resolutions; status block updated
+  to reflect spec completion; recommended sequence updated to mark
+  steps 1–4 done and add Estate Atlas font follow-up + PDF naming
+  ahead of the two Tier 3 sessions.
+- §6.3 (Pass 3 — visual harmonisation) remains open. Three execution
+  items remain ahead of full closure: Estate Atlas font follow-up
+  (small commit), PDF naming convention (coordinated commits across
+  two repos), and the two Tier 3 sessions (Wine Atlas, Tasterank
+  Explorer).
+
+### 2026-05-09 — v0.10
+
+- Pass 3 React execution shipped: Region Affinities and Region
+  Resonances both updated to canonical paper colour and `--paper-raised`
+  equivalent. Seven of nine palette-bearing surfaces now aligned.
+- §6.3 (Pass 3 — visual harmonisation) remains open. Two leaves remain
+  (Wine Atlas, Tasterank Explorer), both Tier 3 (hard-coded values, no
+  token system) and gated on the hard-questions session for body-font
+  and atlas-distinctness decisions.
+- The change visible only on careful inspection: the parchment colour
+  shift was one hex unit (`#FAF7F2` → `#FAF6F1`). The `parchment.raised`
+  utility is now available via the `bg-parchment-raised` class for any
+  components that want the warm off-white treatment matching the rest
+  of the family.
 
 ### 2026-05-09 — v0.9
 
