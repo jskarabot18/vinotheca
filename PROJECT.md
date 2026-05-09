@@ -10,7 +10,7 @@
 > next commit. Append an entry to §8 (Document changelog) so the change
 > is recorded.
 
-Last meaningful update: 2026-05-08 (see §8 for full history)
+Last meaningful update: 2026-05-09 (see §8 for full history)
 
 ---
 
@@ -82,6 +82,7 @@ both faces, not as separate Tool and Study cards.
 | Works → Tool | Winemaker Affinities | *(tbd)* | Forthcoming 2026 | Winemaker *Affinities* | A Tool of Vinotheca |
 | Works → Study | The Winemaker's Constellation | *(tbd)* | Forthcoming 2026 | The Winemaker's *Constellation* | A Study of Vinotheca |
 | Correspondence | Region Resonances | `region-resonances` | Live, but currently filed in Tools — to be moved | Region *Resonances* | A Correspondence of Vinotheca |
+| Correspondence | Grape Resonances | `grape-resonances` (tbd) | Planned — see §6.7 | Grape *Resonances* | A Correspondence of Vinotheca |
 | Reference | *(no leaves yet)* | `vinotheca-reference` | Repo to be created — empty for now | — | A Reference of Vinotheca |
 | Personal Codex | Codex Vini | `codex-vini` | Live | Codex *Vini* | A Codex of Vinotheca |
 
@@ -241,6 +242,61 @@ Foundations document) would draw on the same Reference content.
 This is why Reference has its own repo (`vinotheca-reference`) rather than
 living inside the wine-specific repos.
 
+### 4.11 Correspondence is oracular, not search — design implications
+
+Correspondence tools are not recommendation systems. They are **oracles in
+the classical sense** — instruments of self-recognition where the user
+brings a question and receives a compressed, considered offering against
+which their own situation becomes legible. The success state is the
+user's pause and recognition: *yes, that is exactly the wine I would
+drink with that feeling*. The framework underneath (Soul of Wine's 59
+region narratives) makes the recognition non-arbitrary; the compression
+of the response is what makes the recognition possible.
+
+This frame has direct design consequences for every Correspondence tool:
+
+- **Compression over comprehensiveness.** Few results, tightly framed.
+  Two to four grapes — not ten. Five regions — not twenty. The oracle's
+  authority comes partly from its restraint.
+- **One framing sentence carries the response.** The user reads the
+  result and one sentence of context. Long explanation breaks the
+  oracle frame and shifts authority from the user back to the tool.
+- **The framework is traceable but not foregrounded.** A "see how the
+  framework arrived at this" fold can exist for curious users, but it
+  is collapsed by default. The user gets the answer, not the working.
+- **Verification is invited, not measured.** A *Does this resonate?*
+  prompt creates the moment of recognition without recording the
+  response (privacy-first, per the existing ethos). The pause is the
+  data; nothing is logged.
+- **Graceful refusal of wrong-shaped queries.** Pairing questions,
+  catalogue questions, and varietal-search questions are not in the
+  oracle's domain. The tool detects them and redirects honestly. The
+  refusal preserves the tool's character.
+- **No personalization, no learning.** The tool's authority comes from
+  the fixed framework, not from optimization against the user's
+  history. Same query, same response, on the hundredth use as on the
+  first.
+- **Bullseye queries vs. prism queries.** Some queries land on a single
+  coherent temperament (one cluster, one framing); some refract into
+  multiple coherent facets (the user's word holds several registers at
+  once). The tool detects which kind of query it received and frames
+  accordingly. Forcing a prism query into bullseye framing flattens it;
+  forcing a bullseye query into prism framing manufactures complexity
+  that isn't there.
+
+Region Resonances was the first Correspondence tool and established the
+input-feeling-out-place pattern. Grape Resonances (planned, see §6.7)
+extends the pattern to grape-as-output, completing the move from feeling
+to wine via region as the temperament-mediator. Future Correspondence
+tools, if any, should be designed to this character.
+
+The deeper claim that grounds this section: Vinotheca is, structurally,
+a small library of serious instruments for paying attention to wine and,
+through wine, to oneself. Correspondence is the part of the library
+where this second-order attention is most directly available — where the
+analytical apparatus of the studies and tools meets the user's interior
+life. *In vino, cognitio* describes both directions.
+
 ---
 
 ## 5. Process notes
@@ -339,6 +395,53 @@ from the documentation alignment session. Once Jure is confident in the
 new docs, these can be `rm -rf`'d locally — purely a local cleanup,
 nothing to commit.
 
+### 6.7 To be built — Grape Resonances (second Correspondence leaf)
+
+Per §1 and §4.11, Correspondence is the section where the user provides
+input and receives a compressed, oracular response. Region Resonances is
+the founding member; **Grape Resonances** is the planned second member.
+
+The tool maps user input (word, phrase, feeling, situation) to one to
+four grapes, mediated through region-character matching against the
+existing 59 region embeddings. The response is compressed by design — a
+small number of grape names, one framing sentence, an optional verification
+prompt — and the framework's reasoning is collapsed into a "see how the
+framework arrived at this" fold for curious users. The tool is an oracle,
+not a recommender (see §4.11).
+
+**Architecture:** inherits from Region Resonances (same React + Vite
+stack, same Cloudflare Worker, same `region_embeddings.json`). The new
+work is curatorial and authorial, not technical.
+
+**Pending:**
+- Curate `region_grapes.json` — for each of 59 regions, four fields
+  (signature, lesser_known, rare, temperament_seconds). ~10 hours of
+  focused curation.
+- Author `grape_narratives.json` — one or two sentences per grape in
+  Soul of Wine voice, focused on character rather than tasting notes.
+  ~10–15 hours of writing for ~100 canonical grapes.
+- Author `cluster_framings.json` — six cluster intros + facet framing
+  for prism queries. ~2 hours of writing.
+- Build aggregator (region matches → grape lists) and coherence detector
+  (bullseye vs. prism). Small JS work, ~half a day.
+- Build React app — scaffold from Region Resonances, replace region-card
+  UI with grape-name response, add verification prompt and trace fold.
+  ~1 day.
+- Test, deploy, link from parent under Correspondence (alongside Region
+  Resonances).
+
+**Total estimated build:** ~6 working days, of which ~4 are
+curation/authoring and ~2 are engineering.
+
+**Detailed planning:** `Grape_Resonances_PlanningDoc.md` (companion to
+`Region_Resonances_PlanningDoc.md`). The planning doc documents the
+worked examples (*brotherhood* → Grenache/Gamay/Shiraz; *falling deeply
+in love* → Pinot Noir; *making a decision about the move across the
+country* → Riesling/Chenin/Furmint) that validated the oracle frame in
+conversation, and captures the architectural decision to use
+region-mediation rather than direct grape matching or TasteRank-driven
+matching.
+
 ---
 
 ## 7. Recently completed (reverse chronological)
@@ -393,6 +496,33 @@ nothing to commit.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-09 — v0.3
+
+- §3 leaves table: added **Grape Resonances** as a planned Correspondence
+  leaf (sibling to Region Resonances). Repo name `grape-resonances` (tbd).
+  Wordmark: Grape *Resonances*. Eyebrow: A Correspondence of Vinotheca.
+- New **§4.11 — Correspondence is oracular, not search**: codifies the
+  conceptual finding that Correspondence tools are instruments of
+  self-recognition rather than recommendation systems, with concrete
+  design implications (compression, single framing sentence, traceable
+  but not foregrounded framework, verification invited but not measured,
+  graceful refusal of wrong-shaped queries, no personalization or
+  learning, bullseye vs. prism query handling). This frame applies to
+  Region Resonances retrospectively and governs Grape Resonances by
+  design.
+- New **§6.7 active task — Grape Resonances build**: detailed pending
+  items, with the build broken into curatorial work
+  (`region_grapes.json`, `grape_narratives.json`,
+  `cluster_framings.json`), engineering work (aggregator, coherence
+  detector, React scaffold from Region Resonances), and deployment.
+  Total estimated build: ~6 working days.
+- Companion planning doc created: `Grape_Resonances_PlanningDoc.md`,
+  sibling to `Region_Resonances_PlanningDoc.md`, documenting
+  architecture decisions (region-mediation chosen over TasteRank-driven
+  matching), worked examples that validated the oracle frame
+  (*brotherhood*, *falling deeply in love*, *making a decision about the
+  move across the country*), and open questions to resolve before build.
 
 ### 2026-05-08 — v0.2
 
