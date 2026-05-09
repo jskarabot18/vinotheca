@@ -424,6 +424,26 @@ matching.
 
 ### 2026-05-09
 
+- **Pass 3 PDF naming convention** — divergent PDF naming across the
+  family resolved. Tasterank Explorer's five PDFs renamed from
+  `TasteRank_Title_Case_With_Underscores.pdf` to
+  `lowercase-with-hyphens.pdf` (canonical pattern matching Soul of
+  Wine's existing convention). Coordinated commits across two repos:
+  `tasterank-explorer` (rename PDFs in `docs/`, update 5 links in
+  `index.html` Documentation dropdown, update README files table —
+  including adding the previously-missing Methods Primer row), then
+  `body-of-wine` (update 5 cross-repo links in `index.html` doc cards
+  and 5 in `README.md` docs table). Brief ~30-second window of 404s
+  on Body of Wine's doc-card links between the two pushes; acceptable
+  for a personal project, no redirects added. Naming map: `Summary` /
+  `Technical_Appendix` / `Methods_Primer` / `Data_Appendix` /
+  `Grape_Reference` → `summary` / `technical-appendix` /
+  `methods-primer` / `data-appendix` / `grape-reference`.
+- **Pass 3 follow-up: Estate Atlas display font alignment** —
+  Cormorant → Cormorant Garamond per Decision 6 (Question D resolved).
+  17 font-family references in CSS plus the Google Fonts `<link>` tag
+  URL parameter. Estate Atlas's display font now reads in the same
+  register as the rest of the Library. Single commit (`d855598`).
 - **Pass 3 hard-questions session** — Decisions 5 and 6 resolved,
   closing the four deferred questions (A, B, C, D) that the original
   PASS3_SPEC.md flagged. **Decision 5**: body fonts are
@@ -616,6 +636,23 @@ matching.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-09 — v0.12
+
+- Pass 3 PDF naming convention shipped: Tasterank Explorer's five PDFs
+  renamed to `lowercase-with-hyphens.pdf` form, matching Soul of Wine.
+  Coordinated commits across `tasterank-explorer` and `body-of-wine`
+  repos. Tasterank Explorer's README also now includes the
+  previously-missing Methods Primer row in its Files table.
+- Estate Atlas display font alignment shipped earlier in the session
+  (Cormorant → Cormorant Garamond, commit `d855598`), separately
+  logged in §7.
+- §6.3 (Pass 3 — visual harmonisation) remains open with two execution
+  items left: Tier 3 sessions for Wine Atlas and Tasterank Explorer,
+  each its own dedicated session because of the larger scope (full
+  tokenisation plus typography migration per Decisions 5 and 6).
+- PASS3_SPEC.md updated: recommended-sequence step 6 (PDF naming)
+  marked complete.
 
 ### 2026-05-09 — v0.11
 
