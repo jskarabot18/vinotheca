@@ -8,14 +8,15 @@ This document is the canonical Pass 3 specification. Future execution sessions
 work from it; PROJECT.md §6.3 links to it as the authoritative reference.
 
 **Status**: spec complete; all six Phase 2 + Phase 3 decisions resolved.
-Tier 1 + Tier 2 + React execution shipped (7 of 9 surfaces). Remaining:
-Estate Atlas font alignment (small follow-up), PDF naming convention,
-and Tier 3 leaves (Wine Atlas, Tasterank Explorer) — each a dedicated
-session, now unblocked by Decisions 5 and 6.
+Tier 1 + Tier 2 + React execution shipped (7 of 9 surfaces). Estate
+Atlas font follow-up shipped (`d855598`). PDF naming convention shipped.
+Remaining: Tier 3 leaves (Wine Atlas, Tasterank Explorer) — each a
+dedicated session, now unblocked by Decisions 5 and 6.
 **Origin**: PROJECT.md §6.3, unblocked by Body of Wine deploy (2026-05-09).
 **Spec date**: 2026-05-09 (Phase 2). Updated 2026-05-09 with Tier 1+2
 execution learnings. Updated 2026-05-09 with Decisions 5 and 6 from the
-hard-questions session.
+hard-questions session. Updated 2026-05-09 with Estate Atlas font
+follow-up and PDF naming convention shipped.
 
 ---
 
@@ -281,14 +282,15 @@ likely 2 dedicated sessions.**
 4. ✅ **Hard-questions session** — Decisions 5 and 6 resolved 2026-05-09.
    No code changes from the session itself; Decisions 5 and 6 ripple
    into the remaining execution work below.
-5. **Estate Atlas font follow-up** — small commit per Decision 6
-   (Question D resolved): "Cormorant" → "Cormorant Garamond" across 17
-   font-family references plus the Google Fonts `<link>` tag.
-6. **PDF naming convention** — settle the divergent naming (Soul of
-   Wine uses `lowercase-with-hyphens.pdf`; Tasterank Explorer uses
-   `TasteRank_Title_Case_With_Underscores.pdf`). Coordinated commits
-   across `tasterank-explorer/` (rename PDFs) and `body-of-wine/`
-   (update cross-repo links).
+5. ✅ **Estate Atlas font follow-up** — shipped 2026-05-09 (`d855598`):
+   "Cormorant" → "Cormorant Garamond" across 17 font-family references
+   plus the Google Fonts `<link>` tag.
+6. ✅ **PDF naming convention** — shipped 2026-05-09. Tasterank
+   Explorer's five PDFs renamed to `lowercase-with-hyphens.pdf` form,
+   matching Soul of Wine's existing convention. Coordinated commits
+   across `tasterank-explorer` and `body-of-wine` (cross-repo links
+   updated). Tasterank Explorer's README also gained the previously-
+   missing Methods Primer entry in its Files table.
 7. **Tier 3 execution (Wine Atlas)** — introduce `:root` tokens, replace
    hard-coded values throughout, plus typography migration
    (DM Serif Display + DM Sans → Cormorant Garamond + EB Garamond)
