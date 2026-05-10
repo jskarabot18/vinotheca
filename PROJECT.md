@@ -10,7 +10,7 @@
 > next commit. Append an entry to §8 (Document changelog) so the change
 > is recorded.
 
-Last meaningful update: 2026-05-09 (see §8 for full history)
+Last meaningful update: 2026-05-10 (see §8 for full history)
 
 ---
 
@@ -372,9 +372,9 @@ stack, same Cloudflare Worker, same `region_embeddings.json`). The new
 work is curatorial and authorial, not technical.
 
 **Pending:**
-- Curate `region_grapes.json` — for each of 59 regions, four fields
+- ~~Curate `region_grapes.json` — for each of 59 regions, four fields
   (signature, lesser_known, rare, temperament_seconds). ~10 hours of
-  focused curation.
+  focused curation.~~ **Done 2026-05-10 (see §7).**
 - Author `grape_narratives.json` — one or two sentences per grape in
   Soul of Wine voice, focused on character rather than tasting notes.
   ~10–15 hours of writing for ~100 canonical grapes.
@@ -406,6 +406,27 @@ matching.
 
 ### 2026-05-10
 
+- **Grape Resonances — `region_grapes.json` curated and validated** —
+  §6.3 sub-item 1 closed. For each of the 59 Soul of Wine regions, four
+  fields populated: signature (1–4 grapes), lesser_known (3–7 grapes),
+  rare (0–4 grapes), temperament_seconds (0–1 grapes, drawn from
+  lesser_known). 59 of 59 regions complete across four curation sessions
+  (10 / 5 / 17 / 27 regions per session); subset rule
+  (`temperament_seconds` ⊆ `lesser_known`) clean throughout; 4 regions
+  with empty temperament_seconds (Beaujolais, Marlborough, Central
+  Otago, Wachau) on narrative grounds — single- or two-grape regional
+  assertions where signature *is* the identity. One mid-session
+  amendment to a previously-closed region: Provence's Cinsault moved
+  from `signature` to `lesser_known` to honour the subset rule, with
+  Grenache becoming Provence's sole signature. Six same-grape-across-
+  regions patterns documented for the aggregator (Cabernet Franc 3×,
+  Sémillon / Semillon 3×, Zinfandel / Cinsault / Grenache / Syrah 2×
+  each); spelling normalisation between Sémillon (French / Spanish-
+  speaking regions) and Semillon (Australian convention) noted as
+  intentional regional spelling. Companion deliverable note:
+  `Grape_Resonances_CurationState.md`. The file is ready to drop into
+  the `grape-resonances` repo's `public/data/` when the React scaffold
+  is built (§6.3 sub-items 5–6).
 - **Pass 3 closed** — §6.3 (Pass 3 — visual harmonisation) retired
   from open items. Nine of nine palette-bearing surfaces are now at
   family canonical alignment for palette and tokens; six Decisions
@@ -677,6 +698,23 @@ matching.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-10 — v0.15
+
+- §6.3 (Grape Resonances build) sub-item 1 closed: `region_grapes.json`
+  curated and validated across four sessions (10 / 5 / 17 / 27 regions
+  per session, 59 of 59 complete). Recorded in §7. The remaining five
+  sub-items in §6.3 are unchanged.
+- The curation produced one mid-session amendment to a previously-
+  closed region (Provence: Cinsault moved from `signature` to
+  `lesser_known` to honour the subset rule; Grenache becomes
+  Provence's sole signature). Mentioned for completeness; the change
+  does not alter Provence's role in the Outward Ease cluster.
+- Companion file `Grape_Resonances_CurationState.md` produced as a
+  working deliverable note. It does not duplicate §6.3 — it records
+  the curation rules, cluster reflections, and aggregator-relevant
+  patterns (same-grape-across-regions, spelling normalisation,
+  empty-fall-through) specifically.
 
 ### 2026-05-10 — v0.14
 
