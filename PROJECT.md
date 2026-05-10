@@ -377,7 +377,8 @@ work is curatorial and authorial, not technical.
   focused curation.~~ **Done 2026-05-10 (see §7).**
 - Author `grape_narratives.json` — one or two sentences per grape in
   Soul of Wine voice, focused on character rather than tasting notes.
-  ~10–15 hours of writing for ~100 canonical grapes.
+  ~10–15 hours of writing for ~100 canonical grapes. *Authored via blind
+  drafting per the Planning Doc methodology section.*
 - Author `cluster_framings.json` — six cluster intros + facet framing
   for prism queries. ~2 hours of writing.
 - Build aggregator (region matches → grape lists) and coherence detector
@@ -406,6 +407,28 @@ matching.
 
 ### 2026-05-10
 
+- **Grape Resonances — `grape_narratives.json` scope and methodology
+  decisions locked.** Two related decisions captured ahead of authoring
+  work beginning. *Scope decision:* `grape_narratives.json` covers the
+  canonical 101 grapes from Body of Wine / Grape Affinities, not the
+  293-grape universe of `region_grapes.json`. Reason: oracular responses
+  must surface grapes the user can plausibly drink; deep-cut varieties
+  curated as `temperament_seconds` for specific regions (Pinela, Canaiolo,
+  Pineau d'Aunis, Frühroter Veltliner, Babić, and others) carry real
+  framework signal but exceed the wine-curious user's reachable set. The
+  larger 293-grape curation in `region_grapes.json` remains valid as
+  data; the aggregator (§6.3 sub-item 4) will surface only grapes in the
+  canonical 101 in user-facing output, with the deeper layer available
+  to v1.1 or v2 if warranted. *Methodology decision:* `grape_narratives.json`
+  is authored via *blind drafting* — each grape narrative written without
+  reference to previously drafted entries, so that vocabulary serves the
+  grape rather than differentiation from the prior batch. The reasoning
+  is recorded in `Grape_Resonances_PlanningDoc.md` (new subsection
+  *Authoring methodology — blind drafting*). The methodology was adopted
+  after an initial batch drafted under cross-referencing discipline was
+  found to be contorted; a blind-draft redraft of the same batch produced
+  more natural prose without manufacturing differentiation. PROJECT.md
+  §6.3 sub-item 2 updated with a parenthetical pointer to the methodology.
 - **Grape Resonances — `region_grapes.json` curated and validated** —
   §6.3 sub-item 1 closed. For each of the 59 Soul of Wine regions, four
   fields populated: signature (1–4 grapes), lesser_known (3–7 grapes),
@@ -698,6 +721,21 @@ matching.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-10 — v0.16
+
+- §6.3 sub-item 2 (`grape_narratives.json` authoring): two decisions
+  captured ahead of writing. *Scope* — limited to the canonical 101
+  grapes from Body of Wine / Grape Affinities; the 293-grape universe
+  of `region_grapes.json` remains as data but is not all surfaced in
+  user-facing oracle output. *Methodology* — blind drafting, recorded
+  in `Grape_Resonances_PlanningDoc.md` as a new subsection. Both
+  decisions recorded in §7 above.
+- §6.3 sub-item 2 itself amended with a parenthetical pointer to the
+  Planning Doc methodology section.
+- `Grape_Resonances_PlanningDoc.md` updated separately (not in the
+  vinotheca repo, held locally with the other Grape Resonances drafting
+  files alongside `region_grapes.json` and `Grape_Resonances_CurationState.md`).
 
 ### 2026-05-10 — v0.15
 
