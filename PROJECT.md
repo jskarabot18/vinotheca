@@ -353,25 +353,7 @@ Forthcoming 2026. A 32-winemaker corpus is in preparation; a companion
 essay on method will follow. Until both exist, the third Work in the
 Vinotheca catalogue is incomplete.
 
-### 6.3 Pass 3 — visual harmonisation
-
-Unblocked 2026-05-09 by the Body of Wine deploy (per §4.7 — two live
-studies are now in place). The full specification, including harvest
-results, locked-in decisions, deferred questions, and per-leaf execution
-change list, lives in [`PASS3_SPEC.md`](./PASS3_SPEC.md) at the root of
-this repository.
-
-**Phase 2 spec (this session, 2026-05-09):** four decisions locked in
-covering canonical wine red, canonical paper cream, universal
-`--paper-raised` token, and Vinotheca's `--accent` rename. Three hard
-questions deliberately deferred (body font, atlas distinctness, Codex
-differentiation depth) plus PDF naming convention.
-
-**Execution remaining:** seven leaves to edit (three Tier 1, two Tier 2,
-two React) plus Tier 3 tokenisation for Wine Atlas and Tasterank Explorer
-in dedicated future sessions. See `PASS3_SPEC.md` for the change list.
-
-### 6.4 To be built — Grape Resonances (second Correspondence leaf)
+### 6.3 To be built — Grape Resonances (second Correspondence leaf)
 
 Per §1 and §4.11, Correspondence is the section where the user provides
 input and receives a compressed, oracular response. Region Resonances is
@@ -421,6 +403,44 @@ matching.
 ---
 
 ## 7. Recently completed (reverse chronological)
+
+### 2026-05-10
+
+- **Pass 3 closed** — §6.3 (Pass 3 — visual harmonisation) retired
+  from open items. Nine of nine palette-bearing surfaces are now at
+  family canonical alignment for palette and tokens; six Decisions
+  resolved; four deferred Questions answered. The Vinotheca family is
+  visually coherent across its full surface area.
+- **Pass 3 Tier 3 (Tasterank Explorer) shipped** — the final
+  execution piece. Token system introduced from scratch (canonical
+  10-token `:root`); 15 wine references, 9 paper references, 8
+  border references, and 6 raised-panel `#fff` backgrounds replaced
+  with `var()` references; 3 high-contrast `#fff` preserved.
+  Typography per Decisions 5 and 6: display font DM Serif Display →
+  Cormorant Garamond (7 uses); body font DM Sans **preserved** (12
+  uses) as the family's only instrument-class register signal.
+  Tasterank Explorer is now the only leaf with the Cormorant Garamond
+  + DM Sans combination — visibly within the family, register
+  distinct. Commit `8c4f0ce` in `tasterank-explorer`.
+- **Tasterank Explorer LICENSE attribution fix** — first line corrected
+  from "TasteRank Explorer" to "Grape Affinities" to match the leaf's
+  display name (the leaf was renamed earlier in the project; LICENSE
+  was missed). Small clean-up commit immediately after the Tier 3
+  ship.
+- **Wine Atlas circular-reference fix** — yesterday's Wine Atlas Tier
+  3 commit (`2617c76`) shipped with two circular references in `:root`
+  (`--wine: var(--wine);` and `--border: var(--border);`) introduced
+  by an over-eager sed substitution that caught the values inside the
+  `:root` declaration as well as their references in the body of the
+  file. The bug silently broke wine-red and border rendering across
+  the page — every `var(--wine)` reference resolved to inherited
+  near-black; every `var(--border)` to currentColor. Caught this
+  morning when preparing Tasterank Explorer Tier 3 (the same sed
+  pattern would have produced the same bug; visual verification of
+  the `:root` block during prep caught it). Fix shipped as commit
+  `64e839e` in `grand-cru-atlas`. Lesson recorded: *post-edit visual
+  verification of the `:root` block is mandatory after sed
+  substitutions; counting hex occurrences is not enough*.
 
 ### 2026-05-09
 
@@ -657,6 +677,31 @@ matching.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-10 — v0.14
+
+- **Pass 3 closed.** §6.3 retired from open items. Nine of nine
+  palette-bearing surfaces aligned. Six Decisions resolved; four
+  deferred Questions answered. The Library family is visually
+  coherent across its full surface area: book serifs for Reading
+  work, research sans for Studies, instrument sans for Tasterank
+  Explorer, Codex's Part-II signature, all unified under Cormorant
+  Garamond display.
+- §6 numbering compacted: former §6.4 (Grape Resonances) renumbered
+  to §6.3.
+- Tasterank Explorer Tier 3 shipped (commit `8c4f0ce`); LICENSE
+  attribution fixed to "Grape Affinities" (small clean-up commit
+  immediately after).
+- Wine Atlas circular-reference fix shipped (commit `64e839e`);
+  yesterday's Tier 3 shipped a silent bug where `:root` defined
+  `--wine: var(--wine);` and `--border: var(--border);`, causing
+  wine-red and border rendering to fall through to inherited values.
+  Caught this morning during Tasterank Explorer prep. Lesson logged
+  in §7: post-edit visual verification of `:root` blocks is
+  mandatory after sed substitutions.
+- PASS3_SPEC.md updated: status block reflects Pass 3 closure;
+  recommended sequence step 8 marked shipped; Tasterank Explorer
+  change-list row marked shipped.
 
 ### 2026-05-09 — v0.13
 
