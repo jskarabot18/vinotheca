@@ -7,14 +7,17 @@ panel treatment, and consistent token naming across static and React leaves.
 This document is the canonical Pass 3 specification. Future execution sessions
 work from it; PROJECT.md §6.3 links to it as the authoritative reference.
 
-**Status**: spec complete; all six Phase 2 + Phase 3 decisions resolved.
-Tier 1 + Tier 2 + React execution + Estate Atlas font + PDF naming +
-Wine Atlas Tier 3 shipped (8 of 9 surfaces). Remaining: Tasterank
-Explorer Tier 3 — final dedicated session before Pass 3 closes.
+**Status**: ✅ **Pass 3 complete** as of 2026-05-10. Nine of nine
+palette-bearing surfaces aligned. All six Phase 2 + Phase 3 decisions
+resolved; all four deferred Questions answered. The Library family
+is visually coherent.
 **Origin**: PROJECT.md §6.3, unblocked by Body of Wine deploy (2026-05-09).
 **Spec date**: 2026-05-09 (Phase 2). Updated 2026-05-09 with Tier 1+2
-execution learnings, Decisions 5 and 6, Estate Atlas font + PDF naming
-follow-ups, and Wine Atlas Tier 3 shipped.
+execution learnings; Decisions 5 and 6 from the hard-questions session;
+Estate Atlas font follow-up; PDF naming convention; Wine Atlas Tier 3.
+Updated 2026-05-10 with Tasterank Explorer Tier 3 (the final piece)
+plus the Wine Atlas circular-reference fix and a lesson recorded for
+future sed-substitution discipline.
 
 ---
 
@@ -258,11 +261,11 @@ worth of careful editing.
 | 3 | Codex Vini | 1 | `codex vini/index.html` | ✅ Shipped (`cbcd2d8`). `:root`: change `--paper: #FAF6EF` → `#FAF6F1`. (No change to `--bordeaux` or `--paper-raised` — both already correct.) |
 | 4 | Vinotheca | 2 | `vinotheca/index.html` | ✅ Shipped (Tier 2). `:root`: rename and revalue `--accent`/`--accent-soft` per Decision 4. Add `--wine-dark: #5A1F1A`. Change `--paper: #f6f1e8` → `#FAF6F1`. Add `--paper-raised: #FFFDF8`. Global find-replace: `var(--accent)` → `var(--wine)` (25 uses), `var(--accent-soft)` → `var(--wine-light)` (4 uses). |
 | 5 | Estate Atlas | 2 | `estate-atlas/index.html` | ✅ Shipped (Tier 2). `:root`: change `--wine: #6e1f2a` → `#7B2D26`. Change `--paper: #f5efe6` → `#FAF6F1`. Add `--wine-dark: #5A1F1A`, `--paper-raised: #FFFDF8`. **Correction from original spec**: Estate Atlas had `--wine-soft: #8a3a44` (not noted in original spec), renamed to `--wine-light: #A04038` with same-step value change; `var(--wine-soft)` → `var(--wine-light)` global find-replace (3 uses). Also updated `--pin-shadow: rgba(110, 31, 42, 0.35)` → `rgba(123, 45, 38, 0.35)` to track the new wine value. **Display font deferred**: 17 deliberate uses of "Cormorant" preserved for Question D (see deferred decisions). |
-| 6 | Region Affinities | (React) | `region-affinities/tailwind.config.js` | `parchment.DEFAULT: '#FAF7F2'` → `'#FAF6F1'`. Add a `paper.raised` (or `parchment.raised`) value of `#FFFDF8`. (Wine palette already canonical.) |
-| 7 | Region Resonances | (React) | `region-resonances/app/tailwind.config.js` | Identical to #6; the two Region tools stay byte-identical per the existing in-file comment. |
+| 6 | Region Affinities | (React) | `region-affinities/tailwind.config.js` | ✅ Shipped 2026-05-09. `parchment.DEFAULT: '#FAF7F2'` → `'#FAF6F1'`. Added `parchment.raised: '#FFFDF8'`. Wine palette unchanged (already canonical). Build pipeline: GitHub Actions Vite build, ~1–3 min deploy. |
+| 7 | Region Resonances | (React) | `region-resonances/app/tailwind.config.js` | ✅ Shipped 2026-05-09. Identical changes to #6; the two Region tools stay byte-identical per the existing in-file comment that the file tracks region-affinities. |
 | 8 | Wine Atlas | 3 | `wine atlas/grand-cru-atlas/index.html` | ✅ Shipped (`2617c76`). Tier 3 — full token system introduced from scratch; canonical 10-token `:root`. Hard-coded values replaced with `var()` references; `#FAF8F5` paper drift revalued to canonical `#FAF6F1`. Typography migration per Decisions 5 and 6: DM Serif Display → Cormorant Garamond (3 uses), DM Sans → EB Garamond (7 uses). Google Fonts `<link>` tag updated. Grape category colours and local one-off decorative colours preserved unchanged. The largest single visual change of Pass 3. |
-| 9 | Tasterank Explorer | 3 | `tasterank-explorer/index.html` | Tier 3 — dedicated session. Introduce `:root` with canonical tokens. Replace hard-coded values. **Plus per Decision 6 only**: migrate display font DM Serif Display → Cormorant Garamond. **DM Sans body preserved** per Decision 5 — Tasterank Explorer is the only instrument-class Tool in the family, and DM Sans is its register signal. After Tier 3 it'll be the only leaf with Cormorant Garamond display + DM Sans body, which is the correct combination: visibly within the family, register distinct. |
-| 10 | Estate Atlas (font follow-up) | 2 | `estate-atlas/index.html` | Per Decision 6 (Question D resolved): migrate display font from "Cormorant" to "Cormorant Garamond". 17 font-family references in CSS plus the Google Fonts `<link>` tag. Small follow-up commit, separate from Tier 2 palette work which already shipped. |
+| 9 | Tasterank Explorer | 3 | `tasterank-explorer/index.html` | ✅ Shipped (`8c4f0ce`). Tier 3 — token system introduced from scratch with canonical 10-token `:root`; 15 wine + 9 paper + 8 border + 6 raised-panel `#fff` references replaced with `var()`; 3 high-contrast `#fff` preserved (button hover text, SVG node stroke, JS fallback). Display font DM Serif Display → Cormorant Garamond (7 uses) per Decision 6. **DM Sans body preserved** (12 uses) per Decision 5 — Tasterank Explorer is the family's only instrument-class Tool, and the Cormorant Garamond + DM Sans combination is its register signal: visibly within the family, register distinct. Google Fonts `<link>` tag updated. |
+| 10 | Estate Atlas (font follow-up) | 2 | `estate-atlas/index.html` | ✅ Shipped 2026-05-09 (`d855598`). Per Decision 6 (Question D resolved): "Cormorant" → "Cormorant Garamond" across 16 font-family references in CSS plus the Google Fonts `<link>` tag URL parameter. |
 
 **Tier 1+2 execution = 5 leaves, ~75–90 minutes total spread across two
 sessions.** **React execution = 2 leaves, ~30 minutes.** **Tier 3 = 2 leaves,
@@ -292,12 +295,31 @@ likely 2 dedicated sessions.**
 7. ✅ **Tier 3 execution (Wine Atlas)** — shipped 2026-05-09 (`2617c76`).
    Full token system introduced from scratch; typography migrated to
    family canonical per Decisions 5 and 6.
-8. **Tier 3 execution (Tasterank Explorer)** — introduce `:root` tokens,
-   replace hard-coded values, plus display-only typography migration
-   (DM Serif Display → Cormorant Garamond) per Decision 6. DM Sans body
-   preserved per Decision 5. Dedicated session.
+8. ✅ **Tier 3 execution (Tasterank Explorer)** — shipped 2026-05-10
+   (`8c4f0ce`). Token system introduced from scratch; display font
+   migrated DM Serif Display → Cormorant Garamond; DM Sans body
+   preserved per Decision 5. Plus immediate follow-up: LICENSE
+   attribution corrected to "Grape Affinities" to match display name.
 
-After step 8, Pass 3 is complete and §6.3 closes.
+After step 8, **Pass 3 is complete and §6.3 closes**.
+
+### Bug found and fixed during this sequence
+
+Yesterday's Wine Atlas Tier 3 commit (`2617c76`) shipped with two
+circular references in `:root`: `--wine: var(--wine);` and `--border:
+var(--border);`. Caused by an over-eager sed substitution that
+caught the values inside the `:root` declaration as well as their
+references in the body of the file. The bug silently broke wine-red
+and border rendering — every `var(--wine)` reference fell through to
+inherited values; every `var(--border)` to currentColor. Caught the
+next morning during Tasterank Explorer prep when the same sed pattern
+produced the same bug in working memory; visual inspection of the
+`:root` block caught both. Wine Atlas fix shipped as commit `64e839e`.
+Lesson: post-edit visual verification of the `:root` block via
+`awk '/:root/,/}/'` is mandatory after any sed substitution that
+might touch token-definition values; counting hex occurrences is not
+sufficient — counts of zero look like success when they actually mean
+the tokens themselves got substituted into self-references.
 
 ---
 
