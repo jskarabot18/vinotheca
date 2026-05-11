@@ -375,10 +375,11 @@ work is curatorial and authorial, not technical.
 - ~~Curate `region_grapes.json` — for each of 59 regions, four fields
   (signature, lesser_known, rare, temperament_seconds). ~10 hours of
   focused curation.~~ **Done 2026-05-10 (see §7).**
-- Author `grape_narratives.json` — one or two sentences per grape in
+- ~~Author `grape_narratives.json` — one or two sentences per grape in
   Soul of Wine voice, focused on character rather than tasting notes.
-  ~10–15 hours of writing for ~100 canonical grapes. *Authored via blind
-  drafting per the Planning Doc methodology section.*
+  ~10–15 hours of writing for ~100 canonical grapes.~~ **Done 2026-05-10
+  (see §7).** *Authored via blind drafting per the Planning Doc
+  methodology section.*
 - Author `cluster_framings.json` — six cluster intros + facet framing
   for prism queries. ~2 hours of writing.
 - Build aggregator (region matches → grape lists) and coherence detector
@@ -409,6 +410,46 @@ matching.
 
 ### 2026-05-10
 
+- **Grape Resonances — `grape_narratives.json` authored and validated.**
+  §6.3 sub-item 2 closed. All 101 canonical grape narratives drafted
+  across ten batches in a single session, following the blind-drafting
+  methodology locked earlier today. The breakdown: 53 reds (Aglianico
+  through Zweigelt) across batches 1–5; 48 whites (Albariño through
+  Welschriesling) across batches 6–10. Four entries are the canonical
+  exemplars locked in the Planning Doc and included verbatim (Pinot
+  Noir, Aligoté, Furmint, St. Laurent). Voice register: trace-fold
+  Soul of Wine — region-tethered, character-first, semicolon-split,
+  ~25 words median (soft range 19–28; some entries 29–31 where
+  compression would distort character). Methodology validated as
+  intended: a first batch was initially drafted under defensive
+  cross-referencing discipline, found to be contorted, and redrafted
+  blind; the blind version was approved without changes and the
+  methodology held for the remaining nine batches. Four mid-batch
+  revisions captured genuine encyclopaedia-register intrusions that
+  the methodology had missed (Petite Sirah's "properly Durif"
+  parenthetical, Sagrantino's "DOCG" acronym, Friulano's EU-renaming
+  aside, Trebbiano's "as Ugni Blanc for Cognac" parenthetical) — these
+  led to a documented self-check rule against ampelographic asides for
+  future batches. Review pass after completion ran a content-word
+  recurrence diagnostic across all 101 entries and found 342 echoes,
+  of which the large majority were factual repetition (Bordeaux,
+  Burgundy, thin-skinned, late-ripening, etc., per the methodology's
+  accept-factual rule), plus several genuine pattern findings
+  (1970s-rescues, human-crossings, volcanic-terroirs) preserved as
+  signal rather than edited away. Six word-level stylistic echoes
+  warranted revision: *workhorse* (kept for Petite Sirah; revised
+  away from Tinta Roriz, Ugni Blanc), *wall* (kept for Sagrantino;
+  revised away from Tannat), *spine* (kept for Assyrtiko; revised
+  away from Blaufränkisch), *quiet* (kept for St. Laurent per the
+  locked exemplar; revised away from Chasselas, Silvaner). The
+  first-round revisions of Tinta Roriz and Blaufränkisch introduced
+  two new echoes (*contributor*, *iron*) caught by re-running the
+  diagnostic and corrected with a second round. Final file holds 101
+  entries with metadata block documenting schema version, voice
+  anchors, methodology pointer, and scope statement. Held locally as
+  `grape-resonances/working_files/grape_narratives.json` alongside
+  `region_grapes.json` and the Planning Doc until the dedicated
+  Grape Resonances repo is scaffolded.
 - **Grape Resonances — four architectural decisions locked, Planning
   Doc updated.** Working through the end-to-end pipeline together
   surfaced four under-resolved questions in the Planning Doc; all four
@@ -757,6 +798,23 @@ matching.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-10 — v0.18
+
+- §6.3 sub-item 2 (`grape_narratives.json` authoring): closed with
+  strikethrough. All 101 canonical grape narratives drafted, reviewed,
+  and saved. §7 entry under 2026-05-10 documents the work, including
+  the blind-drafting methodology in practice, the four mid-batch
+  encyclopaedia-register revisions caught and corrected, and the
+  post-completion review pass that surfaced six word-level stylistic
+  echoes (revised in two rounds with diagnostic re-runs to confirm
+  no new echoes introduced).
+- §6.3 progress: two of six sub-items now complete (sub-item 1 closed
+  in v0.15 with `region_grapes.json`; sub-item 2 closed in this
+  release with `grape_narratives.json`). Remaining four sub-items are
+  `cluster_framings.json` authoring (~2 hours), aggregator + coherence
+  detector build (~½ day), React app scaffold (~1 day), and
+  deployment. The most authoring-heavy phase is now behind us.
 
 ### 2026-05-10 — v0.17
 
