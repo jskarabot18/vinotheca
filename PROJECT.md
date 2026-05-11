@@ -297,6 +297,92 @@ where this second-order attention is most directly available — where the
 analytical apparatus of the studies and tools meets the user's interior
 life. *In vino, cognitio* describes both directions.
 
+### 4.12 Region-mediated association — the generalisable Soul of Wine architecture
+
+The Correspondence tools rest on a principle worth stating explicitly,
+because it is more general than wine and may govern leaves not yet
+imagined. **The framework refuses to claim direct associations between
+feelings and surface-level objects.** It does not claim that *Pinot Noir
+is the grape of falling in love*. There is no defensible substrate on
+which such a claim could be supported, and the framework would not
+produce one without inventing it.
+
+What the framework does instead is mediate every such association
+through an **intermediate cultural layer that genuinely carries
+temperament**. In the wine domain this layer is regions — the 59
+narratives of *Soul of Wine* embed temperament because regions, as
+cultural entities, are the kind of thing actually capable of having a
+temperament. Regions have histories, customs, hierarchies, and ways of
+being; grapes do not, chocolates do not, music does not. The temperament
+work is done at the layer where temperament can live, once, in a single
+embedding.
+
+Surface-level objects are then surfaced by **association from the
+intermediate layer**, not by their own connection to feelings:
+
+```
+feeling → matched regions ──► grapes the region grows
+                         ├─► chocolates the region pairs with
+                         ├─► music the region produced
+                         ├─► writers the region shaped
+                         └─► foods the region cooks
+```
+
+This is what the Planning Doc calls *"region as the temperament-carrier,
+grape as the consequence."* But the principle generalises: **any object
+genuinely rooted in regional culture can be derived from the same
+matching engine by adding one more association file** (analogous to
+`region_grapes.json`). The embedding work, the cluster structure, the
+matching engine, and the response shape are all reusable. A new leaf
+costs the curation of one new region-to-object table plus a thin
+authored layer of object narratives.
+
+The claim every Correspondence leaf can defensibly make has the same
+two-step shape:
+
+1. *The regions whose temperament matches your phrase are these.*
+   (Supported by *Soul of Wine*'s region narratives and the embedding
+   match.)
+2. *Those regions are culturally associated with these objects.*
+   (Supported by the curated association file for that domain.)
+
+The framework joins two existing defensible claims. It does not
+invent a third claim that connects feeling to object directly.
+
+This principle has practical consequences for the family:
+
+- **The 59 region narratives are the load-bearing asset of Vinotheca.**
+  Investment in their quality, internal coherence, and continued
+  refinement pays out across every present and future Correspondence
+  leaf. They are the single point against which everything is matched.
+- **Curated association files are the marginal cost of a new leaf.**
+  `region_grapes.json` (101 grapes curated against 59 regions) is the
+  Grape Resonances version. Future leaves require their own equivalent
+  but reuse everything else.
+- **Object narratives are authored separately.** Each leaf has its
+  own equivalent of `grape_narratives.json` — a thin authored layer
+  of character notes for the surface objects, in the same trace-fold
+  register.
+- **The matching engine, aggregator, response shape, and trace fold
+  are reusable across leaves.** Different leaves will tune the
+  aggregator selection rule to the cardinality of their object set
+  (e.g. *recurrence as finding* may behave differently for 101 grapes
+  vs 200 chocolates), but the architecture remains the same.
+- **What disqualifies a candidate leaf:** the object class must be
+  genuinely rooted in regional culture for the principle to work
+  honestly. Grapes, foods, traditional music, regional literature,
+  vernacular architecture — all candidates. Generic consumer goods
+  (sneakers, smartphones, cocktails-as-international-category) are
+  not regional in this sense; their association files would be
+  curatorial fictions rather than findings.
+
+Region Resonances is the leaf where the user receives the regions
+directly. Grape Resonances is the first leaf where the user receives
+something *derived* from regions through cultural association. Future
+leaves following this architecture extend the same move to other
+object classes; their feasibility is governed by whether the object
+class has genuine regional rooting.
+
 ---
 
 ## 5. Process notes
@@ -410,6 +496,32 @@ matching.
 
 ### 2026-05-10
 
+- **New family-level architectural principle locked: §4.12
+  Region-mediated association.** A conversation that began as a check
+  on the Grape Resonances design surfaced what may be the most
+  generalisable insight of the Soul of Wine project. The principle, in
+  plain words: **the framework refuses any direct claim between
+  feelings and surface-level objects, and instead mediates every such
+  claim through an intermediate cultural layer that genuinely carries
+  temperament.** In Vinotheca's wine domain that intermediate layer is
+  regions; regions are the kind of thing capable of having
+  temperament. Surface-level objects (grapes, foods, music, writers)
+  are surfaced by association from the intermediate layer, never by
+  direct embedding against feelings. The principle generalises: any
+  object class genuinely rooted in regional culture can be derived
+  from the same matching engine by adding one more region-to-object
+  association file plus a thin authored layer of object narratives.
+  The 59 region narratives become the load-bearing asset of Vinotheca,
+  reusable across all present and future Correspondence leaves; the
+  marginal cost of a new leaf is curation of one new association
+  table. Recorded as §4.12 with five practical consequences listed
+  (load-bearing-regions, marginal-cost curation files, separate
+  object narratives, reusable engine, disqualification criteria for
+  candidate leaves). The principle was articulated by Jure in
+  conversation while reviewing the falling-in-love worked example
+  during the Grape Resonances build, and is now permanent record at
+  the family level rather than only inside the Grape Resonances
+  Planning Doc.
 - **Grape Resonances — `grape_narratives.json` authored and validated.**
   §6.3 sub-item 2 closed. All 101 canonical grape narratives drafted
   across ten batches in a single session, following the blind-drafting
@@ -798,6 +910,29 @@ matching.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-10 — v0.19
+
+- §4.12 added: **Region-mediated association — the generalisable
+  Soul of Wine architecture.** A new family-level architectural
+  principle stating that the framework refuses direct claims between
+  feelings and surface-level objects, and instead mediates every such
+  claim through regions (or, for non-wine domains, whatever
+  intermediate cultural layer genuinely carries temperament). The
+  principle generalises: any object class rooted in regional culture
+  can be derived from the same matching engine by adding one new
+  region-to-object association file. The 59 region narratives become
+  the load-bearing asset of all present and future Correspondence
+  leaves; new leaves cost only a curated association table plus a
+  thin object-narrative layer. Five practical consequences listed
+  (load-bearing regions, marginal cost per leaf, separate object
+  narratives, reusable engine, disqualification criteria for
+  candidate object classes). The principle was articulated by Jure
+  while reviewing the falling-in-love worked example during the
+  Grape Resonances build, and is now permanent family-level record
+  rather than only inside the Grape Resonances Planning Doc.
+- §7 entry under 2026-05-10 documents the principle's articulation,
+  scope, and consequences.
 
 ### 2026-05-10 — v0.18
 
