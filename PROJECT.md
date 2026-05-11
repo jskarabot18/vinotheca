@@ -382,7 +382,9 @@ work is curatorial and authorial, not technical.
 - Author `cluster_framings.json` — six cluster intros + facet framing
   for prism queries. ~2 hours of writing.
 - Build aggregator (region matches → grape lists) and coherence detector
-  (bullseye vs. prism). Small JS work, ~half a day.
+  (bullseye vs. prism). Small JS work, ~half a day. *Selection rule
+  locked in the Planning Doc as "recurrence as finding" — see Planning
+  Doc §"Aggregator selection rule".*
 - Build React app — scaffold from Region Resonances, replace region-card
   UI with grape-name response, add verification prompt and trace fold.
   ~1 day.
@@ -407,6 +409,40 @@ matching.
 
 ### 2026-05-10
 
+- **Grape Resonances — four architectural decisions locked, Planning
+  Doc updated.** Working through the end-to-end pipeline together
+  surfaced four under-resolved questions in the Planning Doc; all four
+  now have locked answers. *(1) Where do grape narratives surface in
+  v1?* — trace fold only, not the default oracle response. The default
+  response keeps its line-150 form (grape names + framing sentence +
+  verification + collapsed trace), preserving the §4.11 compression
+  principle. *(2) What is the v1 default response shape, exactly?* —
+  exactly the Planning Doc's line 150 form, now marked locked. The
+  earlier (now-revised) wording on Planning Doc line 102 that suggested
+  narratives appeared in the default response was a contradiction; the
+  contradiction is resolved in favour of compression. *(3) What does the
+  trace fold contain?* — a grape-organised layout: each response-grape
+  shown with its narrative (from `grape_narratives.json`), a list of
+  contributing matched regions (region name + similarity score + the
+  region's locked Soul of Wine cluster metaphor), and a one-sentence
+  interpretive close drawn from response templates (bullseye-single-
+  grape / multi-grape-bullseye / prism). The cross-link to Region
+  Resonances closes the fold. This closes Planning Doc open question
+  5. *(4) How does the aggregator turn matched regions into response
+  grapes?* — by a "recurrence as finding" rule: if one grape recurs as
+  signature in ≥3 of N matched regions, return that grape alone and
+  name the recurrence in the framing; if 2–4 grapes recur in ≥2 regions
+  each, return those; if no grape recurs, return the top 2–3 grapes by
+  similarity-weighted score and name the prism. Validated against the
+  worked example "falling deeply in love" — Pinot Noir as signature in
+  3 of 5 matched regions, returned alone with the three cluster
+  metaphors (devotion / idealism / patient continuation) doing the
+  framing work. Confirms v1 uses Tier 1 (`signature`) only, closing
+  Planning Doc open question 6. The four decisions are recorded in
+  `Grape_Resonances_PlanningDoc.md` as three new "locked 2026-05-10"
+  subsections plus two open-question closures. PROJECT.md §6.3
+  sub-item 4 amended with a parenthetical pointer to the aggregator
+  selection rule.
 - **Grape Resonances — `grape_narratives.json` scope and methodology
   decisions locked.** Two related decisions captured ahead of authoring
   work beginning. *Scope decision:* `grape_narratives.json` covers the
@@ -721,6 +757,25 @@ matching.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-10 — v0.17
+
+- §7 entry under 2026-05-10 added documenting four architectural
+  decisions locked for Grape Resonances: (1) grape narratives surface
+  in trace fold only, (2) v1 default response shape locked to Planning
+  Doc line 150, (3) trace fold layout locked as grape-organised with
+  four content kinds, (4) aggregator selection rule locked as
+  "recurrence as finding". Decisions emerged from walking the
+  end-to-end pipeline together and stress-testing the "falling
+  deeply in love" worked example with actual `region_grapes.json` data.
+- §6.3 sub-item 4 (aggregator) amended with parenthetical pointer
+  to the locked Planning Doc rule.
+- `Grape_Resonances_PlanningDoc.md` updated separately with three
+  new "locked 2026-05-10" subsections (Default response shape,
+  Aggregator selection rule, Trace fold spec) and two open-question
+  closures (§5 trace fold contents, §6 Tier 2). The file grew from
+  304 to 356 lines (52 lines added). Held locally per existing
+  practice with the other Grape Resonances drafting files.
 
 ### 2026-05-10 — v0.16
 
