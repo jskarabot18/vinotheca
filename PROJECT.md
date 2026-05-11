@@ -10,7 +10,7 @@
 > next commit. Append an entry to §8 (Document changelog) so the change
 > is recorded.
 
-Last meaningful update: 2026-05-10 (see §8 for full history)
+Last meaningful update: 2026-05-11 (see §8 for full history)
 
 ---
 
@@ -36,9 +36,10 @@ technically is. Five sections, each a distinct mode of engagement:
 Correspondence, Reference). Reference works, tools, studies, and the
 foundational documents that ground the methodology.
 
-**Part II — The Personal Codex** holds the fifth (Codex Vini). The
-instruments and works in Part I look at wine in general; the Codex is
-different in kind — it looks at one person's experience of wine.
+**Part II — The Personal Codex** holds the fifth (Codex Vini, and
+forthcoming Codex Vinitorum). The instruments and works in Part I
+look at wine in general; the Codex is different in kind — it looks
+at one person's experience of wine.
 
 Everything in Vinotheca is connected; the section structure expresses
 operational mode, not isolation.
@@ -80,11 +81,13 @@ both faces, not as separate Tool and Study cards.
 | Works → Tool | Region Affinities | `region-affinities` | Live | Region *Affinities* | A Tool of Vinotheca |
 | Works → Study | The Soul of Wine | `soul-of-wine` | Live | The *Soul* of Wine | A Study of Vinotheca |
 | Works → Tool | Winemaker Affinities | *(tbd)* | Forthcoming 2026 | Winemaker *Affinities* | A Tool of Vinotheca |
-| Works → Study | The Winemaker's Constellation | *(tbd)* | Forthcoming 2026 | The Winemaker's *Constellation* | A Study of Vinotheca |
+| Works → Study | The Hand of Wine | *(tbd)* | Forthcoming 2026 | The *Hand* of Wine | A Study of Vinotheca |
 | Correspondence | Region Resonances | `region-resonances` | Live | Region *Resonances* | A Correspondence of Vinotheca |
-| Correspondence | Grape Resonances | `grape-resonances` (tbd) | Planned — see §6.4 | Grape *Resonances* | A Correspondence of Vinotheca |
+| Correspondence | Grape Resonances | `grape-resonances` (tbd) | Planned — see §6.3 | Grape *Resonances* | A Correspondence of Vinotheca |
+| Correspondence | Winemaker Resonances | *(tbd)* | Planned — see §6.4 | Winemaker *Resonances* | A Correspondence of Vinotheca |
 | Reference | *(no leaves yet)* | `vinotheca-reference` | Repo to be created — empty for now | — | A Reference of Vinotheca |
 | Personal Codex | Codex Vini | `codex-vini` | Live | Codex *Vini* | A Codex of Vinotheca |
+| Personal Codex | Codex Vinitorum | *(tbd)* | Planned — see §6.5 | Codex *Vinitorum* | A Codex of Vinotheca |
 
 All repos are public under `github.com/jskarabot18/`. Pages URLs follow
 `https://jskarabot18.github.io/<repo>/`.
@@ -101,7 +104,13 @@ the panel subtitle and the documentation).
 |------|-----------|-----------|
 | Grape similarity | Grape Affinities (live) | The Body of Wine (live) |
 | Region kinship | Region Affinities (live) | The Soul of Wine (live) |
-| Winemaker kinship | Winemaker Affinities (forthcoming) | The Winemaker's Constellation (forthcoming) |
+| Winemaker character | Winemaker Affinities (forthcoming) | The Hand of Wine (forthcoming) |
+
+The triptych of Study titles — *Body / Soul / Hand of Wine* — names
+three distinct ways of seeing wine: through the material network of
+grape varieties (Body), through the cultural temperament of regions
+(Soul), and through the character of the people who make it (Hand).
+Each is necessary; none is sufficient.
 
 ---
 
@@ -112,8 +121,8 @@ These rules govern every leaf in the family. New leaves should follow them.
 ### 4.1 Wordmark — italic emphasis on the noun
 
 `<roman first half> <em>italic noun</em>`. The Estate *Atlas*. Region
-*Affinities*. The *Soul* of Wine. Codex *Vini*. The parent ("Vinotheca")
-is the only exception — single word, no italicisation.
+*Affinities*. The *Soul* of Wine. Codex *Vini*. Codex *Vinitorum*. The
+parent ("Vinotheca") is the only exception — single word, no italicisation.
 
 ### 4.2 Eyebrow grammar — "X OF VINOTHECA"
 
@@ -143,15 +152,15 @@ than the footer, but the motto and copyright still appear in the footer.
 - **Tools** (Grape Affinities, Region Affinities, Winemaker Affinities):
   `Documentation ▾` dropdown in the masthead, single-line entries, one
   per PDF in the canonical framework.
-- **Studies** (Soul of Wine, Winemaker's Constellation): in-page anchor
-  menu and document cards. The study-class template will be properly
-  defined when there are two live studies.
+- **Studies** (Soul of Wine, Body of Wine, The Hand of Wine): in-page
+  anchor menu and document cards. The study-class template will be
+  properly defined when there are three live studies.
 - **Maps** (Estate Atlas, Grand Cru Atlas): single `Download X Atlas PDF`
   button in the masthead. Atlases ship one consolidated PDF rather than
   the multi-document framework.
-- **Correspondence** (Region Resonances): pattern tbd as Correspondence
-  is moved into its own section. Likely the Tool dropdown pattern,
-  since Region Resonances is a tool-class artefact.
+- **Correspondence** (Region Resonances, and forthcoming Grape Resonances,
+  Winemaker Resonances): pattern tbd. Likely the Tool dropdown pattern,
+  since Correspondence is tool-class.
 
 ### 4.5 Documents are aligned to a canonical framework
 
@@ -187,17 +196,16 @@ Cluster Map, Movement Map, D-Score Dashboard), all superseded by Region
 Affinities. The section and the four prototype HTML files were removed
 on 2026-05-08 (see §7).
 
-### 4.7 The study-class template will be defined when there are two studies
+### 4.7 The study-class template will be defined when a stable set of studies exists
 
-Soul of Wine is currently the only live study. Its visual treatment was
-designed before Vinotheca had a family pattern. The proper study-class
-template should be defined against *two* studies (Soul of Wine + the
-Grape Affinities study, or Soul of Wine + the Winemaker's Constellation)
-so both can be designed together rather than retrofitting one to a
-template-of-one.
+Soul of Wine and Body of Wine are live. The proper study-class template
+should be defined against the full set of studies (currently two live,
+with The Hand of Wine forthcoming) so they can be designed together
+rather than retrofitting earlier studies to a template-of-one.
 
-This is why visual harmonisation work on Soul of Wine has been deferred
-until at least the second study exists.
+Visual harmonisation work was completed in Pass 3 (May 2026) at the
+palette and typography level. Deeper layout-level template work remains
+open and is gated on The Hand of Wine joining the live set.
 
 ### 4.8 Visual systems — currently three subsystems, target one
 
@@ -285,9 +293,12 @@ This frame has direct design consequences for every Correspondence tool:
   that isn't there.
 
 Region Resonances was the first Correspondence tool and established the
-input-feeling-out-place pattern. Grape Resonances (planned, see §6.4)
+input-feeling-out-place pattern. Grape Resonances (planned, see §6.3)
 extends the pattern to grape-as-output, completing the move from feeling
-to wine via region as the temperament-mediator. Future Correspondence
+to wine via region as the temperament-mediator. Winemaker Resonances
+(planned, see §6.4) extends the Correspondence section to the winemaker
+work — though, per §4.12, that leaf matches directly against winemaker
+character profiles rather than via region-mediation. Future Correspondence
 tools, if any, should be designed to this character.
 
 The deeper claim that grounds this section: Vinotheca is, structurally,
@@ -297,7 +308,7 @@ where this second-order attention is most directly available — where the
 analytical apparatus of the studies and tools meets the user's interior
 life. *In vino, cognitio* describes both directions.
 
-### 4.12 Region-mediated association — the generalisable Soul of Wine architecture
+### 4.12 Character-mediated association — the architectural principle
 
 The Correspondence tools rest on a principle worth stating explicitly,
 because it is more general than wine and may govern leaves not yet
@@ -308,14 +319,18 @@ which such a claim could be supported, and the framework would not
 produce one without inventing it.
 
 What the framework does instead is mediate every such association
-through an **intermediate cultural layer that genuinely carries
-temperament**. In the wine domain this layer is regions — the 59
-narratives of *Soul of Wine* embed temperament because regions, as
-cultural entities, are the kind of thing actually capable of having a
-temperament. Regions have histories, customs, hierarchies, and ways of
-being; grapes do not, chocolates do not, music does not. The temperament
-work is done at the layer where temperament can live, once, in a single
-embedding.
+through a **layer that genuinely carries character**. In the wine
+domain there are two such layers, used differently depending on the
+surface object.
+
+**Case 1 — Intermediate-layer mediation** (surface object does not
+itself carry character). For grapes and wines, the intermediate layer
+is regions — the 59 narratives of *Soul of Wine* embed temperament
+because regions, as cultural entities, are the kind of thing actually
+capable of having a temperament. Regions have histories, customs,
+hierarchies, and ways of being; grapes do not, chocolates do not,
+music does not. The temperament work is done at the layer where
+temperament can live, once, in a single embedding.
 
 Surface-level objects are then surfaced by **association from the
 intermediate layer**, not by their own connection to feelings:
@@ -376,12 +391,36 @@ This principle has practical consequences for the family:
   not regional in this sense; their association files would be
   curatorial fictions rather than findings.
 
+**Case 2 — Direct mediation** (surface object itself carries character).
+For winemakers, the surface object is itself a temperament-carrying
+entity. Winemakers are people; they have disposition, posture, ways of
+working, and a stance in the world. They are exactly the kind of entity
+that can carry character in the strong sense. When this is true, the
+matching engine runs against the surface object directly, without
+needing an intermediate layer:
+
+```
+feeling → matched winemaker character profiles → those winemakers (and their wines)
+```
+
+The general principle: **the mediation layer must be something that
+genuinely carries character.** Where the surface object cannot, the
+framework needs an intermediate layer that can. Where the surface object
+can, no intermediate layer is required.
+
 Region Resonances is the leaf where the user receives the regions
 directly. Grape Resonances is the first leaf where the user receives
-something *derived* from regions through cultural association. Future
-leaves following this architecture extend the same move to other
-object classes; their feasibility is governed by whether the object
-class has genuine regional rooting.
+something *derived* from regions through cultural association.
+Winemaker Resonances (planned, see §6.4) is the first leaf in the Case 2
+register — the user receives the winemakers directly, no intermediate
+layer needed. Future leaves following this architecture extend the same
+moves to other object classes; their feasibility is governed by whether
+the candidate mediation layer (intermediate or direct) genuinely carries
+character.
+
+The conceptual work generalising this principle beyond Vinotheca is
+held separately in `FRAMEWORK_NOTES.md` and is explicitly conditional
+on Vinotheca's completion. It is not an active task.
 
 ---
 
@@ -433,11 +472,48 @@ matching §4.3).
 - Decision on whether to include the foundation documents at launch or
   delay until they are ready for public release
 
-### 6.2 To be built — Winemaker's Constellation (study) and Winemaker Affinities (tool)
+### 6.2 To be built — Winemaker Affinities (tool) and The Hand of Wine (study)
 
-Forthcoming 2026. A 32-winemaker corpus is in preparation; a companion
-essay on method will follow. Until both exist, the third Work in the
-Vinotheca catalogue is incomplete.
+The third Work in the Vinotheca catalogue. Forthcoming 2026. A working
+framework document exists (the April 2026 *Vigneron Kinship* framework,
+held in project material) but is no longer a complete description of
+the planned approach — see below.
+
+**Architectural posture (revised 2026-05-11).** The earlier framework
+proposed claim-based winemaker profiles as the primary analytical unit.
+A subsequent brainstorming session (recorded as v0.21 in §8) reframed
+the winemaker work in the context of §4.12's character-mediated
+association principle. The revised posture:
+
+- **Winemakers are themselves temperament-carrying entities.** Per
+  §4.12 Case 2, they do not require an intermediate mediation layer;
+  the matching engine for the Correspondence leaf (§6.4) runs directly
+  against winemaker character profiles.
+- **The Works leaf and the Correspondence leaf share their
+  load-bearing asset.** The winemaker character profiles power both:
+  the analytical clustering in Winemaker Affinities, and the
+  character-matching in Winemaker Resonances. This is tighter than the
+  grape case, where Body of Wine and Grape Resonances have somewhat
+  different needs.
+- **The unit and shape of the winemaker character profile is the
+  central open question.** The April framework's claim-based approach
+  is more verifiable per element but flatter in temperament signal. A
+  portrait-based approach (closer to the 59 region narratives) is
+  richer in temperament signal but verified at the portrait level
+  rather than per-claim. Possibly a hybrid: structured claims as the
+  evidentiary layer, a portrait as the matching layer. To be resolved
+  during build.
+
+**Pending:**
+- Lock the winemaker character profile shape (claims vs. portrait vs. hybrid)
+- Confirm the corpus (the April framework proposes 60–80; an earlier
+  note mentions 32 — to be reconciled)
+- Build the corpus
+- Build the analytical pipeline (Winemaker Affinities)
+- Write the Study (The Hand of Wine)
+- Build the oracle (see §6.4 — shares this corpus)
+
+This is the largest remaining piece of work in the Vinotheca build.
 
 ### 6.3 To be built — Grape Resonances (second Correspondence leaf)
 
@@ -490,9 +566,119 @@ conversation, and captures the architectural decision to use
 region-mediation rather than direct grape matching or TasteRank-driven
 matching.
 
+### 6.4 To be built — Winemaker Resonances (third Correspondence leaf)
+
+The Correspondence leaf for the winemaker work. Maps user input
+(feeling, phrase, situation) to a small number of winemakers whose
+character corresponds to that state. Per §4.12 Case 2, this leaf does
+**not** use region-mediation; it matches directly against winemaker
+character profiles, since winemakers themselves carry temperament in
+the strong sense.
+
+Example queries the instrument is designed for: *I am feeling
+exploratory · I am homesick · I need a vacation · I am about to make a
+difficult decision · I want to be reminded what care looks like.* The
+response is one to three winemakers whose character resonates with
+that state, with their wines as the cultural object the user can then
+drink.
+
+**Architecture:** inherits from Region Resonances (same stack, same
+response shape, same oracle frame from §4.11). The matching layer is
+the winemaker character profiles authored as part of §6.2 (the
+load-bearing asset is shared between Winemaker Affinities and
+Winemaker Resonances).
+
+**Pending:**
+- All of §6.2 — this leaf cannot be built until winemaker character
+  profiles exist
+- Engineering work (after profiles exist): aggregator, coherence
+  detector, React scaffold, deployment
+
+This is the most emotionally consequential leaf in Vinotheca. The
+character profiles need to be honest about real people without
+flattening them, and true enough that a stranger feeling homesickness
+can recognise themselves in the match. The writing register and
+ethical care will be unusually demanding.
+
+### 6.5 To be built — Codex Vinitorum (second Personal Codex leaf)
+
+The personal Codex for winemakers met in person, paralleling Codex
+Vini's role for wines tasted. *Codex Vinitorum* = "Book of Winemakers"
+in Latin; mirrors Codex Vini's noun-plus-genitive form. *Vinitor*
+(pl. *vinitores*, gen. pl. *vinitorum*) is the classical Latin word for
+vine-dresser / winemaker.
+
+The codex records winemakers met in person with personal attributes —
+analogous to Codex Vini's tasting records but for the person rather
+than the bottle. The 29 winemakers from the existing Winemaker's
+Compass populate the initial entries.
+
+**Architectural rule (locked).** Library (Part I) and Personal Codex
+(Part II) do not interact. Codex Vinitorum is a standalone Part II
+artefact, designed on its own terms. Its content does not feed the
+Works leaf (§6.2) or the Correspondence leaf (§6.4). The Compass
+winemakers will appear in the Works/Correspondence corpus because
+they are significant winemakers with rich source material, not because
+they are recorded in Codex Vinitorum. The two domains are sealed.
+
+**Pending:**
+- Design the entry schema (paralleling Codex Vini's but for the person
+  rather than the wine)
+- Decide visual treatment (Codex Vini's existing palette extends
+  naturally; Codex Vinitorum may want a small differentiation signal
+  as a Part II sibling)
+- Build the leaf (likely React + simple JSON, like Codex Vini)
+- Migrate the 29 Compass winemaker entries
+
+Lower urgency than §6.2 and §6.4. The Compass is a working personal
+record already; Codex Vinitorum formalises and publishes that record
+in the family's visual register.
+
 ---
 
 ## 7. Recently completed (reverse chronological)
+
+### 2026-05-11
+
+- **Winemaker section architecture clarified — three leaves planned
+  across Works, Correspondence, and Personal Codex.** A brainstorming
+  session reframed the winemaker work in the context of §4.12's
+  character-mediated association principle. The earlier conception
+  (a single Work in Works, based on the April 2026 *Vigneron Kinship*
+  framework) is replaced by three coordinated leaves: Winemaker
+  Affinities + The Hand of Wine (Works, §6.2), Winemaker Resonances
+  (Correspondence, §6.4), and Codex Vinitorum (Personal Codex, §6.5).
+  The Works leaf and the Correspondence leaf share their load-bearing
+  asset (winemaker character profiles); the Personal Codex leaf is
+  sealed from both per the Library/Codex independence rule. Decisions
+  captured: §4.12 extended to cover the case where the surface object
+  itself carries character (Case 2 — winemakers); the
+  Body/Soul/Constellation Study triptych renamed to Body/Soul/Hand
+  for grammatical alignment across the three Study faces (Body of
+  Wine, Soul of Wine, The Hand of Wine); the third Correspondence
+  leaf named Winemaker Resonances per the Region/Grape pattern; the
+  second Personal Codex leaf named Codex Vinitorum.
+- **`FRAMEWORK_NOTES.md` created.** A separate companion document at
+  the vinotheca repo root, holding the conceptual scaffolding for the
+  general framework underlying Vinotheca's architecture
+  (character-companion frame, mediation-layer architecture, structural
+  distinction from general-purpose LLM tools, strategy for
+  build-then-validate-then-generalise). The document is explicitly
+  conditional on Vinotheca's completion and validation; it is not a
+  plan and is not an active task. Pointer added to §4.12 closing
+  paragraph. A separate *Limitations and known objections* section
+  was added to the file capturing the strongest academic objections
+  (Forer-effect critique, projective-with-transparency nature of the
+  mediation layer, resolution mismatch with empirical preference
+  science, wine-domain reliability findings, generalisability
+  question, and the metaphysical weight of the "carries temperament"
+  claim) and reframing the framework's overall posture in the more
+  modest register those limitations justify: the framework is an
+  instrument design, not an empirical claim about how minds work.
+  The eventual polished home for these ideas remains the Reference
+  section's *Theoretical Foundations of Character-Based Analysis*
+  document; `FRAMEWORK_NOTES.md` is where the formulation develops in
+  the meantime.
 
 ### 2026-05-10
 
@@ -943,6 +1129,83 @@ matching.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-11 — v0.21
+
+- **§1 (Architecture).** Part II description updated to reflect
+  forthcoming Codex Vinitorum alongside Codex Vini.
+- **§3 leaves table.** Renamed Winemaker Study: tool stays *Winemaker
+  Affinities*; study renamed from *The Winemaker's Constellation* to
+  *The Hand of Wine* for grammatical alignment with the Body of Wine /
+  Soul of Wine sibling pattern. Wordmark italics updated to *Hand*
+  (matching *Body*, *Soul* pattern). Added *Winemaker Resonances* as a
+  planned Correspondence leaf. Added *Codex Vinitorum* as a planned
+  Personal Codex leaf. Section references in the table corrected:
+  Grape Resonances at §6.3 (was §6.4 — a pre-existing typo from
+  earlier drift), Winemaker Resonances at §6.4, Codex Vinitorum at §6.5.
+- **§3.1 Works pairings table.** Updated Winemaker Work row to reflect
+  the new Study name and updated row label from "Winemaker kinship" to
+  "Winemaker character" to match the §6.2 architectural revision.
+  Added a paragraph naming the Body/Soul/Hand triptych and what each
+  title picks out.
+- **§4.1 (Wordmark).** Codex *Vinitorum* added to the list of
+  italicisation examples.
+- **§4.4 (Documentation menu).** Studies list expanded to include
+  Body of Wine and The Hand of Wine (was Soul of Wine + Winemaker's
+  Constellation). Correspondence list expanded to include Grape
+  Resonances and Winemaker Resonances as forthcoming.
+- **§4.7 (Study-class template).** Rewritten to reflect Body of Wine
+  being live alongside Soul of Wine; template work now gated on The
+  Hand of Wine joining the live set rather than the second study
+  generally. Visual harmonisation note updated to acknowledge Pass 3
+  closure.
+- **§4.11 (Correspondence is oracular).** Closing paragraph updated:
+  Grape Resonances section reference corrected from §6.4 to §6.3
+  (existing typo); a sentence added introducing Winemaker Resonances
+  (§6.4) and noting it operates in the §4.12 Case 2 register (direct
+  mediation, no region intermediary).
+- **§4.12 (Character-mediated association — the architectural
+  principle).** Renamed from "Region-mediated association — the
+  generalisable Soul of Wine architecture" to reflect that the
+  principle is now broader. Restructured around an explicit
+  **Case 1 / Case 2** distinction: Case 1 (intermediate-layer
+  mediation, for grapes/wines via regions) preserves all existing
+  v0.20 content verbatim; Case 2 (direct mediation, for winemakers as
+  themselves temperament-carrying) is the new addition. Closing
+  paragraph extended to include Winemaker Resonances as the first
+  Case 2 leaf, and to point to `FRAMEWORK_NOTES.md` as the home for
+  further conceptual work, explicitly conditional on Vinotheca's
+  completion.
+- **§6.2 (Winemaker Affinities + The Hand of Wine).** Substantially
+  rewritten. The April 2026 *Vigneron Kinship* framework is
+  acknowledged as project material but no longer a complete
+  description of the planned approach. New architectural posture
+  documented: winemaker character profiles serve as the shared
+  load-bearing asset for both the Works leaf (§6.2) and the
+  Correspondence leaf (§6.4); the unit and shape of the profile
+  (claim-based, portrait-based, or hybrid) is the central open
+  question to resolve during build. Corpus size question (60–80 vs.
+  32) flagged for reconciliation.
+- **§6.4 (Winemaker Resonances) — new subsection.** Documents the
+  third Correspondence leaf. Per §4.12 Case 2, this leaf does not use
+  region-mediation; it matches directly against winemaker character
+  profiles. Shares its load-bearing asset with §6.2.
+- **§6.5 (Codex Vinitorum) — new subsection.** Documents the second
+  Personal Codex leaf, mirroring Codex Vini's pattern for winemakers
+  met in person. The Library/Codex independence rule explicitly
+  preserved: Codex Vinitorum does not feed the Works or Correspondence
+  leaves.
+- **§7 entry under 2026-05-11.** Two entries: the winemaker
+  architecture clarification, and the creation of `FRAMEWORK_NOTES.md`
+  (with its limitations section) as the conditional companion document
+  for framework-generalisation thinking.
+
+The April 2026 *Vigneron Kinship Framework* document is preserved as
+project material and remains a valuable reference for corpus design,
+validation strategy, and methodological lineage. Its
+claim-based-clustering proposal is no longer the locked approach for
+§6.2, but its corpus thinking, validation pairs, and intellectual
+lineage section all carry forward.
 
 ### 2026-05-10 — v0.20
 
