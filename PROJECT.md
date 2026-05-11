@@ -466,8 +466,8 @@ work is curatorial and authorial, not technical.
   ~10–15 hours of writing for ~100 canonical grapes.~~ **Done 2026-05-10
   (see §7).** *Authored via blind drafting per the Planning Doc
   methodology section.*
-- Author `cluster_framings.json` — six cluster intros + facet framing
-  for prism queries. ~2 hours of writing.
+- ~~Author `cluster_framings.json` — six cluster intros + facet framing
+  for prism queries. ~2 hours of writing.~~ **Done 2026-05-10 (see §7).**
 - Build aggregator (region matches → grape lists) and coherence detector
   (bullseye vs. prism). Small JS work, ~half a day. *Selection rule
   locked in the Planning Doc as "recurrence as finding" — see Planning
@@ -496,6 +496,39 @@ matching.
 
 ### 2026-05-10
 
+- **Grape Resonances — `cluster_framings.json` authored and validated.**
+  §6.3 sub-item 3 closed. All ten framings drafted: six bullseye
+  framings (one per Soul of Wine cluster, used when matched regions
+  fall predominantly in one cluster) plus four prism framings (used
+  when matched regions span multiple clusters). The bullseye set is a
+  synthesis between the Planning Doc's example framings and a blind
+  redraft against the canonical cluster metaphor lists in
+  `layer1-narratives_6_34_57_AM.json`. Three Planning Doc framings
+  locked verbatim where they were already at landing strength (Old
+  World Interior's *patient, custodial cultures ... keeper, not a
+  maker*; Against the Odds' *cultures of endurance ... difficulty is
+  the substance*; New World Reinvention's *conviction-without-evidence
+  ... decided they should exist*). Three Planning Doc framings
+  synthesised with blind drafts to better fit the actual cluster
+  diversity (Outward Ease broadened from *communal* to also include
+  the market and the gathering, so the framing accommodates Marlborough's
+  Assertion and Veneto's Commerce alongside Beaujolais's Joy; Old
+  World Exterior recast from *institutional* to *cultures of inheritance*
+  so the framing accommodates Pfalz's Warmth and Dalmatian Coast's
+  Tranquility alongside Bordeaux's Business; The Moderates recast from
+  *cultures of equilibrium* to *cultures of found voice* so the
+  framing accommodates the 15-metaphor diversity from Tuscany's Art
+  to Wachau's Monumentality without forcing all 15 into a single
+  *equilibrium* claim). Four prism framings drafted: a general
+  refraction case plus three specific cluster dyads identified as
+  likely common refractions (interior+reinvention, difficulty+ease,
+  interior+moderate). Held locally as
+  `grape-resonances/working_files/cluster_framings.json` alongside
+  the other two authored files. **All Grape Resonances authoring
+  work is now complete.** The remaining four §6.3 sub-items are
+  engineering: aggregator + coherence detector, React app scaffold,
+  test, deploy. Per the Planning Doc's original estimate, this is
+  ~2 working days of work remaining.
 - **New family-level architectural principle locked: §4.12
   Region-mediated association.** A conversation that began as a check
   on the Grape Resonances design surfaced what may be the most
@@ -910,6 +943,24 @@ matching.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-10 — v0.20
+
+- §6.3 sub-item 3 (`cluster_framings.json` authoring): closed with
+  strikethrough. Ten framings authored — six bullseye (one per cluster)
+  plus four prism (general refraction + three cluster dyads). Three
+  Planning Doc framings locked verbatim; three synthesised with blind
+  redrafts to better fit cluster diversity; four prism framings newly
+  drafted. §7 entry under 2026-05-10 documents the synthesis decisions
+  and cites the canonical Soul of Wine cluster metaphor lists as the
+  authority against which the framings were calibrated.
+- §6.3 progress: three of six sub-items now complete. **All Grape
+  Resonances authoring is now done** (sub-items 1, 2, 3 closed in
+  v0.15, v0.18, v0.20 respectively, all on 2026-05-10). The remaining
+  three sub-items are engineering: aggregator + coherence detector
+  (~½ day), React app scaffold (~1 day), test and deploy. The
+  Planning Doc's original split — "~4 days authoring + ~2 days
+  engineering" — has been honoured; the authoring took one day.
 
 ### 2026-05-10 — v0.19
 
