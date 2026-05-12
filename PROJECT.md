@@ -83,7 +83,7 @@ both faces, not as separate Tool and Study cards.
 | Works → Tool | Winemaker Affinities | *(tbd)* | Forthcoming 2026 | Winemaker *Affinities* | A Tool of Vinotheca |
 | Works → Study | The Hand of Wine | *(tbd)* | Forthcoming 2026 | The *Hand* of Wine | A Study of Vinotheca |
 | Correspondence | Region Resonances | `region-resonances` | Live | Region *Resonances* | A Correspondence of Vinotheca |
-| Correspondence | Grape Resonances | `grape-resonances` (tbd) | Planned — see §6.3 | Grape *Resonances* | A Correspondence of Vinotheca |
+| Correspondence | Grape Resonances | `grape-resonances` | Live | Grape *Resonances* | A Correspondence of Vinotheca |
 | Correspondence | Winemaker Resonances | *(tbd)* | Planned — see §6.4 | Winemaker *Resonances* | A Correspondence of Vinotheca |
 | Reference | *(no leaves yet)* | `vinotheca-reference` | Repo to be created — empty for now | — | A Reference of Vinotheca |
 | Personal Codex | Codex Vini | `codex-vini` | Live | Codex *Vini* | A Codex of Vinotheca |
@@ -158,9 +158,9 @@ than the footer, but the motto and copyright still appear in the footer.
 - **Maps** (Estate Atlas, Grand Cru Atlas): single `Download X Atlas PDF`
   button in the masthead. Atlases ship one consolidated PDF rather than
   the multi-document framework.
-- **Correspondence** (Region Resonances, and forthcoming Grape Resonances,
-  Winemaker Resonances): pattern tbd. Likely the Tool dropdown pattern,
-  since Correspondence is tool-class.
+- **Correspondence** (Region Resonances and Grape Resonances, with
+  Winemaker Resonances forthcoming): pattern tbd. Likely the Tool
+  dropdown pattern, since Correspondence is tool-class.
 
 ### 4.5 Documents are aligned to a canonical framework
 
@@ -293,9 +293,9 @@ This frame has direct design consequences for every Correspondence tool:
   that isn't there.
 
 Region Resonances was the first Correspondence tool and established the
-input-feeling-out-place pattern. Grape Resonances (planned, see §6.3)
-extends the pattern to grape-as-output, completing the move from feeling
-to wine via region as the temperament-mediator. Winemaker Resonances
+input-feeling-out-place pattern. Grape Resonances extends the pattern to
+grape-as-output, completing the move from feeling to wine via region as
+the temperament-mediator. Winemaker Resonances
 (planned, see §6.4) extends the Correspondence section to the winemaker
 work — though, per §4.12, that leaf matches directly against winemaker
 character profiles rather than via region-mediation. Future Correspondence
@@ -515,56 +515,17 @@ association principle. The revised posture:
 
 This is the largest remaining piece of work in the Vinotheca build.
 
-### 6.3 To be built — Grape Resonances (second Correspondence leaf)
+### 6.3 Built — Grape Resonances (closed 2026-05-11; recorded in §7)
 
-Per §1 and §4.11, Correspondence is the section where the user provides
-input and receives a compressed, oracular response. Region Resonances is
-the founding member; **Grape Resonances** is the planned second member.
-
-The tool maps user input (word, phrase, feeling, situation) to one to
-four grapes, mediated through region-character matching against the
-existing 59 region embeddings. The response is compressed by design — a
-small number of grape names, one framing sentence, an optional verification
-prompt — and the framework's reasoning is collapsed into a "see how the
-framework arrived at this" fold for curious users. The tool is an oracle,
-not a recommender (see §4.11).
-
-**Architecture:** inherits from Region Resonances (same React + Vite
-stack, same Cloudflare Worker, same `region_embeddings.json`). The new
-work is curatorial and authorial, not technical.
-
-**Pending:**
-- ~~Curate `region_grapes.json` — for each of 59 regions, four fields
-  (signature, lesser_known, rare, temperament_seconds). ~10 hours of
-  focused curation.~~ **Done 2026-05-10 (see §7).**
-- ~~Author `grape_narratives.json` — one or two sentences per grape in
-  Soul of Wine voice, focused on character rather than tasting notes.
-  ~10–15 hours of writing for ~100 canonical grapes.~~ **Done 2026-05-10
-  (see §7).** *Authored via blind drafting per the Planning Doc
-  methodology section.*
-- ~~Author `cluster_framings.json` — six cluster intros + facet framing
-  for prism queries. ~2 hours of writing.~~ **Done 2026-05-10 (see §7).**
-- Build aggregator (region matches → grape lists) and coherence detector
-  (bullseye vs. prism). Small JS work, ~half a day. *Selection rule
-  locked in the Planning Doc as "recurrence as finding" — see Planning
-  Doc §"Aggregator selection rule".*
-- Build React app — scaffold from Region Resonances, replace region-card
-  UI with grape-name response, add verification prompt and trace fold.
-  ~1 day.
-- Test, deploy, link from parent under Correspondence (alongside Region
-  Resonances).
-
-**Total estimated build:** ~6 working days, of which ~4 are
-curation/authoring and ~2 are engineering.
-
-**Detailed planning:** `Grape_Resonances_PlanningDoc.md` (companion to
-`Region_Resonances_PlanningDoc.md`). The planning doc documents the
-worked examples (*brotherhood* → Grenache/Gamay/Shiraz; *falling deeply
-in love* → Pinot Noir; *making a decision about the move across the
-country* → Riesling/Chenin/Furmint) that validated the oracle frame in
-conversation, and captures the architectural decision to use
-region-mediation rather than direct grape matching or TasteRank-driven
-matching.
+The second Correspondence leaf is live at
+`https://jskarabot18.github.io/grape-resonances/`. Build history, the
+shipped architecture, and the findings from live testing are recorded
+in the §7 entry for 2026-05-11. Detailed planning preserved in
+`grape-resonances/Grape_Resonances_PlanningDoc.md`; the planning doc's
+three locked worked examples are revised against curated data + the
+live matcher in the §7 entry — the framework's actual readings differ
+from the predictions in interesting ways, recorded as findings rather
+than defects.
 
 ### 6.4 To be built — Winemaker Resonances (third Correspondence leaf)
 
@@ -639,6 +600,108 @@ in the family's visual register.
 ## 7. Recently completed (reverse chronological)
 
 ### 2026-05-11
+
+- **Grape Resonances — built, deployed, and cross-linked from Vinotheca
+  parent.** The second Correspondence leaf is live at
+  `https://jskarabot18.github.io/grape-resonances/` and listed at
+  position vii in the Vinotheca parent's §3 Correspondence section
+  alongside Region Resonances. The repo at
+  `github.com/jskarabot18/grape-resonances` was scaffolded by forking
+  Region Resonances' app/ infrastructure (Tailwind, Vite, deploy
+  workflow, matcher, embedding hook) and overlaying the new
+  grape-resonances bundle: aggregator + coherence detector +
+  OracleResponse component + TraceFold component + 5 data files
+  (region_grapes.json, grape_narratives.json, cluster_framings.json,
+  grape_aliases.json, layer1_narratives.json) + region_embeddings.json.
+  The Cloudflare Worker was reused byte-identical from Region Resonances;
+  no new Worker spun up, no CORS allowlist edits needed (`https://
+  jskarabot18.github.io` already permitted the production origin).
+  Sub-items 4, 5, and 6 of §6.3 all closed in this session. The hint
+  chips in InputPanel were swapped from Region Resonances' set
+  (old soul / careful joy / stubborn quiet / the feeling of late summer
+  / quiet defiance / earned ease / second chances) to a grape-shaped
+  set covering the locked worked examples plus three new probe shapes:
+  *falling deeply in love · the feeling of brotherhood · late summer ·
+  the weight of a decision · starting over · the courage to wait*.
+
+- **Grape Resonances — aggregator, coherence detector, and 12-entry
+  alias file shipped (sub-item 4 closure).** The recurrence-as-finding
+  rule from Planning Doc §"Aggregator selection rule" is implemented
+  as `aggregate(matchedRegions, regionGrapes, grapeNarratives, aliases)`
+  returning `{mode, grapes, skippedRegions}` where mode is one of
+  `strong_recurrence` (≥3 of N matched regions share a grape),
+  `multi_bullseye` (2–4 grapes each in ≥2 regions), or `prism` (top
+  2–3 by similarity-weighted score). The coherence detector
+  (`detectCoherence`) reads bullseye if ≥4 of N regions share a
+  cluster, prism otherwise. The 12-entry `grape_aliases.json`:
+  Spätburgunder → Pinot Noir, Shiraz → Syrah, Pinot Grigio → Pinot
+  Gris, Pinot Bianco → Pinot Blanc, Weissburgunder → Pinot Blanc,
+  Grauburgunder → Pinot Gris, Tinto Fino → Tempranillo, Cannonau →
+  Grenache, Garnatxa (Grenache) → Grenache, Carinyena (Carignan) →
+  Carignan, Carignano → Carignan, Semillon (Hunter Valley) → Sémillon.
+  Eleven signature grapes left unaliased and non-canonical (Carricante,
+  Glera, Greco di Tufo, Grillo, Macabeu, Pigato, Pinot Meunier, Pošip,
+  Rebula, Rossese, Savagnin), silent-skipped per the v1 scope decision.
+  The trace fold preserves the regional spelling for aliased
+  contributions (e.g., "Barossa Valley — fortitude · as Shiraz")
+  rendering the cross-cultural connection visibly to the user. Node
+  test harness covers six cases; all pass.
+
+- **Grape Resonances — four findings from live testing worth recording.**
+  *(i) Multi-grape responses are the default, not the exception.*
+  Strong-recurrence (single-grape) requires the matcher to land ≥3
+  same-signature regions in the top-5, which is rare because the
+  matcher ranks by temperament narrative — independent of grape
+  distribution. All three Planning Doc worked examples returned
+  multi-grape responses live: *falling deeply in love* → Pinot Noir ·
+  Furmint · Chardonnay (Planning Doc predicted Pinot Noir alone);
+  *the feeling of brotherhood* → Syrah · Pinot Noir · Riesling
+  (Planning Doc predicted Grenache · Gamay · Shiraz); *decision about
+  the move across the country* → Cabernet Sauvignon · Merlot (Planning
+  Doc predicted Riesling · Chenin · Furmint threshold whites). The
+  framework's actual readings are interpretively richer than the
+  doctrinaire predictions — brotherhood reads as cross-cultural
+  conviction (Walla Walla / Barossa / Burgundy / Pfalz / Finger Lakes),
+  falling-in-love as facets-of-love (devotion / melancholy / obsession /
+  awakening / sentimentality), decision-about-move as new-world
+  ambition. *(ii) Validation moment — Furmint convergence on "late
+  summer".* An independent Claude with no Vinotheca context, asked to
+  identify grape varieties resonant with the same four metaphors,
+  returned Furmint as primary for late summer — same as the framework's
+  reading, on the same grounds (Tokaj's late-harvest patience, the
+  knowing-it-will-become-something-else quality). Two different
+  reasoning paths converging on the same answer is real evidence that
+  the region narratives carry semantic temperament that survives
+  embedding and ranks correctly. *(iii) Defensible disagreement, not
+  defect.* On the other three metaphors, the independent Claude reached
+  for grape character (Riesling for falling-in-love's slow reveal,
+  Nebbiolo for decision-deliberation, Tempranillo for brotherhood's
+  long shared meal); the framework reached for regional temperament.
+  Both readings are honest; they're different lenses on the same
+  domain. The framework's job is to render Soul of Wine's reading, not
+  to be the most comprehensive wine-character argument. *(iv) One
+  genuine matcher miss to log: Piedmont/Nebbiolo for decision-about-
+  move.* The independent Claude's Nebbiolo argument was strong (the
+  rose-and-tar contradictions, the long deliberation, the resolution
+  arriving in bottle), and Piedmont didn't surface in the framework's
+  top-5 — its Soul of Wine metaphor "Philosophy" didn't trigger on
+  the move-decision query. Either Piedmont's narrative didn't carry
+  the philosophy metaphor through to embedding space, or the
+  embedding model reads "decision about move" as practical
+  reinvention (Napa, Columbia Valley) rather than philosophical
+  deliberation. Worth re-reading Piedmont's narrative against
+  decision-shaped queries in a future Soul of Wine revision pass.
+
+- **Grape Resonances documentation deferred.** The four PDFs (Summary,
+  Methods Primer, Technical Appendix, Data Appendix) per §4.5's
+  canonical framework are not yet authored. The Header.jsx Documentation
+  dropdown surfaces the menu items as scaffolding (the menu's presence
+  signals the leaf follows §4.4 Tool pattern), but four of five hrefs
+  currently 404. The fifth — Region Profiles — Identity — cross-links
+  to Soul of Wine's existing layer1-descriptions.pdf and works. PDFs
+  to be authored in a follow-up session using the shared
+  `vinotheca-preamble.tex` LaTeX template, mirroring the Region
+  Resonances PDF set.
 
 - **Winemaker section architecture clarified — three leaves planned
   across Works, Correspondence, and Personal Codex.** A brainstorming
@@ -1129,6 +1192,39 @@ in the family's visual register.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-11 — v0.22
+
+- **§3 leaves table.** Grape Resonances row updated from `Planned — see
+  §6.3` to `Live`; repo column from `grape-resonances` (tbd) to
+  `grape-resonances`.
+- **§4.4 (Documentation menu).** Correspondence list phrasing tightened:
+  Region Resonances and Grape Resonances are both named as the current
+  live leaves, Winemaker Resonances still flagged as forthcoming.
+- **§4.11 (Correspondence is oracular).** Closing paragraph: stripped
+  the `(planned, see §6.3)` qualifier from the Grape Resonances mention,
+  since the leaf is now live.
+- **§6.3 collapsed to a tombstone.** The full To-be-built subsection
+  removed; replaced by a short Built block pointing readers to the §7
+  entry for build history, shipped architecture, and live-testing
+  findings. The detailed Planning Doc lives at
+  `grape-resonances/Grape_Resonances_PlanningDoc.md` and the worked-
+  examples revision is recorded in §7. Subsequent §6 subsections
+  (§6.4 Winemaker Resonances, §6.5 Codex Vinitorum) are not renumbered
+  — the convention is to retain stable section numbers once §6 items
+  are closed, with closed items prefixed `Built —` instead of
+  `To be built —`.
+- **§7 entries under 2026-05-11.** Four new entries above the existing
+  winemaker-architecture entry, in reverse chronological order within
+  the day: (i) Grape Resonances built, deployed, and cross-linked
+  (sub-items 4, 5, 6 of §6.3 closed); (ii) Aggregator + coherence
+  detector + 12-entry alias file shipped (the sub-item 4 detail);
+  (iii) Four findings from live testing — multi-grape responses are
+  default, Furmint-on-late-summer convergence with independent Claude
+  as validation moment, defensible-disagreement vs defect framing for
+  the other Planning Doc deviations, Piedmont/Nebbiolo as a genuine
+  matcher miss worth flagging for a future Soul of Wine narrative
+  pass; (iv) Documentation PDFs deferred for a follow-up session.
 
 ### 2026-05-11 — v0.21
 
