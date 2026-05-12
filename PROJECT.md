@@ -582,9 +582,31 @@ winemakers will appear in the Works/Correspondence corpus because
 they are significant winemakers with rich source material, not because
 they are recorded in Codex Vinitorum. The two domains are sealed.
 
+**Affinity signals (locked 2026-05-11).** Codex Vinitorum entries
+carry three optional, orthogonal experience-side signals rather than
+a numeric rating:
+
+- *Felt close to* — felt personal closeness with the winemaker
+- *Memorable encounter* — the meeting itself stood out
+- *Stayed with me* — the encounter persisted in your thinking after it ended
+
+Each signal is independently present or absent on an entry. The three
+describe the user's experience of the encounter, not the winemaker as
+object; they do not compose into a score and do not produce a ranking.
+The discomfort of rating people on a personal record was the design
+constraint that surfaced this choice. The signals also distinguish
+Codex Vinitorum's entry register from Codex Vini's (which carries a
+numeric rating of the wine), honouring the architectural rule that
+Library and Personal Codex differ in kind, and adding a quiet
+differentiation between the two Personal Codex leaves themselves.
+Implementation suggestion: render each present signal as a small
+discreet glyph; absence is the default visual state, so entries
+without signals are not visibly lower than those with them.
+
 **Pending:**
 - Design the entry schema (paralleling Codex Vini's but for the person
-  rather than the wine)
+  rather than the wine; affinity-signals fields per the locked
+  decision above)
 - Decide visual treatment (Codex Vini's existing palette extends
   naturally; Codex Vinitorum may want a small differentiation signal
   as a Part II sibling)
@@ -600,6 +622,45 @@ in the family's visual register.
 ## 7. Recently completed (reverse chronological)
 
 ### 2026-05-11
+
+- **Codex Vinitorum — affinity signals locked (§6.5).** A
+  brainstorming conversation about how Codex Vinitorum should
+  represent the user's relationship to each winemaker surfaced a
+  decision worth recording at the architectural level. The
+  discomfort of giving numeric ratings to people on a personal
+  record was the design constraint. Standard recommender-style
+  scoring (1–5, 1–10) was rejected as treating the winemaker as
+  an object of judgment in a way the broader Vinotheca framework
+  refuses. A single binary like/favorite indicator was considered
+  but rejected as collapsing too much. The locked choice: three
+  optional, orthogonal experience-side signals — *Felt close to*,
+  *Memorable encounter*, *Stayed with me* — each independently
+  present or absent on an entry. The signals are user-side (they
+  name the user's experience of the encounter, not the winemaker
+  as object), they do not compose into a score, and they do not
+  produce a ranking. Selection of the three signals was the work
+  of the conversation: *Felt close to* and *Memorable encounter*
+  surfaced early as user-side facets of the encounter; *Stayed
+  with me* was selected from a wider search across families of
+  candidates (recognition / aftermath / attention / alignment) as
+  the strongest fit — it names persistence in the user's
+  subsequent thinking without claiming anything about the
+  winemaker as a person, and it sits cleanly orthogonal to the
+  other two (memorable is about vividness during; stayed with me
+  is about afterlife). All three were also reworded mid-
+  conversation to align in grammatical register (short verb
+  phrases, user as implicit subject) — *Affinity* (the original
+  first candidate) was set aside in favour of *Felt close to* for
+  consistency. The decision aligns Codex Vinitorum's entry
+  register with the framework's broader posture: the Codex marks
+  what your experience was, not what the people are worth. The
+  decision also adds a quiet differentiation between Codex Vini
+  (numeric rating of the wine) and Codex Vinitorum (no rating;
+  three optional facet signals), which the architectural rule
+  that Library and Personal Codex differ in kind makes welcome.
+  Recorded as a new locked block in §6.5; PROJECT.md entry-
+  schema pending sub-item amended to reference the locked
+  decision.
 
 - **Correspondence chip registers refreshed for both Region Resonances
   and Grape Resonances — a small but real piece of family design
@@ -1234,6 +1295,37 @@ in the family's visual register.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-11 — v0.24
+
+- **§6.5 (Codex Vinitorum).** New locked block added — *Affinity
+  signals (locked 2026-05-11)* — between the existing
+  *Architectural rule (locked)* block and the *Pending* list. The
+  block records that Codex Vinitorum entries carry three optional,
+  orthogonal experience-side signals — *Felt close to*, *Memorable
+  encounter*, *Stayed with me* — rather than a numeric rating. The
+  block explains the design constraint (discomfort of rating people
+  on a personal record), the rejection of numeric rating and
+  single-binary alternatives, the orthogonality and user-side
+  register of the three signals, and the quiet differentiation
+  this creates between Codex Vini and Codex Vinitorum. The
+  *Pending* list's entry-schema sub-item was amended to reference
+  the locked decision.
+- **§7 entry under 2026-05-11.** One new entry inserted at the top
+  of the day (above the chip-registers entry): the Codex Vinitorum
+  affinity-signals decision. The entry records the discomfort of
+  rating people as the originating design constraint, the
+  rejection of numeric-rating and binary-like alternatives, and
+  the selection process for the three signals — including the
+  late rewording of *Affinity* to *Felt close to* for grammatical
+  register consistency with the other two facets. The entry also
+  notes the broader framework alignment: the Codex marks
+  experience, not worth.
+
+This v0.24 is a light entry — no structural changes to PROJECT.md,
+no §6 renumbering, no §3 leaves table changes. The decision
+recorded here is purely architectural and concerns a leaf that
+remains forthcoming (§6.5).
 
 ### 2026-05-11 — v0.23
 
