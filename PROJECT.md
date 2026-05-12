@@ -601,6 +601,48 @@ in the family's visual register.
 
 ### 2026-05-11
 
+- **Correspondence chip registers refreshed for both Region Resonances
+  and Grape Resonances — a small but real piece of family design
+  work.** After Grape Resonances shipped, the hint chips on both
+  Correspondence leaves were re-examined and revised. The work
+  surfaced three findings worth recording. *(i) Chip register as a
+  design dimension.* Region Resonances now ships short, adjective-led,
+  aesthetic-contemplative chips (*old soul · careful joy · stubborn
+  quiet · borrowed time · bright sorrow · gentle ruin*); Grape
+  Resonances ships long-form, state-naming, poetic-register chips
+  (*falling deeply in love · the feeling of brotherhood · the weight
+  of a decision · the slow undoing of an old certainty · the quiet
+  authority of having survived something · what you keep when
+  everything else is gone*). The visual contrast between the two
+  chip rows tells users something honest: Region Resonances reads
+  the *character* of a feeling (compressible to 2–3 words); Grape
+  Resonances reads a *state someone is carrying* (which needs a
+  longer phrase to name precisely). The shared family chrome
+  (eyebrow, wordmark, footer, masthead) keeps them recognisably
+  siblings; the chip registers signal they're not the same tool with
+  a different output surface. *(ii) Shared-trio design path
+  considered and discarded.* During the chip work, an intermediate
+  state had both tools sharing three contemplative-aesthetic chips
+  (*borrowed time · bright sorrow · gentle ruin*) as a deliberate
+  family rhyme. That decision held for about an hour. On reflection,
+  the shared trio didn't survive contact with the register-coherence
+  decision for Grape Resonances — once we settled on long-form
+  state-naming as Grape Resonances' chip register, the short
+  aesthetic-contemplative chips no longer fit alongside the longer
+  ones. The shared trio remains only on Region Resonances. Worth
+  recording as a design path that was considered, tested briefly,
+  and consciously discarded. *(iii) Live use will reveal which chips
+  actually get clicked.* Today's chip refreshes are design bets, not
+  validated decisions. Worth revisiting in a few weeks; if certain
+  chips never get clicked, swap them. This is the first articulated
+  case of the principle that chip selection is downstream of register
+  decisions but upstream of validated use — and validated use is the
+  next step. Future Correspondence leaves (Winemaker Resonances)
+  should consciously choose their own chip register rather than
+  inherit either default. The refresh required two small commits, one
+  per repo; no infrastructure or code changes beyond the
+  `EXAMPLE_QUERIES` array in each leaf's `InputPanel.jsx`.
+
 - **Grape Resonances — built, deployed, and cross-linked from Vinotheca
   parent.** The second Correspondence leaf is live at
   `https://jskarabot18.github.io/grape-resonances/` and listed at
@@ -1192,6 +1234,26 @@ in the family's visual register.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-11 — v0.23
+
+- **§7 entry under 2026-05-11.** One new entry inserted above the
+  Grape Resonances build entry (newest-first within the day):
+  Correspondence chip registers refreshed for both Region Resonances
+  and Grape Resonances. The entry records three findings: (i) chip
+  register as a family design dimension, with Region Resonances
+  shipping short adjective-led aesthetic-contemplative chips and
+  Grape Resonances shipping long-form state-naming poetic-register
+  chips; (ii) the shared-trio design path that was considered,
+  briefly tested, and consciously discarded once register coherence
+  trumped surface rhyme; (iii) live-use as the next validation step
+  for the chip refresh, with future Correspondence leaves expected
+  to consciously choose their own chip register.
+
+This v0.23 is a light entry — no structural changes to PROJECT.md,
+no §6 renumbering, no §3 leaves table changes. The shipped work
+required two small commits (one per Correspondence leaf), editing
+only the `EXAMPLE_QUERIES` array in each leaf's `InputPanel.jsx`.
 
 ### 2026-05-11 — v0.22
 
