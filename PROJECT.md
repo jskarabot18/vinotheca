@@ -10,7 +10,7 @@
 > next commit. Append an entry to §8 (Document changelog) so the change
 > is recorded.
 
-Last meaningful update: 2026-05-11 (see §8 for full history)
+Last meaningful update: 2026-05-12 (see §8 for full history)
 
 ---
 
@@ -146,6 +146,15 @@ this is distinct from the `Correspondence` content section in Part I,
 which is a content section (currently containing Region Resonances).
 Codex Vini is the layout exception: its links live in the header rather
 than the footer, but the motto and copyright still appear in the footer.
+
+The licence file itself lives at the repo root as `LICENSE` (no
+extension, all caps). This is the filename GitHub's licence-recognition
+reads — the "View license" sidebar entry and the "Other" tag in the repo
+list both depend on it. Every leaf in the family carries an identical
+CC BY-NC 4.0 text with a per-leaf header line naming the wordmark (e.g.
+`Region Resonances © 2026 by Jure Skarabot is licensed under CC BY-NC
+4.0.`), following the convention established by Codex Vini. The footer
+"License · CC BY-NC 4.0" link points at this file.
 
 ### 4.4 Documentation menu — one pattern per section
 
@@ -620,6 +629,41 @@ in the family's visual register.
 ---
 
 ## 7. Recently completed (reverse chronological)
+
+### 2026-05-12
+
+- **LICENSE coverage closed at 10/10 across the family.** A
+  family-wide audit surfaced three repos still missing a LICENSE
+  file at the repo root — `region-resonances`, `grape-resonances`,
+  and `region-affinities` — even though every leaf's README and
+  footer already declared CC BY-NC 4.0 as the governing licence.
+  The gap was small but real: without the LICENSE file at root,
+  GitHub's licence recognition does not register the licence, the
+  "View license" sidebar entry does not appear, and the licence
+  text is not bundled alongside the source. README prose is not a
+  legal grant; the LICENSE file is. Three identically-structured
+  files were prepared, each personalised in its header line with
+  the leaf's own wordmark per the family convention established by
+  Codex Vini (e.g. `Region Resonances © 2026 by Jure Skarabot is
+  licensed under CC BY-NC 4.0.`), and deployed one at a time. All
+  three repos now show "View license" in their right sidebar and
+  the "Other" tag in the repo list. §4.3 amended with a new
+  paragraph making the LICENSE-at-root convention explicit so it
+  is followed by default when the remaining forthcoming leaves
+  (`winemaker-affinities`, `vinotheca-reference`, etc.) are
+  spun up.
+
+- **Region Resonances PLANNING.md and PROJECT.md archived to
+  OLD_FILES/.** The two working documents — left over from the
+  build phase and superseded by the canonical PROJECT.md in the
+  `vinotheca` repo and by §6 / §7 entries here — were moved into
+  an `OLD_FILES/` folder in the `region-resonances` repo. The move
+  surfaced as a pending uncommitted change during the LICENSE
+  audit session; it was committed separately to keep the LICENSE
+  addition cleanly isolated in its own commit. Both files are
+  retained in `OLD_FILES/` rather than deleted outright — the
+  history is recoverable if any of the planning material proves
+  useful later.
 
 ### 2026-05-11
 
@@ -1295,6 +1339,32 @@ in the family's visual register.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-12 — v0.25
+
+- **§4.3 (Footer canonical pattern).** New paragraph appended
+  making the LICENSE-at-root convention explicit. The convention
+  records that the file is named `LICENSE` (no extension, all
+  caps) at the repo root, that GitHub's licence-recognition
+  depends on this exact filename, and that the per-leaf header
+  line follows the Codex Vini precedent. Adding this to §4.3 means
+  it propagates by default to future leaves rather than being
+  rediscovered each time a new repo is spun up.
+- **§7 entry under 2026-05-12.** New date subsection at the top of
+  §7. Two entries: (i) the LICENSE coverage closure — three repos
+  (`region-resonances`, `grape-resonances`, `region-affinities`)
+  brought from 0 to 1 LICENSE file each via three coordinated
+  commits, all following the per-leaf header convention; the
+  family is now at 10/10 LICENSE coverage. (ii) The
+  `region-resonances` PLANNING.md and PROJECT.md archive move to
+  `OLD_FILES/`, committed separately to keep the LICENSE addition
+  cleanly isolated.
+
+This v0.25 entry is light — the technical work was three single-
+file commits, and the structural change to PROJECT.md is one
+short paragraph in §4.3. The value is the codification: a small
+omission that affected three of ten repos becomes a documented
+family rule.
 
 ### 2026-05-11 — v0.24
 
