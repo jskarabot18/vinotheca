@@ -635,6 +635,55 @@ Lower urgency than §6.2 and §6.4. The Compass is a working personal
 record already; Codex Vinitorum formalises and publishes that record
 in the family's visual register.
 
+### 6.6 Atlas wordmark renames — deferred
+
+A naming alignment for the two atlases in the Maps section is locked
+as the intended future state but not executed: **Grand Cru Atlas $\rightarrow$
+Vineyard Atlas** and **Estate Atlas $\rightarrow$ Maker Atlas**. The renames
+affect *only the displayed wordmark and catalogue-side names*. The
+GitHub repository names (`grand-cru-atlas`, `estate-atlas`) and
+deployment URLs stay unchanged.
+
+**Why the change.** The current names break the family's
+`{Subject} {Operation}` naming pattern that holds elsewhere
+(Grape Affinities, Region Affinities, Grape Resonances, Region
+Resonances, etc.). *Grand Cru* names a prestige tier rather than a
+subject category; *Estate* names an organisational unit but doesn't
+visibly anchor what the atlas catalogues. After rename, the Maps
+section will read as **Vineyard Atlas + Maker Atlas** — two atlases
+whose names declare their subject (vineyards as places; makers as
+the producing entities holding the work), parallel to the rest of
+the family.
+
+**The Maker Atlas distinction.** *Maker* deliberately names a broader
+scope than *Winemaker*: an estate, domaine, or house is a *maker*,
+while *Winemaker Affinities*, *Winemaker Resonances*, and *Codex
+Vinitorum* are about the person carrying temperament. The shared
+word root across *Maker Atlas* and the Winemaker leaves signals
+shared subject domain; the different scope (entity vs.\ person) is
+disambiguated by section heading (Maps vs.\ Works / Correspondence /
+Personal Codex). The renamed catalogue then completes a subject-
+across-operations matrix in which *Maker Atlas* fills the Maps
+column for the winemaker subject.
+
+**Scope when executed.** Wordmark in each atlas's HTML; page
+titles; the parent Vinotheca catalogue page; any cross-links from
+other six leaves that name the atlases; the consolidated atlas
+PDFs' title blocks and on-page references (file names follow the
+repo and stay the same per the no-repo-rename decision above);
+§3.1 leaves table in this document; the §4.1 wordmark example
+referencing *The Estate Atlas*; §4 incidental references; a new
+§7 entry recording the rename and a §8 changelog block. The
+mechanical-text scope is similar to the TasteRank Explorer $\rightarrow$
+Grape Affinities rename of 2026-05-09 (see §7 entry that day),
+which kept the repo URL and changed only the displayed wordmark
+and catalogue-side naming. That precedent's pattern carries here
+directly.
+
+**Status.** The names are locked; execution is queued for a
+future session. No deadline. Low urgency — the misalignment is
+real but not blocking, and the leaves themselves are stable.
+
 ---
 
 ## 7. Recently completed (reverse chronological)
@@ -1539,6 +1588,32 @@ in the family's visual register.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-14 — v0.28
+
+- **§6.6 (Atlas wordmark renames — deferred).** New sub-block
+  appended at the end of §6 recording a locked-but-not-executed
+  naming change for the two atlases in Maps. Grand Cru Atlas $\rightarrow$
+  Vineyard Atlas and Estate Atlas $\rightarrow$ Maker Atlas. The renames
+  affect only the displayed wordmarks and catalogue-side naming;
+  the GitHub repository names (`grand-cru-atlas`, `estate-atlas`)
+  and deployment URLs stay unchanged. The block records the
+  rationale (the current names break the family's
+  `{Subject} {Operation}` pattern; *Grand Cru* names a prestige
+  tier rather than a subject; *Estate* doesn't visibly anchor
+  what the atlas catalogues), the Maker Atlas semantic distinction
+  (maker is broader-scope than winemaker, completing the subject-
+  across-operations matrix while the section-heading context
+  disambiguates entity from person), the mechanical-text scope
+  when execution arrives (paralleling the TasteRank Explorer
+  $\rightarrow$ Grape Affinities rename pattern), and the queued
+  status (low urgency, no deadline).
+
+This v0.28 entry is a forward-looking decision record, not a
+structural or executed change. No §3, §4, §6.1–6.5, §7 entries
+were modified. The atlases continue to ship as *Grand Cru Atlas*
+and *Estate Atlas* until the rename is executed in a future
+session.
 
 ### 2026-05-14 — v0.27
 
