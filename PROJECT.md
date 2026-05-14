@@ -10,7 +10,7 @@
 > next commit. Append an entry to §8 (Document changelog) so the change
 > is recorded.
 
-Last meaningful update: 2026-05-12 (see §8 for full history)
+Last meaningful update: 2026-05-13 (see §8 for full history)
 
 ---
 
@@ -524,7 +524,7 @@ association principle. The revised posture:
 
 This is the largest remaining piece of work in the Vinotheca build.
 
-### 6.3 Built — Grape Resonances (closed 2026-05-11; recorded in §7)
+### 6.3 Built — Grape Resonances (closed 2026-05-11; documentation closed 2026-05-13; recorded in §7)
 
 The second Correspondence leaf is live at
 `https://jskarabot18.github.io/grape-resonances/`. Build history, the
@@ -535,6 +535,15 @@ three locked worked examples are revised against curated data + the
 live matcher in the §7 entry — the framework's actual readings differ
 from the predictions in interesting ways, recorded as findings rather
 than defects.
+
+The four canonical PDFs per §4.5 (Summary, Methods Primer, Technical
+Appendix, Data Appendix) were authored and deployed in the 2026-05-13
+session; the Documentation dropdown now resolves all four entries
+correctly, plus the cross-link to Region Profiles — Identity. LaTeX
+sources archived alongside the family's other 12 source files. See
+§7 entry for 2026-05-13 for the authoring methodology and the v1
+caveats logged for the planned sanity-check pass against the live
+data files.
 
 ### 6.4 To be built — Winemaker Resonances (third Correspondence leaf)
 
@@ -629,6 +638,108 @@ in the family's visual register.
 ---
 
 ## 7. Recently completed (reverse chronological)
+
+### 2026-05-13
+
+- **Grape Resonances documentation closed — four canonical PDFs
+  authored, compiled, and deployed across a single session.** The
+  four documents per §4.5's canonical framework (Summary, Methods
+  Primer, Technical Appendix, Data Appendix) were drafted, compiled
+  with `pdflatex` against the shared `vinotheca-preamble.tex` /
+  `vinotheca.sty` setup, reviewed page-by-page, and shipped to
+  `grape-resonances/app/public/docs/` under their canonical
+  filenames (`grape-resonances-summary.pdf`, `grape-resonances-
+  methods-primer.pdf`, `grape-resonances-technical-appendix.pdf`,
+  `grape-resonances-data-appendix.pdf`). The Documentation dropdown
+  in Header.jsx had already been pointing at these filenames since
+  the leaf shipped on 2026-05-11; all four 404s now resolve
+  correctly. The cross-link to Region Profiles — Identity continues
+  to work unchanged.
+
+  *Authoring stance.* The four PDFs were authored under a deliberate
+  deference rule: where Grape Resonances inherits infrastructure
+  from Region Resonances (the matcher, the embedding model, the
+  unit-sphere geometry, the cosine-similarity formulation, the
+  clip-and-rescale display calibration), the Grape Resonances
+  documents do not re-derive or re-teach the material — they cite
+  the Region Resonances counterpart and proceed to what is genuinely
+  new in Grape Resonances. This keeps the family's PDF set from
+  duplicating itself and makes the per-tool documents proportionate
+  to what each tool actually adds. The Summary opens with a one-
+  paragraph cross-reference to Region Resonances and spends its real
+  depth on the two-stage architecture; the Methods Primer's §1
+  recaps the matcher in one page and defers the full plain-language
+  treatment to the Region Resonances Methods Primer; the Technical
+  Appendix's preface notes the deference explicitly and formalises
+  only the new layers (alias resolution as a partial function with
+  silent-skip state, the aggregator's three-mode piecewise rule, the
+  coherence detector's cluster-count rule, the response object as
+  a tuple, three propositions with proofs); the Data Appendix is
+  comprehensive on what is specific to Grape Resonances (the 101
+  canonical grape surface split 53 reds / 48 whites, the 12-entry
+  alias map, the 11 silent-skipped non-canonical grapes, the 10
+  framing sentences in full, the per-region signature curation in
+  one 59-row table, the curation methodology with six principles
+  and the same-grape cross-region pattern table) but explicitly
+  cites the Region Resonances Data Appendix for the embedding model
+  spec and operating characteristics rather than re-listing.
+
+  *Doc-by-doc summary.* Summary: 8 pages, mirrors the Region
+  Resonances Summary structure (Abstract → Intro → Data →
+  Methodology → Results → Robustness → Conclusion → References),
+  includes three live worked examples drawn from the deployed tool
+  (the falling-in-love / brotherhood / move-decision queries from
+  the §7 entry for 2026-05-11) plus the independent-Claude
+  convergence on Furmint for *late summer* as evidence the region
+  narratives carry semantic temperament that survives embedding.
+  Methods Primer: 8 pages, plain-language register in the family's
+  paragraph-style-with-bolded-headings format, eight sections
+  closing with the canonical nine-step *Pipeline in Summary* recap.
+  Technical Appendix: 9 pages, three top-level sections (A.
+  Mathematical Framework with ten subsections including three
+  propositions and proofs; B. Algorithms with four pseudocode
+  blocks; C. Implementation with six subsections covering runtime,
+  data shapes, complexity, caching, determinism, and failure modes).
+  Data Appendix: 9 pages, nine top-level sections (A. Region Corpus,
+  B. Canonical 101-Grape Surface, C. Alias Map, D. Silent-Skip List,
+  E. Framing Sentences, F. Per-Region Signature Curation, G. Curation
+  Methodology, H. Data File Inventory, I. References).
+
+  *Source archive.* LaTeX sources for all four PDFs deployed to
+  `grape-resonances/docs-source/`, joining the family's growing
+  LaTeX archive. The full Grape Resonances source-file count is now
+  four (Summary, Methods Primer, Technical Appendix, Data Appendix)
+  alongside the shared `vinotheca-preamble.tex`. With Region
+  Affinities' 4 + Region Resonances' 4 + Grape Resonances' 4 + the
+  shared preamble, the family LaTeX corpus stands at 13 source
+  files.
+
+  *Caveat logged for sanity-check pass.* The Data Appendix's §F
+  (per-region signature table) and §G.3 (same-grape cross-region
+  pattern table) were assembled from past-chat fragments rather
+  than from the live `region_grapes.json` directly, because that
+  file was not at hand during the authoring session. The cluster
+  framings in §E and the alias entries in §C are verbatim from
+  past-chat extractions of the authored files but have not yet
+  been diff-confirmed against the deployed JSON. A sanity-check
+  pass against the four live JSON files (`region_grapes.json`,
+  `cluster_framings.json`, `grape_aliases.json`,
+  `grape_narratives.json`) is queued for the next session;
+  corrections, if any, will be applied as a single follow-up
+  commit to the Data Appendix sources rather than reissued as
+  v1.1 across all four documents. The Summary, Methods Primer,
+  and Technical Appendix do not contain per-region or per-grape
+  data and are not affected by the sanity-check scope.
+
+  This closure brings Grape Resonances to family-level
+  documentation parity with Region Resonances and Region
+  Affinities. Both currently-live Correspondence tools (Region
+  Resonances, Grape Resonances) and both currently-live
+  Affinities-side Works tools (Grape Affinities, Region
+  Affinities) now have the full four-PDF canonical set per §4.5.
+  The next documentation work in this register will be for
+  Winemaker Affinities + The Hand of Wine (§6.2) and Winemaker
+  Resonances (§6.4), neither yet built.
 
 ### 2026-05-12
 
@@ -1339,6 +1450,43 @@ in the family's visual register.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-13 — v0.26
+
+- **§6.3 (Grape Resonances built block).** Section heading updated
+  from *closed 2026-05-11* to *closed 2026-05-11; documentation
+  closed 2026-05-13*. A new closing paragraph appended noting that
+  the four canonical PDFs per §4.5 (Summary, Methods Primer,
+  Technical Appendix, Data Appendix) were authored and deployed in
+  the 2026-05-13 session, that the Documentation dropdown now
+  resolves all four entries plus the existing cross-link to Region
+  Profiles — Identity, that the LaTeX sources are archived alongside
+  the family's other 12 source files (bringing the family LaTeX
+  corpus to 13), and pointing to the §7 entry for the authoring
+  methodology and v1 caveats.
+- **§7 entry under 2026-05-13.** New date subsection inserted at the
+  top of §7. One substantive entry recording the four-PDF closure,
+  with five sub-paragraphs covering: authoring stance (the deference
+  rule — defer matcher material to Region Resonances, spend depth on
+  what Grape Resonances adds); per-document summary (page counts,
+  section structures, anchor content for each of the four PDFs);
+  source archive (the four .tex files added to docs-source/,
+  bringing the family LaTeX corpus to 13); the sanity-check caveat
+  logged for the next session (the Data Appendix's §F per-region
+  signature table and §G.3 same-grape pattern table were assembled
+  from past-chat fragments rather than the live JSON, and a diff
+  pass against the four live data files is queued; the other three
+  PDFs do not contain per-region or per-grape data and are not
+  affected by the sanity-check scope); and family-state summary
+  (both currently-live Correspondence tools and both currently-live
+  Affinities-side Works tools now at four-PDF parity, with
+  Winemaker Affinities, The Hand of Wine, and Winemaker Resonances
+  identified as the next documentation work in this register).
+
+This v0.26 entry is a documentation-closure recording rather than
+a structural or design change. No §4 or §6 sections changed in
+substance; the §6.3 amendment is a status update on a leaf already
+marked Built. The §7 entry is the substantive record of the work.
 
 ### 2026-05-12 — v0.25
 
