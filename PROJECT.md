@@ -10,7 +10,7 @@
 > next commit. Append an entry to §8 (Document changelog) so the change
 > is recorded.
 
-Last meaningful update: 2026-05-13 (see §8 for full history)
+Last meaningful update: 2026-05-14 (see §8 for full history)
 
 ---
 
@@ -638,6 +638,95 @@ in the family's visual register.
 ---
 
 ## 7. Recently completed (reverse chronological)
+
+### 2026-05-14
+
+- **Grape Resonances Data Appendix sanity-check pass closed —
+  11 findings, 11 corrections applied, v1.1 deployed.** The caveat
+  logged in the §7 entry for 2026-05-13 has been resolved. The four
+  live JSON files (`region_grapes.json`, `cluster_framings.json`,
+  `grape_aliases.json`, `grape_narratives.json`) were uploaded and
+  diffed against the Data Appendix across six sections (§B canonical
+  101-grape surface, §C alias map, §D silent-skip list, §E framing
+  sentences, §F per-region signature table, §G.3 cross-region pattern
+  table). Two sections were clean: §B (all 101 canonical grape names
+  match across reds and whites; identical sets) and §E (all 10 framing
+  sentences render verbatim). The other four sections had findings:
+  three in §C (alias keys), one in §D (silent-skip display), eight in
+  §F (five signature mismatches plus three temperament-seconds
+  mismatches), and one in §G.3 (the Sémillon cross-region row).
+
+  *Substantive findings — 4.* These were factual errors a reader would
+  rely on. (i) Bordeaux signature was listed as
+  \[Cabernet Sauvignon, Merlot] but the live data has three pillars
+  \[Cabernet Sauvignon, Merlot, Cabernet Franc] — Cabernet Franc as
+  the third signature is the curatorial position, in keeping with
+  Bordeaux's actual blend traditions. (ii) Northern Rhône signature
+  was listed as \[Syrah] alone but the live data has \[Syrah, Viognier]
+  — Viognier is signature for the Condrieu/Château-Grillet expression
+  the region is also known for. (iii) Paso Robles temperament-seconds
+  was listed as Mourvèdre but the live data has Grenache — this was
+  a fact mismatch in the original Data Appendix authoring. (iv) The
+  §G.3 cross-region table listed Sémillon as appearing 3x (Bordeaux,
+  Patagonia, Margaret River), but the live data uses two distinct
+  spellings: Sémillon (with accent) in 2 regions (Bordeaux, Patagonia)
+  and Semillon (no accent) in 1 region (Margaret River). The Curation
+  State doc's "spelling note" documents this as intentional regional
+  spelling preserved per local convention; the v1 Data Appendix
+  conflated the two spellings rather than acknowledging the
+  distinction.
+
+  *Cosmetic findings — 7.* These preserve identity but use different
+  display forms. The live data uses parenthetical disambiguation in
+  keys (e.g.\ "Garnatxa (Grenache)", "Rebula (Ribolla Gialla)",
+  "Semillon (Hunter Valley)", "Muscat (Blanc à Petits Grains +
+  Ottonel)", "Gamay Noir") where the v1 Data Appendix had dropped
+  the parentheticals. The parentheticals matter because that is
+  exactly how the strings appear in the aggregator's lookup at the
+  signature-tier stage, and bringing the displayed forms in line
+  with what the aggregator actually reads improves the document's
+  value as a reference. Affected: §C (3 alias key entries),
+  §D (1 silent-skip display name), §F (5 signature rows, 3
+  temperament-seconds entries).
+
+  *Corrections applied.* All 11 findings were applied to the
+  GrapeResonances\_Data\_Appendix.tex source via str\_replace edits
+  and the document was recompiled. §G.3's intro paragraph was
+  rewritten to explain the Sémillon/Semillon spelling distinction
+  before showing the corrected table (5 grape identities recurring,
+  with Sémillon split into two rows reflecting the intentional
+  spelling decision). The other four §G.3 rows (Cabernet Franc 3x,
+  Zinfandel 2x, Cinsault 2x, Grenache 2x, Syrah 2x) were unchanged.
+  The corrected PDF grew from 9 to 10 pages (the §G.3 intro
+  rewrite and the row split spilled over to a new page); all other
+  pages render identically to v1 apart from the corrected table cells.
+  The corrections were deployed to `grape-resonances/app/public/docs/
+  grape-resonances-data-appendix.pdf` and the corrected source to
+  `grape-resonances/docs-source/GrapeResonances\_Data\_Appendix.tex`,
+  bringing the file to v1.1.
+
+  *Summary, Methods Primer, and Technical Appendix are unchanged.*
+  These three PDFs do not contain per-region or per-grape data and
+  are not affected by the sanity-check scope. Their v1 state remains
+  canonical.
+
+  *Method observation worth recording.* The diff methodology was
+  rigorous: each section of the Data Appendix that contained
+  enumerated data was checked entry-by-entry against the live JSON
+  file that supplies it, with mismatches classified as substantive
+  (factual errors) or cosmetic (display-form differences). Three
+  of the four substantive findings were factual errors in the v1
+  authoring (Bordeaux missing Cab Franc, Northern Rhône missing
+  Viognier, Paso Robles misnaming the temperament-seconds grape).
+  These errors traced to the v1 authoring relying on past-chat
+  fragments rather than the live JSON directly, as explicitly
+  acknowledged in the §7 entry for 2026-05-13. The sanity-check
+  pass caught all three substantive errors plus the §G.3 spelling
+  conflation, plus seven cosmetic findings that improve the
+  document's accuracy as a reference. For future canonical PDF
+  authoring, the lesson is: when the live data file exists, diff
+  against it before shipping, even when comprehensive past-chat
+  reconstruction looks complete.
 
 ### 2026-05-13
 
@@ -1450,6 +1539,35 @@ in the family's visual register.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-14 — v0.27
+
+- **§7 entry under 2026-05-14.** New date subsection inserted at the
+  top of §7. One substantive entry recording the Grape Resonances
+  Data Appendix sanity-check pass and the deployment of v1.1. Six
+  sub-paragraphs cover: substantive findings (the four factual
+  errors — Bordeaux signature missing Cabernet Franc, Northern Rhône
+  signature missing Viognier, Paso Robles temperament-seconds
+  misnamed as Mourvèdre when the live data has Grenache, and the
+  §G.3 Sémillon conflation that missed the intentional regional
+  spelling distinction); cosmetic findings (seven parenthetical-
+  disambiguation differences in display forms); corrections applied
+  (all 11 findings landed via str_replace edits, document recompiled,
+  §G.3 intro rewritten to explain the Sémillon/Semillon spelling
+  distinction, PDF grew from 9 to 10 pages); unaffected documents
+  (Summary, Methods Primer, Technical Appendix are unchanged because
+  they don't contain per-region or per-grape data); and a method
+  observation worth recording for future canonical PDF authoring
+  (diff against the live data file before shipping, even when
+  past-chat reconstruction looks comprehensive).
+
+This v0.27 entry resolves the sanity-check caveat logged in the
+2026-05-13 §7 entry. No structural changes to PROJECT.md; no §4 or
+§6 sections changed. The substantive record is the §7 entry; the
+§6.3 block's "documentation closed 2026-05-13" heading remains
+accurate (the four canonical PDFs were authored and deployed on
+that date; the v1.1 Data Appendix correction is a follow-up
+revision within the closure rather than a new closure event).
 
 ### 2026-05-13 — v0.26
 
