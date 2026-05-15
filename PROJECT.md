@@ -87,7 +87,7 @@ both faces, not as separate Tool and Study cards.
 | Correspondence | Winemaker Resonances | *(tbd)* | Planned — see §6.4 | Winemaker *Resonances* | A Correspondence of Vinotheca |
 | Reference | *(no leaves yet)* | `vinotheca-reference` | Repo to be created — empty for now | — | A Reference of Vinotheca |
 | Personal Codex | Codex Vini | `codex-vini` | Live | Codex *Vini* | A Codex of Vinotheca |
-| Personal Codex | Codex Vinitorum | *(tbd)* | Planned — see §6.5 | Codex *Vinitorum* | A Codex of Vinotheca |
+| Personal Codex | Codex Vinitorum | `codex-vinitorum` | Live | Codex *Vinitorum* | A Codex of Vinotheca |
 
 All repos are public under `github.com/jskarabot18/`. Pages URLs follow
 `https://jskarabot18.github.io/<repo>/`.
@@ -579,7 +579,7 @@ flattening them, and true enough that a stranger feeling homesickness
 can recognise themselves in the match. The writing register and
 ethical care will be unusually demanding.
 
-### 6.5 To be built — Codex Vinitorum (second Personal Codex leaf)
+### 6.5 Built — Codex Vinitorum (closed 2026-05-14; recorded in §7)
 
 The personal Codex for winemakers met in person, paralleling Codex
 Vini's role for wines tasted. *Codex Vinitorum* = "Book of Winemakers"
@@ -589,16 +589,18 @@ vine-dresser / winemaker.
 
 The codex records winemakers met in person with personal attributes —
 analogous to Codex Vini's tasting records but for the person rather
-than the bottle. The 29 winemakers from the existing Winemaker's
-Compass populate the initial entries.
+than the bottle. The 35 winemakers from the existing Winemaker's
+Compass (v6) populate the initial entries.
+
+**Live at:** [jskarabot18.github.io/codex-vinitorum](https://jskarabot18.github.io/codex-vinitorum/) · repo: `codex-vinitorum`
 
 **Architectural rule (locked).** Library (Part I) and Personal Codex
 (Part II) do not interact. Codex Vinitorum is a standalone Part II
 artefact, designed on its own terms. Its content does not feed the
 Works leaf (§6.2) or the Correspondence leaf (§6.4). The Compass
-winemakers will appear in the Works/Correspondence corpus because
-they are significant winemakers with rich source material, not because
-they are recorded in Codex Vinitorum. The two domains are sealed.
+winemakers appear in the Works/Correspondence corpus because they are
+significant winemakers with rich source material, not because they
+are recorded in Codex Vinitorum. The two domains are sealed.
 
 **Affinity signals (locked 2026-05-11).** Codex Vinitorum entries
 carry three optional, orthogonal experience-side signals rather than
@@ -617,23 +619,39 @@ Codex Vinitorum's entry register from Codex Vini's (which carries a
 numeric rating of the wine), honouring the architectural rule that
 Library and Personal Codex differ in kind, and adding a quiet
 differentiation between the two Personal Codex leaves themselves.
-Implementation suggestion: render each present signal as a small
-discreet glyph; absence is the default visual state, so entries
-without signals are not visibly lower than those with them.
 
-**Pending:**
-- Design the entry schema (paralleling Codex Vini's but for the person
-  rather than the wine; affinity-signals fields per the locked
-  decision above)
-- Decide visual treatment (Codex Vini's existing palette extends
-  naturally; Codex Vinitorum may want a small differentiation signal
-  as a Part II sibling)
-- Build the leaf (likely React + simple JSON, like Codex Vini)
-- Migrate the 29 Compass winemaker entries
+**Bio register (locked at build).** Per-winemaker bios are written in
+a factual, encyclopedic register at roughly 80–110 words per entry:
+lineage and training, substantive decisions, estate facts (varieties,
+hectarage, key cuvées). No quality-claims ("foremost," "greatest,"
+"rivals"). No comparative judgements. No personal-impression
+sentences — character and disposition belong to the affinity signals,
+not the bio. The bios were derived from the Winemaker's Compass v6
+through a light editing pass that stripped wine-critic register and
+preserved factual content; some of the more uncertain dates were
+softened to decades or ranges rather than committed to specific years
+that might be wrong. The bios are working content and will be refined
+as new information surfaces; this is consistent with the framework's
+broader stance that publishable Library-adjacent leaves can launch
+with material that's honest about its provisional state.
 
-Lower urgency than §6.2 and §6.4. The Compass is a working personal
-record already; Codex Vinitorum formalises and publishes that record
-in the family's visual register.
+**Built (2026-05-14):** The leaf shipped with the full Codex Vini
+sibling pattern — *The Book* (sortable, searchable, filterable table),
+*The Atlas* (Leaflet map with uniform pins, one per winemaker), and
+*The Collection* (six aggregate charts: by country, by region, by
+event, by year, signal distribution, signal combinations). The
+affinity signals render as three signal-specific columns in the Book
+(*Close* / *Memorable* / *Stayed*, short-form headers with tooltip
+expansions); each cell shows a fleuron if the signal is on. Pins are
+uniform — no size or colour variation by signal — honouring the
+no-ranking commitment at the visual level. The build folded in the
+output of the Codex Vinitorum signals workbook (an interactive HTML
+tool authored mid-week that let the workbook user mark signals across
+multiple sessions and export structured JSON); 19 of 35 entries carry
+at least one signal at launch (8 *felt close to*, 10 *memorable*, 7
+*stayed with me*). See §7 entry under 2026-05-14 for the full
+multi-day arc and follow-up refinements (three-column display,
+auto-pan popups, scroll-wheel zoom).
 
 ### 6.6 Atlas wordmark renames — deferred
 
@@ -689,6 +707,56 @@ real but not blocking, and the leaves themselves are stable.
 ## 7. Recently completed (reverse chronological)
 
 ### 2026-05-14
+
+- **Codex Vinitorum launched — second Personal Codex leaf live at
+  `jskarabot18.github.io/codex-vinitorum/` per §6.5.** The multi-day
+  arc that produced the leaf is worth recording as a unit because the
+  decisions and the build interleaved in ways that the chronological
+  changelog only thinly captures. The arc began on 2026-05-11 when
+  the winemaker section was rearchitected into three coordinated
+  leaves (§6.2 Works, §6.4 Correspondence, §6.5 Personal Codex) and
+  the affinity-signals decision was locked. The signals workbook was
+  authored mid-week as a preparation tool — an interactive HTML
+  artifact with persistent storage that let the workbook user mark
+  signals across multiple sessions and export structured JSON; the
+  workbook design surfaced a small ranking-trap (when 0–3 fleurons
+  were proposed coloured by count, this would have re-introduced
+  ranking; the fix was uniform colour with positional ordering — a
+  good real-time application of the §6.5 no-ranking rule). The
+  workbook export then fed the build, which proceeded in five
+  stages: the data file (`winemakers.json`, 35 entries merging
+  bios + signals + region coordinates), the regions lookup
+  (`regions.json`), the main app (`index.html` with The Book / The
+  Atlas / The Collection sections), the add-winemaker form
+  (`add_winemaker.html`), and the supporting files (README, LICENSE
+  at `LICENSE` per the §4.3 convention locked in v0.25). The bios
+  were authored in a factual encyclopedic register per the §6.5
+  *Bio register* commitment — light editing pass over the Compass v6
+  bios that stripped wine-critic register ("foremost," "almost
+  single-handedly elevated") and preserved factual content. Deployment
+  to GitHub Pages required three corrective steps because the first
+  attempt accidentally set the source to "GitHub Actions" rather than
+  "Deploy from a branch," creating a stale `github-pages` environment
+  that broke deploys; the fix was to delete the environment, push a
+  `.nojekyll` file, and let Pages auto-recreate the environment in
+  the correct state. Follow-up refinements completed the same day:
+  the single Signals column in The Book was replaced with three
+  signal-specific columns (*Close* / *Memorable* / *Stayed*, short
+  headers with tooltip expansions, fleurons centred per column);
+  Leaflet popup positioning was fixed with `autoPan` and `maxHeight`
+  so popups always sit fully inside the visible map area; and
+  scroll-wheel zoom was enabled on the map matching Codex Vini's
+  interaction pattern. The leaf launched with 19 of 35 entries
+  carrying at least one signal — 8 *felt close to*, 10 *memorable
+  encounter*, 7 *stayed with me*. The signal distribution observed
+  the rarity hierarchy predicted during the workbook design phase:
+  memorable encounter is most common (most encounters of vivid
+  professional tastings stand out); felt close to and stayed with me
+  are rarer and more selective. The discipline held — an entry
+  without signals is as honest a record as one with three. Codex
+  Vinitorum is the second Library-adjacent personal artefact (with
+  Codex Vini), sealed from the Library per the §6.5 architectural
+  rule.
 
 - **Grape Resonances Data Appendix sanity-check pass closed —
   11 findings, 11 corrections applied, v1.1 deployed.** The caveat
@@ -1588,6 +1656,58 @@ real but not blocking, and the leaves themselves are stable.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-14 — v0.29
+
+- **§3 (Leaves table).** Codex Vinitorum row updated to reflect the
+  shipped state: repository name changed from `*(tbd)*` to
+  `codex-vinitorum`, status changed from `Planned — see §6.5` to
+  `Live`. No other rows touched.
+- **§6.5 (Codex Vinitorum).** Section heading changed from
+  *To be built — Codex Vinitorum (second Personal Codex leaf)* to
+  *Built — Codex Vinitorum (closed 2026-05-14; recorded in §7)*, in
+  line with the §6.3 Grape Resonances pattern for shipped leaves.
+  Corpus reference updated from "29 winemakers" to "35 winemakers
+  from the existing Winemaker's Compass (v6)" reflecting the current
+  Compass size. A *Live at* line added immediately under the intro
+  pointing to the deployment URL and repository. The two locked
+  blocks (Architectural rule, Affinity signals) preserved verbatim
+  as durable records of the decisions that shaped the leaf. A new
+  *Bio register* block added below the Affinity signals block,
+  recording the factual encyclopedic register the bios were written
+  in and the light-edit derivation from the Compass; the block also
+  acknowledges the working-content stance for bios that contain some
+  inference and may need refinement as new information surfaces. The
+  *Pending* list replaced with a *Built (2026-05-14)* block
+  describing the shipped scope: Codex Vini sibling structure (Book /
+  Atlas / Collection), three signal-specific columns in The Book,
+  uniform pins on The Atlas honouring the no-ranking commitment, and
+  the launch-day signal distribution (19 of 35 marked; rarity
+  hierarchy held). The block points to the §7 entry for the full
+  multi-day arc and follow-up refinements.
+- **§7 entry under 2026-05-14.** New entry inserted at the top of
+  the 2026-05-14 day (above the existing Grape Resonances Data
+  Appendix entry). The entry records the multi-day arc that
+  produced Codex Vinitorum: the 2026-05-11 rearchitecture, the
+  signals workbook authored mid-week (including the small
+  ranking-trap caught during its design — proposing 0–3 fleurons
+  coloured by count would have re-introduced ranking; the fix was
+  uniform colour with positional ordering), the five-stage build,
+  the bio-register discipline, the three-step GitHub Pages
+  deployment fix (stale `github-pages` environment from accidental
+  GitHub Actions source setting; resolved by environment deletion
+  and `.nojekyll` push), and the follow-up refinements done the
+  same day (three-column signal display, popup auto-pan, scroll-
+  wheel zoom). The signal distribution observed the predicted
+  rarity hierarchy: memorable encounter most common (10),
+  felt close to (8) and stayed with me (7) more selective.
+
+This v0.29 entry is the most substantive Codex change in several
+days. It records the launch of the second Personal Codex leaf —
+sibling to Codex Vini and sealed from the Library per the §6.5
+architectural rule — and completes the Personal Codex section of
+the Vinotheca family. No structural changes to PROJECT.md beyond
+§3, §6.5, §7, and this changelog entry.
 
 ### 2026-05-14 — v0.28
 
