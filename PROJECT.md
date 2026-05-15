@@ -112,6 +112,30 @@ grape varieties (Body), through the cultural temperament of regions
 (Soul), and through the character of the people who make it (Hand).
 Each is necessary; none is sufficient.
 
+### 3.2 The Vinotheca landing page
+
+The parent `vinotheca` repository hosts a landing page that introduces
+the family and links to every leaf. It is a tracked artefact of the
+family in its own right — not just a navigational page but a curated
+overview that conveys what Vinotheca is and what it contains. The
+landing page has gone through its own visual iterations, most recently
+the three-section design that groups leaves by their category
+(*The Instruments*, *The Studies*, *The Codex*).
+
+**Propagation rule (locked).** When any leaf in §3 changes status —
+becomes Live, gets renamed, is removed or deprecated — the Vinotheca
+landing page is updated in the same commit, or the next. The same
+rule applies if a structural decision elsewhere in §4 affects how a
+leaf is presented (e.g., a wordmark adjustment, a section reorder).
+The landing page is the visible face of the family; it should never
+silently drift from §3.
+
+**Pending update.** The 2026-05-14 launch of Codex Vinitorum (see §6.5
+and the §7 entry under 2026-05-14) is not yet reflected on the landing
+page. The Personal Codex section still presents Codex Vini as the sole
+member. The update is a non-urgent task but should be completed before
+the next leaf change to avoid compounding drift.
+
 ---
 
 ## 4. Cross-cutting design decisions
@@ -707,6 +731,25 @@ real but not blocking, and the leaves themselves are stable.
 ## 7. Recently completed (reverse chronological)
 
 ### 2026-05-14
+
+- **§3.2 Vinotheca landing page added as a tracked artefact.** A gap
+  in PROJECT.md surfaced after the Codex Vinitorum launch: the
+  parent landing page is the visible face of the family but was not
+  recorded anywhere in PROJECT.md as a maintained artefact. This
+  meant a leaf could ship, change status, or get renamed without
+  PROJECT.md flagging that the landing page also needed updating.
+  The gap was closed by adding §3.2, which records the landing page
+  as a tracked artefact and codifies a propagation rule: when any
+  leaf in §3 changes status, the landing page is updated in the
+  same commit or the next. The same rule applies to structural §4
+  decisions that affect leaf presentation. A *Pending update* note
+  was also added flagging that the Codex Vinitorum launch is not
+  yet reflected on the landing page; the update is non-urgent but
+  should land before the next leaf change to avoid compounding
+  drift. The pattern matches the §4.3 LICENSE convention added in
+  v0.25 — both surface a small omission that affects a small set of
+  artefacts, both codify the rule rather than just fixing the
+  symptom.
 
 - **Codex Vinitorum launched — second Personal Codex leaf live at
   `jskarabot18.github.io/codex-vinitorum/` per §6.5.** The multi-day
@@ -1656,6 +1699,38 @@ real but not blocking, and the leaves themselves are stable.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-14 — v0.30
+
+- **§3.2 (new) — Vinotheca landing page as a tracked artefact.** Added
+  a new sub-section under §3 documenting the parent `vinotheca`
+  repository's landing page as a maintained artefact of the family.
+  The block opens with a short paragraph framing the landing page as
+  a curated overview (not just navigation), nods to the three-section
+  visual design (*The Instruments*, *The Studies*, *The Codex*), then
+  introduces a locked *Propagation rule*: when any leaf in §3 changes
+  status — becomes Live, gets renamed, is removed or deprecated — the
+  Vinotheca landing page is updated in the same commit or the next.
+  The rule also covers structural §4 decisions that affect leaf
+  presentation (wordmark adjustments, section reorders). A *Pending
+  update* note immediately below flags the current drift: the
+  2026-05-14 Codex Vinitorum launch is not yet reflected on the
+  landing page; non-urgent but should land before the next leaf
+  change to avoid compounding drift.
+- **§7 entry under 2026-05-14.** New entry inserted at the top of the
+  2026-05-14 day, above the Codex Vinitorum launch entry from v0.29.
+  Records the gap that surfaced after the launch, the §3.2
+  codification, and the pending landing-page update. The entry
+  explicitly relates this codification pattern to the v0.25 LICENSE
+  convention: both close a small omission affecting a small set of
+  artefacts by codifying the rule rather than just fixing the
+  symptom.
+
+This v0.30 entry is small in word count but structurally meaningful.
+The Vinotheca landing page is now visible to PROJECT.md, and a leaf
+status change in §3 will from now on prompt a landing-page check by
+default. The catch-and-codify pattern continues — v0.25 did it for
+LICENSE files, v0.30 does it for the landing page.
 
 ### 2026-05-14 — v0.29
 
