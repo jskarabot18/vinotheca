@@ -10,7 +10,7 @@
 > next commit. Append an entry to §8 (Document changelog) so the change
 > is recorded.
 
-Last meaningful update: 2026-05-15 (see §8 for full history)
+Last meaningful update: 2026-05-16 (see §8 for full history)
 
 ---
 
@@ -74,8 +74,8 @@ both faces, not as separate Tool and Study cards.
 | Section | Site | Repo | Status | Wordmark | Eyebrow |
 |---------|------|------|--------|----------|---------|
 | Parent | Vinotheca | `vinotheca` | Live | Vinotheca | A LIBRARY OF WINE WORKS |
-| Maps | The Estate Atlas | `estate-atlas` | Live | The Estate *Atlas* | An Atlas of Vinotheca |
-| Maps | The Grand Cru Atlas | `grand-cru-atlas` | Live | The Grand Cru *Atlas* | An Atlas of Vinotheca |
+| Maps | The Maker Atlas | `estate-atlas` | Live | The Maker *Atlas* | An Atlas of Vinotheca |
+| Maps | The Vineyard Atlas | `grand-cru-atlas` | Live | The Vineyard *Atlas* | An Atlas of Vinotheca |
 | Works → Tool | Grape Affinities | `tasterank-explorer` | Live | Grape *Affinities* | A Tool of Vinotheca |
 | Works → Study | The Body of Wine | `body-of-wine` | Live | The *Body* of Wine | A Study of Vinotheca |
 | Works → Tool | Region Affinities | `region-affinities` | Live | Region *Affinities* | A Tool of Vinotheca |
@@ -138,7 +138,7 @@ These rules govern every leaf in the family. New leaves should follow them.
 
 ### 4.1 Wordmark — italic emphasis on the noun
 
-`<roman first half> <em>italic noun</em>`. The Estate *Atlas*. Region
+`<roman first half> <em>italic noun</em>`. The Maker *Atlas*. Region
 *Affinities*. The *Soul* of Wine. Codex *Vini*. Codex *Vinitorum*. The
 parent ("Vinotheca") is the only exception — single word, no italicisation.
 
@@ -182,7 +182,7 @@ CC BY-NC 4.0 text with a per-leaf header line naming the wordmark (e.g.
 - **Studies** (Soul of Wine, Body of Wine, The Hand of Wine): in-page
   anchor menu and document cards. The study-class template will be
   properly defined when there are three live studies.
-- **Maps** (Estate Atlas, Grand Cru Atlas): single `Download X Atlas PDF`
+- **Maps** (Maker Atlas, Vineyard Atlas): single `Download X Atlas PDF`
   button in the masthead. Atlases ship one consolidated PDF rather than
   the multi-document framework.
 - **Correspondence** (Region Resonances and Grape Resonances, with
@@ -238,11 +238,11 @@ open and is gated on The Hand of Wine joining the live set.
 
 The family currently has three visual subsystems:
 
-- **The Library** (parent, Estate Atlas, Soul of Wine): warm parchment,
+- **The Library** (parent, Maker Atlas, Soul of Wine): warm parchment,
   EB Garamond + Cormorant Garamond
 - **The Tools (React)** (Region Affinities, Region Resonances):
   parchment-warm, Tailwind-driven
-- **The Atlases (static)** (Grape Affinities, Grand Cru Atlas):
+- **The Atlases (static)** (Grape Affinities, Vineyard Atlas):
   whiter ground, DM Sans body + Cormorant Garamond wordmark
 - **Codex Vini**: own palette
 
@@ -671,58 +671,234 @@ at least one signal at launch (8 *felt close to*, 10 *memorable*, 7
 multi-day arc and follow-up refinements (three-column display,
 auto-pan popups, scroll-wheel zoom).
 
-### 6.6 Atlas wordmark renames — deferred
+### 6.6 Executed — Atlas wordmark renames (closed 2026-05-16; recorded in §7)
 
-A naming alignment for the two atlases in the Maps section is locked
-as the intended future state but not executed: **Grand Cru Atlas $\rightarrow$
-Vineyard Atlas** and **Estate Atlas $\rightarrow$ Maker Atlas**. The renames
-affect *only the displayed wordmark and catalogue-side names*. The
+The naming alignment for the two atlases in the Maps section was
+executed in this session: **Grand Cru Atlas $\rightarrow$ Vineyard
+Atlas** and **Estate Atlas $\rightarrow$ Maker Atlas**. The renames
+affected *only the displayed wordmark and catalogue-side names*. The
 GitHub repository names (`grand-cru-atlas`, `estate-atlas`) and
-deployment URLs stay unchanged.
+deployment URLs are unchanged.
 
-**Why the change.** The current names break the family's
+**Why the change (locked).** The previous names broke the family's
 `{Subject} {Operation}` naming pattern that holds elsewhere
 (Grape Affinities, Region Affinities, Grape Resonances, Region
-Resonances, etc.). *Grand Cru* names a prestige tier rather than a
-subject category; *Estate* names an organisational unit but doesn't
-visibly anchor what the atlas catalogues. After rename, the Maps
-section will read as **Vineyard Atlas + Maker Atlas** — two atlases
-whose names declare their subject (vineyards as places; makers as
-the producing entities holding the work), parallel to the rest of
-the family.
+Resonances, etc.). *Grand Cru* named a prestige tier rather than a
+subject category; *Estate* named an organisational unit but didn't
+visibly anchor what the atlas catalogues. The Maps section now reads
+as **Vineyard Atlas + Maker Atlas** — two atlases whose names declare
+their subject (vineyards as places; makers as the producing entities
+holding the work), parallel to the rest of the family.
 
-**The Maker Atlas distinction.** *Maker* deliberately names a broader
-scope than *Winemaker*: an estate, domaine, or house is a *maker*,
-while *Winemaker Affinities*, *Winemaker Resonances*, and *Codex
-Vinitorum* are about the person carrying temperament. The shared
-word root across *Maker Atlas* and the Winemaker leaves signals
-shared subject domain; the different scope (entity vs.\ person) is
-disambiguated by section heading (Maps vs.\ Works / Correspondence /
-Personal Codex). The renamed catalogue then completes a subject-
-across-operations matrix in which *Maker Atlas* fills the Maps
-column for the winemaker subject.
+**The Maker Atlas distinction (locked).** *Maker* deliberately names
+a broader scope than *Winemaker*: an estate, domaine, or house is a
+*maker*, while *Winemaker Affinities*, *Winemaker Resonances*, and
+*Codex Vinitorum* are about the person carrying temperament. The
+shared word root across *Maker Atlas* and the Winemaker leaves
+signals shared subject domain; the different scope (entity vs.\
+person) is disambiguated by section heading (Maps vs.\ Works /
+Correspondence / Personal Codex). The renamed catalogue then
+completes a subject-across-operations matrix in which *Maker Atlas*
+fills the Maps column for the winemaker subject.
 
-**Scope when executed.** Wordmark in each atlas's HTML; page
-titles; the parent Vinotheca catalogue page; any cross-links from
-other six leaves that name the atlases; the consolidated atlas
-PDFs' title blocks and on-page references (file names follow the
-repo and stay the same per the no-repo-rename decision above);
-§3.1 leaves table in this document; the §4.1 wordmark example
-referencing *The Estate Atlas*; §4 incidental references; a new
-§7 entry recording the rename and a §8 changelog block. The
-mechanical-text scope is similar to the TasteRank Explorer $\rightarrow$
-Grape Affinities rename of 2026-05-09 (see §7 entry that day),
-which kept the repo URL and changed only the displayed wordmark
-and catalogue-side naming. That precedent's pattern carries here
-directly.
+**Eyebrow grammar reconsidered, explicitly left unchanged.** Whether
+the eyebrows should subject-differentiate (e.g. "An Atlas of
+Vineyards" / "An Atlas of Makers") was reconsidered in this session
+and decided against. The wordmarks now do the subject-differentiation
+work; §4.2's flat-category grammar ("X OF VINOTHECA") remains
+load-bearing across the seven leaves and was preserved intact. Both
+atlases continue to use **An Atlas of Vinotheca**.
 
-**Status.** The names are locked; execution is queued for a
-future session. No deadline. Low urgency — the misalignment is
-real but not blocking, and the leaves themselves are stable.
+**Executed (2026-05-16).** Wordmarks in `estate-atlas/index.html`
+and `wine atlas/grand-cru-atlas/index.html`; page `<title>` tags
+in both atlases; JSON-LD `ATLAS_DATA.atlas.title` in Maker Atlas;
+CSS and HTML comments naming the sibling atlas; "Download X Atlas
+PDF" link text; HTML comments and card wordmarks on the parent
+`vinotheca/index.html`; the body-prose sister-volume reference in
+the Maker Atlas card; footer cross-links naming the Vineyard Atlas
+in `codex vini/index.html`, `codex vini/codex-vini-preview.html`,
+and `codex-vinitorum/index.html`; stale CSS comments in
+`tasterank-explorer/index.html` and `wine tasterank/index.html`;
+READMEs of both atlases (Maker Atlas with "wine estates" $\rightarrow$
+"wine makers" phrasing refresh per the new wordmark's broader scope),
+plus `codex vini/README.md` cross-reference, plus a full refresh of
+`vinotheca/README.md` to list all current 7 live leaves under the
+§1 architecture (Part I subdivided into Maps, Works, Correspondence;
+Part II holding the two codices). PROJECT.md §3 leaves table, §4.1
+wordmark example, §4.4 documentation-patterns line, §4.8 visual-
+subsystems grouping all updated. The §7 entry under 2026-05-16
+records the full multi-file scope and the editorial decisions made
+during execution.
+
+**Deferred to a follow-up session — Atlas PDF re-authoring.** The
+consolidated atlas PDFs (`The_Estate_Atlas.pdf`, 129 pages, and
+`The_Grand_Cru_Atlas.pdf`, 46 pages) were *not* re-authored in this
+session. The `.tex` source files do not exist in any retrievable
+form — the atlases were authored outside the `docs-source/`
+convention that the three tool repos follow, and a Spotlight search
+plus targeted `find` across the local wine tree confirmed no atlas
+`.tex` files anywhere on the machine. Re-authoring 175 PDF pages
+from extracted PDF text without source LaTeX was judged out of scope
+for a mechanical-text rename session, both in effort and in fidelity
+risk (typesetting, fonts, table layout would not match the deployed
+visual style without `vinotheca-preamble.tex`). The PDFs continue to
+ship under their current filenames (which were locked to stay per
+the no-repo-rename decision above), and visitors clicking "Download
+Maker Atlas PDF" or "Download Vineyard Atlas PDF" still receive
+usable documents whose internal title blocks read "The Estate Atlas"
+and "The Grand Cru Atlas" respectively. This is a real but bounded
+visual drift; the rename's social meaning is carried by the
+wordmarks, which visitors see first. A new §6.7 entry tracks the
+PDF re-authoring as queued follow-up work.
+
+### 6.7 To be re-authored — Atlas PDF title blocks and running headers
+
+The consolidated atlas PDFs still carry their old wordmark inside the
+documents themselves: title page, every page's running header, and
+(for the Estate Atlas) the page-5 and page-129 sister-volume cross
+references that name "The Grand Cru Atlas" by name. The PDFs need
+to be re-authored to bring them in line with the new wordmarks
+(Maker Atlas, Vineyard Atlas).
+
+**Why this is deferred.** The atlas `.tex` source files do not
+exist on the local machine — the atlases were authored outside the
+`docs-source/` convention that the three tool repos (`tasterank-
+explorer`, `region-affinities`, `region-resonances`) follow. A
+Spotlight search for `vinotheca-preamble` and targeted `find` runs
+across the wine tree both confirmed: no atlas `.tex` files anywhere
+locally. Re-authoring 175 PDF pages from extracted PDF text without
+source LaTeX is a substantial authoring task that deserves its own
+session, not a mechanical-text rename's coat-tails.
+
+**Two paths when this session opens.**
+- *Path α — locate or reconstruct sources.* The original `.tex` files
+  may exist somewhere not yet searched (an external drive, an old
+  laptop, an email attachment, an archived backup). If they surface,
+  the rename is a small set of substitutions against the existing
+  source and the `vinotheca-preamble.tex` pattern can absorb the
+  atlases retrospectively.
+- *Path β — author from scratch in the modern convention.* Build
+  fresh `.tex` files under `estate-atlas/docs-source/` and `wine
+  atlas/grand-cru-atlas/docs-source/`, mirroring the structure of
+  the existing tool repos' docs-source folders, using the shared
+  `vinotheca-preamble.tex`. The body content can be reconstructed
+  from the deployed PDFs' extracted text (text extraction was
+  verified clean in this session's PDF survey). Typesetting will
+  differ from the original since the original preamble isn't known,
+  but the result would be a clean, source-managed atlas PDF
+  consistent with the rest of the family.
+
+**Pending:**
+- Decide between Path α and Path β
+- For Path α: locate the source files
+- For Path β: author the `docs-source/` folders, write the `.tex`,
+  build the PDFs, replace `The_Estate_Atlas.pdf` and
+  `The_Grand_Cru_Atlas.pdf` in their respective repos
+- Verify the new PDFs render the correct title blocks and running
+  headers (Maker Atlas / Vineyard Atlas)
+- Update §6.7 status to *Executed* and add a §7 entry recording the
+  authoring methodology chosen
+
+**Status.** Queued for a future session. No deadline. Low urgency —
+the visible drift is bounded (PDFs are still usable; the rename's
+social meaning lives in the wordmarks), and the work is non-trivial
+enough that it deserves a dedicated session rather than being
+bundled into something else.
 
 ---
 
 ## 7. Recently completed (reverse chronological)
+
+### 2026-05-16
+
+- **Atlas wordmark renames executed — Grand Cru Atlas $\rightarrow$
+  Vineyard Atlas, Estate Atlas $\rightarrow$ Maker Atlas. §6.6
+  closed.** The naming alignment locked in v0.27 was executed across
+  twelve files in this session, completing the family's
+  `{Subject} {Operation}` naming pattern in the Maps section. The
+  Vineyard Atlas declares its subject (vineyards as places); the
+  Maker Atlas declares its subject (makers — estates, domaines,
+  houses — as the producing entities). Both atlases continue to use
+  the eyebrow *An Atlas of Vinotheca*; the eyebrow grammar was
+  reconsidered in this session and decided against changing, since
+  §4.2's flat-category grammar is load-bearing across all seven
+  leaves and the wordmark renames now do the subject-differentiation
+  work on their own. The repo names (`estate-atlas`, `grand-cru-
+  atlas`) and deployment URLs were preserved unchanged per the
+  no-repo-rename decision, following the TasteRank Explorer
+  $\rightarrow$ Grape Affinities rename precedent of 2026-05-09.
+
+- **Twelve files touched, full scope inventory.** The rename's
+  mechanical-text scope reached further than the two atlases'
+  HTMLs themselves: every footer cross-link from the Personal Codex
+  leaves named the Grand Cru Atlas by name, and the two TasteRank
+  leaves' CSS comments still referenced the old wordmarks. Files
+  modified: (1) `estate-atlas/index.html` — title tag, header CSS
+  comment, masthead wordmark, "Download X Atlas PDF" link, JSON-LD
+  `ATLAS_DATA.atlas.title` (5 substitutions); (2) `wine atlas/grand-
+  cru-atlas/index.html` — title tag, header CSS comment naming the
+  sibling atlas, masthead wordmark, "Download X Atlas PDF" link
+  (4 substitutions); (3) `vinotheca/index.html` — two HTML comments,
+  two atlas card wordmarks, the body-prose sister-volume reference
+  on the Maker Atlas card (5 substitutions); (4) `codex vini/
+  index.html`, (5) `codex vini/codex-vini-preview.html`, (6) `codex-
+  vinitorum/index.html` — footer link text only (link URL preserved
+  at `/grand-cru-atlas/` since the deployment URL is unchanged);
+  (7) `tasterank-explorer/index.html`, (8) `wine tasterank/index.html`
+  — single stale CSS comment in each, updated for completeness;
+  (9) `estate-atlas/README.md` — full README rewrite to Maker Atlas
+  with body prose refreshed from "wine estates" to "wine makers" per
+  the new wordmark's broader scope, holding the *Status* pilot block
+  faithful to what's actually encoded (three estates, not three
+  makers in any broader sense); (10) `wine atlas/grand-cru-atlas/
+  README.md` — wordmark and live-site link updated; the duplicate
+  `wine atlas/README.md` one directory up was deliberately *not*
+  touched in this session and remains under the old name (see
+  follow-up note below); (11) `codex vini/README.md` — single
+  sister-link sentence; (12) `vinotheca/README.md` — full refresh
+  to list all current 9 entries under the §1 architecture (Part I
+  subdivided into Maps, Works, Correspondence; Part II holding the
+  two codices), correcting both the atlas rename and the longer-
+  standing staleness from when the README still listed "TasteRank
+  Explorer" and "four instruments". Every substitution was verified
+  by exact-count match before files were written; no surprise hits,
+  no over-replacement, no false positives.
+
+- **Atlas PDFs explicitly deferred — new §6.7 opened.** The original
+  §6.6 *Scope when executed* listed the consolidated atlas PDFs'
+  title blocks and on-page references in scope. Once the session
+  opened, a hunt for the atlas `.tex` source files (Spotlight search
+  for `vinotheca-preamble`; targeted `find` across `estate-atlas/`
+  and `wine atlas/`) confirmed: no atlas `.tex` files exist anywhere
+  on the local machine. The atlases were authored outside the
+  `docs-source/` convention that the three tool repos follow; the
+  `vinotheca-preamble.tex` archive does not extend to them. Re-
+  authoring 175 PDF pages (129 for Estate Atlas, 46 for Grand Cru
+  Atlas) from extracted PDF text was judged the wrong shape of work
+  to bundle into a mechanical-text rename: effort, fidelity risk
+  (typesetting and table layout cannot be reproduced cleanly without
+  the original preamble), and session-shape mismatch all pointed
+  the same direction. The PDFs continue to ship under their existing
+  filenames (which were already locked to stay per the no-repo-rename
+  decision), and the visible drift is bounded — the PDFs are still
+  usable documents, and the rename's social meaning is carried by
+  the wordmarks visitors see first. A new §6.7 (*To be re-authored
+  — Atlas PDF title blocks and running headers*) records the
+  deferred work and lays out two paths for the follow-up session
+  (locate sources if they exist elsewhere; or author fresh in the
+  modern `docs-source/` convention).
+
+- **Process note — the `wine atlas/README.md` duplicate.** The grep
+  inventory at the start of this session surfaced a duplicate README
+  at `wine atlas/README.md` (one directory up from the live atlas
+  repo), byte-identical to `wine atlas/grand-cru-atlas/README.md`.
+  The deliberate decision was to update only the grand-cru-atlas
+  copy in this session — that's the one GitHub renders for the atlas
+  repo and the one visitors see. The duplicate at the wrapper-folder
+  level was left untouched, with the implicit question (whether the
+  duplicate should be deleted entirely or kept in sync) deferred.
+  Not a tracked open item, but worth noting if it surfaces during
+  a future cleanup pass.
 
 ### 2026-05-15
 
@@ -1791,6 +1967,73 @@ real but not blocking, and the leaves themselves are stable.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-16 — v0.32
+
+- **§3 (Leaves table).** Two rows updated: *The Estate Atlas* row's
+  Site column changed to *The Maker Atlas* and Wordmark column to
+  *The Maker* *Atlas*; *The Grand Cru Atlas* row's Site column
+  changed to *The Vineyard Atlas* and Wordmark column to *The
+  Vineyard* *Atlas*. Repo, Status, and Eyebrow columns unchanged
+  in both rows (repo names locked per §6.6's no-repo-rename
+  decision; eyebrow "An Atlas of Vinotheca" preserved per §4.2's
+  flat-category grammar, with the eyebrow question explicitly
+  reconsidered and decided against in this session).
+- **§4.1 (Wordmark grammar).** The example sentence's first wordmark
+  was *The Estate \*Atlas\**; updated to *The Maker \*Atlas\**.
+- **§4.4 (Documentation patterns).** *Maps* line updated from
+  "(Estate Atlas, Grand Cru Atlas)" to "(Maker Atlas, Vineyard
+  Atlas)".
+- **§4.8 (Visual subsystems).** Two atlas references updated in the
+  three-subsystem listing: *The Library* group's atlas reference
+  *Estate Atlas* $\rightarrow$ *Maker Atlas*; *The Atlases (static)*
+  group's atlas reference *Grand Cru Atlas* $\rightarrow$ *Vineyard
+  Atlas*. The §4.8 prose remains otherwise unchanged; the Pass 3
+  visual harmonisation work it describes was completed in early
+  May 2026 under the old wordmarks but the design-system grouping
+  it documents is durable.
+- **§6.6 (Atlas wordmark renames).** Section heading changed from
+  *Atlas wordmark renames — deferred* to *Executed — Atlas wordmark
+  renames (closed 2026-05-16; recorded in §7)*, following the §6.3
+  Grape Resonances pattern and §6.5 Codex Vinitorum pattern for
+  shipped leaves. The locked rationale blocks (*Why the change*,
+  *The Maker Atlas distinction*) preserved verbatim as durable
+  records of the decisions; their headings were lightly retitled
+  (*locked* annotation added). A new *Eyebrow grammar reconsidered,
+  explicitly left unchanged* block recorded the in-session decision
+  to preserve §4.2's grammar. The original *Scope when executed*
+  block replaced with *Executed (2026-05-16)*, which inventories
+  the twelve files actually modified. A new *Deferred to a follow-
+  up session — Atlas PDF re-authoring* block at the end of §6.6
+  records the PDF deferral and points to the new §6.7. The
+  original *Status: queued for a future session* block deleted.
+- **§6.7 (new) — To be re-authored — Atlas PDF title blocks and
+  running headers.** New open task tracking the deferred PDF
+  re-authoring. The atlas `.tex` source files were not found on
+  the local machine (Spotlight + `find` both came up empty for the
+  atlas repos), and re-authoring 175 PDF pages from extracted PDF
+  text was judged out of scope for a mechanical-text rename. §6.7
+  lays out two paths (Path α — locate sources; Path β — author
+  fresh under the `docs-source/` convention) and lists *Pending*
+  items for whichever path is chosen.
+- **§7 entry under 2026-05-16.** New date subsection inserted at
+  the top of §7. Four bullets cover: (i) the rename execution
+  summary and the eyebrow-grammar decision; (ii) the twelve-file
+  scope inventory with per-file substitution counts; (iii) the PDF
+  deferral, the `.tex`-sources hunt, and the §6.7 opening; (iv) a
+  process note about the `wine atlas/README.md` duplicate that
+  was deliberately not touched in this session.
+- **Last meaningful update line.** Bumped from 2026-05-15 to
+  2026-05-16.
+
+This v0.32 entry records the §6.6 closure — one of two remaining
+mechanical-text closures the family had queued (the other was the
+§3.2 propagation rule's first test, closed in v0.31). The Maps
+section now reads as *Maker Atlas + Vineyard Atlas*, completing
+the family's `{Subject} {Operation}` naming pattern across all
+seven Library leaves. One follow-up tracked under §6.7 (PDF
+re-authoring) and one untracked aside flagged in the §7 process
+note (the `wine atlas/README.md` duplicate).
 
 ### 2026-05-15 — v0.31
 
