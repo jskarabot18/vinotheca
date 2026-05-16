@@ -11,6 +11,7 @@
 > is recorded.
 
 Last meaningful update: 2026-05-16 (see §8 for full history)
+<!-- v0.33 also dated 2026-05-16 -->
 
 ---
 
@@ -805,6 +806,33 @@ social meaning lives in the wordmarks), and the work is non-trivial
 enough that it deserves a dedicated session rather than being
 bundled into something else.
 
+**Adjacent drift — one Grape Resonances PDF (discovered 2026-05-16,
+deferred here).** A post-rename `find` across the local wine tree
+to confirm no atlas `.tex` files exist (per §6.7's premise) surfaced
+a single adjacent reference inside another deployed PDF:
+`grape-resonances/docs/GrapeResonances_Summary.pdf`. The Summary's
+second paragraph reads "*the project's grape-side data (TasteRank's
+sensory profiles, the **Grand Cru Atlas's** site associations) is
+palate-driven...*", an in-prose mention of the old atlas wordmark.
+The fix at the source level is a one-word edit
+(`Grand Cru Atlas's` $\rightarrow$ `Vineyard Atlas's`) in
+`grape-resonances/docs-source/GrapeResonances_Summary.tex`,
+preserving the sentence's grammar and argument. The PDF rebuild
+itself depends on `vinotheca.sty` (referenced as
+`\usepackage{vinotheca}` in the `.tex` source — not the
+`vinotheca-preamble.tex` pattern visible in three of four
+`docs-source/` folders, which appears to be an earlier or parallel
+convention worth disambiguating during the rebuild session). The
+build environment has not been exercised locally — past PDFs were
+authored in Claude sessions and committed pre-built — so attempting
+a rebuild today would mean debugging an unfamiliar LaTeX setup
+mid-closeout. Deferred to this section to be bundled with the
+atlas PDF rebuilds: one focused LaTeX session will do all the
+rebuilds at once. The deployed PDF retains the stale reference
+until then; the drift is bounded (one sentence, in a doc most
+readers will not cross-reference against the atlas) and explicitly
+recorded.
+
 ---
 
 ## 7. Recently completed (reverse chronological)
@@ -899,6 +927,44 @@ bundled into something else.
   duplicate should be deleted entirely or kept in sync) deferred.
   Not a tracked open item, but worth noting if it surfaces during
   a future cleanup pass.
+
+- **Adjacent drift in Grape Resonances Summary discovered after the
+  main rename committed — deferred to §6.7 (v0.33).** After the
+  six-repo rename was pushed and verified in-sync with origin, a
+  broader case-insensitive `find` across all `*.tex` files under
+  `~` (a follow-up sanity check rather than part of the original
+  scope) surfaced a single in-prose reference to the old atlas
+  wordmark in a deployed PDF outside the renamed atlases:
+  `grape-resonances/docs/GrapeResonances_Summary.pdf`, second
+  paragraph, mentioning "the Grand Cru Atlas's site associations"
+  in the course of explaining why grape-side matching does not run
+  directly against grape data. The source file
+  `GrapeResonances_Summary.tex` is on hand and the fix is a
+  one-word edit at source. The PDF rebuild itself was judged out
+  of scope for this session: the build uses
+  `\usepackage{vinotheca}` rather than the
+  `\input{vinotheca-preamble.tex}` pattern, the build environment
+  hasn't been exercised locally (past PDFs were authored in Claude
+  sessions and committed pre-built), and bundling the LaTeX rebuild
+  work into a single focused session — one that also handles the
+  atlas PDFs themselves — is more efficient than fragmenting it.
+  Recorded as an *Adjacent drift* block at the end of §6.7. The
+  deployed PDF retains the stale reference until the §6.7 session
+  is opened.
+
+- **Methodology note — broader-search discovery surfaced after
+  closeout.** Worth flagging as a small process lesson: the original
+  §6.6 grep at session start used a narrowly scoped pattern that
+  caught HTML/CSS/Markdown across the family but did not cross
+  into deployed-PDF source files. The adjacent drift in
+  GrapeResonances_Summary only became visible when the case-
+  insensitive `find` ran across `*.tex` files specifically — a
+  search aimed at the atlas-source question (§6.7 Path α) that
+  happened to find something else. For future renames touching a
+  named artefact, the inventory step should include `*.tex` source
+  files in `*/docs-source/` folders, not just leaf-level HTML/MD.
+  Not a tracked open item; a note for the next mechanical-text
+  rename's session setup.
 
 ### 2026-05-15
 
@@ -1967,6 +2033,47 @@ bundled into something else.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-16 — v0.33
+
+- **§6.7 (Atlas PDF re-authoring).** New *Adjacent drift* block
+  added at the end of the section, recording a single in-prose
+  reference to the old "Grand Cru Atlas" wordmark inside
+  `grape-resonances/docs/GrapeResonances_Summary.pdf` (paragraph
+  2 of the Summary, describing why grape-side matching doesn't
+  run directly against grape data). The fix at source level is a
+  one-word edit; the PDF rebuild is deferred to be bundled with
+  the atlas PDF rebuild work, since the build environment has
+  not been exercised locally and bundling LaTeX rebuilds into a
+  single focused session is more efficient than fragmenting them.
+  The block also disambiguates the build pattern: the live source
+  files use `\usepackage{vinotheca}`, not the
+  `\input{vinotheca-preamble.tex}` pattern visible in three of
+  four `docs-source/` folders, which appears to be an earlier
+  convention worth resolving during the rebuild session.
+- **§7 entry under 2026-05-16.** Two new bullets appended to the
+  bottom of the existing 2026-05-16 entry (preserving the
+  twelve-file scope inventory and `wine atlas/README.md`
+  duplicate process notes already recorded under v0.32). The
+  first new bullet records the post-closeout discovery of the
+  Grape Resonances Summary drift and points at the §6.7
+  *Adjacent drift* block. The second is a small methodology
+  note: the original §6.6 grep at session start did not extend
+  into `*/docs-source/*.tex` files; future mechanical-text
+  renames should include LaTeX source in the initial inventory.
+- **Header.** A small HTML comment added under the
+  *Last meaningful update* line noting that v0.33 is also dated
+  2026-05-16. The date line itself stays at 2026-05-16; both
+  v0.32 and v0.33 are same-day updates following the precedent
+  of v0.29/v0.30 on 2026-05-14.
+
+This v0.33 entry records a single discovery made *after* the v0.32
+six-repo push had landed and verified in-sync with origin: a
+broader case-insensitive `find` across `*.tex` files surfaced one
+adjacent reference to the old wordmark in a deployed PDF that the
+original §6.6 grep had missed. No leaves shipped; no commits to
+external repos in this entry. The PROJECT.md edit is a single
+small commit to the `vinotheca` repo recording the deferral.
 
 ### 2026-05-16 — v0.32
 
