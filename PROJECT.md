@@ -10,7 +10,7 @@
 > next commit. Append an entry to §8 (Document changelog) so the change
 > is recorded.
 
-Last meaningful update: 2026-05-14 (see §8 for full history)
+Last meaningful update: 2026-05-15 (see §8 for full history)
 
 ---
 
@@ -118,9 +118,9 @@ The parent `vinotheca` repository hosts a landing page that introduces
 the family and links to every leaf. It is a tracked artefact of the
 family in its own right — not just a navigational page but a curated
 overview that conveys what Vinotheca is and what it contains. The
-landing page has gone through its own visual iterations, most recently
-the three-section design that groups leaves by their category
-(*The Instruments*, *The Studies*, *The Codex*).
+landing page reflects the architecture of §1: Part I (the Library) with
+its three subsections of Maps, Works, and Correspondence, and Part II
+(the Personal Codex) with its two codices.
 
 **Propagation rule (locked).** When any leaf in §3 changes status —
 becomes Live, gets renamed, is removed or deprecated — the Vinotheca
@@ -129,12 +129,6 @@ rule applies if a structural decision elsewhere in §4 affects how a
 leaf is presented (e.g., a wordmark adjustment, a section reorder).
 The landing page is the visible face of the family; it should never
 silently drift from §3.
-
-**Pending update.** The 2026-05-14 launch of Codex Vinitorum (see §6.5
-and the §7 entry under 2026-05-14) is not yet reflected on the landing
-page. The Personal Codex section still presents Codex Vini as the sole
-member. The update is a non-urgent task but should be completed before
-the next leaf change to avoid compounding drift.
 
 ---
 
@@ -729,6 +723,104 @@ real but not blocking, and the leaves themselves are stable.
 ---
 
 ## 7. Recently completed (reverse chronological)
+
+### 2026-05-15
+
+- **Vinotheca landing page updated to reflect the Codex Vinitorum
+  launch — §3.2 pending obligation discharged.** The Personal Codex
+  section on the parent `vinotheca/index.html` now lists Codex
+  Vinitorum as instrument ix., a sibling to Codex Vini (viii.). The
+  Codex Vinitorum card mirrors Codex Vini's structure exactly (same
+  `.instrument` class, same meta line `Personal · Living · Filterable`,
+  same *Open the codex →* link text) and the body copy was drafted in
+  Codex Vini's register: a short opening declaration ("*The other
+  working end of the library*"), a functional middle naming the three
+  affinity signals from §6.5 (*felt close to* / *memorable encounter*
+  / *stayed with me*) and the no-rating commitment, and a closing
+  sentence that situates the codex as a sister volume to Codex Vini
+  ("*where that book records what was drunk, this one records who was
+  met*"). The §3.2 propagation rule worked as intended on its first
+  test — flagged the obligation on the day of the Codex Vinitorum
+  launch (v0.30), the obligation was discharged on the next session.
+
+- **Sibling-forced touches across the rest of the landing page.**
+  Adding a second codex to Part II created drift in several places
+  where the prose assumed a single codex. The masthead tagline
+  broadened from "*a personal codex of wines tasted*" to "*personal
+  books of wines tasted and winemakers met*" (plural-and-broadened;
+  see the editorial-refinement paragraph below for the *codices* →
+  *books* word choice); the introduction's third paragraph from "*a
+  personal record of wines tasted*" to "*two personal records: of
+  wines tasted, and of winemakers met*"; the Part II description
+  from "*The Codex is different in kind: it looks at one person's
+  experience of wine, as it accumulates*" to "*The codices are
+  different in kind: they look at one person's experience of wine,
+  as it accumulates — the bottles drunk, and the makers met*". Codex
+  Vini's body copy received two small touches: "*The working end of
+  the library*" softened to "*A working end of the library*" so the
+  sibling fits without contradiction, and "*the studies of souls and
+  constellations*" updated to "*the studies of souls and hands*" per
+  the Body / Soul / Hand triptych in §3.1. The Part II section
+  heading itself ("*The Personal Codex*") was left singular — it
+  reads as a category label like "*The Library*" rather than a count
+  statement, paralleling §1's architecture table where the section
+  name is singular and the content plural.
+
+- **In-scope drift fix — Work v. renamed *The Winemaker's
+  Constellation* → *The Hand of Wine* on the landing page.** The Work
+  v. card on the landing page still used the old working title for the
+  Study face ("*The Winemaker's Constellation*") and named the
+  triptych as "*Body / Soul / Constellation*" in the Works subsection
+  gloss. Per §3 / §3.1 / §6.2 the canonical names are *The Hand of
+  Wine* (Study) and *Winemaker Affinities* (Tool), with the triptych
+  reading *Body / Soul / Hand of Wine*. The landing page was the last
+  surface in the family carrying the old names; both have now been
+  updated. The Tool-face title *Winemaker Affinities* was already
+  correct and unchanged. The work-body prose closing line "*A
+  prototype corpus of thirty-two winemakers is in preparation*" was
+  softened to "*A corpus is in preparation*" — §6.2 lists the corpus
+  size as *to be reconciled* (the April framework proposes 60–80; an
+  earlier note mentions 32), and committing to 32 on the landing page
+  would have locked a number that PROJECT.md still treats as open.
+  The Study-face meta line "*32 winemakers · Textual kinship ·
+  Companion essay*" was rewritten to drop the count: "*Textual
+  kinship · Shared character · Companion essay*", matching the
+  family's broader pattern of not enumerating uncounted items on
+  forthcoming-status entries.
+
+- **Two editorial refinements made via the GitHub web UI between
+  local commit and reconciliation; small workflow note recorded.**
+  Between Claude's `index.html` commit landing on `origin/main`
+  (commit `ed9cbec`) and the PROJECT.md session that produced this
+  v0.31 entry, two small edits were made directly on github.com.
+  *(i) Codex Vinitorum body trimmed.* The originally-drafted body
+  enumerated the three signals parenthetically (*felt close to /
+  memorable encounter / stayed with me*) and closed with "*No
+  rating; people are not rated*". On reflection, both moves were
+  redundant on the landing page: the signals are visible on the
+  codex itself, and the no-rating commitment is design rationale,
+  not catalogue text. Shipped version: "*…three quiet signals. A
+  sister volume to Codex Vini…*". *(ii) Tagline word choice: codices
+  → books.* "*Atlases, tools, studies — and personal codices of
+  wines tasted and winemakers met*" became "*…personal books of
+  wines tasted and winemakers met*". The page title and the per-leaf
+  wordmarks remain *The Personal Codex*, *Codex Vini*, *Codex
+  Vinitorum* (Latin singular proper nouns); the *tagline*'s job is
+  the front door and "*books*" is plainer. The divergence between
+  local and origin that resulted (1 local commit vs. 2 remote
+  commits) was reconciled by resetting local to origin, since origin
+  had the shipped editorial improvements; the §7 sibling-touches
+  paragraph above was also updated in this revision to quote the
+  shipped prose. Workflow pattern worth recording: web-UI edits
+  during an active local task cause divergence; when a small
+  refinement is spotted on the live site mid-session, the safer
+  move is to push from local rather than edit on github.com — or,
+  if web editing is the right tool for that moment, to
+  `git pull --rebase` before the next local commit. Separately and
+  noted here for completeness: the Vinotheca repo path on the Mac
+  Studio (`/Users/jureskarabot/Documents/jure/wine/<repo>/`) is
+  now stored in memory so future terminal instructions use the
+  concrete path rather than generic placeholders.
 
 ### 2026-05-14
 
@@ -1699,6 +1791,47 @@ real but not blocking, and the leaves themselves are stable.
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-15 — v0.31
+
+- **§3.2 (Vinotheca landing page).** The *Pending update* block at
+  the end of the sub-section removed; the obligation it recorded —
+  reflecting the Codex Vinitorum launch on the parent landing page —
+  was discharged in this session. The opening prose was also lightly
+  refreshed: the slightly stale "*most recently the three-section
+  design that groups leaves by their category (The Instruments,
+  The Studies, The Codex)*" replaced with a description aligned to
+  the current structure (Part I subdivided into Maps, Works,
+  Correspondence; Part II holding the two codices). The locked
+  *Propagation rule* block is preserved verbatim — it is the durable
+  rule and is not affected by closing a single pending instance.
+- **§7 entry under 2026-05-15.** New date subsection inserted at the
+  top of §7. Four sub-paragraphs cover: the landing-page update
+  closing the §3.2 obligation; the sibling-forced touches across the
+  rest of the page (tagline, intro ¶3, Part II description, Codex
+  Vini body softening, Body/Soul/Hand triptych language); the
+  in-scope drift fix renaming Work v. from *The Winemaker's
+  Constellation* to *The Hand of Wine* on the landing page (with the
+  corpus-count softening since §6.2 still treats the corpus size as
+  open); and a substantive workflow paragraph recording two editorial
+  refinements made via the GitHub web UI between local commit and
+  reconciliation (Codex Vinitorum body trimmed; *codices* → *books*
+  in the tagline), the divergence those caused and how it was
+  reconciled, the underlying workflow pattern worth knowing, and the
+  small unrelated capture of the Vinotheca repo path now stored in
+  memory.
+- **Last meaningful update line.** Bumped from 2026-05-14 to
+  2026-05-15.
+
+This v0.31 entry records a single executed task — the §3.2
+propagation rule's first real test — plus the small drift fixes that
+were in-scope by the time the landing page was opened, plus the
+honest record of editorial refinements made via the GitHub web UI
+mid-session and the small divergence those caused. No §4 decisions
+changed, no §6 sub-sections renumbered. The §3.2 rule held exactly
+as designed: a leaf change (Codex Vinitorum launch) on 2026-05-14
+was flagged on the landing page on 2026-05-15. One session of lag,
+no compounding drift.
 
 ### 2026-05-14 — v0.30
 
