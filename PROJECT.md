@@ -11,7 +11,7 @@
 > is recorded.
 
 Last meaningful update: 2026-05-16 (see §8 for full history)
-<!-- v0.33 also dated 2026-05-16 -->
+<!-- v0.32, v0.33, and v0.34 all dated 2026-05-16 -->
 
 ---
 
@@ -2034,6 +2034,43 @@ recorded.
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
 
+### 2026-05-16 — v0.34
+
+- **§9 (new) — Roadmap (session-level plan).** Added as a new
+  top-level section after §8. Records the agreed-upon roadmap
+  for the rest of the Vinotheca build through summer 2026,
+  organised into three phases (Phase 1: clean small steps;
+  Phase 2: Reference foundations; Phase 3: Winemaker Work).
+  Each phase decomposes into estimated sessions with concrete
+  scopes. The roadmap is rough and provisional — phases can
+  reorder, sessions can split or combine — but recording it
+  in writing means future sessions open in the right context
+  rather than re-deriving the plan from §6.
+- **Phase 2 / Phase 3 reordering locked.** The original
+  ordering had Winemaker Work first and Reference last. This
+  was reconsidered in the v0.34 planning session and locked
+  in the reverse order: Reference foundations first, Winemaker
+  Work after. The reasoning, recorded in §9 alongside the
+  phase block: Reference is reflective work; the Winemaker
+  Work is generative; doing the reflective grounding first
+  should sharpen the language available for the generative
+  work. §6.1 and §6.2/§6.4 are unchanged in §6 itself; the
+  reordering lives at the §9 roadmap level.
+- **Header.** A small HTML comment under the *Last meaningful
+  update* line now notes that v0.32, v0.33, and v0.34 are all
+  same-day updates (all 2026-05-16). The date line stays at
+  2026-05-16; three same-day updates is unusual but defensible:
+  v0.32 closed the rename, v0.33 recorded a post-closeout
+  discovery, v0.34 records the forward-looking plan.
+
+This v0.34 entry adds *no* new commits to external repos. It is
+purely a PROJECT.md update recording the agreed roadmap.
+Companion to v0.32 (the rename execution itself) and v0.33 (the
+adjacent-drift discovery), forming a three-version sequence
+that closes the day cleanly: today's executed work is captured,
+today's discovery is captured, and the path forward is captured.
+Tomorrow's session opens with §9 as its first stop.
+
 ### 2026-05-16 — v0.33
 
 - **§6.7 (Atlas PDF re-authoring).** New *Adjacent drift* block
@@ -2914,3 +2951,154 @@ lineage section all carry forward.
   as superseded by Region Affinities.
 - Eyebrow grammar extended to include "A Correspondence of Vinotheca"
   and "A Reference of Vinotheca".
+
+---
+
+## 9. Roadmap (session-level plan)
+
+This section captures the higher-altitude plan for how §6's open items
+group into sessions and phases. §6 remains the authoritative list of
+specific open items; §9 is the durable view of *how the work flows*
+between sessions. The roadmap is rough and provisional — phases can
+reorder, sessions can split or combine, and the estimates below are
+deliberately loose. Records the plan in writing so future sessions
+open in the right context.
+
+**Locked on 2026-05-16 (v0.34).**
+
+### Phase 1 — Clean small steps (estimated 2 sessions)
+
+**Session 1A — §6.7 LaTeX session.** One focused session bundling
+three things, all touching LaTeX:
+- Resolve the build convention: `\usepackage{vinotheca}` (visible in
+  `GrapeResonances_Summary.tex` and likely others) vs
+  `\input{vinotheca-preamble.tex}` (file present in three of four
+  `docs-source/` folders, possibly an earlier or parallel
+  convention). Find where `vinotheca.sty` actually lives. Document
+  the canonical pattern.
+- Fix Grape Resonances Summary: one-word edit (`Grand Cru Atlas's`
+  $\rightarrow$ `Vineyard Atlas's`), rebuild, redeploy. Per the
+  §6.7 *Adjacent drift* block.
+- Atlas PDFs: Path α (one more deliberate hunt for `.tex` sources
+  elsewhere — external drives, cloud, old laptop) $\rightarrow$ if
+  α fails, Path β (author fresh under `docs-source/` convention).
+  Ship a working build of any single PDF first (probably the
+  Grape Resonances Summary, since the edit is small) before
+  committing to the 129-page Estate Atlas rebuild.
+
+**Session 1B — §6.1 reference scaffold + methodology aftermath.**
+- Create `vinotheca-reference` repo with the family pattern
+  (eyebrow *A Reference of Vinotheca*, footer matching §4.3, the
+  standard scaffolding). Empty page placeholder; foundation
+  documents fill it during Phase 2.
+- Close the v0.32 methodology notes: fix the "twelve files"
+  overstatement in the §7 entry (real scope was eleven deployed
+  files plus one local archive); decide what to do with the
+  `wine atlas/README.md` duplicate (delete, keep in sync, or
+  formally ignore).
+- v0.35 PROJECT.md update closing the small-steps items.
+
+### Phase 2 — Reference foundations (estimated 4–6 sessions)
+
+**Reordered from the original plan.** Reference originally
+queued *after* the Winemaker Work. The reordering was discussed
+in this v0.34 session and locked: foundations come first. The
+honest reasoning: Reference is reflective work (articulating
+what already exists in Vinotheca, grounding it intellectually);
+the Winemaker Work is generative (bringing something new into
+being). Doing the reflective work first means entering the
+generative work with sharper language about what character-
+based analysis *is*. Should make the Winemaker corpus authoring
+easier, not harder. Set against this: Phase 2 of the v0.34
+roadmap (Reference) is harder than it sounds. Articulating the
+theoretical grounding for a methodology that lives in the
+practitioner's head but hasn't been written down is the kind
+of work that surprises in difficulty. Set aside more time for
+Session 2A than the surface scope suggests.
+
+**Sessions 2A–2C — Foundation document authoring** (one document
+per session, roughly):
+- *Theoretical Foundations of Character-Based Analysis* — what
+  character-based analysis is, why it works, where it comes from
+  intellectually
+- *Technical Foundations of Character-Based Analysis* — the
+  engineering layer (embeddings, similarity, calibration, the
+  algorithmic substrate)
+- *Practical Foundations* — guidance for use, limitations, how
+  to read results responsibly
+
+**Session 2D — Reference landing-page section.** Per §4.9,
+*"quietly signposted, not foregrounded"*. A subtle link, not a
+banner. Update §3 leaves table with the Reference leaf going
+from "no leaves yet" to listing the three foundation
+documents.
+
+**Session 2E — Polish, propagation, §6.1 closure.** PROJECT.md
+captures the closed §6.1 and the now-populated Reference
+section. Any cross-references from other leaves that ought to
+point at the foundations get added.
+
+### Phase 3 — The Winemaker Work (estimated 6–10 sessions, spread over weeks)
+
+The longest single piece of work in the entire Vinotheca build,
+per §6.2. Reordered to come *after* the Reference foundations.
+The corpus authoring (Sessions 3B–3E) is the load-bearing piece,
+shared between §6.2 (Winemaker Affinities + Hand of Wine) and
+§6.4 (Winemaker Resonances).
+
+**Session 3A — Profile-shape decision (a *thinking* session, not
+a build session).** Lock claims-based vs portrait-based vs hybrid
+for the winemaker character profile. Reconcile the corpus size
+(April framework: 60–80; an earlier note: 32). This is the gate;
+nothing downstream moves until it's decided. No code, no writing
+— just deciding. The decision shapes the next 4+ sessions of
+corpus authoring, so it deserves a full session of its own.
+
+**Sessions 3B–3E — Corpus authoring.** This is the bulk. 60–80
+winemakers, each with a profile of whatever shape Session 3A
+locks in. Roughly 15–20 winemakers per session. This is where
+the ethical-care register matters most: real people, alive,
+with reputations. Per §6.4 the writing register and ethical
+care will be unusually demanding.
+
+**Session 3F — Winemaker Affinities tool build.** Once profiles
+exist, build the Tool face: similar shape to Grape Affinities
+and Region Affinities (React scaffold, similarity computation,
+UI). One focused session.
+
+**Session 3G — The Hand of Wine study.** Written in the voice
+of Body of Wine and Soul of Wine: question, findings, why this
+matters, documents, method. Possible only after Sessions 3A–3F
+have made it possible to write *about* something.
+
+**Session 3H — Winemaker Resonances.** Inherits the corpus from
+3A–3E and the architecture from Region Resonances. After 3G
+this is a relatively clean session because the load-bearing
+asset already exists.
+
+**Session 3I — Deployment, paired-Work card on parent landing
+page, §6.2 + §6.4 closure.** The third Work in the family
+becomes the first complete Work in the family with both Tool
+and Study live alongside its Correspondence sibling.
+
+### Notes on the roadmap
+
+- **Total estimated sessions: 12–18, spread over months.** This
+  is the rest of the Vinotheca build through summer 2026 if
+  pursued at a sustainable pace. Phase 3 alone is most of that.
+- **Pause points are session boundaries.** Each session in the
+  table above closes cleanly with a §7 entry and a PROJECT.md
+  version bump. Long gaps between sessions are fine; the
+  PROJECT.md memory rule means context isn't lost.
+- **The plan is not locked.** Phase ordering can change as
+  conditions reveal themselves. If Phase 2 turns out to surface
+  a foundational question that needs Phase 3 work to answer,
+  the order can flip back. If Phase 1 reveals a build environment
+  problem that takes a separate session to resolve, an
+  intermediate session can be inserted.
+- **Update §9 when phases close or reorder.** Like §6, §9 is a
+  living section. When a session closes, mark it in §7 *and*
+  strike or annotate the corresponding session in §9. When the
+  next session opens, the roadmap's current state is the
+  agreed-upon plan.
+
