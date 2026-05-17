@@ -11,7 +11,7 @@
 > is recorded.
 
 Last meaningful update: 2026-05-17 (see §8 for full history)
-<!-- v0.32, v0.33, and v0.34 all dated 2026-05-16; v0.35, v0.36, v0.37, v0.38, and v0.39 dated 2026-05-17 -->
+<!-- v0.32, v0.33, and v0.34 all dated 2026-05-16; v0.35, v0.36, v0.37, v0.38, v0.39, and v0.40 dated 2026-05-17 -->
 
 ---
 
@@ -86,7 +86,7 @@ both faces, not as separate Tool and Study cards.
 | Correspondence | Region Resonances | `region-resonances` | Live | Region *Resonances* | A Correspondence of Vinotheca |
 | Correspondence | Grape Resonances | `grape-resonances` | Live | Grape *Resonances* | A Correspondence of Vinotheca |
 | Correspondence | Winemaker Resonances | *(tbd)* | Planned — see §6.4 | Winemaker *Resonances* | A Correspondence of Vinotheca |
-| Reference | *(no leaves yet)* | `vinotheca-reference` | Repo to be created — empty for now | — | A Reference of Vinotheca |
+| Reference | The Reference of Vinotheca | `vinotheca-reference` | Live | The *Reference* of Vinotheca | A Reference of Vinotheca |
 | Personal Codex | Codex Vini | `codex-vini` | Live | Codex *Vini* | A Codex of Vinotheca |
 | Personal Codex | Codex Vinitorum | `codex-vinitorum` | Live | Codex *Vinitorum* | A Codex of Vinotheca |
 
@@ -676,53 +676,71 @@ These workflow patterns have been found to work reliably:
 
 ## 6. Open questions and active tasks
 
-### 6.1 In progress — `vinotheca-reference` repo (drafting closed, deployment pending)
+### 6.1 Closed — `vinotheca-reference` repo (closed 2026-05-17; recorded in §7)
 
 Per §1 and §4.9–§4.10, Reference is its own section with its own repo.
-The repo `vinotheca-reference` is to be created during a forthcoming
-deployment session. The four Reference documents (per §4.9) have been
-**drafted** across two May 2026 sessions, with three of four also
-converted to LaTeX and rendered to PDF.
+The repo `vinotheca-reference` was created during the 2026-05-17
+deployment session and went live with the four Reference documents on
+the same day. The four documents (per §4.9) had been **drafted** across
+two previous May 2026 sessions; this section closes the drafting +
+deployment arc.
 
-**Drafted (markdown):**
-- *Vinotheca: Academic References* — previous session (before
-  2026-05-17). Markdown source held locally on the Mac Studio; not
-  yet LaTeX'd.
-- *Vinotheca: Methodology Primer* — 2026-05-17 (Session 1B,
-  see §7). Markdown and LaTeX both complete; PDF rendered (8 pages).
-- *Vinotheca: Technical* — 2026-05-17 (Session 1B). Markdown and
-  LaTeX both complete; PDF rendered (13 pages, with displayed math
-  and `booktabs` tables under `amsmath`/`amssymb`/`booktabs`).
-- *Vinotheca: Summary* — 2026-05-17 (Session 1B). Markdown and
-  LaTeX both complete; PDF rendered (3 pages, prose only).
+**Drafted and deployed (LaTeX + PDF):**
+- *Vinotheca: Summary* — 3 pages, prose only.
+- *Vinotheca: Methodology Primer* — 8 pages, prose with one `\refrule`
+  separator.
+- *Vinotheca: Technical* — 13 pages, with displayed math and `booktabs`
+  tables under `amsmath`/`amssymb`/`booktabs`/`array`.
+- *Vinotheca: Academic References* — 9 pages (originally 10 under a
+  pre-deployment title block; the deployment session corrected the
+  title-block macros per §4.5 v0.39 — primary title *Vinotheca:
+  Academic References* / second line *A Reference of Vinotheca* /
+  italic subtitle *Where Character-Based Analysis Sits in Existing
+  Scholarship* — and the more compact title block dropped the page
+  count by one).
 
-**Pending — deployment session(s):**
-- Repo creation (`github.com/jskarabot18/vinotheca-reference`)
-- LaTeX conversion of *Vinotheca: Academic References* to bring it
-  into source-controlled form alongside the other three
-- Package decision: keep inline preambles in each `.tex` source
-  (current state) or extract into a sibling `vinotheca-reference.sty`
-  package living in `vinotheca-reference/docs-source/` alongside the
-  four sources. Per §4.5's v0.39 block, the inline preamble is the
-  current convention; the sibling-package option is the cleaner
-  long-term shape but is not load-bearing for v1.
-- Reference landing page authoring (per §4.9 "quietly signposted,
-  not foregrounded" — a thin page introducing the four documents
-  with download links, not a foregrounded feature)
-- Deploy the four PDFs to `vinotheca-reference/docs/`
-- Update the parent Vinotheca landing page per §3.2's propagation
-  rule (Reference section moves from "no leaves yet" to listing the
-  four documents)
-- Update §3 leaves table when the repo goes live
-- §7 entries for the deployment work
+**Deployment session closure (closed 2026-05-17, v0.40):**
+- Repo created at `github.com/jskarabot18/vinotheca-reference` and
+  GitHub Pages enabled at `https://jskarabot18.github.io/vinotheca-reference/`.
+- *Vinotheca: Academic References* brought into source-controlled
+  form alongside the other three documents; its title block reshaped
+  per §4.5 v0.39 (the original used the wine-tools `\vinothecaTitle`
+  / `\vinothecaAuthor` / `\vinothecaCompanions` macros, which §4.5
+  v0.39 forbids for Reference documents; the deployment rewrite uses
+  `\refTitle` / `\refAuthor` / `\refCompanions` and the corrected
+  title-block shape).
+- **Package decision: sibling `vinotheca-reference.sty`.** The
+  inline-preamble convention current at end of v0.39 was extracted
+  into a sibling package living in `vinotheca-reference/docs-source/`
+  alongside the four `.tex` sources. Macro definitions, spacing
+  values, and section formatting are byte-identical to the inline
+  preambles that rendered the v0.39 approved PDFs; the three already-
+  rendered PDFs (Summary, Methodology Primer, Technical) recompile to
+  byte-identical output under the package, confirming visual fidelity
+  was preserved across the refactor.
+- Reference landing page authored per §4.9 (*quietly signposted, not
+  foregrounded*): single-column page at 720px max-width, wordmark
+  *The Reference of Vinotheca* in Cormorant Garamond, body in EB
+  Garamond, canonical 10-token palette, §4.3 footer pattern. Four
+  document cards in publication order (Summary → Methodology Primer
+  → Technical → Academic References), each showing page count and a
+  "Read PDF →" link.
+- Four PDFs deployed to `vinotheca-reference/docs/` with canonical
+  lowercase-with-hyphens naming (`summary.pdf`,
+  `methodology-primer.pdf`, `technical.pdf`,
+  `academic-references.pdf`).
+- Parent Vinotheca landing page updated per §3.2 propagation rule:
+  Reference section moved from "no leaves yet" to a card linking to
+  the live landing page.
+- §3 leaves table updated; this §6.1 entry rewritten to closed
+  status; §7 entry added under 2026-05-17 (Session 1C); §9 Phase 2
+  marked closed; v0.40 changelog entry added.
 
-The drafting work is substantively complete; the deployment work is
-a separate kind of session and likely splits across more than one
-sitting. The decision to draft all four documents before creating
-the repo (Option C in the planning conversation) was locked in the
-previous session and held: it avoids visible drift on the live family
-during incremental publication of a section that should appear as a
-coherent set.
+The Option C drafting strategy (locked in the previous planning
+conversation — draft all four documents before creating the repo, to
+avoid visible drift during incremental publication) held through
+deployment: the repo's first commit shipped all four documents
+together as a coherent set rather than incrementally.
 
 ### 6.2 To be built — Winemaker Affinities (tool) and The Hand of Wine (study)
 
@@ -1201,6 +1219,95 @@ when the next dedicated cleanup session opens.
 ## 7. Recently completed (reverse chronological)
 
 ### 2026-05-17
+
+**Session 1C — Reference deployment (closed same day, v0.40).**
+
+- **Scope.** Session 1C closed the §6.1 / §9 Phase 2 deployment arc
+  that v0.39 had left pending: create the `vinotheca-reference` repo,
+  bring *Vinotheca: Academic References* into source-controlled form
+  alongside the other three documents, resolve the deferred package
+  decision, author the Reference landing page, deploy the four PDFs,
+  and propagate the change to the parent landing page per §3.2. The
+  session produced no new prose — the four documents had been
+  drafted in Session 1B and an earlier session; this session moved
+  drafted artefacts to live deployed state.
+
+- **Package decision resolved: sibling `vinotheca-reference.sty`.**
+  The decision deferred from §4.5 v0.39 ("inline preamble or sibling
+  package") was resolved in favour of the sibling package. The four
+  inline preambles were combined into a single `vinotheca-reference.sty`
+  living in `vinotheca-reference/docs-source/` alongside the four
+  `.tex` sources, byte-identical in its macro definitions, spacing
+  values, and section formatting to what the inline preambles
+  produced. The four `.tex` sources now load it via
+  `\usepackage{vinotheca-reference}`. The verification check: the
+  three already-approved PDFs (Summary, Methodology Primer, Technical)
+  recompile to byte-identical output under the package, confirming
+  visual fidelity was preserved. *Vinotheca: Academic References*
+  rendered cleanly at 9 pages — one page shorter than the original
+  v0.39 PDF because the title block was reshaped to follow §4.5 v0.39
+  convention (primary title *Vinotheca: Academic References* / second
+  line *A Reference of Vinotheca* / italic descriptive subtitle), which
+  is more compact than the wine-tools shape the original used.
+
+- **Academic References title-block fix.** The original v0.39 PDF of
+  *Vinotheca: Academic References* used `\vinothecaTitle{Vinotheca}{Academic References}{Where Character-Based Analysis Sits in Existing Scholarship}`
+  — the wine-tools macro shape — despite §4.5 v0.39 forbidding
+  `vinotheca.sty` for Reference documents. The deployment session
+  caught this divergence and corrected it: the new source calls
+  `\refTitle{Vinotheca: Academic References}{A Reference of Vinotheca}{Where Character-Based Analysis Sits in Existing Scholarship}`
+  per the v0.39 convention. The companions line was also corrected to
+  list all four documents including Academic References itself
+  (the original listed only the other three).
+
+- **Reference landing-page authoring.** A single-column landing page
+  at 720px max-width, matching the §4.9 brief of *quietly signposted,
+  not foregrounded*. Wordmark *The Reference of Vinotheca* — the
+  two-word italic form per §4.1, with *Reference* as the italicised
+  noun (the single-word "Reference" form was considered but rejected
+  because §4.1 reserves the single-word exception for the parent
+  "Vinotheca" only). Eyebrow *A REFERENCE OF VINOTHECA* per §4.2;
+  tagline *The conceptual foundations beneath the wine work*; intro
+  paragraph in §4.9's voice. Four document cards in publication order
+  (Summary → Methodology Primer → Technical → Academic References),
+  each showing page count and a "Read PDF →" link. Closing note
+  reframes §4.9's quiet-signposting commitment. Footer follows §4.3:
+  motto *❧ in vino, cognitio ❧*, link row *GitHub · License · CC BY-NC
+  4.0 · Vinotheca · Correspondence*, copyright *© Jure Skarabot ·
+  MMXXVI*. Canonical 10-token palette (locked 2026-05-09); Library-
+  class typography per §4.8 + Decision 5 (EB Garamond body + Cormorant
+  Garamond display, matching parent + Maker Atlas + Soul of Wine).
+
+- **Repo creation and first commit.** `gh repo create` produced the
+  empty remote; the initial commit (`81e2b38`) carried all 13 files
+  in a single push to `main`. GitHub Pages enabled on `main` /
+  `(root)`; first deploy lived at
+  `https://jskarabot18.github.io/vinotheca-reference/` within ~2
+  minutes of the push. All four PDFs verified accessible at their
+  canonical paths.
+
+- **Parent landing-page propagation.** Per §3.2's propagation rule,
+  `vinotheca/index.html` was updated in a separate commit (`1fab4ec`)
+  on the parent repo: the Reference section moved from "no leaves yet"
+  to a card linking to the live `vinotheca-reference` landing page.
+  The card uses the wordmark *The Reference of Vinotheca* and the
+  eyebrow *A Reference of Vinotheca* per §3 and §4.2.
+
+- **Deployment-flow convention reinforced.** All deployment to GitHub
+  happened through Mac Studio terminal commands run from
+  `~/Documents/jure/wine/vinotheca-reference/` and
+  `~/Documents/jure/wine/vinotheca/`. Files moved with `mv` from
+  `~/Downloads/` into the repo directories (consistent with the
+  recent-updates memory). Claude prepared the complete repo as a
+  tarball; the user unpacked, sanity-checked, committed, and pushed.
+
+- **Working folder convention.** Session work happened at
+  `/home/claude/vinotheca-reference/` (with `docs/` and `docs-source/`
+  sub-folders matching the final repo layout). The tarball
+  `vinotheca-reference.tar.gz` and three companion documents
+  (`DEPLOYMENT.md`, `PARENT_LANDING_PAGE.md`, this v0.40 `PROJECT.md`)
+  were prepared in the Claude session's outputs folder. The Mac
+  Studio holds the user-side canonical copies after the move.
 
 **Session 1B — Reference document drafting (closed same day, v0.39).**
 
@@ -2938,6 +3045,52 @@ recovered Python source.**
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
 
+### 2026-05-17 — v0.40
+
+- **§3 (Leaves — current state).** Reference row updated: status moved
+  from *Repo to be created — empty for now* to *Live*; wordmark moved
+  from *—* to *The Reference of Vinotheca*; site name moved from
+  *(no leaves yet)* to *The Reference of Vinotheca*. The eyebrow
+  was already canonical and required no change.
+- **§6.1 (`vinotheca-reference` repo) — rewritten.** Heading moved
+  from *In progress — drafting closed, deployment pending* to *Closed
+  (closed 2026-05-17; recorded in §7)*. Body rewritten to record the
+  deployment session's actual decisions and artefacts: the sibling-
+  package outcome of the deferred package decision, the title-block
+  correction on *Vinotheca: Academic References* (the resulting one-
+  page drop from 10 to 9 explained), the landing-page authoring with
+  its specific design choices, and the full deployment checklist
+  marked complete.
+- **§7 (Recently completed) — Session 1C added.** New entry at the top
+  of the 2026-05-17 block, above Session 1B. Eight bullets recording:
+  the scope of the session and its position as the closure of the
+  v0.39 deferred deployment work; the resolved sibling-package
+  decision with byte-identical recompile verification; the Academic
+  References title-block correction; the landing-page authoring with
+  its specific wordmark / eyebrow / palette / typography choices;
+  repo creation and first push with GitHub Pages enabled and live URL
+  verified; parent landing-page propagation per §3.2; the deployment-
+  flow convention reinforced; the working-folder convention.
+- **§9 Phase 2 — closed.** *Deployment session(s) — pending* moved to
+  *Deployment session(s) — closed 2026-05-17*. The Phase 2 closure
+  paragraph extended to record the actual closure rather than its
+  anticipated conditions.
+- **Header.** The HTML comment under *Last meaningful update* extended
+  to include v0.40 in the 2026-05-17 list (six same-day updates:
+  v0.35, v0.36, v0.37, v0.38, v0.39, v0.40).
+
+This v0.40 entry records the first external-repo commits from the
+deployment session: the initial commit to `vinotheca-reference`
+(`81e2b38`) and the parent landing-page propagation commit on
+`vinotheca` (`1fab4ec`). The session's accomplishment is
+infrastructural rather than substantive — the four documents whose
+content was locked in v0.39 are now publicly accessible at
+`https://jskarabot18.github.io/vinotheca-reference/`, and the family
+landing page links to them. The Reference section is now a populated
+fourth section in Part I of the library, alongside Maps, Works, and
+Correspondence; the rest of the library can begin to cross-reference
+the four documents where the natural reading benefits from it.
+
 ### 2026-05-17 — v0.39
 
 - **§4.5 (Documents are aligned to a canonical framework).** A
@@ -4316,35 +4469,47 @@ the original v0.34 sketch.
   for status and §7's 2026-05-17 Session 1B entry for
   detail.
 
-**Deployment session(s) — pending, estimated 1–2 sittings.**
-- Create the `vinotheca-reference` repo with the family pattern
-  (eyebrow *A Reference of Vinotheca*, footer matching §4.3,
-  the standard scaffolding).
-- LaTeX-convert *Vinotheca: Academic References* to bring it
-  into source-controlled form alongside the other three
-  Reference documents.
-- Decide the package question: keep the inline preamble in each
-  `.tex` source (per §4.5's v0.39 block) or extract into a
-  sibling `vinotheca-reference.sty` package. The inline-preamble
-  convention is current; the sibling-package option is the
-  cleaner long-term shape but not load-bearing for v1.
-- Author a Reference landing page per §4.9 (*quietly signposted,
-  not foregrounded* — a thin page introducing the four documents
-  with download links, not a foregrounded feature).
-- Deploy the four PDFs to `vinotheca-reference/docs/`.
-- Propagate to the parent Vinotheca landing page per §3.2 (the
-  Reference section moves from "no leaves yet" to listing the
-  four documents).
-- Update §3 leaves table; update §6.1 to closed status; add §7
-  entries for the deployment work.
+**Deployment session — closed 2026-05-17 (single sitting, Session 1C).**
+The deployment work that v0.39 anticipated might split across more than
+one sitting was completed in a single Session 1C on 2026-05-17, the same
+day as the v0.39 drafting closure. The session executed:
+- Created the `vinotheca-reference` repo with the family pattern
+  (eyebrow *A Reference of Vinotheca*, footer matching §4.3, the
+  standard scaffolding) and went live at
+  `https://jskarabot18.github.io/vinotheca-reference/`.
+- LaTeX-converted *Vinotheca: Academic References* to bring it into
+  source-controlled form alongside the other three Reference
+  documents; corrected its title-block macros to match §4.5 v0.39
+  (rendered PDF at 9 pages, one page shorter than the v0.39 original
+  due to the more compact title block).
+- Resolved the package decision in favour of a sibling
+  `vinotheca-reference.sty` package. The inline preambles from
+  the four `.tex` sources were consolidated into a single package
+  byte-identical in macro definitions to the inline preambles that
+  rendered the v0.39 approved PDFs; the three already-rendered PDFs
+  recompiled to byte-identical output under the package, confirming
+  visual fidelity.
+- Authored the Reference landing page per §4.9 (*quietly signposted,
+  not foregrounded*): wordmark *The Reference of Vinotheca*, four
+  document cards in publication order, canonical 10-token palette,
+  Library-class typography per §4.8 + Decision 5.
+- Deployed the four PDFs to `vinotheca-reference/docs/` with
+  canonical lowercase-with-hyphens naming.
+- Propagated to the parent Vinotheca landing page per §3.2 (the
+  Reference section moved from "no leaves yet" to a card linking to
+  the live `vinotheca-reference` landing page).
+- Updated §3 leaves table; rewrote §6.1 to closed status; added this
+  §7 entry; added the v0.40 changelog entry.
 
-**Phase 2 closure.** PROJECT.md captures the closed §6.1 and the
-now-populated Reference section. Any cross-references from other
-leaves that ought to point at the four Reference documents get
-added; this is the natural moment to revisit the *FRAMEWORK_NOTES.md*
-pointer added in May 2026 and decide whether its contents have
-been superseded by the published Reference documents (likely yes,
-since the four documents now hold the canonical formulation).
+**Phase 2 closure.** PROJECT.md now captures the closed §6.1 and the
+populated Reference section. The cross-reference revisit noted in the
+original Phase 2 sketch — whether the *FRAMEWORK_NOTES.md* pointer
+added in May 2026 has been superseded by the published Reference
+documents — is queued as a §6.9 cleanup item rather than blocking the
+Phase 2 closure: the published Reference documents do hold the
+canonical formulation, and the supersession is highly likely, but
+confirming it is a small reading task that fits more naturally into a
+Phase 3 sub-session than into Phase 2's deployment work.
 
 ### Phase 3 — The Winemaker Work (estimated 6–10 sessions, spread over weeks)
 
