@@ -11,7 +11,7 @@
 > is recorded.
 
 Last meaningful update: 2026-05-17 (see §8 for full history)
-<!-- v0.32, v0.33, and v0.34 all dated 2026-05-16; v0.35, v0.36, v0.37, and v0.38 dated 2026-05-17 -->
+<!-- v0.32, v0.33, and v0.34 all dated 2026-05-16; v0.35, v0.36, v0.37, v0.38, and v0.39 dated 2026-05-17 -->
 
 ---
 
@@ -312,6 +312,39 @@ pattern, though no audit has yet been conducted to confirm Body of
 Wine ships the canonical four under the v0.35 `vinotheca.sty`. That
 audit is a queued item per §6.9.
 
+**Reference documents follow a parallel-but-distinct build convention
+(recorded 2026-05-17, v0.39).** The canonical framework above covers
+the family's Tool and Study documents — PDFs that ship as part of a
+Work in Part I. Reference documents (the four PDFs of the Reference
+section: *Vinotheca: Academic References*, *Vinotheca: Methodology
+Primer*, *Vinotheca: Technical*, *Vinotheca: Summary*) follow a
+parallel build convention with two specific deviations from the
+framework above. First, Reference documents do *not* load
+`\usepackage{vinotheca}`; instead each `.tex` source carries an
+**inline academic preamble** that loads `lmodern`, `microtype`,
+`parskip`, `enumitem`, `titlesec`, `fancyhdr`, plus `amsmath`,
+`amssymb`, and `booktabs` for documents that include math or tables.
+Second, the title-block macros are renamed: the family's
+`\vinothecaTitle{name}{type}{subtitle}` becomes `\refTitle`, and
+`\vinothecaAuthor` / `\vinothecaCompanions` become `\refAuthor` /
+`\refCompanions`. The macro shapes are identical; the rename prevents
+namespace collision if a Reference `.tex` is ever compiled alongside
+`vinotheca.sty` later. The reasoning for the parallel convention is
+§4.10's operational independence between Reference and the wine domain:
+the wine-tools `vinotheca.sty` carries the family's wine-domain
+register, which is not the register Reference documents occupy. The
+Reference documents read as a domain-neutral methodological reference
+that happens to be instantiated for wine; their build convention
+reflects that. Whether the inline preamble eventually gets extracted
+into a sibling `vinotheca-reference.sty` package (kept alongside the
+four `.tex` sources in `vinotheca-reference/docs-source/`) is a
+deployment-session decision deferred from v0.39. Title-block convention
+for Reference documents: line one is `Vinotheca: <Document Name>`
+(primary title), line two is `A Reference of Vinotheca` (matching the
+§4.2 eyebrow grammar), line three is an italic descriptive subtitle.
+Companions line lists all four Reference documents including the
+current one, matching the family convention in the tool repos.
+
 ### 4.6 Studies don't embed tools; tools don't appear inside studies
 
 A **Study** presents an argument and supports it with documents. It does
@@ -371,23 +404,68 @@ Garamond). Body text systems still differ.
 ### 4.9 Reference — quietly signposted, not foregrounded
 
 Reference is the deepest layer of the library. It contains intellectual
-foundations (theoretical, technical, practical) that ground the
-character-based analysis methodology underlying the wine work. Reference
-documents are **not foregrounded** — a casual visitor came for wine, not
-Bourdieu. But Reference must exist, be findable, and be linked, so
-serious readers can find the conceptual scaffolding.
+foundations that ground the character-based analysis methodology
+underlying the wine work. Reference documents are **not foregrounded** —
+a casual visitor came for wine, not Bourdieu. But Reference must exist,
+be findable, and be linked, so serious readers can find the conceptual
+scaffolding.
 
 Reference items are written deliberately to be readable on their own
 terms years later. They predate Vinotheca-the-implementation conceptually
 and would survive if Vinotheca went away.
+
+**Reference document set (locked 2026-05-17, v0.39).** The Reference
+section comprises four documents drafted across two May 2026 sessions:
+
+- *Vinotheca: Academic References* — where character-based analysis
+  sits in existing scholarship; surveys six or seven distinct
+  traditions (cultural sociology, personality psychology, trait
+  ecology, art attribution, music information retrieval, hermeneutics)
+  and identifies what each contributes. ~4,000–5,500 words.
+- *Vinotheca: Methodology Primer* — the seven methodological moves
+  that character-based analysis comprises, each described as a
+  conceptual commitment rather than as a software step. ~3,900 words.
+- *Vinotheca: Technical* — the three classes of technical capability
+  (classical statistical apparatus, language-model capability for
+  grounded extraction, sentence-embedding infrastructure) that make
+  each methodological move tractable, plus what remains genuinely
+  human work. ~6,400 words with displayed math and tables.
+- *Vinotheca: Summary* — what character-based analysis is and why
+  it produces a distinct kind of artefact, in continuous prose at
+  an analytical register. ~1,500 words.
+
+The four documents read as a coherent set, with each cross-referencing
+the others by name where the natural reading benefits from it.
+Authoring order was Academic References → Methodology Primer →
+Technical → Summary (independence-of-other-documents first, the
+high-altitude compression last); publication order on the eventual
+Reference landing page is the inverse — Summary first as the entry
+point, then Methodology Primer, Technical, Academic References.
+
+**Locked vocabulary across all four documents (v0.39).** The
+methodology's primary name is **character-based analysis**; *Second-
+Layer Framework* (an earlier proper-name candidate) is retired.
+The two-layer distinction uses **functional features** and
+**character features** as the descriptive vocabulary; *first layer /
+second layer* numeric shorthand stays out of the working vocabulary,
+appearing only in *Academic References* where the descriptive
+language has a real anchor in Bourdieu's homology. The seven
+methodological moves are named: *corpus curation*, *grounded
+extraction*, *mid-level interpretable representation*, *similarity
+computation*, *multi-resolution clustering*, *stability testing*,
+and *calibrated presentation* (the seventh move was originally
+proposed as *honest presentation* and renamed to *calibrated
+presentation* during Methodology Primer drafting on register-
+discipline grounds — *honest* names a virtue, *calibrated* names
+the methodological commitment more precisely).
 
 ### 4.10 Operational independence between Reference and the wine domain
 
 The Reference section's content describes the *general* methodology
 (character-based analysis as a domain-neutral pattern). Vinotheca is the
 *wine-specific instantiation*. A future application of the same methodology
-to a different domain (film, architecture, music — see Technical
-Foundations document) would draw on the same Reference content.
+to a different domain (film, architecture, music — see *Vinotheca:
+Technical*) would draw on the same Reference content.
 
 This is why Reference has its own repo (`vinotheca-reference`) rather than
 living inside the wine-specific repos.
@@ -598,21 +676,53 @@ These workflow patterns have been found to work reliably:
 
 ## 6. Open questions and active tasks
 
-### 6.1 To be built — `vinotheca-reference` repo
+### 6.1 In progress — `vinotheca-reference` repo (drafting closed, deployment pending)
 
 Per §1 and §4.9–§4.10, Reference is its own section with its own repo.
-The repo `vinotheca-reference` is to be created. **No content yet** —
-the foundation documents (Theoretical Foundations of Character-Based
-Analysis, Technical Foundations of Character-Based Analysis, Practical
-Foundations) will be added when ready. The repo will follow the same
-family pattern (wordmark, eyebrow `A Reference of Vinotheca`, footer
-matching §4.3).
+The repo `vinotheca-reference` is to be created during a forthcoming
+deployment session. The four Reference documents (per §4.9) have been
+**drafted** across two May 2026 sessions, with three of four also
+converted to LaTeX and rendered to PDF.
 
-**Pending:**
-- Repo creation
-- Page structure for the Reference site
-- Decision on whether to include the foundation documents at launch or
-  delay until they are ready for public release
+**Drafted (markdown):**
+- *Vinotheca: Academic References* — previous session (before
+  2026-05-17). Markdown source held locally on the Mac Studio; not
+  yet LaTeX'd.
+- *Vinotheca: Methodology Primer* — 2026-05-17 (Session 1B,
+  see §7). Markdown and LaTeX both complete; PDF rendered (8 pages).
+- *Vinotheca: Technical* — 2026-05-17 (Session 1B). Markdown and
+  LaTeX both complete; PDF rendered (13 pages, with displayed math
+  and `booktabs` tables under `amsmath`/`amssymb`/`booktabs`).
+- *Vinotheca: Summary* — 2026-05-17 (Session 1B). Markdown and
+  LaTeX both complete; PDF rendered (3 pages, prose only).
+
+**Pending — deployment session(s):**
+- Repo creation (`github.com/jskarabot18/vinotheca-reference`)
+- LaTeX conversion of *Vinotheca: Academic References* to bring it
+  into source-controlled form alongside the other three
+- Package decision: keep inline preambles in each `.tex` source
+  (current state) or extract into a sibling `vinotheca-reference.sty`
+  package living in `vinotheca-reference/docs-source/` alongside the
+  four sources. Per §4.5's v0.39 block, the inline preamble is the
+  current convention; the sibling-package option is the cleaner
+  long-term shape but is not load-bearing for v1.
+- Reference landing page authoring (per §4.9 "quietly signposted,
+  not foregrounded" — a thin page introducing the four documents
+  with download links, not a foregrounded feature)
+- Deploy the four PDFs to `vinotheca-reference/docs/`
+- Update the parent Vinotheca landing page per §3.2's propagation
+  rule (Reference section moves from "no leaves yet" to listing the
+  four documents)
+- Update §3 leaves table when the repo goes live
+- §7 entries for the deployment work
+
+The drafting work is substantively complete; the deployment work is
+a separate kind of session and likely splits across more than one
+sitting. The decision to draft all four documents before creating
+the repo (Option C in the planning conversation) was locked in the
+previous session and held: it avoids visible drift on the live family
+during incremental publication of a section that should appear as a
+coherent set.
 
 ### 6.2 To be built — Winemaker Affinities (tool) and The Hand of Wine (study)
 
@@ -1091,6 +1201,156 @@ when the next dedicated cleanup session opens.
 ## 7. Recently completed (reverse chronological)
 
 ### 2026-05-17
+
+**Session 1B — Reference document drafting (closed same day, v0.39).**
+
+- **Scope and structure.** Session 1B drafted three of the four
+  Reference section documents in the same sitting and rendered all
+  three to LaTeX/PDF. *Vinotheca: Academic References* had been
+  drafted in an earlier session before 2026-05-17; the work today
+  was *Vinotheca: Methodology Primer*, *Vinotheca: Technical*, and
+  *Vinotheca: Summary*, in that order. The four-document set, the
+  authoring order, and the implied-reader specification (a general
+  visitor to the Reference section who has not necessarily explored
+  another leaf) were all locked in the previous session and held
+  through this one.
+
+- **Vocabulary locked at session start.** Three vocabulary
+  decisions made in the previous session were carried through and
+  applied uniformly: (a) *character-based analysis* is the primary
+  term for the methodology; the older proper-name candidate
+  *Second-Layer Framework* is retired entirely. (b) The two-layer
+  distinction uses *functional features* and *character features*
+  as the working vocabulary across all four documents; the
+  *first layer / second layer* numeric shorthand stays out of
+  working vocabulary, appearing only in *Academic References*
+  where it anchors to Bourdieu's homology. (c) The seven
+  methodological moves are named: *corpus curation*, *grounded
+  extraction*, *mid-level interpretable representation*,
+  *similarity computation*, *multi-resolution clustering*,
+  *stability testing*, and *calibrated presentation*. The seventh
+  move was originally proposed as *honest presentation*; renamed
+  to *calibrated presentation* during Methodology Primer drafting
+  on register-discipline grounds (*honest* names a virtue,
+  *calibrated* names the methodological commitment more precisely).
+  All four documents conform to this vocabulary lock without
+  drift. See §4.9 for the locked vocabulary block.
+
+- **Methodology Primer drafting — ~3,900 words across seven moves
+  plus Introduction, Closing, and References.** Walks each
+  methodological move as a conceptual commitment rather than as
+  a software step, with the discipline of doing each move well
+  treated as a substantive question. The §II *Grounded Extraction*
+  section explicitly names the historical bottleneck (expert
+  reading at slow scale) and the recent advance that dissolved it
+  (large language models capable of structured extraction with
+  citation preservation), handing off to *Vinotheca: Technical*
+  for the technical detail. The seventh move (*Calibrated
+  Presentation*) names the discipline of presentation that does
+  not overclaim and that reports limits where they apply. Forward
+  cross-references to *Technical* (twice) and to *Summary*
+  (once); back-reference to *Academic References* once at the MIR
+  inheritance for mid-level features.
+
+- **Technical drafting — ~6,400 words, three classes of capability
+  plus the human-work section.** §I (Classical Statistical
+  Apparatus) covers cosine similarity, dimensionality reduction,
+  clustering algorithms, cluster-count choice, validation
+  statistics, and graph-based community detection — the section
+  was expanded mid-session at user request from Density A (math-
+  light prose) to Density B (displayed equations in §I and §III,
+  prose in §II and §IV). The clustering subsection was further
+  expanded to add full formal treatment of k-means and hierarchical
+  clustering (with the four linkage criteria displayed as an
+  aligned equation group plus the Lance–Williams recurrence
+  formula that unifies them), compact treatment of spectral and
+  density-based clustering, a new I.4 subsection on cluster-count
+  choice and multi-resolution reporting, and a new I.6 subsection
+  on graph-based community detection (covering the $k$-NN graph
+  construction, the modularity function $Q$, and the Clauset–
+  Newman–Moore and Louvain algorithms). The expansion added
+  ~1,700 words and ten references. §II (Language-Model Capability
+  for Grounded Extraction) handles the *why now* substance in
+  prose without displayed math; §III (Sentence-Embedding
+  Infrastructure) handles the embedding function, the role of
+  embeddings as a complementary similarity surface, and the
+  architectural commitment to interpretability as primary; §IV
+  (What the Human Still Does) names corpus curation, dimension
+  specification, validation-and-interpretation, and presentation-
+  calibration as the four areas that remain human work even after
+  the recent technical advances.
+
+- **Summary drafting — ~1,500 words, continuous prose at an
+  analytical register.** Drafted twice: a first pass using a
+  restaurant analogy from the planning conversation as the
+  entry-level definitional anchor; a second pass that replaced
+  the analogy with a direct methodological framing (per user
+  request to remove the restaurants and lift the document's
+  register more analytically). The second draft opens with the
+  two-layer distinction stated as a methodological commitment
+  rather than illustrated through analogy. The four substantive
+  moves in the Summary: (i) what Vinotheca does, framed
+  methodologically; (ii) where second-layer information already
+  exists and how it became recoverable at scale; (iii) why
+  character-based analysis exists at all given the alternative
+  of asking a chatbot directly (the load-bearing positioning
+  argument: not "which is more accurate" but "which produces the
+  kind of artefact the reader is trying to obtain"); (iv) what
+  Vinotheca offers and what intellectual provenance stands
+  behind it. No subsections, no references list, no displayed
+  math. Cross-references to all three companion documents in the
+  closing.
+
+- **LaTeX build convention for Reference documents — inline
+  preamble, no `\usepackage{vinotheca}`.** All three LaTeX
+  sources authored this session carry an inline academic
+  preamble (`lmodern`, `microtype`, `parskip`, `enumitem`,
+  `titlesec`, `fancyhdr`, plus `amsmath`/`amssymb`/`booktabs`
+  for *Technical*) rather than loading the wine-tools
+  `vinotheca.sty` package. The macro shapes are identical to
+  the family's `\vinothecaTitle` / `\vinothecaAuthor` /
+  `\vinothecaCompanions` but renamed to `\refTitle` /
+  `\refAuthor` / `\refCompanions` to prevent namespace
+  collision. The decision is recorded in §4.5's new v0.39 block;
+  the choice respects §4.10's operational independence between
+  Reference and the wine domain. Whether the inline preamble
+  eventually gets extracted into a sibling
+  `vinotheca-reference.sty` is a deployment-session decision
+  deferred from v0.39.
+
+- **Three PDFs rendered cleanly.** *Vinotheca: Methodology
+  Primer* — 8 pages, one displayed equation pair (the
+  `\refrule` separator) but otherwise pure prose at the
+  academic register matching the TasteRank Technical Appendix's
+  visual style. *Vinotheca: Technical* — 13 pages, sixteen
+  displayed equations including the four-linkage `aligned`
+  array and the full Hubert–Arabie ARI formula, two `booktabs`
+  tables (three-class summary in the Introduction, validation-
+  apparatus summary at the end of §I), no overfull-hbox
+  warnings after two table-column-width adjustments. *Vinotheca:
+  Summary* — 3 pages, pure prose, clean first-pass compile with
+  zero warnings. All three PDFs sit visually parallel to the
+  TasteRank Technical Appendix and to the Methodology Primer
+  PDF, confirming the inline-preamble convention reproduces the
+  family's academic register without depending on the wine-
+  tools `vinotheca.sty`.
+
+- **Deployment work explicitly deferred.** Session 1B closed at
+  drafting completion; the deployment session (repo creation,
+  Academic References LaTeX conversion, landing page authoring,
+  PDF deployment, parent-landing-page propagation per §3.2) is
+  the natural next session and will likely split across more
+  than one sitting. The decision to defer deployment to a
+  separate session arc was made deliberately: drafting work and
+  deployment work are different in character, and trying to
+  combine them in one session would compromise both.
+
+- **Working folder convention.** All session work happened at
+  `/home/claude/vinotheca-reference-drafts/` with two
+  sub-folders: `drafts/` for markdown sources, `latex/` for
+  LaTeX sources and rendered PDFs. The Mac Studio holds the
+  user-side canonical copies; the Claude session working folder
+  resets between sessions per the standard convention.
 
 **Session 1A.2 — Soul of Wine documentation rebuild + cross-repo
 alignment (closed same day, v0.38).**
@@ -2678,6 +2938,89 @@ recovered Python source.**
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
 
+### 2026-05-17 — v0.39
+
+- **§4.5 (Documents are aligned to a canonical framework).** A
+  fifth paragraph block appended — *Reference documents follow a
+  parallel-but-distinct build convention (recorded 2026-05-17,
+  v0.39)*. Records that the four Reference section PDFs use an
+  inline academic preamble rather than `\usepackage{vinotheca}`,
+  and that the title-block macros are renamed `\refTitle` /
+  `\refAuthor` / `\refCompanions` (parallel shapes, namespace-
+  collision-safe). The block explains the reasoning (§4.10's
+  operational independence between Reference and the wine domain;
+  the wine-tools `vinotheca.sty` carries register elements that
+  Reference documents are not meant to occupy) and flags the
+  deferred decision about whether to extract the inline preamble
+  into a sibling `vinotheca-reference.sty` package at deployment.
+  Title-block convention for Reference documents recorded:
+  *Vinotheca: <Document Name>* as primary title, *A Reference of
+  Vinotheca* as second line, italic descriptive subtitle as third.
+- **§4.9 (Reference — quietly signposted, not foregrounded) —
+  substantially extended.** The opening paragraph trimmed the
+  older "(theoretical, technical, practical)" parenthetical that
+  reflected a now-superseded three-document scope. Two new
+  blocks appended: *Reference document set (locked 2026-05-17,
+  v0.39)* listing the four documents by name with one-sentence
+  scopes and word counts (Academic References ~4,000–5,500;
+  Methodology Primer ~3,900; Technical ~6,400; Summary ~1,500);
+  *Locked vocabulary across all four documents (v0.39)* recording
+  the three vocabulary decisions that were carried through the
+  drafting work — *character-based analysis* as the primary term
+  (*Second-Layer Framework* retired), *functional features /
+  character features* as the two-layer descriptive vocabulary
+  (*first layer / second layer* numeric shorthand kept out except
+  in *Academic References* for Bourdieu's homology), and the
+  seven methodological moves with their canonical names (the
+  seventh renamed from *honest presentation* to *calibrated
+  presentation* during drafting).
+- **§4.10 (Operational independence between Reference and the
+  wine domain) — cross-reference updated.** The line that
+  pointed at the old *Technical Foundations document* updated to
+  point at *Vinotheca: Technical* per the new naming.
+- **§6.1 (`vinotheca-reference` repo) — rewritten.** Previous
+  v0.32–v0.38 framing described the repo as having no content yet
+  and listed three foundation documents under their older names
+  (Theoretical Foundations, Technical Foundations, Practical
+  Foundations). The rewrite records the actual state: four
+  documents drafted (three of them LaTeX'd and PDF-rendered
+  during this session arc; *Vinotheca: Academic References* from
+  a previous session still in markdown form). Status moved from
+  *To be built — no content yet* to *In progress — drafting
+  closed, deployment pending*. The Pending list reorganised
+  around the deployment-session sub-tasks (repo creation, Academic
+  References LaTeX conversion, package decision, landing page,
+  PDF deployment, parent-landing-page propagation per §3.2,
+  §3 leaves table update, §7 entries for the deployment work).
+- **§7 (Recently completed) — 2026-05-17 entry extended.** A new
+  *Session 1B — Reference document drafting* sub-header inserted
+  at the top of the 2026-05-17 entry (above the existing 1A.2
+  Soul of Wine sub-entry per the reverse-chronological convention).
+  Nine bullets recording: the scope of the session and its
+  position in the four-document arc; the three vocabulary
+  decisions locked in the previous session and carried through;
+  the Methodology Primer drafting; the Technical drafting
+  including the mid-session expansion from Density A to Density B
+  and the subsequent clustering / community-detection scope
+  addition; the Summary drafting with its two-pass register
+  evolution (restaurants out, analytical register in); the
+  inline-preamble LaTeX build convention; the three rendered
+  PDFs; the deliberate deferral of deployment work; and the
+  working-folder convention.
+- **Header.** The HTML comment under *Last meaningful update* now
+  notes v0.35, v0.36, v0.37, v0.38, and v0.39 all dated 2026-05-17
+  — five same-day updates.
+
+This v0.39 entry records no external-repo commits; the
+`vinotheca-reference` repo does not yet exist, and the four
+documents' final files live in the Claude session's outputs folder
+pending deployment. The session's central accomplishment is
+substantive rather than infrastructural: the Reference section's
+content is now drafted and the methodological vocabulary that will
+ground every future leaf using character-based analysis is locked.
+The deployment work that converts this into deployed PDFs and a
+live `vinotheca-reference` site is the natural next session.
+
 ### 2026-05-17 — v0.38
 
 - **§4.5 (Documents are aligned to a canonical framework).** A
@@ -3933,45 +4276,75 @@ LaTeX work; recorded in §7.**
   formally ignore).
 - v0.35 PROJECT.md update closing the small-steps items.
 
-### Phase 2 — Reference foundations (estimated 4–6 sessions)
+### Phase 2 — Reference foundations (drafting closed, deployment pending)
 
 **Reordered from the original plan.** Reference originally
 queued *after* the Winemaker Work. The reordering was discussed
-in this v0.34 session and locked: foundations come first. The
-honest reasoning: Reference is reflective work (articulating
+in the v0.34 session and locked: foundations come first. The
+plain reasoning: Reference is reflective work (articulating
 what already exists in Vinotheca, grounding it intellectually);
 the Winemaker Work is generative (bringing something new into
 being). Doing the reflective work first means entering the
 generative work with sharper language about what character-
 based analysis *is*. Should make the Winemaker corpus authoring
-easier, not harder. Set against this: Phase 2 of the v0.34
-roadmap (Reference) is harder than it sounds. Articulating the
-theoretical grounding for a methodology that lives in the
-practitioner's head but hasn't been written down is the kind
-of work that surprises in difficulty. Set aside more time for
-Session 2A than the surface scope suggests.
+easier, not harder.
 
-**Sessions 2A–2C — Foundation document authoring** (one document
-per session, roughly):
-- *Theoretical Foundations of Character-Based Analysis* — what
-  character-based analysis is, why it works, where it comes from
-  intellectually
-- *Technical Foundations of Character-Based Analysis* — the
-  engineering layer (embeddings, similarity, calibration, the
-  algorithmic substrate)
-- *Practical Foundations* — guidance for use, limitations, how
-  to read results responsibly
+**Phase 2 scope evolution (recorded 2026-05-17, v0.39).** The
+original Phase 2 plan listed three foundation documents
+(*Theoretical Foundations*, *Technical Foundations*, *Practical
+Foundations*), each authored over its own session. The actual
+work evolved into a different shape during the drafting
+sessions themselves: the document set settled at *four*
+documents (Academic References, Methodology Primer, Technical,
+Summary), with different scopes and a different sequencing
+than the original three-document plan implied. The four-document
+set and its authoring order were locked in the previous session
+before any drafting began; the drafting itself happened across
+two sessions rather than three. The Phase 2 trajectory recorded
+below reflects what actually happened plus what remains, not
+the original v0.34 sketch.
 
-**Session 2D — Reference landing-page section.** Per §4.9,
-*"quietly signposted, not foregrounded"*. A subtle link, not a
-banner. Update §3 leaves table with the Reference leaf going
-from "no leaves yet" to listing the three foundation
-documents.
+**Drafting (closed 2026-05-17, two sessions).**
+- Previous session: *Vinotheca: Academic References* drafted
+  in markdown (~4,000–5,500 words).
+- Session 1B (2026-05-17): *Vinotheca: Methodology Primer*
+  (~3,900 words), *Vinotheca: Technical* (~6,400 words), and
+  *Vinotheca: Summary* (~1,500 words) drafted in markdown,
+  converted to LaTeX, and rendered to PDF. Working folder at
+  `/home/claude/vinotheca-reference-drafts/`; final files in
+  the session's outputs folder pending deployment. See §6.1
+  for status and §7's 2026-05-17 Session 1B entry for
+  detail.
 
-**Session 2E — Polish, propagation, §6.1 closure.** PROJECT.md
-captures the closed §6.1 and the now-populated Reference
-section. Any cross-references from other leaves that ought to
-point at the foundations get added.
+**Deployment session(s) — pending, estimated 1–2 sittings.**
+- Create the `vinotheca-reference` repo with the family pattern
+  (eyebrow *A Reference of Vinotheca*, footer matching §4.3,
+  the standard scaffolding).
+- LaTeX-convert *Vinotheca: Academic References* to bring it
+  into source-controlled form alongside the other three
+  Reference documents.
+- Decide the package question: keep the inline preamble in each
+  `.tex` source (per §4.5's v0.39 block) or extract into a
+  sibling `vinotheca-reference.sty` package. The inline-preamble
+  convention is current; the sibling-package option is the
+  cleaner long-term shape but not load-bearing for v1.
+- Author a Reference landing page per §4.9 (*quietly signposted,
+  not foregrounded* — a thin page introducing the four documents
+  with download links, not a foregrounded feature).
+- Deploy the four PDFs to `vinotheca-reference/docs/`.
+- Propagate to the parent Vinotheca landing page per §3.2 (the
+  Reference section moves from "no leaves yet" to listing the
+  four documents).
+- Update §3 leaves table; update §6.1 to closed status; add §7
+  entries for the deployment work.
+
+**Phase 2 closure.** PROJECT.md captures the closed §6.1 and the
+now-populated Reference section. Any cross-references from other
+leaves that ought to point at the four Reference documents get
+added; this is the natural moment to revisit the *FRAMEWORK_NOTES.md*
+pointer added in May 2026 and decide whether its contents have
+been superseded by the published Reference documents (likely yes,
+since the four documents now hold the canonical formulation).
 
 ### Phase 3 — The Winemaker Work (estimated 6–10 sessions, spread over weeks)
 
