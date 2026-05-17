@@ -10,8 +10,8 @@
 > next commit. Append an entry to §8 (Document changelog) so the change
 > is recorded.
 
-Last meaningful update: 2026-05-16 (see §8 for full history)
-<!-- v0.32, v0.33, and v0.34 all dated 2026-05-16 -->
+Last meaningful update: 2026-05-17 (see §8 for full history)
+<!-- v0.32, v0.33, and v0.34 all dated 2026-05-16; v0.35 dated 2026-05-17 -->
 
 ---
 
@@ -207,6 +207,31 @@ narrative or lists them as documents.
 LaTeX sources for all documents are archived in each tool repo's
 `docs-source/` folder. This means PDFs can be regenerated without losing
 source material if amendments are needed.
+
+**Canonical build convention (locked 2026-05-17, v0.35).** Every
+`.tex` source loads the family's shared package via
+`\usepackage{vinotheca}`. The package itself — `vinotheca.sty` —
+ships **adjacent** to each `.tex` source inside the same
+`docs-source/` folder. Builds run from inside `docs-source/` so
+`\usepackage{vinotheca}` resolves to the file next to the source.
+`vinotheca.sty` is byte-identical across all four tool repos
+(`grape-resonances`, `region-affinities`, `region-resonances`,
+`tasterank-explorer`); when it changes, it changes in all four at
+once. The package provides geometry, fonts (Latin Modern),
+sectioning, the abstract environment, and the three front-matter
+macros every document uses: `\vinothecaTitle{name}{type}{subtitle}`,
+`\vinothecaAuthor{author}{date}`, `\vinothecaCompanions{companion
+list}`. A parallel artefact, `vinotheca-preamble.tex`, was present
+in three of four `docs-source/` folders before v0.35 and is **retired**
+— it was an earlier sketch toward a package, never wired to any
+`.tex` source, and does not match the macro shapes the sources
+actually call. The three remaining copies can be deleted in a
+future cleanup pass. Builds happen inside Claude sessions where
+TeX Live is installed; the Mac Studio is a deployment-and-source-
+management machine, not a build machine. This was the de facto
+state before v0.35 (past PDFs were built in sessions and committed
+pre-built); v0.35 makes it the de jure state by committing the
+previously-implicit `vinotheca.sty` to disk in all four repos.
 
 ### 4.6 Studies don't embed tools; tools don't appear inside studies
 
@@ -776,18 +801,19 @@ session, not a mechanical-text rename's coat-tails.
   may exist somewhere not yet searched (an external drive, an old
   laptop, an email attachment, an archived backup). If they surface,
   the rename is a small set of substitutions against the existing
-  source and the `vinotheca-preamble.tex` pattern can absorb the
-  atlases retrospectively.
+  source, and the canonical convention (`\usepackage{vinotheca}` with
+  `vinotheca.sty` adjacent — see §4.5) can absorb the atlases
+  retrospectively.
 - *Path β — author from scratch in the modern convention.* Build
   fresh `.tex` files under `estate-atlas/docs-source/` and `wine
   atlas/grand-cru-atlas/docs-source/`, mirroring the structure of
-  the existing tool repos' docs-source folders, using the shared
-  `vinotheca-preamble.tex`. The body content can be reconstructed
-  from the deployed PDFs' extracted text (text extraction was
-  verified clean in this session's PDF survey). Typesetting will
-  differ from the original since the original preamble isn't known,
-  but the result would be a clean, source-managed atlas PDF
-  consistent with the rest of the family.
+  the existing tool repos' `docs-source/` folders, using the
+  canonical `vinotheca.sty` package (see §4.5). The body content
+  can be reconstructed from the deployed PDFs' extracted text (text
+  extraction was verified clean in this session's PDF survey).
+  Typesetting will differ from the original since the original
+  preamble isn't known, but the result would be a clean, source-
+  managed atlas PDF consistent with the rest of the family.
 
 **Pending:**
 - Decide between Path α and Path β
@@ -800,42 +826,159 @@ session, not a mechanical-text rename's coat-tails.
 - Update §6.7 status to *Executed* and add a §7 entry recording the
   authoring methodology chosen
 
-**Status.** Queued for a future session. No deadline. Low urgency —
-the visible drift is bounded (PDFs are still usable; the rename's
-social meaning lives in the wordmarks), and the work is non-trivial
-enough that it deserves a dedicated session rather than being
-bundled into something else.
+**Status.** Atlas rebuilds queued for a future session. The build-
+environment unknowns that gated this work in v0.32–v0.34 are now
+resolved (see §4.5 canonical build convention and the v0.35
+*Adjacent drift* closure below): TeX Live builds work inside
+Claude sessions; `vinotheca.sty` is committed and reusable; the
+authoring pattern has been exercised end-to-end on the Grape
+Resonances Summary. What remains is the atlas-specific work —
+deciding between Path α and Path β, and then either applying small
+edits to located sources (α) or authoring fresh `.tex` from
+extracted PDF text in the now-canonical convention (β). The visible
+drift on the deployed atlas PDFs is still bounded; no deadline.
 
-**Adjacent drift — one Grape Resonances PDF (discovered 2026-05-16,
-deferred here).** A post-rename `find` across the local wine tree
-to confirm no atlas `.tex` files exist (per §6.7's premise) surfaced
-a single adjacent reference inside another deployed PDF:
-`grape-resonances/docs/GrapeResonances_Summary.pdf`. The Summary's
-second paragraph reads "*the project's grape-side data (TasteRank's
-sensory profiles, the **Grand Cru Atlas's** site associations) is
-palate-driven...*", an in-prose mention of the old atlas wordmark.
-The fix at the source level is a one-word edit
-(`Grand Cru Atlas's` $\rightarrow$ `Vineyard Atlas's`) in
-`grape-resonances/docs-source/GrapeResonances_Summary.tex`,
-preserving the sentence's grammar and argument. The PDF rebuild
-itself depends on `vinotheca.sty` (referenced as
-`\usepackage{vinotheca}` in the `.tex` source — not the
-`vinotheca-preamble.tex` pattern visible in three of four
-`docs-source/` folders, which appears to be an earlier or parallel
-convention worth disambiguating during the rebuild session). The
-build environment has not been exercised locally — past PDFs were
-authored in Claude sessions and committed pre-built — so attempting
-a rebuild today would mean debugging an unfamiliar LaTeX setup
-mid-closeout. Deferred to this section to be bundled with the
-atlas PDF rebuilds: one focused LaTeX session will do all the
-rebuilds at once. The deployed PDF retains the stale reference
-until then; the drift is bounded (one sentence, in a doc most
-readers will not cross-reference against the atlas) and explicitly
-recorded.
+**Adjacent drift — Grape Resonances Summary (discovered 2026-05-16,
+closed 2026-05-17, v0.35).** A post-rename `find` across the local
+wine tree (run to confirm no atlas `.tex` files exist, per §6.7's
+premise) surfaced a single in-prose reference to the old atlas
+wordmark inside another deployed PDF: the Grape Resonances Summary
+contained "*the project's grape-side data (TasteRank's sensory
+profiles, the **Grand Cru Atlas's** site associations) is palate-
+driven...*" in paragraph 2. The fix at source level was a one-word
+edit (`Grand Cru Atlas's` $\rightarrow$ `Vineyard Atlas's`) in
+`grape-resonances/docs-source/GrapeResonances_Summary.tex` line 23,
+preserving the sentence's grammar and argument.
+
+The PDF rebuild was bundled with the build-convention resolution
+(Session 1A items 1+2 — see §7 entry for 2026-05-17). The rebuild
+process surfaced the **real state** of the build environment, which
+had been mis-characterised in the original v0.33 deferral note. The
+v0.33 block described `\usepackage{vinotheca}` and
+`\input{vinotheca-preamble.tex}` as "two conventions"; in fact, only
+the first was ever a real build path. `vinotheca.sty` had never
+existed on disk in any form (no copy in any repo, no copy in the
+user's `texmf` tree, no system TeX install at all on the Mac Studio);
+the implicit `vinotheca.sty` referenced by every `.tex` source had
+been reconstructed silently inside each prior Claude build session.
+`vinotheca-preamble.tex` was a parallel artefact that defines a
+different macro shape (`\vinothecatitle` with four arguments,
+lowercase t) and was never wired to any source. The canonical
+convention is now recorded explicitly in §4.5.
+
+The rebuild was executed against a freshly authored `vinotheca.sty`
+matching the macro shapes the sources actually call. The new PDF
+(258,332 bytes, 8 pages) replaced the deployed copy at
+`grape-resonances/app/public/docs/grape-resonances-summary.pdf`
+— not at `grape-resonances/docs/GrapeResonances_Summary.pdf`, which
+was the path mistakenly cited in the v0.33 *Adjacent drift* block
+(see §7 entry's *Documentation drift discovered* sub-bullet).
+`vinotheca.sty` was committed to all four tool repos'
+`docs-source/` directories in the same session.
 
 ---
 
 ## 7. Recently completed (reverse chronological)
+
+### 2026-05-17
+
+- **Session 1A items 1 and 2 closed — canonical build convention
+  established; Grape Resonances Summary rebuilt with the §6.7
+  Adjacent drift fix shipped.** Per §9 Phase 1, Session 1A bundled
+  three LaTeX-touching items: (1) resolve the build convention,
+  (2) fix the Grape Resonances Summary (one-word edit, rebuild,
+  redeploy), (3) atlas PDF rebuilds. Items 1 and 2 closed in this
+  session; item 3 (atlas rebuilds) remains queued per §6.7.
+
+- **Build environment survey — what the Mac Studio actually has
+  on disk.** A diagnostic survey run from the wine tree confirmed:
+  (a) no TeX distribution is installed on the Mac Studio (`pdflatex`,
+  `xelatex`, `lualatex`, `kpsewhich` all not found); (b) no
+  `vinotheca.sty` exists anywhere on the machine (not in the wine
+  tree, not in `~/Library/texmf`, not in any system TeX tree); and
+  (c) `vinotheca-preamble.tex` exists in three of four `docs-source/`
+  folders (the one absent: `grape-resonances/docs-source/`). The
+  v0.33 framing of "two build conventions" turned out to be a
+  slight misreading: every `.tex` file in every `docs-source/`
+  uses `\usepackage{vinotheca}` (one convention, not two), and
+  `vinotheca-preamble.tex` was never wired to any source — its
+  macro shapes (`\vinothecatitle` with four arguments, lowercase t)
+  don't match what the sources actually call (`\vinothecaTitle` /
+  `\vinothecaAuthor` / `\vinothecaCompanions`, three separate macros
+  with capital T). Past PDFs were built inside Claude sessions
+  where some version of `vinotheca.sty` was reconstructed
+  implicitly, then the built PDF was committed but the `.sty`
+  itself was not.
+
+- **`vinotheca.sty` authored and committed to all four tool repos.**
+  Newly written from scratch to match (a) every `\RequirePackage`
+  the existing `vinotheca-preamble.tex` already loaded — geometry,
+  Latin Modern fonts, microtype, AMS math, booktabs, longtable,
+  array, tabularx, enumitem, titlesec, hyperref, algorithm,
+  algpseudocode, caption — and (b) the three macro signatures the
+  `.tex` sources actually call. Section heading style, paragraph
+  spacing, and abstract environment carried over from
+  `vinotheca-preamble.tex`. The package was tested by building
+  GrapeResonances_Summary against it inside a Claude session with
+  TeX Live 2023: clean build, 8-page output, two minor overfull-hbox
+  warnings (cosmetic only, pre-existing in the source). The same
+  byte-identical 2,529-byte `vinotheca.sty` was then deployed to
+  `grape-resonances/docs-source/`, `region-affinities/docs-source/`,
+  `region-resonances/docs-source/`, and `tasterank-explorer/docs-
+  source/`. The canonical convention is now recorded explicitly in
+  §4.5. `vinotheca-preamble.tex` is retired and the three remaining
+  copies can be deleted in a future cleanup pass.
+
+- **Grape Resonances Summary — source edit, rebuild, deploy.** The
+  one-word edit (`Grand Cru Atlas's` $\rightarrow$ `Vineyard
+  Atlas's`) was applied at line 23 of
+  `grape-resonances/docs-source/GrapeResonances_Summary.tex`,
+  preserving the sentence's grammar and argument. The rebuilt PDF
+  (258,332 bytes, 8 pages) replaced the deployed copy at
+  `grape-resonances/app/public/docs/grape-resonances-summary.pdf`.
+  Visual verification: title block renders correctly through the
+  three new front-matter macros; the corrected sentence reads
+  cleanly in paragraph 2; typography is consistent with the rest
+  of the Grape Resonances doc set.
+
+- **Documentation drift discovered and corrected — the v0.33
+  *Adjacent drift* block named the wrong deployed-PDF path.** v0.33
+  recorded the path as `grape-resonances/docs/GrapeResonances_Summary.pdf`.
+  Actual path on disk is
+  `grape-resonances/app/public/docs/grape-resonances-summary.pdf` —
+  Grape Resonances is a React app (like Region Affinities and
+  Region Resonances), so the deployed PDFs live under
+  `app/public/docs/` where the React build serves them as static
+  assets, and filenames use kebab-case rather than PascalCase
+  with underscores. The error was caught at deployment time when
+  `mv` failed with "No such file or directory" for the documented
+  path. The corrected closure in §6.7's *Adjacent drift* block uses
+  the real path. Small process lesson: when PROJECT.md records a
+  file path that hasn't been verified by hand or by `ls`, the path
+  may be a reconstruction rather than an observed fact, and the
+  reconstruction can be wrong on both folder name and casing
+  convention.
+
+- **Commit shape — four repos, three of them single-file adds.**
+  `grape-resonances` commit included the source edit, the new
+  `vinotheca.sty`, and the rebuilt PDF (three files). The other
+  three repos (`region-affinities`, `region-resonances`, `tasterank-
+  explorer`) received single-file additions of `vinotheca.sty`
+  only — their existing built PDFs remain valid; the commit makes
+  those PDFs rebuildable for the first time from disk-resident
+  sources. The `grape-resonances` push triggered a GitHub Actions
+  rebuild and redeploy of the React app; the other three pushes
+  are no-op for deployed sites since they don't touch `app/` code.
+
+- **Atlas PDF rebuilds (Session 1A item 3) remain queued.** The
+  next step per §9 Phase 1 — a deliberate Path α search across
+  external drives, cloud backups, old laptop, email attachments;
+  fallback to Path β authoring from extracted PDF text if α fails.
+  Now that the build environment is proven and `vinotheca.sty` is
+  canonical, this is a substantially less-risky session than it
+  was in v0.34 — the unknowns are scoped to atlas-specific
+  source location and typesetting choices, not the build path
+  itself.
 
 ### 2026-05-16
 
@@ -2034,6 +2177,60 @@ recorded.
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
 
+### 2026-05-17 — v0.35
+
+- **§4.5 (Documents are aligned to a canonical framework).** A new
+  paragraph block — *Canonical build convention (locked 2026-05-17,
+  v0.35)* — appended to the existing two-paragraph section. Records
+  the now-explicit pattern: `\usepackage{vinotheca}` in every
+  `.tex` source, `vinotheca.sty` shipped adjacent inside every
+  `docs-source/` folder, builds run from inside `docs-source/` so
+  the package resolves to the adjacent file, byte-identical
+  `vinotheca.sty` across all four tool repos. Also records the
+  retirement of `vinotheca-preamble.tex` and the de-facto/de-jure
+  status of the Claude-session build environment vs. the Mac Studio
+  deploy environment.
+- **§6.7 *Adjacent drift* block — closed and rewritten.** The v0.33
+  *Adjacent drift* block was rewritten as a closure record: the
+  one-word source edit applied, the rebuild executed against a
+  freshly authored `vinotheca.sty`, the new PDF deployed at the
+  corrected path (`grape-resonances/app/public/docs/grape-resonances-
+  summary.pdf` — not the path v0.33 recorded). The block now also
+  documents the *real* state of the build environment that v0.33
+  had partially mis-characterised: only one build convention was
+  ever in real use, and `vinotheca-preamble.tex` was a parallel
+  artefact that never compiled against any source.
+- **§6.7 *Status* paragraph — updated.** The build-environment
+  unknowns that gated this work in v0.32–v0.34 are now resolved;
+  what remains is atlas-specific (Path α / Path β decision and
+  whatever follows). The paragraph now reflects that scope.
+- **§6.7 Path α and Path β language — corrected.** Both Path
+  descriptions referenced `vinotheca-preamble.tex` as if it were a
+  real build artefact. Both now reference the canonical convention
+  established in §4.5.
+- **§7 entry under 2026-05-17.** Seven bullets recording: the
+  Session 1A items 1+2 closure, the build environment survey, the
+  authoring and deployment of `vinotheca.sty`, the Grape Resonances
+  Summary rebuild, the v0.33 documented-path drift discovered and
+  corrected, the four-repo commit shape, and the queued status of
+  Session 1A item 3 (atlas rebuilds).
+- **§9 Phase 1 / Session 1A — annotated to reflect closure of items
+  1 and 2.** Annotation only; the original session structure is
+  preserved.
+- **Header.** The HTML comment under *Last meaningful update* now
+  notes v0.35 dated 2026-05-17 (a different day from v0.32–v0.34's
+  shared 2026-05-16 date).
+
+This v0.35 entry records three external-repo commits beyond the
+PROJECT.md update itself: (a) `grape-resonances` got a three-file
+commit (source edit, `vinotheca.sty`, rebuilt PDF) which triggered
+a GitHub Actions redeploy; (b) `region-affinities`, `region-
+resonances`, `tasterank-explorer` each received a single-file
+addition of `vinotheca.sty`, no-op for the deployed sites. The
+session's central accomplishment is structural rather than
+content-level: the build pattern that has been implicit since
+v0.1 is now committed to disk and documented in §4.5.
+
 ### 2026-05-16 — v0.34
 
 - **§9 (new) — Roadmap (session-level plan).** Added as a new
@@ -2969,22 +3166,31 @@ open in the right context.
 ### Phase 1 — Clean small steps (estimated 2 sessions)
 
 **Session 1A — §6.7 LaTeX session.** One focused session bundling
-three things, all touching LaTeX:
-- Resolve the build convention: `\usepackage{vinotheca}` (visible in
+three things, all touching LaTeX. **Status: items 1 and 2 closed
+2026-05-17 (v0.35); item 3 remains queued as Session 1A.1.**
+- ✓ Resolve the build convention: `\usepackage{vinotheca}` (visible in
   `GrapeResonances_Summary.tex` and likely others) vs
   `\input{vinotheca-preamble.tex}` (file present in three of four
   `docs-source/` folders, possibly an earlier or parallel
   convention). Find where `vinotheca.sty` actually lives. Document
-  the canonical pattern.
-- Fix Grape Resonances Summary: one-word edit (`Grand Cru Atlas's`
+  the canonical pattern. *Closed 2026-05-17: only one convention was
+  ever real (`\usepackage{vinotheca}`); `vinotheca.sty` never existed
+  on disk before; the canonical pattern is now §4.5 and the package
+  is committed in all four repos.*
+- ✓ Fix Grape Resonances Summary: one-word edit (`Grand Cru Atlas's`
   $\rightarrow$ `Vineyard Atlas's`), rebuild, redeploy. Per the
-  §6.7 *Adjacent drift* block.
-- Atlas PDFs: Path α (one more deliberate hunt for `.tex` sources
+  §6.7 *Adjacent drift* block. *Closed 2026-05-17: source edited,
+  PDF rebuilt against the new `vinotheca.sty`, deployed to
+  `grape-resonances/app/public/docs/grape-resonances-summary.pdf`.*
+- ⊘ Atlas PDFs: Path α (one more deliberate hunt for `.tex` sources
   elsewhere — external drives, cloud, old laptop) $\rightarrow$ if
   α fails, Path β (author fresh under `docs-source/` convention).
   Ship a working build of any single PDF first (probably the
   Grape Resonances Summary, since the edit is small) before
-  committing to the 129-page Estate Atlas rebuild.
+  committing to the 129-page Estate Atlas rebuild. *The "working
+  build of any single PDF first" milestone was satisfied by the
+  Grape Resonances Summary rebuild on 2026-05-17. The atlas-
+  specific work remains queued as Session 1A.1.*
 
 **Session 1B — §6.1 reference scaffold + methodology aftermath.**
 - Create `vinotheca-reference` repo with the family pattern
