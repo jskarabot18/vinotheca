@@ -11,7 +11,7 @@
 > is recorded.
 
 Last meaningful update: 2026-05-17 (see §8 for full history)
-<!-- v0.32, v0.33, and v0.34 all dated 2026-05-16; v0.35, v0.36, and v0.37 dated 2026-05-17 -->
+<!-- v0.32, v0.33, and v0.34 all dated 2026-05-16; v0.35, v0.36, v0.37, and v0.38 dated 2026-05-17 -->
 
 ---
 
@@ -278,6 +278,40 @@ matter — if locations are central to the atlas's argument, the
 interactive map form earns its weight; if the PDF *is* the atlas and
 the page exists mainly to host the download, the thin form is enough.
 
+**Studies join the canonical PDF framework (recorded 2026-05-17, v0.38).**
+Until v0.38 the canonical convention covered only the four tool repos;
+Studies were authored under their own conventions and never source-
+controlled as LaTeX. The Soul of Wine documentation rebuild on
+2026-05-17 (see §7) brought The Soul of Wine under the same framework
+as the Tools, adding it as a fifth repo to the family-wide
+`vinotheca.sty` deployment. Soul of Wine now ships the canonical four
+PDFs (Summary, Technical Appendix, Methods Primer, Data Appendix) in
+its `docs/` folder, with matching LaTeX sources in a new `docs-source/`
+folder, byte-identical to `region-affinities/docs-source/` for the four
+canonical files. The Study's distinctive long-form artefact —
+*The Map and the Soul*, the narrative paper — was preserved (renamed
+`SoulOfWine_Narrative.pdf` for filename consistency) and sits alongside
+the canonical four as a study-class artefact outside the framework.
+The two Region Reference documents (`layer1-descriptions.pdf` for
+identity narratives, `layer2-descriptions.pdf` for terroir profiles)
+remain in their canonical home at `soul-of-wine/docs/`, shared by both
+Region Affinities and Region Resonances via cross-repo URLs. The
+canonical four PDFs ship with the title "The Soul of Wine" because the
+Study is the scholarly artefact and the Tool is the interactive
+surface; both faces of the Work surface the same documents per §2.
+Region Affinities continues to point at Soul of Wine's PDFs via cross-
+repo URLs rather than self-hosting copies — a refinement of §2's
+"shared PDFs" clause: *shared* can mean either byte-duplicated hosting
+or cross-repo URL reference, depending on the Work. For this Work, the
+deployed reality has always been cross-repo linking; v0.38 records
+that pattern as a legitimate expression of the §2 architecture. The
+canonical convention now lists five repos (the four tool repos plus
+`soul-of-wine`), and the Body of Wine + Grape Affinities Work — whose
+parallel Study and Tool also share documentation — fits the same
+pattern, though no audit has yet been conducted to confirm Body of
+Wine ships the canonical four under the v0.35 `vinotheca.sty`. That
+audit is a queued item per §6.9.
+
 ### 4.6 Studies don't embed tools; tools don't appear inside studies
 
 A **Study** presents an argument and supports it with documents. It does
@@ -304,6 +338,16 @@ rather than retrofitting earlier studies to a template-of-one.
 Visual harmonisation work was completed in Pass 3 (May 2026) at the
 palette and typography level. Deeper layout-level template work remains
 open and is gated on The Hand of Wine joining the live set.
+
+**Updated 2026-05-17 (v0.38).** Soul of Wine's PDF documentation has
+now been brought under the §4.5 canonical framework — the study ships
+the same four canonical PDFs as the Tools, source-controlled in a new
+`docs-source/` folder, alongside its distinctive narrative paper. What
+remains deferred under §4.7 is the *HTML/CSS template* work: the
+study-page architecture (in-page anchor menu, hero block, document
+cards, the visual register of the Study site itself). That work is
+still gated on The Hand of Wine, since one new study is not enough to
+distinguish template-of-one from genuine pattern.
 
 ### 4.8 Visual systems — currently three subsystems, target one
 
@@ -1011,14 +1055,189 @@ drifted because no single source of truth existed. The fix in
 1A.1c, when it runs, would make `vineyards.json` that single source
 and have the Leaflet build consume it.
 
+### 6.9 Queued cleanup items (small, deferred)
+
+A holding section for small inconsistencies that surfaced during
+larger sessions and were deliberately deferred to a future cleanup
+pass rather than expanding scope mid-stream. None are visible-error
+to a casual visitor; each is real architectural drift worth fixing
+when the next dedicated cleanup session opens.
+
+- **Retired `vinotheca-preamble.tex` files in three tool repos.** Per
+  the v0.35 retirement decision recorded in §4.5, `vinotheca-preamble.tex`
+  is no longer the build convention — it was an earlier sketch that
+  never compiled against any source, and its macro signatures don't
+  match what the `.tex` sources actually call. The file still sits in
+  `region-affinities/docs-source/`, `region-resonances/docs-source/`,
+  and `tasterank-explorer/docs-source/` (Grape Resonances and Soul of
+  Wine never had a copy). The cleanup is three single-file deletions
+  plus a tiny PROJECT.md update recording the closure. No build impact;
+  purely tidying.
+- **Region Resonances dropdown label drift.** The Documentation
+  dropdown in `region-resonances/app/src/components/Header.jsx` uses
+  "Methodology and Interpretation" rather than the family-canonical
+  "Methods Primer", and "Region Profiles — Identity" rather than the
+  canonical "Region Reference — Identity". The labels are cosmetic;
+  the underlying PDFs are correct. The other tool repos (Region
+  Affinities, Grape Affinities, etc.) use the canonical labels.
+  Single-file edit, single commit.
+- **Soul of Wine `LICENSE.local-backup` orphan.** The Soul of Wine
+  repo carries a `LICENSE.local-backup` file showing as untracked,
+  leftover from the May 2 LICENSE update (see §7 entry). Either
+  delete or add to `.gitignore`. Two-line decision.
+
 ---
 
 ## 7. Recently completed (reverse chronological)
 
 ### 2026-05-17
 
+**Session 1A.2 — Soul of Wine documentation rebuild + cross-repo
+alignment (closed same day, v0.38).**
+
+- **Discovery — Soul of Wine had never been brought under the §4.5
+  canonical framework.** The session opened with a user-flagged
+  concern that the Soul of Wine `technical.pdf` deployed at the
+  study site appeared mis-dated (April 2026) versus a May 2026
+  version believed to exist locally. The trace surfaced something
+  larger: Soul of Wine's five April 2026 PDFs (`narrative.pdf`,
+  `technical.pdf`, `methods-primer.pdf`, `layer1-descriptions.pdf`,
+  `layer2-descriptions.pdf`) had been authored before the v0.35
+  LaTeX convention was locked, were never source-controlled,
+  and were never re-styled under `vinotheca.sty`. One was also
+  mislabeled — `technical.pdf` was content-wise a Data Appendix,
+  not a Technical Appendix, despite the filename. The Study
+  documentation has sat outside the family canon since April; no
+  prior session had pulled it under.
+
+- **Architectural decision: Soul of Wine and Region Affinities
+  share the same four canonical PDFs, titled "The Soul of Wine".**
+  The Soul of Wine + Region Affinities Work is the family's
+  paradigm of paired Tool + Study per §2. Both faces of the Work
+  should surface the same documentation. The canonical four PDFs
+  (Summary, Technical Appendix, Methods Primer, Data Appendix)
+  were rebuilt under `vinotheca.sty` with title-block macro reading
+  "The Soul of Wine" rather than "Region Affinities", because the
+  Study is the scholarly artefact and the Tool is the interactive
+  surface. The body content of all four was preserved byte-
+  identically from the May 2026 Region Affinities versions
+  (rebuilt May 5, 2026 from `region-affinities/docs-source/`); only
+  the title-block macro call differed. Compilation was clean against
+  the canonical 2,529-byte `vinotheca.sty` from v0.35.
+
+- **Architectural refinement: cross-repo linking is a valid
+  expression of §2's "shared PDFs" clause.** The original Phase 2
+  plan ("Path B revised") assumed Region Affinities would self-host
+  byte-identical copies of the canonical PDFs in its `public/docs/`
+  folder. Inspection of the deployed Region Affinities
+  `Header.jsx` during deployment revealed that the dropdown has
+  **always** linked to Soul of Wine cross-repo (every entry's
+  `href` resolves to `${SOUL_OF_WINE_BASE}/docs/...`). The four
+  `RegionAffinities_*.pdf` files in `region-affinities/public/docs/`
+  from the May 9 commit `3cd6178` were orphans — added but never
+  referenced by the live site. This made Option A the natural fix
+  (correct the URLs in `Header.jsx` to the new SoulOfWine_*
+  filenames; delete the four orphan PDFs from `public/docs/`;
+  update `docs-source/` to carry the canonical sources for
+  archival) rather than Option B (replicate the four PDFs in
+  Region Affinities' `public/docs/` and rewire `Header.jsx` to
+  use local paths). Option A matches deployed behaviour; Option B
+  would have introduced new byte-duplication without user-visible
+  benefit. §4.5's v0.38 paragraph now records that *shared* in §2
+  permits either pattern — byte-duplicated hosting or cross-repo
+  URL reference.
+
+- **Phase 1 — Soul of Wine repo, atomic commit
+  `253dae9`.** The Soul of Wine repo's `docs/` folder grew from
+  five PDFs to seven: four new canonical PDFs added
+  (`SoulOfWine_Summary.pdf`, `SoulOfWine_Technical_Appendix.pdf`,
+  `SoulOfWine_Methods_Primer.pdf`, `SoulOfWine_Data_Appendix.pdf`),
+  the narrative paper renamed (`narrative.pdf` $\rightarrow$
+  `SoulOfWine_Narrative.pdf`), two retired (the mislabeled
+  April `technical.pdf` and the superseded `methods-primer.pdf`),
+  and the two layer references preserved unchanged. A new
+  `docs-source/` folder was created carrying the four `.tex`
+  sources plus `vinotheca.sty` (byte-identical to the canonical
+  package). The `index.html` Documents section grew from two
+  cards to seven, surfacing each document with descriptive
+  paragraph and "Open PDF" link. The `README.md` was updated to
+  reflect the new `docs/` and `docs-source/` structure. Git
+  recognised the narrative rename as a rename (preserving file
+  history) rather than delete+add. Live verification after
+  deploy: all seven document cards present, all PDFs opening
+  with the correct title blocks, no 404s. Soul of Wine is now
+  the fifth repo carrying `vinotheca.sty` alongside the four
+  tool repos.
+
+- **Phase 2 — Region Affinities repo, atomic commit replacing
+  ten files.** The four orphan `RegionAffinities_*.pdf` files
+  in `public/docs/` were deleted (never referenced; no user-
+  visible effect). The four `.tex` sources in `docs-source/`
+  were replaced by their `SoulOfWine_*` equivalents (Git
+  recognised each as a rename rather than delete+add, since
+  body content was identical and only the title-block macro
+  call differed; rename detection preserves history). The
+  `Header.jsx` Documentation dropdown was updated from a five-
+  entry list pointing at the old Soul of Wine filenames
+  (`narrative.pdf`, `technical.pdf`, `layer1-descriptions.pdf`,
+  `layer2-descriptions.pdf`, `methods-primer.pdf`) to a six-
+  entry list pointing at the canonical four `SoulOfWine_*.pdf`
+  filenames plus the two preserved layer references. Labels
+  were also aligned to the family-canonical "Region Reference"
+  naming (was: "Region Profiles"). The dropdown drops the
+  narrative paper from the Tool's quick-access menu — the
+  narrative is the Study's most distinctive artefact and belongs
+  more naturally to the Study site than to the Tool's compact
+  documentation list. `README.md` was rewritten to reflect the
+  actual cross-repo-linking architecture honestly (the earlier
+  README from May 9 had described a self-hosting pattern that
+  had never matched reality). GitHub Actions triggered a Vite
+  rebuild + redeploy; live verification confirmed all six
+  dropdown entries resolve correctly.
+
+- **Phase 3 — Region Resonances — investigated, found
+  unnecessary.** Region Resonances' `Header.jsx` was inspected
+  to determine whether its cross-repo links to Soul of Wine
+  needed updating (since some of Soul of Wine's filenames had
+  changed). Result: Region Resonances dropdown has four entries
+  pointing at its own locally-hosted PDFs in `app/public/docs/`,
+  plus one cross-repo entry for `layer1-descriptions.pdf` — a
+  file that was preserved unchanged in Phase 1. Region
+  Resonances does not link to any of the renamed or retired
+  Soul of Wine files. No deployment needed; Region Resonances
+  was unaffected by Phase 1's changes. The investigation also
+  surfaced minor label-canon drift in Region Resonances'
+  dropdown ("Methodology and Interpretation" rather than
+  "Methods Primer"; "Region Profiles — Identity" rather than
+  "Region Reference — Identity") — recorded as a queued cleanup
+  item in §6.9.
+
+- **§4.5 extended with a fourth paragraph block: Studies join
+  the canonical PDF framework.** The framework's coverage
+  expanded from four tool repos to five (the original four plus
+  `soul-of-wine`). The narrative paper is preserved as a
+  study-class artefact alongside the canonical four, not within
+  them. The cross-repo URL pattern was recorded as a legitimate
+  expression of §2's "shared PDFs" clause.
+
+- **§4.7 updated.** PDF-level study-class template work is now
+  considered done at the §4.5 canonical-framework level. The
+  remaining deferred work under §4.7 is specifically the
+  HTML/CSS template — study-page architecture, in-page anchor
+  menu, hero block patterns, the visual register of the Study
+  site itself — which is still gated on The Hand of Wine joining
+  the live set.
+
+- **§6.9 added (queued cleanup items).** Three small items
+  surfaced during this session that were deliberately deferred:
+  retired `vinotheca-preamble.tex` cleanup across three tool
+  repos (v0.35 retirement, not yet executed), Region Resonances
+  dropdown label drift, and Soul of Wine `LICENSE.local-backup`
+  orphan. Each is small and not visible-error to a casual
+  visitor; queued for a future dedicated cleanup pass.
+
 **Session 1A.1b — Vineyard Atlas rebuild closed across two sub-sessions
-(latest same-day work).**
+(earlier same-day work, v0.37).**
 
 - **Session 1A.1b.1 — `vineyards.json` authored from PDF text.** The
   Vineyard Atlas PDF was text-extractable cleanly (diacritics intact,
@@ -2459,6 +2678,69 @@ recovered Python source.**
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
 
+### 2026-05-17 — v0.38
+
+- **§4.5 (Documents are aligned to a canonical framework).** A
+  fourth paragraph block appended — *Studies join the canonical
+  PDF framework (recorded 2026-05-17, v0.38)*. Records the Soul of
+  Wine documentation rebuild that brought the Study under §4.5 for
+  the first time: canonical four PDFs (Summary, Technical Appendix,
+  Methods Primer, Data Appendix) titled "The Soul of Wine", new
+  `docs-source/` folder carrying the LaTeX sources plus the
+  canonical `vinotheca.sty`, narrative paper preserved as a study-
+  class artefact alongside the canonical four. The framework's
+  coverage expanded from four tool repos to five (the original four
+  plus `soul-of-wine`). The block also records a small architectural
+  refinement: §2's "shared PDFs" clause permits either byte-
+  duplicated hosting or cross-repo URL reference; this Work uses
+  the latter (Region Affinities links to Soul of Wine's PDFs).
+- **§4.7 (Study-class template) — updated.** PDF-level template
+  alignment is now done for Soul of Wine; the remaining deferred
+  work is the HTML/CSS layout-level template (in-page anchor menu,
+  hero block, document cards, visual register of the study page
+  itself), which remains gated on The Hand of Wine joining the live
+  set.
+- **§6.9 (new) — Queued cleanup items.** New holding section for
+  small inconsistencies that surfaced during larger sessions and
+  were deliberately deferred. Three items: retired
+  `vinotheca-preamble.tex` cleanup across three tool repos (v0.35
+  retirement, not yet executed); Region Resonances dropdown label
+  drift ("Methodology and Interpretation", "Region Profiles" should
+  be canonical "Methods Primer", "Region Reference"); Soul of Wine
+  `LICENSE.local-backup` orphan from the May 2 LICENSE update.
+- **§7 (Recently completed) — 2026-05-17 entry extended.** A new
+  *Session 1A.2 — Soul of Wine documentation rebuild + cross-repo
+  alignment* sub-header inserted at the top of the 2026-05-17
+  entry, with nine bullets recording: the discovery that Soul of
+  Wine had never been brought under §4.5; the architectural decision
+  to share the canonical four PDFs between the Tool and Study; the
+  refinement about cross-repo linking as a legitimate §2 pattern;
+  the Phase 1 (Soul of Wine) and Phase 2 (Region Affinities)
+  commits; the Phase 3 (Region Resonances) investigation that found
+  no deployment needed; the §4.5 extension; the §4.7 update; and
+  the §6.9 addition.
+- **Header.** The HTML comment under *Last meaningful update* now
+  notes v0.35, v0.36, v0.37, and v0.38 all dated 2026-05-17 — four
+  same-day updates.
+
+This v0.38 entry records two external-repo commits beyond the
+PROJECT.md update itself: (a) `soul-of-wine` received a 13-file
+atomic commit `253dae9` (4 new PDFs in `docs/`, 1 rename in
+`docs/`, 2 deletions in `docs/`, 5 new files in a new `docs-source/`
+folder, modified `index.html`, modified `README.md`); (b)
+`region-affinities` received a 10-file commit (4 PDF deletions
+from `public/docs/`, 4 `.tex` renames in `docs-source/`, modified
+`Header.jsx`, modified `README.md`). The `region-affinities` push
+triggered a GitHub Actions rebuild and redeploy of the React app;
+the `soul-of-wine` push was served by GitHub Pages without a build
+step. Live verification confirmed all seven Soul of Wine document
+cards present and resolving correctly, and all six Region Affinities
+dropdown entries resolving correctly. The session's central
+accomplishment is structural: the family's canonical documentation
+framework now covers both Tools and the most prominent Study, and
+the cross-repo URL pattern is recognised as a legitimate expression
+of the §2 paired-Work architecture.
+
 ### 2026-05-17 — v0.37
 
 - **§4.5 (Documents are aligned to a canonical framework).** A
@@ -3593,7 +3875,11 @@ same day, 2026-05-17 (v0.37): 1A.1b.1 (✓ `vineyards.json` authored,
 flip, atomic commit `e792254`). A divergence surfaced during 1A.1b.2
 between the Vineyard Atlas's Leaflet `index.html` map data and the
 PDF source `vineyards.json`; deferred as provisional Session 1A.1c
-per §6.8, not yet phased in this roadmap.**
+per §6.8, not yet phased in this roadmap. An unscheduled Session
+1A.2 ran later the same day (2026-05-17, v0.38) bringing Soul of
+Wine's documentation under the §4.5 canonical framework — not
+originally on the roadmap, but a natural extension of the §6.7
+LaTeX work; recorded in §7.**
 - ✓ Resolve the build convention: `\usepackage{vinotheca}` (visible in
   `GrapeResonances_Summary.tex` and likely others) vs
   `\input{vinotheca-preamble.tex}` (file present in three of four
