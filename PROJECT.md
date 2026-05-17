@@ -11,7 +11,7 @@
 > is recorded.
 
 Last meaningful update: 2026-05-17 (see §8 for full history)
-<!-- v0.32, v0.33, and v0.34 all dated 2026-05-16; v0.35 and v0.36 dated 2026-05-17 -->
+<!-- v0.32, v0.33, and v0.34 all dated 2026-05-16; v0.35, v0.36, and v0.37 dated 2026-05-17 -->
 
 ---
 
@@ -256,6 +256,27 @@ disk (the script lived in `~/projects/grand-cru-atlas/`'s vestigial
 predecessor and was eventually surfaced in the working
 `estate-atlas/` repo); v0.36 records it as the family pattern and
 locks the Vineyard Atlas's queued rebuild to follow it.
+
+**Atlas `index.html` — two legitimate patterns (recorded 2026-05-17, v0.37).**
+The 1A.1b.2 work on the Vineyard Atlas surfaced that the two atlases do
+not share a single `index.html` pattern, contrary to what was tacit in
+the v0.36 atlas-convention block. The **Maker Atlas's `index.html`** is
+a thin landing page: title block, eyebrow, a single "Download Maker
+Atlas PDF" button in the masthead, light prose around it. The **Vineyard
+Atlas's `index.html`** is a full Leaflet-based interactive map
+application: ~50 KB of HTML/CSS/JS with an embedded `SITES = [...]`
+array of vineyard sites, filter dropdowns by grape category and region,
+search, a color legend, a detail panel, and the same "Download Vineyard
+Atlas PDF" button in the masthead. Both patterns are valid expressions
+of an atlas leaf in the family. The pattern is not load-bearing — what
+is load-bearing is that the masthead carries the wordmark and the
+download button, the footer follows §4.3, and the PDF download serves
+the consolidated atlas PDF named to match. Within those constraints, the
+landing-page form (thin) and the map-application form (rich) are both
+acceptable. Future atlases can choose between them based on the subject
+matter — if locations are central to the atlas's argument, the
+interactive map form earns its weight; if the PDF *is* the atlas and
+the page exists mainly to host the download, the thin form is enough.
 
 ### 4.6 Studies don't embed tools; tools don't appear inside studies
 
@@ -801,13 +822,17 @@ visual drift; the rename's social meaning is carried by the
 wordmarks, which visitors see first. A new §6.7 entry tracks the
 PDF re-authoring as queued follow-up work.
 
-### 6.7 Atlas PDF rebuilds — Maker Atlas executed; Vineyard Atlas queued
+### 6.7 Atlas PDF rebuilds — closed (both atlases source-controlled)
 
 The consolidated atlas PDFs carried their old wordmarks inside the
 documents themselves — title page, every page's running header, and
-two body-prose cross-references to the sibling atlas. v0.36 closes
-the Maker Atlas half of this work end-to-end and re-scopes the
-Vineyard Atlas half into a concrete two-session plan.
+two body-prose cross-references to the sibling atlas. The work
+closed in three steps across two same-day session arcs on 2026-05-17:
+v0.36 closed the Maker Atlas (1A.1a, source-recovery surprise) and
+re-scoped the Vineyard Atlas into a concrete two-session plan; v0.37
+closes the Vineyard Atlas (1A.1b.1 data extraction + 1A.1b.2 pipeline
+build) and records the resulting Leaflet/JSON divergence as §6.8.
+Both atlases now have durable source control.
 
 **Maker Atlas (Estate Atlas → Maker Atlas) — closed 2026-05-17, v0.36.**
 A second, more deliberate Path α sweep (Spotlight `mdfind` plus a
@@ -849,76 +874,52 @@ durable source control for the first time — the script and JSON
 that produce it are committed to disk, the build is reproducible
 in any Claude session, and future edits are mechanical.
 
-**Vineyard Atlas (Grand Cru Atlas → Vineyard Atlas) — queued as
-Session 1A.1b, split into two sub-sessions.** No Python pipeline
-or LaTeX source exists for the Vineyard Atlas on the local machine.
-The repo at `wine atlas/grand-cru-atlas/` contains only `index.html`,
-`LICENSE`, `README.md`, and `The_Grand_Cru_Atlas.pdf` — no
-`build_atlas_pdf.py`, no `vineyards.json`. The Maker Atlas's working
-Python pipeline (which lives in `estate-atlas/`) appears to have
-been authored fresh in a Claude session rather than copied from a
-prior Vineyard Atlas equivalent; whatever generator produced the
-Vineyard Atlas PDF was not committed back, and Path α has been
-exhausted across the Mac Studio (full filesystem search, external
-T7 drive, no Overleaf account).
+**Vineyard Atlas (Grand Cru Atlas → Vineyard Atlas) — closed
+2026-05-17, v0.37.** The two-sub-session plan locked in v0.36 was
+executed the same day. Session 1A.1b.1 (data extraction) produced
+`vineyards.json` — 22 chapters, 272 vineyard sites, six per-chapter
+editorial footnotes, an atlas-level introduction, and a closing
+notes section, all extracted verbatim from the source PDF text and
+authored in a hierarchical chapter/group/site schema with stable
+IDs (`<roman>-<grape>-<country>-<region>-<site>`). Producers are
+captured as JSON list elements rather than comma-joined strings, so
+single-producer edits are mechanical. The schema decision worth
+naming: per-chapter `footnote` fields, not a root-level
+`chapter_footnotes` map — the footnote stays adjacent to its
+chapter, no parallel index to keep in sync. Six chapters carry
+footnotes (XVII, XVIII, XIX, XX, XXI, XXII).
 
-The decision was made (v0.36 planning) to take Path 1 from the
-three options considered — full Python pipeline mirroring the
-Maker Atlas's, rather than a surgical PDF patch (Option 2) or
-deferral (Option 3). The reasoning: the user's stated principle
-of not letting projects hang in deferred drift; the asymmetry
-between a sourced Maker Atlas and an unsourced Vineyard Atlas
-would compound over time; and the Maker Atlas's pipeline gives a
-strong reference implementation to mirror.
+Session 1A.1b.2 (pipeline build) authored
+`wine atlas/grand-cru-atlas/build_atlas_pdf.py` (16,665 bytes,
+~280 lines) mirroring the Maker Atlas's ReportLab + DejaVu Sans +
+wine-red pattern, adapted for the chapter/group/site data shape.
+The first build produced a 46-page PDF (196,084 bytes) whose
+chapter break points landed on the *same page numbers* as the
+source PDF — strong evidence the two atlases share a common
+pipeline ancestor at the typographic level, even though the Maker
+Atlas pipeline was authored separately. Cover, table of contents,
+chapter pages (intro + group sub-headers + banded four-column
+tables), per-chapter footnotes, and the closing notes section all
+rendered correctly on first attempt. The deploy was atomic: one
+commit on `grand-cru-atlas` deleted `The_Grand_Cru_Atlas.pdf` and
+added `The_Vineyard_Atlas.pdf`, `build_atlas_pdf.py`, and the
+edited `index.html` (two stale strings flipped: the download href
+filename and the panel-sub blurb's site/chapter counts). Live cover
+verified at `https://jskarabot18.github.io/grand-cru-atlas/`
+reading **THE VINEYARD ATLAS** in wine-red on white.
 
-The work splits cleanly into two sub-sessions:
+The atlas now has durable source control: `vineyards.json` is the
+single source of truth for the consolidated PDF; `build_atlas_pdf.py`
+regenerates the PDF deterministically in any Claude session.
+Together with the Maker Atlas's pipeline closed in v0.36, the Maps
+section now has zero unsourced PDFs.
 
-- *Session 1A.1b.1 — Data extraction & structure.* Extract the
-  Vineyard Atlas PDF's text, parse it into a structured
-  `vineyards.json` keyed on region + commune + vineyard name (the
-  atlas's natural unit), with associated grape varieties,
-  classification, and descriptive paragraphs. Audit the result
-  against the original PDF for completeness and accuracy. Output:
-  a working `vineyards.json` that any future Vineyard Atlas build
-  can consume, reviewable on its own. The §6.7 wordmark drift is
-  *not* fixed in this session — the data is wordmark-independent.
-
-- *Session 1A.1b.2 — Pipeline build.* Author
-  `wine atlas/grand-cru-atlas/build_atlas_pdf.py` mirroring the
-  Maker Atlas's script (likely ~80% borrowed, ~20% adapted for
-  vineyard-shaped data and the slightly different column structure
-  a vineyard table needs versus an estate table). Run a build,
-  compare against the original PDF for layout fidelity, deploy
-  with the new wordmark already baked in. Output: a rebuilt
-  `The_Vineyard_Atlas.pdf` (rename from `The_Grand_Cru_Atlas.pdf`),
-  updated `index.html` link target, and the §6.7 wordmark drift
-  closed. The atlas now has durable source control parallel to the
-  Maker Atlas.
-
-The two sessions are sequenced because layout problems in 1A.1b.2
-need to be distinguishable from data extraction problems in
-1A.1b.1; running them together would risk compounding errors. Each
-session produces a reviewable intermediate artefact.
-
-**Pending (Session 1A.1b):**
-- Run the Vineyard Atlas PDF text-extraction audit (assess
-  extraction quality — clean text vs. image-based, OCR needed)
-- 1A.1b.1: extract and structure the vineyard data; output
-  `vineyards.json` for review
-- 1A.1b.2: author `build_atlas_pdf.py` for the Vineyard Atlas;
-  build; verify layout fidelity against the original; deploy
-- Verify the new `The_Vineyard_Atlas.pdf` renders the correct
-  title block, running headers, and cross-references to the
-  Maker Atlas
-- Update §6.7 status to *Closed* and add a §7 entry recording the
-  Vineyard Atlas pipeline
-
-**Status (post-v0.36).** Maker Atlas half closed; Vineyard Atlas
-half queued as Session 1A.1b (two sub-sessions). The build
-environment is fully proven for both LaTeX (v0.35) and the Python
-atlas pipeline (v0.36). The visible drift on the deployed Vineyard
-Atlas PDF is still bounded; the queued work is concrete and
-sized, not exploratory.
+**Status (post-v0.37).** Both atlases closed and source-controlled.
+The §6.7 wordmark-drift work that opened in v0.32 is fully
+resolved. A new §6.8 records a divergence surfaced during 1A.1b.2:
+the Vineyard Atlas's interactive Leaflet map (inside `index.html`)
+carries a hardcoded site list that does not match `vineyards.json`,
+and reconciliation is its own workstream.
 
 **Adjacent drift — Grape Resonances Summary (discovered 2026-05-16,
 closed 2026-05-17, v0.35).** A post-rename `find` across the local
@@ -958,11 +959,147 @@ was the path mistakenly cited in the v0.33 *Adjacent drift* block
 `vinotheca.sty` was committed to all four tool repos'
 `docs-source/` directories in the same session.
 
+### 6.8 Vineyard Atlas — Leaflet `index.html` / `vineyards.json` divergence
+
+Surfaced during Session 1A.1b.2 (2026-05-17, v0.37) and deliberately
+deferred. The Vineyard Atlas's `index.html` (a Leaflet-based
+interactive map, per the §4.5 atlas-index-pattern note) embeds a
+hardcoded `SITES = [...]` array of ~200 vineyard sites organised
+across 16 grape categories. The atlas's consolidated PDF, generated
+from `vineyards.json`, contains 272 sites across 22 chapters. **The
+two data sets were authored independently and were never in sync.**
+Some sites appear in the Leaflet array but not in the JSON (Clare
+Valley, Eden Valley, Schloss Johannisberg under Riesling; several
+others); some chapters appear in the JSON but not in the Leaflet
+array (Champagne Grands Crus, Volcanic Terroirs, Corvina & Veneto
+Reds, Varietal Merlot). The category models also differ: the
+Leaflet UI groups by 16 hand-curated grape buckets; the JSON
+organises by 22 atlas chapters (some of which are blends or
+cross-variety categories like Volcanic Terroirs).
+
+Reconciliation is genuine work, not a string-substitution pass. It
+requires: (a) inventing lat/lng coordinates for the ~70 JSON sites
+that don't appear in the Leaflet array (the source PDF does not
+carry coordinates, so coordinates would be authored from terroir
+descriptions plus reference geography); (b) deciding whether the
+Leaflet UI's 16 hand-curated categories should be replaced with the
+JSON's 22 chapters, or whether the two category models should be
+preserved separately (a category remap could break the carefully-
+tuned interactive behaviour); (c) generating the Leaflet `SITES`
+array from `vineyards.json` at build time so the two stay in sync
+thereafter, rather than maintaining hand-curated coordinates
+indefinitely.
+
+**Provisional Session 1A.1c.** This work was tentatively scoped as
+Session 1A.1c during the v0.37 closure conversation. It is not
+queued in §9 yet because (a) the divergence is real but not
+visible-error to a casual visitor — the Leaflet map works correctly
+on its own terms and the PDF is internally consistent on its own
+terms; (b) the scope is genuinely larger than 1A.1b's was, and may
+deserve its own planning pass before opening; (c) other §9 phases
+(particularly Phase 2 Reference foundations) are higher priority
+than visual consistency on a working leaf. Recording it here means
+the next session that opens the question has full context.
+
+**Visible status from the public site, 2026-05-17.** The download
+button on the Vineyard Atlas page serves the new 272-site PDF; the
+inline Leaflet map shows the older 200-site array; the two
+genuinely don't agree. A visitor downloading the PDF receives
+slightly more coverage than the map suggests. Neither face is
+wrong on its own terms; they were authored independently and have
+drifted because no single source of truth existed. The fix in
+1A.1c, when it runs, would make `vineyards.json` that single source
+and have the Leaflet build consume it.
+
 ---
 
 ## 7. Recently completed (reverse chronological)
 
 ### 2026-05-17
+
+**Session 1A.1b — Vineyard Atlas rebuild closed across two sub-sessions
+(latest same-day work).**
+
+- **Session 1A.1b.1 — `vineyards.json` authored from PDF text.** The
+  Vineyard Atlas PDF was text-extractable cleanly (diacritics intact,
+  table structure regular, ~46 pages compact), removing the need for
+  OCR or speculative reconstruction. The data file `vineyards.json`
+  (149,399 bytes) was authored in a hierarchical schema: atlas-level
+  metadata block (title, subtitle, organising principle, edition,
+  counts, license), verbatim introduction, then `chapters[]` each
+  containing `number`, `roman`, `title`, `intro`, `groups[]` each
+  containing `name` and `sites[]` each carrying `id`,
+  `vineyard_site`, `region_terroir`, `key_producers` (as list),
+  `signature_character`. Per-chapter `footnote` field for chapters
+  that carry editorial notes (six chapters do: XVII Sauvignon Blanc,
+  XVIII Alsace Grands Crus, XIX Champagne Grands Crus, XX Volcanic
+  Terroirs, XXI Corvina & Veneto Reds, XXII Varietal Merlot). Atlas-
+  level `notes` field for the closing editorial section. Validation:
+  JSON parses cleanly, all 272 IDs unique, all required fields
+  present on every site, ID pattern conformance 272/272, prose
+  preserved verbatim from PDF text (spot-checked at random across 8
+  sites). The atlas title was captured forward-looking as "The
+  Vineyard Atlas" rather than backward-looking as "The Grand Cru
+  Atlas", since the build pipeline in 1A.1b.2 would already produce
+  output under the new wordmark. The schema decision worth noting:
+  per-chapter `footnote` field chosen over a root-level
+  `chapter_footnotes` map — keeps each footnote adjacent to its
+  chapter rather than maintaining a parallel index.
+
+- **Session 1A.1b.2 — `build_atlas_pdf.py` authored, PDF rebuilt,
+  index.html flipped, atomic deploy.** The build script (16,665
+  bytes, ~280 lines) mirrors the Maker Atlas's ReportLab + DejaVu
+  Sans + wine-red pattern adapted for the chapter/group/site data
+  shape: cover page, table of contents iterating chapters and their
+  groups, introduction page, then per-chapter pages with intro
+  paragraph, group sub-headers, banded four-column tables (Vineyard
+  / Site | Region & Terroir | Key Producers | Signature Character),
+  and optional italic footnote. Closing notes section on its own
+  page. Running header reads "The Vineyard Atlas — World's Greatest
+  Vineyards by Grape Variety" with wine-red underline; page numbers
+  bottom-right. First build produced 46 pages at 196,084 bytes —
+  matching the source PDF's page count exactly, with chapter break
+  points landing on the same page numbers (Cover=1, Contents=2-3,
+  Introduction=4, I. Riesling=5, IX. Cabernet Franc=18, XVIII. Alsace
+  Grands Crus=36, Notes=46). The page-number alignment is strong
+  evidence that the lost original Vineyard Atlas pipeline shared a
+  common ancestor with the Maker Atlas pipeline at the ReportLab
+  configuration level. `index.html` was edited via two precise
+  string substitutions: download href filename
+  (`The_Grand_Cru_Atlas.pdf` → `The_Vineyard_Atlas.pdf`) and panel-
+  sub blurb counts ("167 sites across 16 grape categories" → "272
+  vineyard sites across 22 grape categories"); the GitHub repo URL
+  was preserved at `/grand-cru-atlas` per the no-repo-rename
+  decision. Atomic deploy: one commit on `grand-cru-atlas` (commit
+  `e792254`) deleted the old PDF and added three files (new PDF,
+  build script, edited HTML) in a single 4-file change set. Live
+  cover verified at `https://jskarabot18.github.io/grand-cru-atlas/`
+  reading **THE VINEYARD ATLAS** in wine-red on white.
+
+- **Surfaced as known divergence — §6.8 added.** The repo inventory
+  at the start of 1A.1b.2 revealed two facts not captured in v0.36's
+  §4.5 atlas-convention block: (a) the existing `index.html` had
+  already been substantially wordmark-flipped in a prior session
+  (eyebrow, masthead, page title all reading "Vineyard"; only the
+  download href filename and the panel-sub site counts were stale);
+  (b) the `index.html` is not a thin landing page like the Maker
+  Atlas's — it is a full Leaflet-based interactive map application
+  with a hardcoded `SITES = [...]` array of ~200 sites across 16
+  grape categories, authored independently of the PDF source.
+  Reconciliation between the Leaflet array and `vineyards.json` is
+  genuine work (lat/lng invention for ~70 unmatched sites, category-
+  model alignment from 16 hand-curated buckets to 22 atlas chapters)
+  and was deferred — provisionally scoped as Session 1A.1c, recorded
+  in §6.8.
+
+- **§4.5 extended to record atlas index.html duality.** The atlas
+  convention block now distinguishes the Maker Atlas's thin landing-
+  page pattern from the Vineyard Atlas's interactive map application
+  pattern. Both are legitimate; what matters is that the masthead
+  carries the wordmark and download button, the footer follows §4.3,
+  and the PDF download serves the consolidated atlas PDF named to
+  match. Future atlases can choose either pattern based on subject
+  matter.
 
 - **Session 1A items 1 and 2 closed — canonical build convention
   established; Grape Resonances Summary rebuilt with the §6.7
@@ -2322,6 +2459,80 @@ recovered Python source.**
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
 
+### 2026-05-17 — v0.37
+
+- **§4.5 (Documents are aligned to a canonical framework).** A
+  third paragraph block appended — *Atlas `index.html` — two
+  legitimate patterns (recorded 2026-05-17, v0.37)*. Records that
+  the Maker Atlas's `index.html` (thin landing page) and the
+  Vineyard Atlas's `index.html` (interactive Leaflet map
+  application with embedded site data) are both valid expressions
+  of an atlas leaf. The constraints that *are* load-bearing
+  (masthead with wordmark + download button, §4.3-conformant
+  footer, PDF download serving the named consolidated PDF) are
+  separated from the pattern that is *not* (the form of the page
+  between those constraints).
+- **§6.7 (Atlas PDF rebuilds) — closed.** Section title changed
+  from *Maker Atlas executed; Vineyard Atlas queued* to *closed
+  (both atlases source-controlled)*. The opening paragraph
+  rewritten to record the three-step closure across v0.36 and
+  v0.37. The Vineyard Atlas plan block was rewritten as a closure
+  block describing the actual work shipped in 1A.1b.1 (data
+  extraction → `vineyards.json`) and 1A.1b.2 (pipeline build →
+  `build_atlas_pdf.py`, rebuilt PDF, `index.html` edits, atomic
+  commit `e792254`). The Status paragraph updated to reflect post-
+  v0.37 state. The v0.35 *Adjacent drift — Grape Resonances Summary*
+  block remains intact at the end of §6.7 as the historical
+  closure record for the v0.33 deferral.
+- **§6.8 (new) — Vineyard Atlas — Leaflet `index.html` /
+  `vineyards.json` divergence.** New subsection recording the
+  divergence surfaced during 1A.1b.2: the Vineyard Atlas's Leaflet
+  map embeds ~200 sites across 16 hand-curated grape categories;
+  the PDF source `vineyards.json` carries 272 sites across 22 atlas
+  chapters; the two were authored independently and have never been
+  in sync. Reconciliation is genuine work (lat/lng invention,
+  category-model alignment, build-time generation of the Leaflet
+  data from the JSON) and was deferred. Provisionally scoped as
+  Session 1A.1c; not yet queued in §9.
+- **§7 (Recently completed) — 2026-05-17 entry extended.** Four
+  new bullets appended at the top of the 2026-05-17 entry under a
+  *Session 1A.1b — Vineyard Atlas rebuild closed across two sub-
+  sessions* sub-header: the Session 1A.1b.1 data-extraction entry
+  (`vineyards.json` schema, validation, 272 sites verified), the
+  Session 1A.1b.2 pipeline-build entry (`build_atlas_pdf.py`,
+  rebuilt PDF, page-number alignment with source, atomic commit
+  `e792254`), the §6.8 divergence-surfaced entry, and the §4.5
+  extension entry. The earlier 2026-05-17 bullets (Session 1A
+  items 1+2, the 1A.1a Maker Atlas work) are preserved verbatim
+  below the new entries.
+- **§9 (Roadmap) — Session 1A.1b annotated as closed.** Session
+  1A.1's split annotation from v0.36 extended to record that
+  1A.1b's two sub-sessions both closed on 2026-05-17. A note added
+  that Session 1A.1c (Leaflet/JSON reconciliation per §6.8) is
+  deferred and not yet phased.
+- **Header.** The HTML comment under *Last meaningful update* now
+  notes v0.35, v0.36, and v0.37 all dated 2026-05-17 — three same-
+  day updates following the precedent of v0.32/v0.33/v0.34 on
+  2026-05-16. The substantive boundary between v0.36 and v0.37 is
+  the Vineyard Atlas closure: v0.36 captured the plan, v0.37
+  captures the execution.
+
+This v0.37 entry records one external-repo commit beyond the
+PROJECT.md update itself: `grand-cru-atlas` received a four-file
+atomic commit `e792254` (deleted `The_Grand_Cru_Atlas.pdf`; added
+`The_Vineyard_Atlas.pdf`, `build_atlas_pdf.py`, and modified
+`index.html` for the two stale strings). The session's central
+accomplishment is dual: a visible deliverable (the Vineyard Atlas
+now reads cleanly cover-to-cover with the new wordmark and the
+correct 272-site count, deployed to GitHub Pages) and a structural
+one (the Vineyard Atlas gains source control for the first time,
+matching the Maker Atlas's v0.36 closure, and the family's Maps
+section now has zero unsourced PDFs). The surfaced Leaflet/JSON
+divergence at §6.8 is the day's honest open item — a real
+inconsistency on a live leaf, not yet a visible-error to a casual
+visitor, deferred with full context so the next conversation that
+opens it doesn't re-derive the situation.
+
 ### 2026-05-17 — v0.36
 
 - **§4.5 (Documents are aligned to a canonical framework).** A
@@ -3376,7 +3587,13 @@ open in the right context.
 three things, all touching LaTeX. **Status: items 1 and 2 closed
 2026-05-17 (v0.35); item 3 split into Session 1A.1, which split
 further on 2026-05-17 (v0.36) into 1A.1a (✓ Maker Atlas, closed)
-and 1A.1b (Vineyard Atlas, queued — two sub-sessions per §6.7).**
+and 1A.1b (Vineyard Atlas, two sub-sessions); 1A.1b closed on the
+same day, 2026-05-17 (v0.37): 1A.1b.1 (✓ `vineyards.json` authored,
+272 sites) and 1A.1b.2 (✓ build pipeline + rebuilt PDF + index.html
+flip, atomic commit `e792254`). A divergence surfaced during 1A.1b.2
+between the Vineyard Atlas's Leaflet `index.html` map data and the
+PDF source `vineyards.json`; deferred as provisional Session 1A.1c
+per §6.8, not yet phased in this roadmap.**
 - ✓ Resolve the build convention: `\usepackage{vinotheca}` (visible in
   `GrapeResonances_Summary.tex` and likely others) vs
   `\input{vinotheca-preamble.tex}` (file present in three of four
@@ -3408,6 +3625,15 @@ and 1A.1b (Vineyard Atlas, queued — two sub-sessions per §6.7).**
     2 and 3). 1A.1b further splits into 1A.1b.1 (data extraction
     → `vineyards.json`) and 1A.1b.2 (pipeline build →
     `build_atlas_pdf.py` + rebuilt PDF). Concrete plan in §6.7.*
+  - *Updated 2026-05-17 (v0.37): Session 1A.1b ✓ closed same day.
+    1A.1b.1 produced `vineyards.json` (22 chapters, 272 sites);
+    1A.1b.2 produced `build_atlas_pdf.py` + the rebuilt
+    `The_Vineyard_Atlas.pdf` (46 pages, matching source page count
+    exactly) and flipped two stale strings in `index.html`. Atomic
+    commit `e792254` on `grand-cru-atlas`; live cover verified.
+    A divergence between the Leaflet map data in `index.html` and
+    `vineyards.json` surfaced and was deferred as provisional
+    Session 1A.1c per §6.8.*
 
 **Session 1B — §6.1 reference scaffold + methodology aftermath.**
 - Create `vinotheca-reference` repo with the family pattern
