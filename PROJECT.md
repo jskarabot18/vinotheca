@@ -11,7 +11,7 @@
 > is recorded.
 
 Last meaningful update: 2026-05-17 (see §8 for full history)
-<!-- v0.32, v0.33, and v0.34 all dated 2026-05-16; v0.35 dated 2026-05-17 -->
+<!-- v0.32, v0.33, and v0.34 all dated 2026-05-16; v0.35 and v0.36 dated 2026-05-17 -->
 
 ---
 
@@ -232,6 +232,30 @@ management machine, not a build machine. This was the de facto
 state before v0.35 (past PDFs were built in sessions and committed
 pre-built); v0.35 makes it the de jure state by committing the
 previously-implicit `vinotheca.sty` to disk in all four repos.
+
+**Atlas build convention (locked 2026-05-17, v0.36).** The atlases
+do not use LaTeX. Each atlas is authored as a **Python build
+pipeline** consisting of two artefacts that live at the atlas
+repo's root (not inside a `docs-source/` folder): a `build_atlas_pdf.py`
+script using **ReportLab** with **DejaVu Sans** as the typographic
+register, and a `<atlas-name>.json` data file containing the atlas's
+structured content. The build is invoked simply with
+`python3 build_atlas_pdf.py` and writes the consolidated PDF
+(`The_<Wordmark>_Atlas.pdf`) alongside the script. The shared
+visual register across atlases is wine-red accent on white,
+banded summary tables, prose entries beneath each region's table —
+the Maker Atlas's `build_atlas_pdf.py` is the reference
+implementation. When the Vineyard Atlas's equivalent pipeline is
+authored (Session 1A.1b — see §6.7), it follows the same shape: a
+sibling script, a sibling JSON, and the same ReportLab/DejaVu/wine-red
+register. Atlas builds, like document builds, happen inside Claude
+sessions where ReportLab and DejaVu fonts are available; the
+Mac Studio remains deploy-only. This convention was de facto for
+the Maker Atlas since its first release but was not committed to
+disk (the script lived in `~/projects/grand-cru-atlas/`'s vestigial
+predecessor and was eventually surfaced in the working
+`estate-atlas/` repo); v0.36 records it as the family pattern and
+locks the Vineyard Atlas's queued rebuild to follow it.
 
 ### 4.6 Studies don't embed tools; tools don't appear inside studies
 
@@ -777,66 +801,124 @@ visual drift; the rename's social meaning is carried by the
 wordmarks, which visitors see first. A new §6.7 entry tracks the
 PDF re-authoring as queued follow-up work.
 
-### 6.7 To be re-authored — Atlas PDF title blocks and running headers
+### 6.7 Atlas PDF rebuilds — Maker Atlas executed; Vineyard Atlas queued
 
-The consolidated atlas PDFs still carry their old wordmark inside the
-documents themselves: title page, every page's running header, and
-(for the Estate Atlas) the page-5 and page-129 sister-volume cross
-references that name "The Grand Cru Atlas" by name. The PDFs need
-to be re-authored to bring them in line with the new wordmarks
-(Maker Atlas, Vineyard Atlas).
+The consolidated atlas PDFs carried their old wordmarks inside the
+documents themselves — title page, every page's running header, and
+two body-prose cross-references to the sibling atlas. v0.36 closes
+the Maker Atlas half of this work end-to-end and re-scopes the
+Vineyard Atlas half into a concrete two-session plan.
 
-**Why this is deferred.** The atlas `.tex` source files do not
-exist on the local machine — the atlases were authored outside the
-`docs-source/` convention that the three tool repos (`tasterank-
-explorer`, `region-affinities`, `region-resonances`) follow. A
-Spotlight search for `vinotheca-preamble` and targeted `find` runs
-across the wine tree both confirmed: no atlas `.tex` files anywhere
-locally. Re-authoring 175 PDF pages from extracted PDF text without
-source LaTeX is a substantial authoring task that deserves its own
-session, not a mechanical-text rename's coat-tails.
+**Maker Atlas (Estate Atlas → Maker Atlas) — closed 2026-05-17, v0.36.**
+A second, more deliberate Path α sweep (Spotlight `mdfind` plus a
+broader filesystem search outside the wine tree) surfaced that the
+Estate Atlas had real, working source after all — but **not as
+LaTeX**. The atlas was authored as a Python build pipeline:
+`build_atlas_pdf.py` (a ReportLab script using DejaVu Sans, wine-red
+accent palette, banded summary tables, full prose entries) plus
+`estates.json` (158 estates, 14 fields each — the structured content).
+Both files live at the atlas repo's root, not under any
+`docs-source/` folder. The previous v0.32–v0.34 deferral framing
+("no atlas `.tex` files exist locally") was technically accurate
+but missed that the *source convention* for atlases was Python,
+not LaTeX — the earlier searches were scoped to `.tex` files only.
 
-**Two paths when this session opens.**
-- *Path α — locate or reconstruct sources.* The original `.tex` files
-  may exist somewhere not yet searched (an external drive, an old
-  laptop, an email attachment, an archived backup). If they surface,
-  the rename is a small set of substitutions against the existing
-  source, and the canonical convention (`\usepackage{vinotheca}` with
-  `vinotheca.sty` adjacent — see §4.5) can absorb the atlases
-  retrospectively.
-- *Path β — author from scratch in the modern convention.* Build
-  fresh `.tex` files under `estate-atlas/docs-source/` and `wine
-  atlas/grand-cru-atlas/docs-source/`, mirroring the structure of
-  the existing tool repos' `docs-source/` folders, using the
-  canonical `vinotheca.sty` package (see §4.5). The body content
-  can be reconstructed from the deployed PDFs' extracted text (text
-  extraction was verified clean in this session's PDF survey).
-  Typesetting will differ from the original since the original
-  preamble isn't known, but the result would be a clean, source-
-  managed atlas PDF consistent with the rest of the family.
+The Maker Atlas rebuild was a small mechanical edit pass against
+the recovered source: 18 string sites in `build_atlas_pdf.py`
+(docstring, running-page header, cover title, sibling-atlas
+references in two body-prose paragraphs corresponding to the page-5
+and page-129 cross-references, argparse defaults, output filename),
+one string in `estates.json` (the atlas title field), and two
+strings in `index.html` (the download-link `href` and a JS comment).
+The output filename changed from `The_Estate_Atlas.pdf` to
+`The_Maker_Atlas.pdf` to align with the new wordmark; the
+`index.html` references were updated in the same commit, so the
+download flow works end-to-end at the new filename. The rebuild
+ran cleanly inside a Claude session (ReportLab 4.4.10, DejaVu fonts
+present at `/usr/share/fonts/truetype/dejavu/`, matching the
+script's hardcoded path); the new PDF is 129 pages and 485,603
+bytes, structurally identical to the original (485,049 bytes —
+a 554-byte difference consistent with glyph-width changes from
+"Estate" → "Maker"). The full Maker Atlas pipeline (script + JSON +
+index.html + rebuilt PDF) was committed to `estate-atlas/` in a
+single commit on 2026-05-17, with the old `The_Estate_Atlas.pdf`
+deleted in the same commit so the deployment is atomic. Live cover
+verified on `https://jskarabot18.github.io/estate-atlas/` reading
+**THE MAKER ATLAS** in wine-red on white. The Maker Atlas now has
+durable source control for the first time — the script and JSON
+that produce it are committed to disk, the build is reproducible
+in any Claude session, and future edits are mechanical.
 
-**Pending:**
-- Decide between Path α and Path β
-- For Path α: locate the source files
-- For Path β: author the `docs-source/` folders, write the `.tex`,
-  build the PDFs, replace `The_Estate_Atlas.pdf` and
-  `The_Grand_Cru_Atlas.pdf` in their respective repos
-- Verify the new PDFs render the correct title blocks and running
-  headers (Maker Atlas / Vineyard Atlas)
-- Update §6.7 status to *Executed* and add a §7 entry recording the
-  authoring methodology chosen
+**Vineyard Atlas (Grand Cru Atlas → Vineyard Atlas) — queued as
+Session 1A.1b, split into two sub-sessions.** No Python pipeline
+or LaTeX source exists for the Vineyard Atlas on the local machine.
+The repo at `wine atlas/grand-cru-atlas/` contains only `index.html`,
+`LICENSE`, `README.md`, and `The_Grand_Cru_Atlas.pdf` — no
+`build_atlas_pdf.py`, no `vineyards.json`. The Maker Atlas's working
+Python pipeline (which lives in `estate-atlas/`) appears to have
+been authored fresh in a Claude session rather than copied from a
+prior Vineyard Atlas equivalent; whatever generator produced the
+Vineyard Atlas PDF was not committed back, and Path α has been
+exhausted across the Mac Studio (full filesystem search, external
+T7 drive, no Overleaf account).
 
-**Status.** Atlas rebuilds queued for a future session. The build-
-environment unknowns that gated this work in v0.32–v0.34 are now
-resolved (see §4.5 canonical build convention and the v0.35
-*Adjacent drift* closure below): TeX Live builds work inside
-Claude sessions; `vinotheca.sty` is committed and reusable; the
-authoring pattern has been exercised end-to-end on the Grape
-Resonances Summary. What remains is the atlas-specific work —
-deciding between Path α and Path β, and then either applying small
-edits to located sources (α) or authoring fresh `.tex` from
-extracted PDF text in the now-canonical convention (β). The visible
-drift on the deployed atlas PDFs is still bounded; no deadline.
+The decision was made (v0.36 planning) to take Path 1 from the
+three options considered — full Python pipeline mirroring the
+Maker Atlas's, rather than a surgical PDF patch (Option 2) or
+deferral (Option 3). The reasoning: the user's stated principle
+of not letting projects hang in deferred drift; the asymmetry
+between a sourced Maker Atlas and an unsourced Vineyard Atlas
+would compound over time; and the Maker Atlas's pipeline gives a
+strong reference implementation to mirror.
+
+The work splits cleanly into two sub-sessions:
+
+- *Session 1A.1b.1 — Data extraction & structure.* Extract the
+  Vineyard Atlas PDF's text, parse it into a structured
+  `vineyards.json` keyed on region + commune + vineyard name (the
+  atlas's natural unit), with associated grape varieties,
+  classification, and descriptive paragraphs. Audit the result
+  against the original PDF for completeness and accuracy. Output:
+  a working `vineyards.json` that any future Vineyard Atlas build
+  can consume, reviewable on its own. The §6.7 wordmark drift is
+  *not* fixed in this session — the data is wordmark-independent.
+
+- *Session 1A.1b.2 — Pipeline build.* Author
+  `wine atlas/grand-cru-atlas/build_atlas_pdf.py` mirroring the
+  Maker Atlas's script (likely ~80% borrowed, ~20% adapted for
+  vineyard-shaped data and the slightly different column structure
+  a vineyard table needs versus an estate table). Run a build,
+  compare against the original PDF for layout fidelity, deploy
+  with the new wordmark already baked in. Output: a rebuilt
+  `The_Vineyard_Atlas.pdf` (rename from `The_Grand_Cru_Atlas.pdf`),
+  updated `index.html` link target, and the §6.7 wordmark drift
+  closed. The atlas now has durable source control parallel to the
+  Maker Atlas.
+
+The two sessions are sequenced because layout problems in 1A.1b.2
+need to be distinguishable from data extraction problems in
+1A.1b.1; running them together would risk compounding errors. Each
+session produces a reviewable intermediate artefact.
+
+**Pending (Session 1A.1b):**
+- Run the Vineyard Atlas PDF text-extraction audit (assess
+  extraction quality — clean text vs. image-based, OCR needed)
+- 1A.1b.1: extract and structure the vineyard data; output
+  `vineyards.json` for review
+- 1A.1b.2: author `build_atlas_pdf.py` for the Vineyard Atlas;
+  build; verify layout fidelity against the original; deploy
+- Verify the new `The_Vineyard_Atlas.pdf` renders the correct
+  title block, running headers, and cross-references to the
+  Maker Atlas
+- Update §6.7 status to *Closed* and add a §7 entry recording the
+  Vineyard Atlas pipeline
+
+**Status (post-v0.36).** Maker Atlas half closed; Vineyard Atlas
+half queued as Session 1A.1b (two sub-sessions). The build
+environment is fully proven for both LaTeX (v0.35) and the Python
+atlas pipeline (v0.36). The visible drift on the deployed Vineyard
+Atlas PDF is still bounded; the queued work is concrete and
+sized, not exploratory.
 
 **Adjacent drift — Grape Resonances Summary (discovered 2026-05-16,
 closed 2026-05-17, v0.35).** A post-rename `find` across the local
@@ -970,15 +1052,78 @@ was the path mistakenly cited in the v0.33 *Adjacent drift* block
   rebuild and redeploy of the React app; the other three pushes
   are no-op for deployed sites since they don't touch `app/` code.
 
-- **Atlas PDF rebuilds (Session 1A item 3) remain queued.** The
-  next step per §9 Phase 1 — a deliberate Path α search across
-  external drives, cloud backups, old laptop, email attachments;
-  fallback to Path β authoring from extracted PDF text if α fails.
-  Now that the build environment is proven and `vinotheca.sty` is
-  canonical, this is a substantially less-risky session than it
-  was in v0.34 — the unknowns are scoped to atlas-specific
-  source location and typesetting choices, not the build path
-  itself.
+- **Atlas PDF rebuilds — Session 1A.1 opened same day; split into
+  1A.1a (Maker Atlas, closed) and 1A.1b (Vineyard Atlas, queued).**
+  See the bullets below recording Session 1A.1a's work; the
+  Vineyard Atlas half is queued as two sub-sessions per the
+  rewritten §6.7. The original v0.35 framing — "Path α (search) →
+  fallback to Path β (author from extracted PDF text)" — has been
+  superseded: Path α was executed for the Maker Atlas with a
+  surprise outcome (source existed but as Python, not LaTeX), and
+  Path α has been exhausted for the Vineyard Atlas.
+
+**Session 1A.1a (later same day) — Maker Atlas rebuild from
+recovered Python source.**
+
+- **Path α second-sweep surfaced the Maker Atlas's source.** A
+  more deliberate Spotlight search using `mdfind` queries scoped
+  outside the wine tree (`~/projects/`, `~/Library/Mobile Documents`,
+  `/Volumes/T7`) found that the Estate Atlas's working build
+  pipeline existed at `estate-atlas/build_atlas_pdf.py` + `estates.json`
+  all along — the earlier searches had been scoped to `.tex` files
+  on the assumption that the atlases shared the tool repos' LaTeX
+  convention. They did not. The Maker Atlas is a ReportLab + JSON
+  Python pipeline. A vestigial `~/projects/grand-cru-atlas/`
+  surfaced in the same search and confirmed the asymmetry between
+  the two atlases: the Maker Atlas has working source, the Grand
+  Cru Atlas does not. Overleaf was ruled out (user has no Overleaf
+  account); the T7 external drive is a backup volume with no atlas
+  source. Path α exhausted for the Vineyard Atlas; partially
+  successful for the Maker Atlas.
+
+- **Atlas build convention recorded in §4.5.** The Python pipeline
+  pattern (ReportLab + DejaVu Sans, wine-red accent, banded
+  summary tables, script + JSON at the atlas repo root) is now
+  documented as the family's canonical atlas build convention. It
+  parallels the LaTeX `\usepackage{vinotheca}` + `vinotheca.sty`
+  convention locked in v0.35 for tool documents. Two build
+  patterns, one per document class.
+
+- **Maker Atlas rebuild — edit, build, deploy.** 18 string sites
+  in `build_atlas_pdf.py` (docstring, running-page header, cover
+  title, two body cross-references to the sibling Vineyard Atlas
+  matching the §6.7 page-5 and page-129 sites, argparse defaults,
+  output filename), 1 in `estates.json` (atlas.title), 2 in
+  `index.html` (download-link href and a JS comment). Output
+  filename renamed from `The_Estate_Atlas.pdf` to
+  `The_Maker_Atlas.pdf` to align with the wordmark; old PDF
+  deleted in the same commit, new PDF added, `index.html` updated
+  to reference the new filename — atomic deploy. The rebuild ran
+  cleanly inside this Claude session (ReportLab 4.4.10, DejaVu
+  fonts at the expected path); 129 pages, 485,603 bytes, file
+  size 554 bytes larger than the original (consistent with
+  glyph-width differences from "Estate" → "Maker" across roughly
+  130 string occurrences in headers and notes). Live cover
+  verified at `https://jskarabot18.github.io/estate-atlas/` reading
+  **THE MAKER ATLAS** in wine-red on white.
+
+- **Vineyard Atlas plan locked.** User decision (v0.36 planning):
+  Option 1 — full Python pipeline mirroring the Maker Atlas —
+  rather than surgical PDF patch (Option 2) or deferral (Option 3).
+  Rationale: stated principle of not letting projects hang in
+  deferred drift; the asymmetry between a sourced Maker Atlas and
+  an unsourced Vineyard Atlas would compound over time. Work
+  splits into 1A.1b.1 (data extraction & structure → `vineyards.json`)
+  and 1A.1b.2 (pipeline build → `build_atlas_pdf.py` and rebuilt
+  PDF), in that order, separately reviewable. Concrete plan
+  recorded in the rewritten §6.7.
+
+- **Documentation: PROJECT.md v0.36 update authored same day.**
+  Captures the Maker Atlas closure, the atlas build convention
+  (§4.5 augmentation), the §6.7 rewrite from open-ended Path α/β
+  framing to concrete Maker-closed/Vineyard-queued plan, the §9
+  Session 1A.1 split annotation. Deployed as a single commit to
+  the parent `vinotheca` repo.
 
 ### 2026-05-16
 
@@ -2177,6 +2322,68 @@ was the path mistakenly cited in the v0.33 *Adjacent drift* block
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
 
+### 2026-05-17 — v0.36
+
+- **§4.5 (Documents are aligned to a canonical framework).** A
+  second paragraph block — *Atlas build convention (locked
+  2026-05-17, v0.36)* — appended after the v0.35 LaTeX-convention
+  block. Records the Python pipeline pattern (ReportLab + DejaVu
+  Sans, wine-red accent, banded summary tables, `build_atlas_pdf.py`
+  + `<atlas-name>.json` at the atlas repo root) as the family's
+  canonical atlas build convention. The Maker Atlas is the
+  reference implementation; the Vineyard Atlas's queued rebuild
+  will follow it. The family now has two canonical build
+  patterns — LaTeX for tool documents, Python for atlases — both
+  running inside Claude sessions, neither on the Mac Studio.
+- **§6.7 (Atlas PDF rebuilds) — major rewrite.** Section title
+  changed from *To be re-authored* to *Maker Atlas executed;
+  Vineyard Atlas queued*. The original Path α / Path β framing is
+  retired: Path α was executed for the Maker Atlas with a surprise
+  outcome (source existed but as Python, not LaTeX), and Path α
+  has been exhausted for the Vineyard Atlas. The body of §6.7 now
+  contains: a Maker Atlas closure block (the recovered source, the
+  rebuild details, the live verification), a Vineyard Atlas
+  forward plan with the user-locked decision (Option 1 — full
+  pipeline) and the two-session split (1A.1b.1 data extraction,
+  1A.1b.2 pipeline build), and an updated Status note. The v0.35
+  *Adjacent drift — Grape Resonances Summary* block remains intact
+  at the end of §6.7 as the historical closure record for the
+  v0.33 deferral.
+- **§7 (Recently completed) — 2026-05-17 entry extended.** The
+  trailing "Atlas PDF rebuilds remain queued" bullet from v0.35
+  was rewritten to reflect Session 1A.1's same-day split into
+  1A.1a (closed) and 1A.1b (queued), since the v0.35 framing had
+  become stale within hours. Five new bullets appended under a
+  *Session 1A.1a (later same day) — Maker Atlas rebuild from
+  recovered Python source* sub-header: the Path α second-sweep
+  finding, the §4.5 atlas convention recording, the rebuild
+  edit/build/deploy detail, the Vineyard Atlas plan lock, and a
+  documentation-self-reference bullet for v0.36 itself.
+- **§9 (Roadmap) — Session 1A.1 annotated.** Session 1A.1 is now
+  recorded as having split into 1A.1a (✓ closed 2026-05-17) and
+  1A.1b (queued, two sub-sessions). The original v0.35 Session
+  1A.1 stub is preserved with a split annotation, mirroring how
+  Session 1A items 1+2 were annotated in v0.35.
+- **Header.** The HTML comment under *Last meaningful update* now
+  notes v0.35 and v0.36 both dated 2026-05-17 (same-day double
+  update, following the precedent of v0.32/v0.33/v0.34 all on
+  2026-05-16).
+
+This v0.36 entry records one external-repo commit beyond the
+PROJECT.md update itself: `estate-atlas` received a four-file
+commit (`build_atlas_pdf.py` modified, `estates.json` modified,
+`index.html` modified, `The_Maker_Atlas.pdf` added, with
+`The_Estate_Atlas.pdf` deleted in the same commit). The session's
+central accomplishment is dual: a visible deliverable (the Maker
+Atlas now reads cleanly cover-to-cover with the new wordmark and
+deployed to GitHub Pages) and a structural one (the Maker Atlas
+gains source control for the first time, and the family's atlas
+build convention is documented at §4.5 alongside the LaTeX one).
+The Vineyard Atlas's now-locked plan resolves the longest-standing
+open question in §6.7 — the choice between Path α reconstruction
+and Path β authoring — into a concrete two-session path that the
+next conversation can open against directly.
+
 ### 2026-05-17 — v0.35
 
 - **§4.5 (Documents are aligned to a canonical framework).** A new
@@ -3167,7 +3374,9 @@ open in the right context.
 
 **Session 1A — §6.7 LaTeX session.** One focused session bundling
 three things, all touching LaTeX. **Status: items 1 and 2 closed
-2026-05-17 (v0.35); item 3 remains queued as Session 1A.1.**
+2026-05-17 (v0.35); item 3 split into Session 1A.1, which split
+further on 2026-05-17 (v0.36) into 1A.1a (✓ Maker Atlas, closed)
+and 1A.1b (Vineyard Atlas, queued — two sub-sessions per §6.7).**
 - ✓ Resolve the build convention: `\usepackage{vinotheca}` (visible in
   `GrapeResonances_Summary.tex` and likely others) vs
   `\input{vinotheca-preamble.tex}` (file present in three of four
@@ -3191,6 +3400,14 @@ three things, all touching LaTeX. **Status: items 1 and 2 closed
   build of any single PDF first" milestone was satisfied by the
   Grape Resonances Summary rebuild on 2026-05-17. The atlas-
   specific work remains queued as Session 1A.1.*
+  - *Updated 2026-05-17 (v0.36): Session 1A.1 split into 1A.1a
+    (Maker Atlas, ✓ closed — Path α surfaced unexpected Python
+    source, rebuilt and deployed) and 1A.1b (Vineyard Atlas,
+    queued; no source recoverable, so Path 1 [full Python
+    pipeline mirroring the Maker Atlas's] was locked over Options
+    2 and 3). 1A.1b further splits into 1A.1b.1 (data extraction
+    → `vineyards.json`) and 1A.1b.2 (pipeline build →
+    `build_atlas_pdf.py` + rebuilt PDF). Concrete plan in §6.7.*
 
 **Session 1B — §6.1 reference scaffold + methodology aftermath.**
 - Create `vinotheca-reference` repo with the family pattern
