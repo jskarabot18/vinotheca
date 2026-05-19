@@ -10,7 +10,7 @@
 > next commit. Append an entry to §8 (Document changelog) so the change
 > is recorded.
 
-Last meaningful update: 2026-05-17 (see §8 for full history)
+Last meaningful update: 2026-05-18 (see §8 for full history)
 <!-- v0.32, v0.33, and v0.34 all dated 2026-05-16; v0.35, v0.36, v0.37, v0.38, v0.39, and v0.40 dated 2026-05-17 -->
 
 ---
@@ -1217,6 +1217,76 @@ when the next dedicated cleanup session opens.
 ---
 
 ## 7. Recently completed (reverse chronological)
+
+### 2026-05-18
+
+**Hand of Wine archival pass (closed same day, v0.41).**
+
+- **Scope.** Pre-build organization of project material accumulated
+  before the v0.21 architectural reframing. Four older methodology
+  documents (the April 2026 *Vigneron Kinship* framework, the
+  Constellation corpus and profile methodology Rev. 1, the Claim
+  Extraction Protocol Rev. 2 amendments, and the Clustering and
+  Stability-Testing Methodology) collected from prior project folders
+  into a single local archive with cover notes documenting what is
+  still live as methodological discipline versus what is overtaken
+  at the architectural level by v0.21. Walter and Mascarello pilot
+  entries (corpus-assembly stage) and claim extractions (the
+  empirical artifacts the protocol's Rev. 2 amendments were grounded
+  in) consolidated alongside the archive under a local `hand-of-wine/`
+  working folder. No external commits; no architectural decisions;
+  no leaf status changes. The session's purpose was protection
+  against reverting on architecture while preserving working material
+  that remains live.
+
+- **Cover notes authored.** One per source document, structured as
+  *Live as discipline / Overtaken or contingent at architecture /
+  In question / Where the successor lives / Posture for citation*.
+  Each cover note dates itself against PROJECT.md v0.40 so the
+  section references it makes remain verifiable if PROJECT.md
+  sections later renumber. The most extensive cover note is for the
+  Claim Extraction Protocol Rev. 2, which records voice-separation
+  discipline, the Continued Stances treatment, the fifth diagnostic
+  outcome category, the post-extraction coverage audit, the merge
+  rule for near-duplicates, and the time-cost intelligence from the
+  pilots — content that remains operational under any profile shape
+  the §6.2 decision may land on. The cover note for the Clustering
+  and Stability-Testing Methodology is the most cautious, since that
+  document is the most exposed to the profile-shape decision and is
+  largely superseded at the general level by the Reference Technical
+  document anyway.
+
+- **Pilot material identified and located.** Walter and Mascarello
+  pilot entries and claim extractions — referenced inside the Rev. 2
+  amendments but not previously identified as discrete artifacts in
+  PROJECT.md — exist as real PDFs and are now consolidated under
+  `hand-of-wine/working/`. These are the empirical foundation the
+  profile-shape decision (§6.2) will rest on. Reading them is the
+  prerequisite for the next round of working documents (Hand of Wine
+  working notes, bias and limits register, decision log) identified
+  during the session.
+
+- **Pre-v0.21 folder retired.** The local `winemakers constellation/`
+  folder, holding the four methodology PDFs plus the pilot material,
+  is gone. The architectural rename the v0.21 changelog locked
+  (*The Winemaker's Constellation* → *The Hand of Wine* for the
+  Study; *Winemaker Affinities* for the Tool) is now reflected in
+  the local folder structure. This is a filesystem cleanup, not an
+  architectural change; it brings the local layout into alignment
+  with the family naming locked seven days ago.
+
+- **Bias and limits work flagged for next session.** During the
+  session, two genuine bias exposures were named and worth recording
+  as pending work for the bias and limits register: the translation
+  layer, which Rev. 2's Mascarello-pattern findings established as
+  structural rather than supplementary for some figures in the
+  corpus; and the source-selection prior inherited from the wine-
+  writing tradition (the methodology's "writer over journalist"
+  preference encodes the priors of the writers in question). Neither
+  is resolved by the methodology — both are limits the methodology
+  names rather than overcomes. The bias register, when authored,
+  will consolidate these and the other named limits in one location
+  rather than across four documents.
 
 ### 2026-05-17
 
@@ -3044,6 +3114,29 @@ recovered Python source.**
 ## 8. Document changelog
 
 Append a new entry whenever PROJECT.md is updated. Newest at the top.
+
+### 2026-05-18 — v0.41
+
+- **§7 (Recently completed) — 2026-05-18 entry added.** New block
+  recording the Hand of Wine archival pass: scope, cover notes
+  authored, pilot material identified and located, pre-v0.21 folder
+  retired, bias and limits work flagged. Five bullets total.
+- **Header.** *Last meaningful update* line moved from 2026-05-17
+  to 2026-05-18. The same-day-update HTML comment from v0.40 is
+  preserved unchanged (v0.35–v0.40 remain dated 2026-05-17).
+
+This v0.41 entry records archival and organizational work done
+locally, not external-repo commits. No leaves shipped; no commits
+to external repos in this entry. §6.2 (Winemaker Affinities + The
+Hand of Wine) is unchanged: the architectural state remains as v0.21
+recorded it, with the profile-shape question (claim-based / portrait-
+based / hybrid) still the central open question to resolve during
+build, and the corpus reconciliation (32 vs. 60–80) still flagged.
+What the session accomplished is preparing the *material* the build
+will draw on — older work properly documented as to its current
+applicability, pilot artifacts identified as the empirical foundation
+for the profile-shape decision — without prejudging any of the open
+questions §6.2 holds.
 
 ### 2026-05-17 — v0.40
 
