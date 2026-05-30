@@ -219,6 +219,24 @@
     font-weight: 500;
   }
 
+  .introduction p a {
+    color: var(--wine);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 1px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .introduction p a:hover {
+    color: var(--wine-light);
+    border-bottom-color: var(--wine);
+  }
+
+  .introduction p a em {
+    color: var(--wine);
+    font-weight: 500;
+  }
+
   /* ---- Section headings ---- */
 
   h2.section {
@@ -872,9 +890,9 @@
   <section class="introduction">
     <p>Wine rewards close attention. A bottle is a piece of geography, a piece of history, and a personal opinion about taste — and the more ways you can look at it, the more it gives back.</p>
 
-    <p>The wine world is full of scores and full of prose, but surprisingly short of works that help <em>see patterns</em> and <em>find connections</em>. The works collected here try to fill that gap. Each one answers a specific question a wine-curious person asks: where are the great sites for the grape I love; which lesser-known varieties are likely to win me over next; why do some regions on opposite sides of the world feel like cousins; which shared traits of character link winemakers across continents?</p>
+    <p>The wine world is full of scores and full of prose, but surprisingly short of works that help you see patterns and find connections. The works collected here try to fill that gap. Each one answers a specific question a wine-curious person asks: where are the great sites for the grape I love; which lesser-known varieties are likely to win me over next; why do some regions on opposite sides of the world feel like cousins; which shared traits of character link winemakers across continents?</p>
 
-    <p>Atlases that <em>locate</em> the wine world; works that pair an instrument with the study behind it, each turning the same question over twice — once as a tool you use, once as an argument you read; and a quieter section, <em>Correspondence</em>, where you bring a word or a feeling and receive a small offering in return. Held apart from these, two personal <em>records</em>: of wines tasted, and of winemakers met. Maps where maps help; charts where charts help; language where neither will do.</p>
+    <p><a href="#maps"><em>Maps</em></a> locate the wine world — atlases of vineyards and estates. <a href="#inquiries"><em>Inquiries</em></a> pair an instrument with the study behind it, each turning the same question over twice: once as a tool you use, once as an argument you read. And <a href="#correspondence"><em>Correspondence</em></a>, quieter, is where you bring a word or a feeling and receive a small offering in return. Held apart from these three, <a href="#codex"><em>the Personal Codex</em></a> keeps two private records: of wines tasted, and of winemakers met. A map where a map helps, a chart where a chart helps, and language where neither will do.</p>
   </section>
 
   <!-- ========== PART ONE — The Common Library ========== -->
@@ -890,7 +908,7 @@
     </div>
 
     <!-- ===== Sub-section: Maps ===== -->
-    <div class="subsection maps-subsection">
+    <div class="subsection maps-subsection" id="maps">
       <div class="subsection-header">
         <h3 class="subsection-title">Maps</h3>
         <div class="subsection-subtitle">The wine world, located</div>
@@ -919,7 +937,7 @@
         </h3>
         <div class="instrument-kicker">The world's greatest vineyards, arranged by grape.</div>
         <p class="instrument-body">Monte Bello for Cabernet. Cannubi for Nebbiolo. Clos Saint-Urbain for Gewürztraminer. An illustrated atlas of the sites that set the standard — grouped not by country or appellation but by the grape they happen to make most beautifully. Browse by variety, download the full volume, or simply wander.</p>
-        <div class="instrument-meta">Atlas · Grand Cru · Global</div>
+        <div class="instrument-meta">Atlas · Vineyards · Global</div>
         <a href="https://jskarabot18.github.io/grand-cru-atlas/" class="instrument-link">Open the atlas →</a>
       </div>
     </div>
@@ -927,7 +945,7 @@
     <div class="subsection-divider">· · ·</div>
 
     <!-- ===== Sub-section: Works ===== -->
-    <div class="subsection works-subsection">
+    <div class="subsection works-subsection" id="inquiries">
       <div class="subsection-header">
         <h3 class="subsection-title">Inquiries</h3>
         <div class="subsection-subtitle">Paired tools and studies</div>
@@ -1031,7 +1049,7 @@
     <div class="subsection-divider">· · ·</div>
 
     <!-- ===== Sub-section: Correspondence ===== -->
-    <div class="subsection correspondence-subsection">
+    <div class="subsection correspondence-subsection" id="correspondence">
       <div class="subsection-header">
         <h3 class="subsection-title">Correspondence</h3>
         <div class="subsection-subtitle">Bring a word, receive an offering</div>
@@ -1051,7 +1069,7 @@
         <div class="instrument-kicker">A way into the soul of fifty-nine regions through the language of feeling.</div>
         <p class="instrument-body">If a region's identity is a single word — Burgundy as devotion, Tokaj as melancholy, Santorini as survival — then the question turns naturally inward: what is your word, and where does it live? Region Resonances reads the Identity narratives of fifty-nine regions and matches them by semantic embedding, so a feeling like "old soul" or "stubborn quiet" finds the regions whose souls already carry it. The felt companion to Region Affinities — where Affinities is the structural map, Resonances is the kindred one.</p>
         <div class="instrument-meta">59 regions · 6 identities · Semantic kinship</div>
-        <a href="https://jskarabot18.github.io/region-resonances/" class="instrument-link">Bring a word →</a>
+        <a href="https://jskarabot18.github.io/region-resonances/" class="instrument-link">Open the resonances →</a>
       </div>
 
       <!-- vii. Grape Resonances -->
@@ -1063,7 +1081,7 @@
         <div class="instrument-kicker">A way into the soul of wine through the language of feeling, answered in grapes.</div>
         <p class="instrument-body">If Region Resonances asks <em>where</em> a feeling lives, Grape Resonances asks <em>what to drink with it</em>. Type a word, a phrase, a situation — <em>brotherhood, falling deeply in love, deciding whether to move across the country</em> — and receive one to four grapes whose character carries the same weather. The framework underneath is the same fifty-nine region narratives that ground Region Resonances, mediated through the temperaments those regions express; the response is compressed by design, an oracle's restraint rather than a recommender's plenty.</p>
         <div class="instrument-meta">101 grapes · Region-mediated · Compressed by design</div>
-        <a href="https://jskarabot18.github.io/grape-resonances/" class="instrument-link">Bring a word →</a>
+        <a href="https://jskarabot18.github.io/grape-resonances/" class="instrument-link">Open the resonances →</a>
       </div>
 
     </div>
@@ -1078,7 +1096,7 @@
   </div>
 
   <!-- ========== PART TWO — The Personal Codex ========== -->
-  <section class="part-two">
+  <section class="part-two" id="codex">
 
     <div class="part-marker">
       <div class="part-roman">Part II</div>
